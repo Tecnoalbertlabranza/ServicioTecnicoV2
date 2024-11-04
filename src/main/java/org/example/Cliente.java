@@ -26,6 +26,7 @@ public class Cliente implements Usuarios {
 	}
 
 	public void cerrarSesion(){
+		System.out.println("PruebaPush");
 
 	}
 
