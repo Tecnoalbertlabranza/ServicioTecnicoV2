@@ -103,7 +103,8 @@ public class Clientes extends javax.swing.JPanel {
     }//GEN-LAST:event_BotonAgregarClienteActionPerformed
 
     private void BotonModificarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonModificarClienteActionPerformed
-        // TODO add your handling code here:
+        ModificarCliente modcli = new ModificarCliente();
+        MostrarPanelCliente(modcli);
     }//GEN-LAST:event_BotonModificarClienteActionPerformed
 
     private void BotonEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarClienteActionPerformed
