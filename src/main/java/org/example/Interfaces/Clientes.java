@@ -108,7 +108,8 @@ public class Clientes extends javax.swing.JPanel {
     }//GEN-LAST:event_BotonModificarClienteActionPerformed
 
     private void BotonEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarClienteActionPerformed
-        // TODO add your handling code here:
+        EliminarCliente elicli = new EliminarCliente ();
+        MostrarPanelCliente(elicli);
     }//GEN-LAST:event_BotonEliminarClienteActionPerformed
 
 
