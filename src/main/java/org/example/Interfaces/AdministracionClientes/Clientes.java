@@ -99,7 +99,8 @@ public class Clientes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarClienteActionPerformed
-        // TODO add your handling code here:
+        AgregarCliente agcli = new AgregarCliente();
+        MostrarPanelCliente(agcli);
     }//GEN-LAST:event_BotonAgregarClienteActionPerformed
 
     private void BotonModificarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonModificarClienteActionPerformed

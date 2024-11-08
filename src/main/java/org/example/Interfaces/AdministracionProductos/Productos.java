@@ -4,17 +4,34 @@
  */
 package org.example.Interfaces.AdministracionProductos;
 
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author basty
  */
 public class Productos extends javax.swing.JPanel {
+    
+      private void MostrarPanelProducto(JPanel pag ){
+        
+        pag.setSize(810, 410);
+        pag.setLocation(0,0);
+        
+        PanelProductos.removeAll();
+        PanelProductos.add(pag, BorderLayout.CENTER);
+        PanelProductos.revalidate();
+        PanelProductos.repaint(); 
+     }
 
     /**
      * Creates new form Productos
      */
     public Productos() {
         initComponents();
+        
+        AgregarProductos menuproductos = new AgregarProductos();
+        MostrarPanelProducto(menuproductos);
     }
 
     /**
@@ -26,38 +43,92 @@ public class Productos extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        PanelProductos = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        BotonAgregarProducto = new javax.swing.JButton();
+        BotonModificarProducto = new javax.swing.JButton();
+        BotonEliminarProducto = new javax.swing.JButton();
+        BotonAgregarDesucuento = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel1.setText("Aqui se mostraran los productos");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(278, 278, 278)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(290, Short.MAX_VALUE))
+        javax.swing.GroupLayout PanelProductosLayout = new javax.swing.GroupLayout(PanelProductos);
+        PanelProductos.setLayout(PanelProductosLayout);
+        PanelProductosLayout.setHorizontalGroup(
+            PanelProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 390, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(148, 148, 148)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(226, Short.MAX_VALUE))
+        PanelProductosLayout.setVerticalGroup(
+            PanelProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 410, Short.MAX_VALUE)
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 410));
+        add(PanelProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 410));
+
+        jLabel1.setText("Aqui ira la base de datos de productos");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 140, -1, -1));
+
+        BotonAgregarProducto.setText("AgregarProducto");
+        BotonAgregarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonAgregarProductoActionPerformed(evt);
+            }
+        });
+        add(BotonAgregarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 300, -1, -1));
+
+        BotonModificarProducto.setText("ModificarProducto");
+        BotonModificarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonModificarProductoActionPerformed(evt);
+            }
+        });
+        add(BotonModificarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, -1, -1));
+
+        BotonEliminarProducto.setText("EliminarProducto");
+        BotonEliminarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonEliminarProductoActionPerformed(evt);
+            }
+        });
+        add(BotonEliminarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 300, -1, -1));
+
+        BotonAgregarDesucuento.setText("Agregar Descuento a un producto");
+        BotonAgregarDesucuento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonAgregarDesucuentoActionPerformed(evt);
+            }
+        });
+        add(BotonAgregarDesucuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BotonAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarProductoActionPerformed
+        AgregarProductos agrprod = new AgregarProductos();
+               MostrarPanelProducto(agrprod);
+    }//GEN-LAST:event_BotonAgregarProductoActionPerformed
+
+    private void BotonModificarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonModificarProductoActionPerformed
+        ModificarProductos modprod = new ModificarProductos();
+        MostrarPanelProducto(modprod);
+    }//GEN-LAST:event_BotonModificarProductoActionPerformed
+
+    private void BotonAgregarDesucuentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarDesucuentoActionPerformed
+        AgregarDescuentos desprod = new AgregarDescuentos();
+        MostrarPanelProducto(desprod);
+    }//GEN-LAST:event_BotonAgregarDesucuentoActionPerformed
+
+    private void BotonEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarProductoActionPerformed
+        EliminarProductos eliprod = new EliminarProductos();
+        MostrarPanelProducto(eliprod);
+    }//GEN-LAST:event_BotonEliminarProductoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonAgregarDesucuento;
+    private javax.swing.JButton BotonAgregarProducto;
+    private javax.swing.JButton BotonEliminarProducto;
+    private javax.swing.JButton BotonModificarProducto;
+    private javax.swing.JPanel PanelProductos;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
