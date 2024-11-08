@@ -8,12 +8,12 @@ package org.example.Interfaces.AdministracionServiciosPc;
  *
  * @author basty
  */
-public class AgregarServiciosPc extends javax.swing.JPanel {
+public class ModificarServiciosPc extends javax.swing.JPanel {
 
     /**
-     * Creates new form AgregarServiciosPc
+     * Creates new form ModificarServiciosPc
      */
-    public AgregarServiciosPc() {
+    public ModificarServiciosPc() {
         initComponents();
     }
 
@@ -30,8 +30,8 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Aqui se agregaran servicios");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, -1, -1));
+        jLabel1.setText("Aqui se modificaran servicios");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 

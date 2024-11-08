@@ -4,17 +4,33 @@
  */
 package org.example.Interfaces.AdministracionServiciosPc;
 
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author basty
  */
 public class ServiciosPc extends javax.swing.JPanel {
+      private void MostrarPanelServiciosPc(JPanel pag ){
+        
+        pag.setSize(810, 410);
+        pag.setLocation(0,0);
+        
+        PanelServiciosPc.removeAll();
+        PanelServiciosPc.add(pag, BorderLayout.CENTER);
+        PanelServiciosPc.revalidate();
+        PanelServiciosPc.repaint(); 
+     }
 
     /**
      * Creates new form ServiciosPc
      */
     public ServiciosPc() {
         initComponents();
+        
+        AgregarServiciosPc agrserpc = new AgregarServiciosPc();
+        MostrarPanelServiciosPc(agrserpc);
     }
 
     /**
@@ -28,34 +44,81 @@ public class ServiciosPc extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        PanelServiciosPc = new javax.swing.JPanel();
+        BotonAgregarServicioPc = new javax.swing.JButton();
+        BotonEliminarServicio = new javax.swing.JButton();
+        BotonModificarServicioPc = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(810, 410));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Aqui se mostraran los servicios para pc");
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(280, 280, 280)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(253, Short.MAX_VALUE))
+        jLabel1.setText("Aqui se mostraran los servicios para pc");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 277, 82));
+
+        javax.swing.GroupLayout PanelServiciosPcLayout = new javax.swing.GroupLayout(PanelServiciosPc);
+        PanelServiciosPc.setLayout(PanelServiciosPcLayout);
+        PanelServiciosPcLayout.setHorizontalGroup(
+            PanelServiciosPcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 390, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(190, 190, 190)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(138, Short.MAX_VALUE))
+        PanelServiciosPcLayout.setVerticalGroup(
+            PanelServiciosPcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 410, Short.MAX_VALUE)
         );
+
+        jPanel1.add(PanelServiciosPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 410));
+
+        BotonAgregarServicioPc.setText("Agregar Servicio Pc");
+        BotonAgregarServicioPc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonAgregarServicioPcActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BotonAgregarServicioPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, 160, 30));
+
+        BotonEliminarServicio.setText("Eliminar Servicio Pc");
+        BotonEliminarServicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonEliminarServicioActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BotonEliminarServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 300, 140, 30));
+
+        BotonModificarServicioPc.setText("Modificar Servicio Pc");
+        BotonModificarServicioPc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonModificarServicioPcActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BotonModificarServicioPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 160, 30));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 410));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BotonAgregarServicioPcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarServicioPcActionPerformed
+       AgregarServiciosPc agrserpc = new AgregarServiciosPc();
+        MostrarPanelServiciosPc(agrserpc);
+    }//GEN-LAST:event_BotonAgregarServicioPcActionPerformed
+
+    private void BotonEliminarServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarServicioActionPerformed
+      EliminarServiciosPc eliserpc = new EliminarServiciosPc();
+      MostrarPanelServiciosPc(eliserpc);
+    }//GEN-LAST:event_BotonEliminarServicioActionPerformed
+
+    private void BotonModificarServicioPcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonModificarServicioPcActionPerformed
+        ModificarServiciosPc modserpc = new ModificarServiciosPc();
+        MostrarPanelServiciosPc(modserpc);
+    }//GEN-LAST:event_BotonModificarServicioPcActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonAgregarServicioPc;
+    private javax.swing.JButton BotonEliminarServicio;
+    private javax.swing.JButton BotonModificarServicioPc;
+    private javax.swing.JPanel PanelServiciosPc;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

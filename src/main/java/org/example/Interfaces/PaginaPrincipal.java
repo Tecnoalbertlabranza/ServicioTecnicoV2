@@ -82,6 +82,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         jPanel2.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 810, 410));
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BotonProductos.setText("Productos");
         BotonProductos.addActionListener(new java.awt.event.ActionListener() {
@@ -89,6 +90,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
                 BotonProductosActionPerformed(evt);
             }
         });
+        jPanel1.add(BotonProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 112, 42));
 
         BotonServiciosConsolas.setText("Servicios para consolas");
         BotonServiciosConsolas.addActionListener(new java.awt.event.ActionListener() {
@@ -96,8 +98,10 @@ public class PaginaPrincipal extends javax.swing.JFrame {
                 BotonServiciosConsolasActionPerformed(evt);
             }
         });
+        jPanel1.add(BotonServiciosConsolas, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, -1, 42));
 
         BotonInicioSesion.setText("Iniciar Sesion");
+        jPanel1.add(BotonInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 10, 121, 42));
 
         BotonServiciosPc.setText("Servicios para Pc");
         BotonServiciosPc.addActionListener(new java.awt.event.ActionListener() {
@@ -105,6 +109,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
                 BotonServiciosPcActionPerformed(evt);
             }
         });
+        jPanel1.add(BotonServiciosPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, -1, 42));
 
         jButton1.setText("Clientes");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -112,40 +117,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(BotonProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(BotonServiciosConsolas)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(BotonServiciosPc)
-                .addGap(28, 28, 28)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
-                .addComponent(BotonInicioSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(BotonProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BotonServiciosConsolas, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BotonServiciosPc, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(BotonInicioSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 78, 42));
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 810, 70));
 
