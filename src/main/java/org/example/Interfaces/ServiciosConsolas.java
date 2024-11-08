@@ -1,10 +1,18 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ */
 package org.example.Interfaces;
 
-
+/**
+ *
+ * @author basty
+ */
 public class ServiciosConsolas extends javax.swing.JPanel {
 
-
+    /**
+     * Creates new form ServiciosConsolas
+     */
     public ServiciosConsolas() {
         initComponents();
     }
@@ -46,8 +54,8 @@ public class ServiciosConsolas extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
 
-
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-
+    // End of variables declaration//GEN-END:variables
 }
