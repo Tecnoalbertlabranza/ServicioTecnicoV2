@@ -4,17 +4,33 @@
  */
 package org.example.Interfaces.AdministracionServiciosConsolas;
 
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author basty
  */
 public class ServiciosConsolas extends javax.swing.JPanel {
+      private void MostrarPanelConsolas(JPanel pag ){
+        
+        pag.setSize(810, 410);
+        pag.setLocation(0,0);
+        
+        PanelServiciosConsolas.removeAll();
+        PanelServiciosConsolas.add(pag, BorderLayout.CENTER);
+        PanelServiciosConsolas.revalidate();
+        PanelServiciosConsolas.repaint(); 
+     }
 
     /**
      * Creates new form ServiciosConsolas
      */
     public ServiciosConsolas() {
         initComponents();
+        
+        AgregarServicioConsola menuconsolas = new AgregarServicioConsola();
+        MostrarPanelConsolas(menuconsolas);
     }
 
     /**
@@ -28,33 +44,80 @@ public class ServiciosConsolas extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        PanelServiciosConsolas = new javax.swing.JPanel();
+        AgregarServicioConsola = new javax.swing.JButton();
+        ModificarServicioConsola = new javax.swing.JButton();
+        EliminarServicioConsola = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Aqui se mostraran los serfvicios para las comsolas ");
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(258, 258, 258)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(253, Short.MAX_VALUE))
+        jLabel1.setText("Aqui se mostraran los serfvicios para las comsolas ");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, 260, 20));
+
+        javax.swing.GroupLayout PanelServiciosConsolasLayout = new javax.swing.GroupLayout(PanelServiciosConsolas);
+        PanelServiciosConsolas.setLayout(PanelServiciosConsolasLayout);
+        PanelServiciosConsolasLayout.setHorizontalGroup(
+            PanelServiciosConsolasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 390, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(191, 191, 191)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(163, Short.MAX_VALUE))
+        PanelServiciosConsolasLayout.setVerticalGroup(
+            PanelServiciosConsolasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 410, Short.MAX_VALUE)
         );
+
+        jPanel1.add(PanelServiciosConsolas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 410));
+
+        AgregarServicioConsola.setText("Agregar Servicio  Consola");
+        AgregarServicioConsola.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarServicioConsolaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(AgregarServicioConsola, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, 170, 40));
+
+        ModificarServicioConsola.setText("Modificar Servicio consola");
+        ModificarServicioConsola.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModificarServicioConsolaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ModificarServicioConsola, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 300, 170, 40));
+
+        EliminarServicioConsola.setText("Eliminar Servicio Consola");
+        EliminarServicioConsola.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarServicioConsolaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(EliminarServicioConsola, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 170, 40));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 410));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void AgregarServicioConsolaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarServicioConsolaActionPerformed
+      AgregarServicioConsola menuconsolas = new AgregarServicioConsola();
+        MostrarPanelConsolas(menuconsolas);
+    }//GEN-LAST:event_AgregarServicioConsolaActionPerformed
+
+    private void ModificarServicioConsolaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarServicioConsolaActionPerformed
+      ModificarServicioConsola modsercon = new ModificarServicioConsola();
+      MostrarPanelConsolas(modsercon);
+    }//GEN-LAST:event_ModificarServicioConsolaActionPerformed
+
+    private void EliminarServicioConsolaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarServicioConsolaActionPerformed
+    EliminarServicioConsola elisercon = new EliminarServicioConsola();
+    MostrarPanelConsolas(elisercon);
+    }//GEN-LAST:event_EliminarServicioConsolaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AgregarServicioConsola;
+    private javax.swing.JButton EliminarServicioConsola;
+    private javax.swing.JButton ModificarServicioConsola;
+    private javax.swing.JPanel PanelServiciosConsolas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
