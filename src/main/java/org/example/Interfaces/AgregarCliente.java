@@ -1,5 +1,5 @@
 
-package org.example.Interfaces.AdministracionClientes;
+package org.example.Interfaces;
 
 
 public class AgregarCliente extends javax.swing.JPanel {

@@ -1,5 +1,5 @@
 
-package org.example.Interfaces.AdministracionClientes;
+package org.example.Interfaces;
 
 
 public class EliminarCliente extends javax.swing.JPanel {
