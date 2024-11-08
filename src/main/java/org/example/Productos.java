@@ -8,7 +8,7 @@ public class Productos {
 	CarritoDeCompras CarroProducto;
 
 	public void ActualizarStock() {
-		// TODO - implement Productos.ActualizarStock
+
 		throw new UnsupportedOperationException();
 	}
 
