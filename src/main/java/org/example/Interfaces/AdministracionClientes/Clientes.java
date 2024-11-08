@@ -1,5 +1,5 @@
 
-package org.example.Interfaces;
+package org.example.Interfaces.AdministracionClientes;
 
 import java.awt.BorderLayout;
 import javax.swing.JPanel;

@@ -2,6 +2,11 @@
 package org.example.Interfaces;
 
 
+import org.example.Interfaces.AdministracionClientes.Clientes;
+import org.example.Interfaces.AdministracionProductos.Productos;
+import org.example.Interfaces.AdministracionServiciosConsolas.ServiciosConsolas;
+import org.example.Interfaces.AdministracionServiciosPc.ServiciosPc;
+
 import java.awt.*;
 import javax.swing.JPanel;
 
