@@ -10,6 +10,10 @@ public class AgendaServicios {
 	Collection<Servicio> ServiciosRealizados;
 	private int CostoTotal;
 
+	public int getCostoTotal() {
+		return CostoTotal;
+	}
+
 	public void ConsultarHistorialCliente() {
 
 	}

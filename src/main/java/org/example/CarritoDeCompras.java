@@ -3,6 +3,10 @@ public class CarritoDeCompras {
 
 	private int ValorTotalProductos;
 
+	public int getValorTotalProductos() {
+		return ValorTotalProductos;
+	}
+
 	public void AgregarProductoCarrito() {
 
 	}

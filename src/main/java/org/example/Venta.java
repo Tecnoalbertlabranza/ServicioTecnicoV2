@@ -9,8 +9,9 @@ public class Venta {
 		iva = (int)(total * 0.16);
 	}
 
-	public void CalcularTotal() {
-
+	public void CalcularTotal(Cliente cliente) {
+		total += cliente.AgendaCliente.getCostoTotal();
+		total += cliente.Carrito.getValorTotalProductos();
 	}
 
 }
