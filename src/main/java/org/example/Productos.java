@@ -5,6 +5,18 @@ public class Productos {
 	private String CategoriaProducto;
 	private double ValorProducto;
 	private int StockProducto;
-	
 
+	public Productos(String nombreProducto, String categoriaProducto, double valorProducto, int stockProducto) {
+		NombreProducto = nombreProducto;
+		CategoriaProducto = categoriaProducto;
+		ValorProducto = valorProducto;
+		StockProducto = stockProducto;
+	}
+
+	@Override
+	public String toString() {
+		return NombreProducto + '\'' + CategoriaProducto + '\''
+				+ ValorProducto + "$"
+				+ StockProducto;
+	}
 }
