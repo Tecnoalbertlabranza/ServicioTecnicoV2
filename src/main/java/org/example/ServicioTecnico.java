@@ -15,7 +15,7 @@ public class ServicioTecnico {
 	public void RegistrarUsuario() {
 
 	}
-
+//Estos metodos se implementan en Java Swing
 	public void MostrarProductos() {
 
 	}
