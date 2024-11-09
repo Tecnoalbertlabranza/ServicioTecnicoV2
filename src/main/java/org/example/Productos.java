@@ -16,7 +16,7 @@ public class Productos {
 	@Override
 	public String toString() {
 		return NombreProducto + '\'' + CategoriaProducto + '\''
-				+ ValorProducto + "$"
+				+ ValorProducto + "$" + '\''
 				+ StockProducto;
 	}
 }
