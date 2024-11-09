@@ -5,16 +5,6 @@ public class Productos {
 	private String CategoriaProducto;
 	private double ValorProducto;
 	private int StockProducto;
-	CarritoDeCompras CarroProducto;
-
-	public void ActualizarStock() {
-		// TODO - implement Productos.ActualizarStock
-		throw new UnsupportedOperationException();
-	}
-
-	public void EliminarProducto() {
-		// TODO - implement Productos.EliminarProducto
-		throw new UnsupportedOperationException();
-	}
+	
 
 }
