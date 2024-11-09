@@ -1,10 +1,10 @@
 package org.example;
-public abstract class Servicio {
+public abstract class  Servicio {
 
-	private double ValorServicio;
-	private String DetalleServicio;
-	private int TiempoEstimado;
-	private String Nombre;
+	private double valorServicio;
+	private String detalleServicio;
+	private int tiempoEstimado;
+	private String nombre;
 
 	public void MostrarValor() {
 
@@ -14,10 +14,17 @@ public abstract class Servicio {
 
 	}
 
-	public void ActualizarServicio() {
-
+	public void ActualizarValorServicio(int NuevoValorServicio) {
+		valorServicio = NuevoValorServicio;
 	}
 
+	public void ActualizarDetallesServicio(String NuevoDetallesServicio) {
+		detalleServicio = NuevoDetallesServicio;
+	}
+	public void ActualizarNombreServicio(String NuevoNombre) {
+		nombre = NuevoNombre;
+	}
+	
 	public void EliminarServicio() {
 
 	}
