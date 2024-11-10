@@ -1,8 +1,5 @@
 package org.example;
 
-import org.example.Productos;
-import org.example.Servicio;
-
 import java.util.*;
 
 public class ServicioTecnico {
@@ -10,11 +7,21 @@ public class ServicioTecnico {
 	private String NombreServicio;
 	Collection<Servicio> servicios;
 	Collection<Productos> productos;
+	List<Cliente> listaClientes = new ArrayList<>();
 	private String Descripcion;
 
-	public void RegistrarUsuario() {
-
+	public void RegistrarCliente(String nombre, String apellido, String correo, String direccion) {
+		listaClientes.add(new Cliente(nombre, apellido, direccion, correo));
 	}
+
+	public void EliminarCliente(String nombre) {
+		for (Cliente cliente : listaClientes) {
+			if (cliente.getNombre().equalsIgnoreCase(nombre)) {
+				listaClientes.remove(cliente);
+			}
+		}
+	}
+	
 //Estos metodos se implementan en Java Swing
 	public void MostrarProductos() {
 

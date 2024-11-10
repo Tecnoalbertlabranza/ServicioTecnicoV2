@@ -16,8 +16,15 @@ public class Cliente implements Usuarios {
 	CarritoDeCompras Carrito;
 	Collection<Venta> VentasCliente;
 
-	public void EliminarCliente() {
+	public Cliente(String nombre, String apellido, String direccion, String email) {
+		Nombre = nombre;
+		Apellido = apellido;
+		Direccion = direccion;
+		Email = email;
+	}
 
+	public String getNombre() {
+		return Nombre;
 	}
 
 	public void IniciarSesion() {
