@@ -100,8 +100,8 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         });
         jPanel1.add(BotonServiciosConsolas, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, -1, 42));
 
-        BotonInicioSesion.setText("Iniciar Sesion");
-        jPanel1.add(BotonInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 10, 121, 42));
+        BotonInicioSesion.setText("Cerrar Sesion");
+        jPanel1.add(BotonInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, 121, 42));
 
         BotonServiciosPc.setText("Servicios para Pc");
         BotonServiciosPc.addActionListener(new java.awt.event.ActionListener() {
