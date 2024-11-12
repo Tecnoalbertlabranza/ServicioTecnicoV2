@@ -29,4 +29,8 @@ public abstract class  Servicio {
 
 	}
 
+	@Override
+	public String toString() {
+		return "Servicio: " + nombre;
+	}
 }
