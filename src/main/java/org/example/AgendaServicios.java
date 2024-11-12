@@ -1,7 +1,4 @@
 package org.example;
-
-import org.example.Servicio;
-
 import java.util.*;
 
 public class AgendaServicios {
@@ -14,12 +11,26 @@ public class AgendaServicios {
 		return CostoTotal;
 	}
 
-	public void ConsultarHistorialCliente() {
-
+	public void ConsultarHistorialCliente(Cliente cliente) {
+		cliente.AgendaCliente.toString();
 	}
 
 	public void ConsultarServiciosRealizados() {
 
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		if (ServiciosRealizados != null && ServiciosRealizados.isEmpty()) {
+			sb.append("Fecha servicio: ").append(FechaServicio).append("\n");
+			for (Servicio servicio : ServiciosRealizados) {
+				sb.append(servicio.toString()).append("\n");
+			}
+			sb.append("Costo total: ").append(CostoTotal).append("\n");
+		} else {
+			sb.append("No hay servicios realizados. \n");
+		}
+		return sb.toString();
+	}
 }
