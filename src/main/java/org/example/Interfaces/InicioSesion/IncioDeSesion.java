@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package org.example.Interfaces;
+package org.example.Interfaces.InicioSesion;
 
 /**
  *
@@ -30,10 +30,10 @@ public class IncioDeSesion extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        TextoContraseña = new javax.swing.JTextField();
+        CasillaContraseña = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        TextoUsuario = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        CasillaNombreUsuario = new javax.swing.JTextField();
+        BotonIniciarSesion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,61 +51,63 @@ public class IncioDeSesion extends javax.swing.JFrame {
         jLabel3.setText("Contraseña");
         Background.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 80, 20));
 
-        TextoContraseña.setForeground(new java.awt.Color(204, 204, 204));
-        TextoContraseña.setText("Ingrese su Contraseña");
-        TextoContraseña.setBorder(null);
-        TextoContraseña.addActionListener(new java.awt.event.ActionListener() {
+        CasillaContraseña.setBorder(null);
+        CasillaContraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextoContraseñaActionPerformed(evt);
+                CasillaContraseñaActionPerformed(evt);
             }
         });
-        Background.add(TextoContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 380, 30));
+        Background.add(CasillaContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 380, 30));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setText("Usuario");
-        Background.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 50, 20));
+        jLabel4.setText("Ingrese su Nombre");
+        Background.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 190, 30));
 
-        TextoUsuario.setText("Ingrese su nombre de usuario");
-        TextoUsuario.addActionListener(new java.awt.event.ActionListener() {
+        CasillaNombreUsuario.setBorder(null);
+        CasillaNombreUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextoUsuarioActionPerformed(evt);
+                CasillaNombreUsuarioActionPerformed(evt);
             }
         });
-        Background.add(TextoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 380, 30));
+        Background.add(CasillaNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 380, 30));
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BotonIniciarSesion.setText("Iniciar Sesion");
+        BotonIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BotonIniciarSesionActionPerformed(evt);
             }
         });
-        Background.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 410, 150, 60));
+        Background.add(BotonIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, 150, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, 841, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TextoContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextoContraseñaActionPerformed
+    private void CasillaContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CasillaContraseñaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextoContraseñaActionPerformed
+    }//GEN-LAST:event_CasillaContraseñaActionPerformed
 
-    private void TextoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextoUsuarioActionPerformed
+    private void CasillaNombreUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CasillaNombreUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextoUsuarioActionPerformed
+    }//GEN-LAST:event_CasillaNombreUsuarioActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BotonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonIniciarSesionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_BotonIniciarSesionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,9 +146,9 @@ public class IncioDeSesion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Background;
-    private javax.swing.JTextField TextoContraseña;
-    private javax.swing.JTextField TextoUsuario;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton BotonIniciarSesion;
+    private javax.swing.JTextField CasillaContraseña;
+    private javax.swing.JTextField CasillaNombreUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

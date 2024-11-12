@@ -27,15 +27,73 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Aqui se agregaran servicios consolas");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, -1, -1));
+        jLabel1.setText("Ingrese los datos para su nuevo servicio para consolas");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+
+        jLabel2.setText("Nombre");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
+        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 210, 20));
+
+        jLabel3.setText("Valor");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 210, 20));
+
+        jLabel4.setText("Detalle");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
+        add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 210, 20));
+
+        jLabel5.setText("Tiempo estimado");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
+
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
+        add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 210, 20));
+
+        jLabel6.setText("Modelo De La Consola");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
+        add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 210, 20));
+
+        jLabel7.setText("Marca Consola");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, -1));
+        add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 210, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
 }
