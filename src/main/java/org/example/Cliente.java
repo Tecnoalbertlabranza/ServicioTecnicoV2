@@ -1,7 +1,5 @@
 package org.example;
-
 import org.example.*;
-
 import java.util.*;
 
 public class Cliente implements Usuarios {

@@ -1,12 +1,23 @@
 package org.example;
-public class Administradores implements Usuarios {
 
-	private int ID_Administrador;
-	private String Nombre;
-	private String Rut;
-	private String Contraseña;
-	private String Apellido;
-	private String Email;
+public class Administradores implements Usuarios {
+	private int id_Administrador;
+	private String nombre;
+	private String rut;
+	private String contraseña;
+	private String apellido;
+	private String email;
+
+	public Administradores(int id_Administrador, String nombre, String rut, String contraseña, String apellido, String email ){
+		this.id_Administrador = id_Administrador;
+		this.nombre = nombre;
+		this.rut = rut;
+		this.contraseña = contraseña;
+		this.apellido = apellido;
+		this.email = email;
+	}
+
+
 
 	public void GestionarUsuarios() {
 

@@ -2,14 +2,17 @@ package org.example;
 import java.util.*;
 
 public class AgendaServicios {
-
 	private String FechaServicio;
 	Collection<Servicio> ServiciosRealizados;
 	private int CostoTotal;
 
-	public int getCostoTotal() {
-		return CostoTotal;
+	public AgendaServicios(String fechaServicio, int costoTotal, Collection<Servicio> serviciosRealizados) {
+		FechaServicio = fechaServicio;
+		CostoTotal = costoTotal;
+		ServiciosRealizados = serviciosRealizados;
 	}
+
+	public int getCostoTotal() {return CostoTotal;}
 
 	public void ConsultarHistorialCliente(Cliente cliente) {
 		cliente.AgendaCliente.toString();
