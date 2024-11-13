@@ -31,11 +31,15 @@ public class ServicioTecnico {
 	
 //Estos metodos se implementan en Java Swing
 	public void MostrarProductos() {
-
+		for (Productos producto : productos) {
+			System.out.println(producto);
+		}
 	}
 
 	public void MostrarServicios() {
-
+		for (Servicio servicio : servicios) {
+			System.out.println(servicio);
+		}
 	}
 
 	public void MostrarReseñas() {
