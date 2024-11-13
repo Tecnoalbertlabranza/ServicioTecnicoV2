@@ -14,9 +14,7 @@ public class Administradores implements Usuarios {
 		this.apellido = apellido;
 		this.email = email;
 	}
-
-
-
+	
 	public void GestionarUsuarios() {
 
 	}
