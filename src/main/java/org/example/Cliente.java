@@ -14,11 +14,10 @@ public class Cliente implements Usuarios {
 	CarritoDeCompras Carrito;
 	Collection<Venta> VentasCliente;
 
-	public Cliente(String nombre, String apellido, String direccion, String email) {
+	public Cliente(String nombre, String apellido, String direccion) {
 		Nombre = nombre;
 		Apellido = apellido;
 		Direccion = direccion;
-		Email = email;
 	}
 
 	public String getNombre() {

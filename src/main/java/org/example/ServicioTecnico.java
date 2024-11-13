@@ -17,8 +17,8 @@ public class ServicioTecnico {
 		Descripcion = descripcion;
 	}
 
-	public void RegistrarCliente(String nombre, String apellido, String correo, String direccion) {
-		listaClientes.add(new Cliente(nombre, apellido, direccion, correo));
+	public void RegistrarCliente(String nombre, String apellido,String direccion) {
+		listaClientes.add(new Cliente(nombre, apellido, direccion));
 	}
 
 	public void EliminarCliente(String nombre) {
