@@ -1,7 +1,6 @@
 package org.example;
 
 public class Administradores implements Usuarios {
-	private int id_Administrador;
 	private String nombre;
 	private String rut;
 	private String contraseña;
@@ -9,7 +8,6 @@ public class Administradores implements Usuarios {
 	private String email;
 
 	public Administradores(int id_Administrador, String nombre, String rut, String contraseña, String apellido, String email ){
-		this.id_Administrador = id_Administrador;
 		this.nombre = nombre;
 		this.rut = rut;
 		this.contraseña = contraseña;

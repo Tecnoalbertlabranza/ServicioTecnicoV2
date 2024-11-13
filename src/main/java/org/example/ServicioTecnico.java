@@ -41,9 +41,4 @@ public class ServicioTecnico {
 			System.out.println(servicio);
 		}
 	}
-
-	public void MostrarReseñas() {
-
-	}
-
 }
