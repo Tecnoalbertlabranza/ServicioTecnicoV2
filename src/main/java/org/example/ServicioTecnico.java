@@ -6,7 +6,7 @@ public class ServicioTecnico {
 	private String NombreServicio;
 	Collection<Servicio> servicios;
 	Collection<Productos> productos;
-	List<Cliente> listaClientes = new ArrayList<>();
+	List<Cliente> listaClientes;
 	private String Descripcion;
 
 	public ServicioTecnico(String nombreServicio, Collection<Servicio> servicios, Collection<Productos> productos, List<Cliente> listaClientes, String descripcion) {

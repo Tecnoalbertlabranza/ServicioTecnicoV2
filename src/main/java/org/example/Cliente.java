@@ -9,7 +9,6 @@ public class Cliente implements Usuarios {
 	private String Nombre;
 	private String Apellido;
 	private String Email;
-	Collection<Reseña> ReseñasCliente;
 	AgendaServicios AgendaCliente;
 	CarritoDeCompras Carrito;
 	Collection<Venta> VentasCliente;
