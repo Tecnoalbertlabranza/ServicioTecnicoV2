@@ -49,6 +49,8 @@ public class Clientes extends javax.swing.JPanel {
         PanelCliente = new javax.swing.JPanel();
         BotonModificarCliente = new javax.swing.JButton();
         BotonEliminarCliente = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -56,7 +58,7 @@ public class Clientes extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Aqui iran la lista de los clientes que debe tener base de datos");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 90, 350, 180));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 330, 70));
 
         BotonAgregarCliente.setText("Agregar Cliente");
         BotonAgregarCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -95,6 +97,21 @@ public class Clientes extends javax.swing.JPanel {
         });
         jPanel1.add(BotonEliminarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 330, 120, 30));
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 370, 290));
+
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 410));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -121,5 +138,7 @@ public class Clientes extends javax.swing.JPanel {
     private javax.swing.JPanel PanelCliente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

@@ -49,6 +49,8 @@ public class Productos extends javax.swing.JPanel {
         BotonModificarProducto = new javax.swing.JButton();
         BotonEliminarProducto = new javax.swing.JButton();
         BotonAgregarDesucuento = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -67,7 +69,7 @@ public class Productos extends javax.swing.JPanel {
         add(PanelProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 410));
 
         jLabel1.setText("Aqui ira la base de datos de productos");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 140, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 150, -1, -1));
 
         BotonAgregarProducto.setText("AgregarProducto");
         BotonAgregarProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -100,6 +102,21 @@ public class Productos extends javax.swing.JPanel {
             }
         });
         add(BotonAgregarDesucuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, -1, -1));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 260, 250));
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarProductoActionPerformed
@@ -130,5 +147,7 @@ public class Productos extends javax.swing.JPanel {
     private javax.swing.JButton BotonModificarProducto;
     private javax.swing.JPanel PanelProductos;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

@@ -31,7 +31,7 @@ public class InicioMenu extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Aqui se mostrara el inicio");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
