@@ -4,16 +4,20 @@
  */
 package org.example.Interfaces.InicioSesion;
 
+import org.example.ServicioTecnico;
+import org.example.firebase;
+
 /**
  *
  * @author basty
  */
 public class InicioSesion extends javax.swing.JFrame {
-
     /**
      * Creates new form InicioSesion
      */
     public InicioSesion() {
+        firebase f1 = new firebase();
+        f1.inicializarconexion();
         initComponents();
     }
 
