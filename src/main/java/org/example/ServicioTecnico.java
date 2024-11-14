@@ -13,7 +13,12 @@ public class ServicioTecnico {
 		return listaClientes;
 	}
 
-	public ServicioTecnico() {
+	public ServicioTecnico(String nombreServicio, Collection<Servicio> servicios, Collection<Productos> productos, List<Cliente> listaClientes, String descripcion) {
+		NombreServicio = nombreServicio;
+		this.servicios = servicios;
+		this.productos = productos;
+		this.listaClientes = listaClientes;
+		Descripcion = descripcion;
 	}
 
 	public void RegistrarCliente(String nombre, String apellido,String direccion) {
@@ -44,7 +49,6 @@ public class ServicioTecnico {
 		}
 	}
 	
-//Estos metodos se implementan en Java Swing
 	public void MostrarProductos() {
 		for (Productos producto : productos) {
 			System.out.println(producto);
@@ -57,11 +61,3 @@ public class ServicioTecnico {
 		}
 	}
 }
-
-
-	//	String nombreServicio, Collection<Servicio> servicios, Collection<Productos> productos, List<Cliente> listaClientes, String descripcion
-/*NombreServicio = nombreServicio;
-		this.servicios = servicios;
-		this.productos = productos;
-		this.listaClientes = listaClientes;
-Descripcion = descripcion;*/
