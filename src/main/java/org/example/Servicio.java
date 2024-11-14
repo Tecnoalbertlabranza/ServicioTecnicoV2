@@ -13,7 +13,7 @@ public abstract class  Servicio {
 	}
 
 	public void MostrarValor() {
-
+		System.out.println("Precio: " + valorServicio);
 	}
 
 	public void CalcularTiempoEstimado() {
@@ -30,10 +30,7 @@ public abstract class  Servicio {
 	public void ActualizarNombreServicio(String NuevoNombre) {
 		nombre = NuevoNombre;
 	}
-	
-	public void EliminarServicio() {
 
-	}
 
 	@Override
 	public String toString() {

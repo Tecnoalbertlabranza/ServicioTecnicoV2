@@ -37,6 +37,12 @@ public class ServicioTecnico {
 			}
 		}
 	}
+
+	public void EliminarServicio(String nombreServicio) {
+		for (Servicio servicio : servicios) {
+			servicios.remove(servicio);
+		}
+	}
 	
 //Estos metodos se implementan en Java Swing
 	public void MostrarProductos() {
