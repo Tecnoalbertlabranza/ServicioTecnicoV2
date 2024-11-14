@@ -35,6 +35,10 @@ public class ServicioTecnico {
 		}
 	}
 
+	public void agregarProducto(String nombreProducto, String categoriaProducto, double valorProducto, int stockProducto){
+		productos.add(new Productos(nombreProducto, categoriaProducto, valorProducto, stockProducto));
+	}
+
 	public void EliminarCliente(String nombre) {
 		for (Cliente cliente : listaClientes) {
 			if (cliente.getNombre().equalsIgnoreCase(nombre)) {
