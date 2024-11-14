@@ -26,13 +26,13 @@ public class Administradores implements Usuarios {
 			if (!cliente.compraProductosCliente.isEmpty()) {
 				for (int j = 0; j < cliente.compraProductosCliente.size(); j++) {
 					Productos producto = cliente.compraProductosCliente.get(j);
-					System.out.println(producto.toMiniString());
+					System.out.println(producto.miniToString());
 				}
 			}
 			if (cliente.serviciosRealizados.isEmpty()) {
 				for (int j = 0; j < cliente.serviciosRealizados.size(); j++) {
 					Servicio servicio = cliente.serviciosRealizados.get(j);
-					System.out.println(servicio.toString());
+					System.out.println(servicio.miniToString());
 				}
 			}
 			System.out.println(" ");

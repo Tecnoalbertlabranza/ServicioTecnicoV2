@@ -12,7 +12,7 @@ public class Productos {
 		this.stockProducto = stockProducto;
 	}
 
-	public String toMiniString() {
+	public String miniToString() {
 		return "Producto= " + nombreProducto;
 	}
 

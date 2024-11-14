@@ -37,6 +37,15 @@ public abstract class  Servicio {
 
 	@Override
 	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Nombre : " + nombre).append("\n")
+				.append(detalleServicio).append("\n")
+				.append("Valor: "+valorServicio).append("\n")
+				.append("Tiempo estimado: "+tiempoEstimado).append("\n");
+		return sb.toString();
+	}
+
+	public String miniToString() {
 		return "Servicio: " + nombre;
 	}
 }
