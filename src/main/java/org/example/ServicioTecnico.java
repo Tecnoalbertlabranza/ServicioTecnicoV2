@@ -9,16 +9,25 @@ public class ServicioTecnico {
 	List<Cliente> listaClientes;
 	private String Descripcion;
 
-	public ServicioTecnico(String nombreServicio, Collection<Servicio> servicios, Collection<Productos> productos, List<Cliente> listaClientes, String descripcion) {
-		NombreServicio = nombreServicio;
-		this.servicios = servicios;
-		this.productos = productos;
-		this.listaClientes = listaClientes;
-		Descripcion = descripcion;
+	public List<Cliente> getListaClientes() {
+		return listaClientes;
+	}
+
+	public ServicioTecnico() {
 	}
 
 	public void RegistrarCliente(String nombre, String apellido,String direccion) {
-		listaClientes.add(new Cliente(nombre, apellido, direccion));
+		firebase f1 = new firebase();
+		listaClientes.add(new Cliente("Bastián", "Wenckhans", "Labranza"));
+		listaClientes.add(new Cliente("Alessandro", "Duarte", "Freire"));
+
+		for (int i = 0; i <= listaClientes.size(); i++) {
+			Map<String, Object> data = new HashMap<>();
+			data.put("Nombre", getListaClientes().get(Integer.parseInt(nombre)));
+			data.put("Apellido", getListaClientes().get(Integer.parseInt(apellido)));
+			data.put("Dirección", getListaClientes().get(Integer.parseInt(direccion)));
+			f1.insertardatos("Registro De Clientes", "Clientes", data);
+		}
 	}
 
 	public void EliminarCliente(String nombre) {
@@ -42,3 +51,11 @@ public class ServicioTecnico {
 		}
 	}
 }
+
+
+	//	String nombreServicio, Collection<Servicio> servicios, Collection<Productos> productos, List<Cliente> listaClientes, String descripcion
+/*NombreServicio = nombreServicio;
+		this.servicios = servicios;
+		this.productos = productos;
+		this.listaClientes = listaClientes;
+Descripcion = descripcion;*/
