@@ -19,7 +19,7 @@ public class Administradores implements Usuarios {
 
 	}
 
-	public void VerReportesDeVentas(ServicioTecnico servicioTecnico) {
+	/*public void VerReportesDeVentas(ServicioTecnico servicioTecnico) {
 		for (int i = 0; i < servicioTecnico.listaClientes.size(); i++) {
 			Cliente cliente = servicioTecnico.listaClientes.get(i);
 			System.out.println(cliente.getNombre());
@@ -37,7 +37,7 @@ public class Administradores implements Usuarios {
 			}
 			System.out.println(" ");
 		}
-	}
+	} */
 
 	public void GestionarProductos() {
 

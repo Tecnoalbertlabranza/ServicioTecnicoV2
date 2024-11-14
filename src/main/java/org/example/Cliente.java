@@ -10,8 +10,6 @@ public class Cliente implements Usuarios {
 	AgendaServicios agendaCliente;
 	CarritoDeCompras carrito;
 	Collection<Venta> comprassCliente;
-	List<Productos> compraProductosCliente;
-	List<Servicio> serviciosRealizados;
 
 	public Cliente(String nombre, String apellido, String direccion) {
 		this.nombre = nombre;
@@ -21,13 +19,6 @@ public class Cliente implements Usuarios {
 
 	public String getNombre() {
 		return nombre;
-	}
-	public static void ServicioFinalizado(String nombreServicio){
-
-	}
-
-	public static void CompraProductoFinalizada(){
-		
 	}
 
 	public void IniciarSesion() {

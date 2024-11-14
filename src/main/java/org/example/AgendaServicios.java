@@ -18,12 +18,6 @@ public class AgendaServicios {
 		return ServiciosRealizados;
 	}
 
-	public void ConsultarHistorialCliente(Cliente cliente) {
-		for (int i = 0; i < cliente.serviciosRealizados.size(); i++) {
-			cliente.serviciosRealizados.get(i).toString();
-		}
-	}
-
 	public void ConsultarServicios(Cliente cliente) {
 		cliente.agendaCliente.toString();
 	}
