@@ -19,8 +19,10 @@ public class Administradores implements Usuarios {
 
 	}
 
-	public void VerReportesDeVentas() {
+	public void VerReportesDeVentas(ServicioTecnico servicioTecnico) {
+		for (int i = 0; i < servicioTecnico.listaClientes.size(); i++) {
 
+		}
 	}
 
 	public void GestionarProductos() {
