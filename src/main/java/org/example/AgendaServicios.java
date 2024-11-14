@@ -15,11 +15,13 @@ public class AgendaServicios {
 	public int getCostoTotal() {return CostoTotal;}
 
 	public void ConsultarHistorialCliente(Cliente cliente) {
-		cliente.AgendaCliente.toString();
+		for (int i = 0; i < cliente.serviciosRealizados.size(); i++) {
+			cliente.serviciosRealizados.get(i).toString();
+		}
 	}
 
-	public void ConsultarServiciosRealizados() {
-
+	public void ConsultarServicios(Cliente cliente) {
+		cliente.AgendaCliente.toString();
 	}
 
 	@Override
