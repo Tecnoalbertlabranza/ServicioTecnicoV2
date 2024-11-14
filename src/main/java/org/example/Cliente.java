@@ -22,6 +22,13 @@ public class Cliente implements Usuarios {
 	public String getNombre() {
 		return nombre;
 	}
+	public static void ServicioFinalizado(String nombreServicio){
+
+	}
+
+	public static void CompraProductoFinalizada(){
+		
+	}
 
 	public void IniciarSesion() {
 		System.out.println("hola mundo lolaso");
