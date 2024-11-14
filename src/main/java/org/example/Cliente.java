@@ -11,8 +11,8 @@ public class Cliente implements Usuarios {
 	AgendaServicios AgendaCliente;
 	CarritoDeCompras Carrito;
 	Collection<Venta> comprassCliente;
-	Collection<Productos> compraProductosCliente;
-	Collection<Servicio> serviciosRealizados;
+	List<Productos> compraProductosCliente;
+	List<Servicio> serviciosRealizados;
 
 	public Cliente(String nombre, String apellido, String direccion) {
 		Nombre = nombre;

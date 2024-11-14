@@ -21,7 +21,21 @@ public class Administradores implements Usuarios {
 
 	public void VerReportesDeVentas(ServicioTecnico servicioTecnico) {
 		for (int i = 0; i < servicioTecnico.listaClientes.size(); i++) {
-
+			Cliente cliente = servicioTecnico.listaClientes.get(i);
+			System.out.println(cliente.getNombre());
+			if (!cliente.compraProductosCliente.isEmpty()) {
+				for (int j = 0; j < cliente.compraProductosCliente.size(); j++) {
+					Productos producto = cliente.compraProductosCliente.get(j);
+					System.out.println(producto.toMiniString());
+				}
+			}
+			if (cliente.serviciosRealizados.isEmpty()) {
+				for (int j = 0; j < cliente.serviciosRealizados.size(); j++) {
+					Servicio servicio = cliente.serviciosRealizados.get(j);
+					System.out.println(servicio.toString());
+				}
+			}
+			System.out.println(" ");
 		}
 	}
 
