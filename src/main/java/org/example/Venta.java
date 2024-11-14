@@ -16,8 +16,8 @@ public class Venta {
 	}
 
 	public void CalcularTotal(Cliente cliente) {
-		total += cliente.AgendaCliente.getCostoTotal();
-		total += cliente.Carrito.getValorTotalProductos();
+		total += cliente.agendaCliente.getCostoTotal();
+		total += cliente.carrito.getValorTotalProductos();
 	}
 
 }

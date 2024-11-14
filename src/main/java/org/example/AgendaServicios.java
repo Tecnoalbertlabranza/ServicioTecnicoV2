@@ -3,16 +3,20 @@ import java.util.*;
 
 public class AgendaServicios {
 	private String FechaServicio;
-	Collection<Servicio> ServiciosRealizados;
+	List<Servicio> ServiciosRealizados;
 	private int CostoTotal;
 
-	public AgendaServicios(String fechaServicio, int costoTotal, Collection<Servicio> serviciosRealizados) {
+	public AgendaServicios(String fechaServicio, int costoTotal, List<Servicio> serviciosRealizados) {
 		FechaServicio = fechaServicio;
 		CostoTotal = costoTotal;
 		ServiciosRealizados = serviciosRealizados;
 	}
 
 	public int getCostoTotal() {return CostoTotal;}
+
+	public Collection<Servicio> getServiciosRealizados() {
+		return ServiciosRealizados;
+	}
 
 	public void ConsultarHistorialCliente(Cliente cliente) {
 		for (int i = 0; i < cliente.serviciosRealizados.size(); i++) {
@@ -21,7 +25,7 @@ public class AgendaServicios {
 	}
 
 	public void ConsultarServicios(Cliente cliente) {
-		cliente.AgendaCliente.toString();
+		cliente.agendaCliente.toString();
 	}
 
 	@Override

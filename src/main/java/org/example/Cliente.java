@@ -1,27 +1,26 @@
 package org.example;
-import org.example.*;
 import java.util.*;
 
 public class Cliente implements Usuarios {
-	private String Direccion;
-	private String Contraseña;
-	private String Nombre;
-	private String Apellido;
-	private String Email;
-	AgendaServicios AgendaCliente;
-	CarritoDeCompras Carrito;
+	private String direccion;
+	private String contraseña;
+	private String nombre;
+	private String apellido;
+	private String email;
+	AgendaServicios agendaCliente;
+	CarritoDeCompras carrito;
 	Collection<Venta> comprassCliente;
 	List<Productos> compraProductosCliente;
 	List<Servicio> serviciosRealizados;
 
 	public Cliente(String nombre, String apellido, String direccion) {
-		Nombre = nombre;
-		Apellido = apellido;
-		Direccion = direccion;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.direccion = direccion;
 	}
 
 	public String getNombre() {
-		return Nombre;
+		return nombre;
 	}
 
 	public void IniciarSesion() {
