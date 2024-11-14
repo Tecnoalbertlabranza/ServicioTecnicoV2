@@ -18,8 +18,11 @@ public class Productos {
 
 	@Override
 	public String toString() {
-		return NombreProducto + '\'' + CategoriaProducto + '\''
-				+ ValorProducto + "$" + '\''
-				+ StockProducto;
+		StringBuilder sb = new StringBuilder();
+		sb.append("NombreProducto: " + NombreProducto).append("\n")
+		.append("CategoriaProducto: " + CategoriaProducto).append("\n")
+		.append("ValorProducto: " + ValorProducto).append("\n")
+		.append("StockProducto: " + StockProducto);
+		return sb.toString();
 	}
 }
