@@ -43,10 +43,11 @@ public class firebase {
         }
     }
 
-    private void insertardatos(
+    public void insertardatos(
             String coleccion,
             String documento,
             Map<String, Object> data) {
+
 
         try {
             if (firestore != null) {

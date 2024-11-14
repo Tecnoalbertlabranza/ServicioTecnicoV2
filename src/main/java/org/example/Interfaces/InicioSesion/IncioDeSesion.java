@@ -1,9 +1,14 @@
 package org.example.Interfaces.InicioSesion;
-
 import org.example.Main;
+import org.example.firebase;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class IncioDeSesion extends javax.swing.JFrame {
     public IncioDeSesion() {
+        firebase f1 = new firebase();
+        f1.inicializarconexion();
         initComponents();
     }
 
