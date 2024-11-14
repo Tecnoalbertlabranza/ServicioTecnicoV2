@@ -12,6 +12,10 @@ public class Productos {
 		StockProducto = stockProducto;
 	}
 
+	public String toMiniString() {
+		return "Producto= " + NombreProducto;
+	}
+
 	@Override
 	public String toString() {
 		return NombreProducto + '\'' + CategoriaProducto + '\''
