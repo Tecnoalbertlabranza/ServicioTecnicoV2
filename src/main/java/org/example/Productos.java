@@ -1,28 +1,28 @@
 package org.example;
 public class Productos {
-	private String NombreProducto;
-	private String CategoriaProducto;
-	private double ValorProducto;
-	private int StockProducto;
+	private String nombreProducto;
+	private String categoriaProducto;
+	private double valorProducto;
+	private int stockProducto;
 
 	public Productos(String nombreProducto, String categoriaProducto, double valorProducto, int stockProducto) {
-		NombreProducto = nombreProducto;
-		CategoriaProducto = categoriaProducto;
-		ValorProducto = valorProducto;
-		StockProducto = stockProducto;
+		this.nombreProducto = nombreProducto;
+		this.categoriaProducto = categoriaProducto;
+		this.valorProducto = valorProducto;
+		this.stockProducto = stockProducto;
 	}
 
 	public String toMiniString() {
-		return "Producto= " + NombreProducto;
+		return "Producto= " + nombreProducto;
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("NombreProducto: " + NombreProducto).append("\n")
-		.append("CategoriaProducto: " + CategoriaProducto).append("\n")
-		.append("ValorProducto: " + ValorProducto).append("\n")
-		.append("StockProducto: " + StockProducto);
+		sb.append("NombreProducto: " + nombreProducto).append("\n")
+		.append("CategoriaProducto: " + categoriaProducto).append("\n")
+		.append("valorProducto: " + valorProducto).append("\n")
+		.append("stockProducto: " + stockProducto);
 		return sb.toString();
 	}
 }
