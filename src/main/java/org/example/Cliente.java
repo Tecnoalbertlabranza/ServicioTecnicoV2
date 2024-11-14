@@ -10,7 +10,8 @@ public class Cliente implements Usuarios {
 	private String Email;
 	AgendaServicios AgendaCliente;
 	CarritoDeCompras Carrito;
-	Collection<Venta> VentasCliente;
+	Collection<Venta> comprassCliente;
+	Collection<Productos> comprasCliente;
 
 	public Cliente(String nombre, String apellido, String direccion) {
 		Nombre = nombre;
