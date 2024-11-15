@@ -17,22 +17,28 @@ public class ServicioTecnico {
 		NombreServicio = nombreServicio;
 		this.servicios = servicios;
 		this.productos = productos;
-		this.listaClientes = listaClientes;
+		this.listaClientes = new ArrayList<>();
 		Descripcion = descripcion;
 	}
 
 	public void RegistrarCliente(String nombre, String apellido,String direccion) {
+		if(listaClientes == null){
+			listaClientes = new ArrayList<>();
+		}
+
+		Cliente nuevoCliente = new Cliente(nombre, apellido, direccion);
+		listaClientes.add(nuevoCliente);
 		firebase f1 = new firebase();
-		listaClientes.add(new Cliente("Bastián", "Wenckhans", "Labranza"));
-		listaClientes.add(new Cliente("Alessandro", "Duarte", "Freire"));
 
 		for (int i = 0; i <= listaClientes.size(); i++) {
 			Map<String, Object> data = new HashMap<>();
-			data.put("Nombre", getListaClientes().get(Integer.parseInt(nombre)));
-			data.put("Apellido", getListaClientes().get(Integer.parseInt(apellido)));
-			data.put("Dirección", getListaClientes().get(Integer.parseInt(direccion)));
+			data.put("Nombre", nombre);
+			data.put("Apellido", apellido);
+			data.put("Dirección", direccion);
 			f1.insertardatos("Registro De Clientes", "Clientes", data);
 		}
+
+
 	}
 
 	public void EliminarCliente(String nombre) {

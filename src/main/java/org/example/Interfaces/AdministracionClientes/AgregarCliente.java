@@ -117,6 +117,10 @@ public class AgregarCliente extends javax.swing.JPanel {
 
       ServicioTecnico servico = new ServicioTecnico("mi servicio",null,null,null,null);
       servico.RegistrarCliente(nombre, apellido, direccion);
+        if (nombre.isEmpty() || apellido.isEmpty() || direccion.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos");
+            return;
+        }
 
     }//GEN-LAST:event_btnGuardarClienteActionPerformed
 
