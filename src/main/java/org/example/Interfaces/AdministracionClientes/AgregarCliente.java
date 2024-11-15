@@ -15,18 +15,13 @@ import java.util.ArrayList;
  * @author basty
  */
 public class AgregarCliente extends javax.swing.JPanel {
-
-
-
-
+    private firebase firebaseInstance;
     /**
      * Creates new form AgregarCliente
      */
-    public AgregarCliente() {
-
-
+    public AgregarCliente(firebase firebaseInstance) {
+        this.firebaseInstance = firebaseInstance;
         initComponents();
-       
     }
 
     /**

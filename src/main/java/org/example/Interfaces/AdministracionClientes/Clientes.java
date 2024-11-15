@@ -14,6 +14,7 @@ import javax.swing.JPanel;
  * @author basty
  */
 public class Clientes extends javax.swing.JPanel {
+    private firebase firebaseInstance;
      private void MostrarPanelCliente(JPanel pag ){
         
         pag.setSize(810, 410);
@@ -28,14 +29,11 @@ public class Clientes extends javax.swing.JPanel {
     /**
      * Creates new form Clientes
      */
-    public Clientes() {
-        firebase f1 = new firebase();
-        f1.inicializarconexion();
-
-
+    public Clientes(firebase firebaseInstance) {
+        this.firebaseInstance = firebaseInstance;
         initComponents();
         
-        AgregarCliente menucliente = new AgregarCliente ();
+        AgregarCliente menucliente = new AgregarCliente (firebaseInstance);
         MostrarPanelCliente(menucliente);
         
     }
@@ -122,7 +120,7 @@ public class Clientes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarClienteActionPerformed
-        AgregarCliente agcli = new AgregarCliente();
+        AgregarCliente agcli = new AgregarCliente(firebaseInstance);
         MostrarPanelCliente(agcli);
     }//GEN-LAST:event_BotonAgregarClienteActionPerformed
 

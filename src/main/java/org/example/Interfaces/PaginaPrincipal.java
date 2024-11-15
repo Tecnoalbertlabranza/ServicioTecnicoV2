@@ -19,8 +19,9 @@ import javax.swing.JPanel;
  * @author basty
  */
 public class PaginaPrincipal extends javax.swing.JFrame {
-    
-    
+
+    private firebase firebaseInstance;
+
     private void MostrarPanel(JPanel pag ){
         
         pag.setSize(810, 410);
@@ -35,14 +36,16 @@ public class PaginaPrincipal extends javax.swing.JFrame {
    
     
     public PaginaPrincipal() {
-
+        firebaseInstance = new firebase();
+        firebaseInstance.inicializarconexion();
         initComponents();
         
         InicioMenu menu = new InicioMenu();
         MostrarPanel(menu);
-        
-        
-       
+    }
+
+    public firebase getFirebaseInstance(){
+        return firebaseInstance;
     }
 
     /**
@@ -61,7 +64,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         BotonServiciosConsolas = new javax.swing.JButton();
         BotonInicioSesion = new javax.swing.JButton();
         BotonServiciosPc = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        BotonClientes = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -114,13 +117,13 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         });
         jPanel1.add(BotonServiciosPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, -1, 42));
 
-        jButton1.setText("Clientes");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BotonClientes.setText("Clientes");
+        BotonClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BotonClientesActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 78, 42));
+        jPanel1.add(BotonClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 78, 42));
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 810, 70));
 
@@ -175,10 +178,10 @@ public class PaginaPrincipal extends javax.swing.JFrame {
        
     }//GEN-LAST:event_BotonServiciosPcActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Clientes cli = new Clientes ();
+    private void BotonClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonClientesActionPerformed
+        Clientes cli = new Clientes(firebaseInstance);
         MostrarPanel(cli);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_BotonClientesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,12 +219,12 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonClientes;
     private javax.swing.JButton BotonInicioSesion;
     private javax.swing.JButton BotonProductos;
     private javax.swing.JButton BotonServiciosConsolas;
     private javax.swing.JButton BotonServiciosPc;
     private javax.swing.JPanel content;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
