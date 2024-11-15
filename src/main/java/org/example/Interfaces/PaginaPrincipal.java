@@ -35,8 +35,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
    
     
     public PaginaPrincipal() {
-        firebase f1 = new firebase();
-        f1.inicializarconexion();
+
         initComponents();
         
         InicioMenu menu = new InicioMenu();

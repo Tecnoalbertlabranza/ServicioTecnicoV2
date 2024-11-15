@@ -4,6 +4,8 @@
  */
 package org.example.Interfaces.AdministracionClientes;
 
+import org.example.firebase;
+
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
@@ -27,6 +29,10 @@ public class Clientes extends javax.swing.JPanel {
      * Creates new form Clientes
      */
     public Clientes() {
+        firebase f1 = new firebase();
+        f1.inicializarconexion();
+
+
         initComponents();
         
         AgregarCliente menucliente = new AgregarCliente ();

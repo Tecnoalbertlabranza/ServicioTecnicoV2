@@ -25,10 +25,13 @@ public class ServicioTecnico {
 		if(listaClientes == null){
 			listaClientes = new ArrayList<>();
 		}
+		firebase f1 = new firebase();
 
 		Cliente nuevoCliente = new Cliente(nombre, apellido, direccion);
 		listaClientes.add(nuevoCliente);
-		firebase f1 = new firebase();
+		System.out.println("Cliente REGISTRADO " + nuevoCliente);
+
+
 
 		for (int i = 0; i <= listaClientes.size(); i++) {
 			Map<String, Object> data = new HashMap<>();

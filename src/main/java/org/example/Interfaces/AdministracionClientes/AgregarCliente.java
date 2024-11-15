@@ -5,6 +5,7 @@
 package org.example.Interfaces.AdministracionClientes;
 
 import org.example.ServicioTecnico;
+import org.example.firebase;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ public class AgregarCliente extends javax.swing.JPanel {
      * Creates new form AgregarCliente
      */
     public AgregarCliente() {
+
 
         initComponents();
        
@@ -110,17 +112,20 @@ public class AgregarCliente extends javax.swing.JPanel {
     }//GEN-LAST:event_txtDireccionActionPerformed
 
     private void btnGuardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarClienteActionPerformed
-
         String nombre = txtNombre.getText().trim();
-      String apellido = txtApellido.getText().trim();
-      String direccion = txtDireccion.getText().trim();
+        String apellido = txtApellido.getText().trim();
+        String direccion = txtDireccion.getText().trim();
 
-      ServicioTecnico servico = new ServicioTecnico("mi servicio",null,null,null,null);
-      servico.RegistrarCliente(nombre, apellido, direccion);
         if (nombre.isEmpty() || apellido.isEmpty() || direccion.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos");
             return;
         }
+
+      ServicioTecnico servico = new ServicioTecnico("mi servicio",null,null,null,null);
+      servico.RegistrarCliente(nombre, apellido, direccion);
+
+
+
 
     }//GEN-LAST:event_btnGuardarClienteActionPerformed
 
