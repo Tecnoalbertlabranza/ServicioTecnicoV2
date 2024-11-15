@@ -35,6 +35,7 @@ public class AgregarProductos extends javax.swing.JPanel {
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
+        btnAgregarProducto = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -56,10 +57,14 @@ public class AgregarProductos extends javax.swing.JPanel {
         add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 210, 20));
         add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 210, 20));
         add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 210, 20));
+
+        btnAgregarProducto.setText("Agregar Producto");
+        add(btnAgregarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 150, 50));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregarProducto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

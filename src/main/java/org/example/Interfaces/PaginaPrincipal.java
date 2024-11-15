@@ -9,6 +9,7 @@ import org.example.Interfaces.AdministracionClientes.Clientes;
 import org.example.Interfaces.AdministracionProductos.Productos;
 import org.example.Interfaces.AdministracionServiciosConsolas.ServiciosConsolas;
 import org.example.Interfaces.AdministracionServiciosPc.ServiciosPc;
+import org.example.firebase;
 
 import java.awt.*;
 import javax.swing.JPanel;
@@ -34,6 +35,8 @@ public class PaginaPrincipal extends javax.swing.JFrame {
    
     
     public PaginaPrincipal() {
+        firebase f1 = new firebase();
+        f1.inicializarconexion();
         initComponents();
         
         InicioMenu menu = new InicioMenu();
