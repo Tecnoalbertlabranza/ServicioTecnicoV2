@@ -117,9 +117,8 @@ public class AgregarCliente extends javax.swing.JPanel {
         }
 
       ServicioTecnico servico = new ServicioTecnico("mi servicio",null,null,null,null);
-      servico.RegistrarCliente(nombre, apellido, direccion);
-
-
+      servico.RegistrarCliente(nombre, apellido, direccion, firebaseInstance);
+      JOptionPane.showMessageDialog(null, "Cliente registrado correctamente");
 
 
     }//GEN-LAST:event_btnGuardarClienteActionPerformed
