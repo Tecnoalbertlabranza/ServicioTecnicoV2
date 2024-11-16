@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 public class ServiciosPc extends javax.swing.JPanel {
       private void MostrarPanelServiciosPc(JPanel pag ){
         
-        pag.setSize(810, 410);
+        pag.setSize(1500, 590);
         pag.setLocation(0,0);
         
         PanelServiciosPc.removeAll();
@@ -58,20 +58,20 @@ public class ServiciosPc extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Aqui se mostraran los servicios para pc");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 110, 277, 82));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 110, 277, 82));
 
         javax.swing.GroupLayout PanelServiciosPcLayout = new javax.swing.GroupLayout(PanelServiciosPc);
         PanelServiciosPc.setLayout(PanelServiciosPcLayout);
         PanelServiciosPcLayout.setHorizontalGroup(
             PanelServiciosPcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 390, Short.MAX_VALUE)
+            .addGap(0, 440, Short.MAX_VALUE)
         );
         PanelServiciosPcLayout.setVerticalGroup(
             PanelServiciosPcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 410, Short.MAX_VALUE)
+            .addGap(0, 590, Short.MAX_VALUE)
         );
 
-        jPanel1.add(PanelServiciosPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 410));
+        jPanel1.add(PanelServiciosPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 590));
 
         BotonAgregarServicioPc.setText("Agregar Servicio Pc");
         BotonAgregarServicioPc.addActionListener(new java.awt.event.ActionListener() {
@@ -79,7 +79,7 @@ public class ServiciosPc extends javax.swing.JPanel {
                 BotonAgregarServicioPcActionPerformed(evt);
             }
         });
-        jPanel1.add(BotonAgregarServicioPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, 160, 30));
+        jPanel1.add(BotonAgregarServicioPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 330, 160, 30));
 
         BotonEliminarServicio.setText("Eliminar Servicio Pc");
         BotonEliminarServicio.addActionListener(new java.awt.event.ActionListener() {
@@ -87,7 +87,7 @@ public class ServiciosPc extends javax.swing.JPanel {
                 BotonEliminarServicioActionPerformed(evt);
             }
         });
-        jPanel1.add(BotonEliminarServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 300, 140, 30));
+        jPanel1.add(BotonEliminarServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 300, 140, 30));
 
         BotonModificarServicioPc.setText("Modificar Servicio Pc");
         BotonModificarServicioPc.addActionListener(new java.awt.event.ActionListener() {
@@ -95,7 +95,7 @@ public class ServiciosPc extends javax.swing.JPanel {
                 BotonModificarServicioPcActionPerformed(evt);
             }
         });
-        jPanel1.add(BotonModificarServicioPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 160, 30));
+        jPanel1.add(BotonModificarServicioPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 370, 160, 30));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -110,9 +110,9 @@ public class ServiciosPc extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 340, 230));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 30, 340, 230));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 410));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 590));
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAgregarServicioPcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarServicioPcActionPerformed

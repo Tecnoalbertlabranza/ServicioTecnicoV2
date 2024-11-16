@@ -108,20 +108,20 @@ public class Clientes extends javax.swing.JPanel {
                 BotonAgregarClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(BotonAgregarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 330, 120, 30));
+        jPanel1.add(BotonAgregarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 440, 120, 30));
 
         javax.swing.GroupLayout PanelClienteLayout = new javax.swing.GroupLayout(PanelCliente);
         PanelCliente.setLayout(PanelClienteLayout);
         PanelClienteLayout.setHorizontalGroup(
             PanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 390, Short.MAX_VALUE)
+            .addGap(0, 440, Short.MAX_VALUE)
         );
         PanelClienteLayout.setVerticalGroup(
             PanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 410, Short.MAX_VALUE)
+            .addGap(0, 590, Short.MAX_VALUE)
         );
 
-        jPanel1.add(PanelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 410));
+        jPanel1.add(PanelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 590));
 
         BotonModificarCliente.setText("Modificar Cliente");
         BotonModificarCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -129,7 +129,7 @@ public class Clientes extends javax.swing.JPanel {
                 BotonModificarClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(BotonModificarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 330, 130, 30));
+        jPanel1.add(BotonModificarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 430, 130, 30));
 
         BotonEliminarCliente.setText("Eliminar Cliente");
         BotonEliminarCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -137,7 +137,7 @@ public class Clientes extends javax.swing.JPanel {
                 BotonEliminarClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(BotonEliminarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 330, 120, 30));
+        jPanel1.add(BotonEliminarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 430, 120, 30));
 
         TablaClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -152,9 +152,9 @@ public class Clientes extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(TablaClientes);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, 370, 290));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 40, 330, 310));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 410));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 590));
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarClienteActionPerformed

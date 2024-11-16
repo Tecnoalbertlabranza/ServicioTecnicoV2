@@ -65,7 +65,7 @@ public class AgregarProductos extends javax.swing.JPanel {
         add(txtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 210, 20));
 
         btnAgregarProducto.setText("Agregar Producto");
-        add(btnAgregarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 150, 50));
+        add(btnAgregarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 460, 150, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorActionPerformed

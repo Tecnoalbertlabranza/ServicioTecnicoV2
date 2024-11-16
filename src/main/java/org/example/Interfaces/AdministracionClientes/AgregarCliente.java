@@ -90,11 +90,11 @@ public class AgregarCliente extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -112,7 +112,6 @@ public class AgregarCliente extends javax.swing.JPanel {
         String telefono = txtDireccion.getText().trim();
         String email = txtDireccion.getText().trim();
         String rut = txtDireccion.getText().trim();
-
         String region = txtDireccion.getText().trim();
         String comuna = txtDireccion.getText().trim();
         String calle = txtDireccion.getText().trim();
@@ -127,8 +126,6 @@ public class AgregarCliente extends javax.swing.JPanel {
       ServicioTecnico servico = new ServicioTecnico("mi servicio",null,null,null,null);
       servico.RegistrarCliente(nombre, apellido, telefono, email, rut, region, comuna, calle, numero, firebaseInstance);
       JOptionPane.showMessageDialog(null, "Cliente registrado correctamente");
-
-
 
 
     }//GEN-LAST:event_btnGuardarClienteActionPerformed

@@ -71,7 +71,7 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
         add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 260, -1));
 
         btnAgregarServiciosPc.setText("Agregar Servicio Pc");
-        add(btnAgregarServiciosPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 150, 40));
+        add(btnAgregarServiciosPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 510, 150, 40));
     }// </editor-fold>//GEN-END:initComponents
 
 

@@ -15,7 +15,7 @@ public class Productos extends javax.swing.JPanel {
     
       private void MostrarPanelProducto(JPanel pag ){
         
-        pag.setSize(810, 410);
+        pag.setSize(1500, 590);
         pag.setLocation(0,0);
         
         PanelProductos.removeAll();
@@ -58,17 +58,17 @@ public class Productos extends javax.swing.JPanel {
         PanelProductos.setLayout(PanelProductosLayout);
         PanelProductosLayout.setHorizontalGroup(
             PanelProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 390, Short.MAX_VALUE)
+            .addGap(0, 440, Short.MAX_VALUE)
         );
         PanelProductosLayout.setVerticalGroup(
             PanelProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 410, Short.MAX_VALUE)
+            .addGap(0, 590, Short.MAX_VALUE)
         );
 
-        add(PanelProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 410));
+        add(PanelProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 590));
 
         jLabel1.setText("Aqui ira la base de datos de productos");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 150, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 150, -1, -1));
 
         BotonAgregarProducto.setText("AgregarProducto");
         BotonAgregarProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -76,7 +76,7 @@ public class Productos extends javax.swing.JPanel {
                 BotonAgregarProductoActionPerformed(evt);
             }
         });
-        add(BotonAgregarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 300, -1, -1));
+        add(BotonAgregarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 390, -1, -1));
 
         BotonModificarProducto.setText("ModificarProducto");
         BotonModificarProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -84,7 +84,7 @@ public class Productos extends javax.swing.JPanel {
                 BotonModificarProductoActionPerformed(evt);
             }
         });
-        add(BotonModificarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, -1, -1));
+        add(BotonModificarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 390, -1, -1));
 
         BotonEliminarProducto.setText("EliminarProducto");
         BotonEliminarProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -92,7 +92,7 @@ public class Productos extends javax.swing.JPanel {
                 BotonEliminarProductoActionPerformed(evt);
             }
         });
-        add(BotonEliminarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 300, -1, -1));
+        add(BotonEliminarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 390, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -107,7 +107,7 @@ public class Productos extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 260, 250));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 30, 260, 250));
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarProductoActionPerformed

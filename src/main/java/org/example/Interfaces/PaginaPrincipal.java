@@ -24,7 +24,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
 
     private void MostrarPanel(JPanel pag ){
         
-        pag.setSize(810, 410);
+        pag.setSize(1500, 590);
         pag.setLocation(0,0);
         
         content.removeAll();
@@ -78,14 +78,14 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         content.setLayout(contentLayout);
         contentLayout.setHorizontalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 810, Short.MAX_VALUE)
+            .addGap(0, 1500, Short.MAX_VALUE)
         );
         contentLayout.setVerticalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 410, Short.MAX_VALUE)
+            .addGap(0, 590, Short.MAX_VALUE)
         );
 
-        jPanel2.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 810, 410));
+        jPanel2.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1500, 590));
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -96,7 +96,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
                 BotonProductosActionPerformed(evt);
             }
         });
-        jPanel1.add(BotonProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 112, 42));
+        jPanel1.add(BotonProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 112, 42));
 
         BotonServiciosConsolas.setText("Servicios para consolas");
         BotonServiciosConsolas.addActionListener(new java.awt.event.ActionListener() {
@@ -104,10 +104,10 @@ public class PaginaPrincipal extends javax.swing.JFrame {
                 BotonServiciosConsolasActionPerformed(evt);
             }
         });
-        jPanel1.add(BotonServiciosConsolas, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, -1, 42));
+        jPanel1.add(BotonServiciosConsolas, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, 42));
 
         BotonInicioSesion.setText("Cerrar Sesion");
-        jPanel1.add(BotonInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, 121, 42));
+        jPanel1.add(BotonInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1330, 10, 121, 42));
 
         BotonServiciosPc.setText("Servicios para Pc");
         BotonServiciosPc.addActionListener(new java.awt.event.ActionListener() {
@@ -115,7 +115,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
                 BotonServiciosPcActionPerformed(evt);
             }
         });
-        jPanel1.add(BotonServiciosPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, -1, 42));
+        jPanel1.add(BotonServiciosPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, 42));
 
         BotonClientes.setText("Clientes");
         BotonClientes.addActionListener(new java.awt.event.ActionListener() {
@@ -123,9 +123,9 @@ public class PaginaPrincipal extends javax.swing.JFrame {
                 BotonClientesActionPerformed(evt);
             }
         });
-        jPanel1.add(BotonClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 78, 42));
+        jPanel1.add(BotonClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 10, 78, 42));
 
-        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 810, 70));
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 1500, 70));
 
         jLabel3.setText("Bienvenido a Su Administrdor");
 
@@ -137,7 +137,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 518, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1208, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -146,7 +146,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 40));
+        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

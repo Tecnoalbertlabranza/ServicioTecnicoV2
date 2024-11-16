@@ -77,7 +77,7 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
         add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 210, -1));
 
         btnAgregarServicioConsolas.setText("Agregar Servicio");
-        add(btnAgregarServicioConsolas, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, 120, 50));
+        add(btnAgregarServicioConsolas, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, 120, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed

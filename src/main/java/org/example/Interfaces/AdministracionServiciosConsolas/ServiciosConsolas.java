@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 public class ServiciosConsolas extends javax.swing.JPanel {
       private void MostrarPanelConsolas(JPanel pag ){
         
-        pag.setSize(810, 410);
+        pag.setSize(1500, 590);
         pag.setLocation(0,0);
         
         PanelServiciosConsolas.removeAll();
@@ -57,20 +57,20 @@ public class ServiciosConsolas extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Aqui se mostraran los serfvicios para las comsolas ");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, 260, 20));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 150, 260, 20));
 
         javax.swing.GroupLayout PanelServiciosConsolasLayout = new javax.swing.GroupLayout(PanelServiciosConsolas);
         PanelServiciosConsolas.setLayout(PanelServiciosConsolasLayout);
         PanelServiciosConsolasLayout.setHorizontalGroup(
             PanelServiciosConsolasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 390, Short.MAX_VALUE)
+            .addGap(0, 440, Short.MAX_VALUE)
         );
         PanelServiciosConsolasLayout.setVerticalGroup(
             PanelServiciosConsolasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 410, Short.MAX_VALUE)
+            .addGap(0, 590, Short.MAX_VALUE)
         );
 
-        jPanel1.add(PanelServiciosConsolas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 410));
+        jPanel1.add(PanelServiciosConsolas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 590));
 
         AgregarServicioConsola.setText("Agregar Servicio  Consola");
         AgregarServicioConsola.addActionListener(new java.awt.event.ActionListener() {
@@ -78,7 +78,7 @@ public class ServiciosConsolas extends javax.swing.JPanel {
                 AgregarServicioConsolaActionPerformed(evt);
             }
         });
-        jPanel1.add(AgregarServicioConsola, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, 170, 40));
+        jPanel1.add(AgregarServicioConsola, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 320, 170, 40));
 
         ModificarServicioConsola.setText("Modificar Servicio consola");
         ModificarServicioConsola.addActionListener(new java.awt.event.ActionListener() {
@@ -86,7 +86,7 @@ public class ServiciosConsolas extends javax.swing.JPanel {
                 ModificarServicioConsolaActionPerformed(evt);
             }
         });
-        jPanel1.add(ModificarServicioConsola, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 300, 170, 40));
+        jPanel1.add(ModificarServicioConsola, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 340, 170, 40));
 
         EliminarServicioConsola.setText("Eliminar Servicio Consola");
         EliminarServicioConsola.addActionListener(new java.awt.event.ActionListener() {
@@ -94,7 +94,7 @@ public class ServiciosConsolas extends javax.swing.JPanel {
                 EliminarServicioConsolaActionPerformed(evt);
             }
         });
-        jPanel1.add(EliminarServicioConsola, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 170, 40));
+        jPanel1.add(EliminarServicioConsola, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 420, 170, 40));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -109,9 +109,9 @@ public class ServiciosConsolas extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 40, 300, 210));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 60, 300, 210));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 410));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 590));
     }// </editor-fold>//GEN-END:initComponents
 
     private void AgregarServicioConsolaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarServicioConsolaActionPerformed
