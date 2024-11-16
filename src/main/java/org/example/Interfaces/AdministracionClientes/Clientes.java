@@ -6,10 +6,14 @@ package org.example.Interfaces.AdministracionClientes;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.Query;
+import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 import org.example.firebase;
 
 import java.awt.BorderLayout;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ExecutionException;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -40,7 +44,19 @@ public class Clientes extends javax.swing.JPanel {
 
          ApiFuture<QuerySnapshot> future = db.collection("Registro de clientes").get();
          try {
-             List<Query>
+             List<QueryDocumentSnapshot> documentos = future.get().getDocuments();
+             modeloTabla.setRowCount(0);
+             for (QueryDocumentSnapshot doc : documentos) {
+                 Map<String, Object> data = doc.getData();
+                 String nombre = (String) data.get("Nombre");
+                 String apellido = (String) data.get("Apellido");
+                 String direccion = (String) data.get("Dirección");
+
+                 modeloTabla.addRow(new Object[]{nombre, apellido, direccion});
+             }
+         } catch (InterruptedException | ExecutionException e){
+             e.printStackTrace();
+             JOptionPane.showMessageDialog(this,"Error al cargar clientes desde firebase");
          }
      }
 
@@ -50,13 +66,13 @@ public class Clientes extends javax.swing.JPanel {
     public Clientes(firebase firebaseInstance) {
         this.firebaseInstance = firebaseInstance;
         initComponents();
-        
-        AgregarCliente menucliente = new AgregarCliente (firebaseInstance);
-        MostrarPanelCliente(menucliente);
+
         modeloTabla = new DefaultTableModel(new String[]{"Nombre","Apellido","Direccion"},0);
         TablaClientes.setModel(modeloTabla);
-
         cargarClientesDesdeFirebase();
+        AgregarCliente menucliente = new AgregarCliente (firebaseInstance);
+        MostrarPanelCliente(menucliente);
+        
     }
 
     /**
@@ -69,7 +85,6 @@ public class Clientes extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         BotonAgregarCliente = new javax.swing.JButton();
         PanelCliente = new javax.swing.JPanel();
         BotonModificarCliente = new javax.swing.JButton();
@@ -81,9 +96,6 @@ public class Clientes extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setText("Aqui iran la lista de los clientes que debe tener base de datos");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 330, 70));
 
         BotonAgregarCliente.setText("Agregar Cliente");
         BotonAgregarCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -135,7 +147,7 @@ public class Clientes extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(TablaClientes);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 370, 290));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, 370, 290));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 410));
     }// </editor-fold>//GEN-END:initComponents
@@ -143,6 +155,7 @@ public class Clientes extends javax.swing.JPanel {
     private void BotonAgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarClienteActionPerformed
         AgregarCliente agcli = new AgregarCliente(firebaseInstance);
         MostrarPanelCliente(agcli);
+        cargarClientesDesdeFirebase();
     }//GEN-LAST:event_BotonAgregarClienteActionPerformed
 
     private void BotonModificarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonModificarClienteActionPerformed
@@ -162,7 +175,6 @@ public class Clientes extends javax.swing.JPanel {
     private javax.swing.JButton BotonModificarCliente;
     private javax.swing.JPanel PanelCliente;
     private javax.swing.JTable TablaClientes;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
