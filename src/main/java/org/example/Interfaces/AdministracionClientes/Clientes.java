@@ -9,6 +9,7 @@ import org.example.firebase;
 
 import java.awt.BorderLayout;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
@@ -56,48 +57,39 @@ public class Clientes extends javax.swing.JPanel {
         modeloDirecciones.setRowCount(0);
 
         try{
-           Firestore db = firebaseInstance.getFirestore();
+           Firestore fire = firebaseInstance.getFirestore();
 
-            CollectionReference registroClientes = db.collection("Registro De Clientes");
-            List<String[]> listaClientes = new ArrayList<>();
-            List<String[]> listaDirecciones = new ArrayList<>();
+            CollectionReference registroClientes = fire.collection("Registro De Clientes");
+            List<Map<String, Object>> listaClientes = new ArrayList<>();
+            List<Map<String, Object>> listaDirecciones = new ArrayList<>();
 
             for (QueryDocumentSnapshot clienteDocument : registroClientes.get().get().getDocuments()) {
+                System.out.println("Cliente id"+ clienteDocument.getId());
 
                 ApiFuture<QuerySnapshot> datosPersonalesFuture = clienteDocument.getReference().collection("Datos personales").get();
                 QuerySnapshot datosPersonalesSnapshot = datosPersonalesFuture.get();
 
                 for (QueryDocumentSnapshot document : datosPersonalesSnapshot.getDocuments()) {
-                    String nombre = document.getString("Nombre");
-                    String apellido = document.getString("Apellido");
-                    String telefono = document.getString("Telefono");
-                    String email = document.getString("Email");
-                    String rut = document.getString("Rut");
-
-                    listaClientes.add(new String[]{nombre, apellido, telefono, email, rut});
+                    listaClientes.add(document.getData());
                 }
 
                 ApiFuture<QuerySnapshot> direccionFuture = clienteDocument.getReference().collection("Direccion").get();
                 QuerySnapshot direccionSnapshot = direccionFuture.get();
 
                 for (QueryDocumentSnapshot document : direccionSnapshot.getDocuments()) {
-
-                    String region = document.getString("Region");
-                    String comuna = document.getString("Comuna");
-                    String calle = document.getString("Calle");
-                    String numero = document.getString("Numero");
-
-                    listaDirecciones.add(new String[]{region, comuna, calle, numero});
-
+                    listaDirecciones.add(document.getData());
                 }
             }
+            System.out.println("direcciones recuperados:");
+            for (Map<String, Object> direcion: listaDirecciones){
+                System.out.println(direcion);
+            }
+            System.out.println("clientes recuperados");
+            for (Map<String, Object> cliente: listaClientes){
+                System.out.println(cliente);
+            }
 
-            for (String[] cliente : listaClientes) {
-                modeloClientes.addRow(cliente);
-            }
-            for (String[] direccion : listaDirecciones) {
-                modeloDirecciones.addRow(direccion);
-            }
+            
         }catch (ExecutionException | InterruptedException e){
             e.printStackTrace();
             System.out.println("Error al cargar datos"+ e.getMessage());
@@ -194,6 +186,7 @@ public class Clientes extends javax.swing.JPanel {
        cargarClientesDesdeFirebase();
         AgregarCliente agcli = new AgregarCliente(firebaseInstance);
         MostrarPanelCliente(agcli);
+        refrescarTabla();
         
     }//GEN-LAST:event_BotonAgregarClienteActionPerformed
 
