@@ -3,11 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package org.example.Interfaces.AdministracionClientes;
-
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.Firestore;
+import com.google.cloud.firestore.Query;
+import com.google.cloud.firestore.QuerySnapshot;
 import org.example.firebase;
 
 import java.awt.BorderLayout;
-import javax.swing.JPanel;
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,6 +19,7 @@ import javax.swing.JPanel;
  */
 public class Clientes extends javax.swing.JPanel {
     private firebase firebaseInstance;
+    private DefaultTableModel modeloTabla;
      private void MostrarPanelCliente(JPanel pag ){
         
         pag.setSize(810, 410);
@@ -26,6 +31,19 @@ public class Clientes extends javax.swing.JPanel {
         PanelCliente.repaint(); 
      }
 
+     private void cargarClientesDesdeFirebase(){
+         Firestore db = firebaseInstance.getFirestore();
+         if(db==null){
+             JOptionPane.showMessageDialog(this,"no se pudo conectar con firebase");
+             return;
+         }
+
+         ApiFuture<QuerySnapshot> future = db.collection("Registro de clientes").get();
+         try {
+             List<Query>
+         }
+     }
+
     /**
      * Creates new form Clientes
      */
@@ -35,7 +53,10 @@ public class Clientes extends javax.swing.JPanel {
         
         AgregarCliente menucliente = new AgregarCliente (firebaseInstance);
         MostrarPanelCliente(menucliente);
-        
+        modeloTabla = new DefaultTableModel(new String[]{"Nombre","Apellido","Direccion"},0);
+        TablaClientes.setModel(modeloTabla);
+
+        cargarClientesDesdeFirebase();
     }
 
     /**
@@ -54,7 +75,7 @@ public class Clientes extends javax.swing.JPanel {
         BotonModificarCliente = new javax.swing.JButton();
         BotonEliminarCliente = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TablaClientes = new javax.swing.JTable();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -101,7 +122,7 @@ public class Clientes extends javax.swing.JPanel {
         });
         jPanel1.add(BotonEliminarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 330, 120, 30));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TablaClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -112,7 +133,7 @@ public class Clientes extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(TablaClientes);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 370, 290));
 
@@ -140,9 +161,9 @@ public class Clientes extends javax.swing.JPanel {
     private javax.swing.JButton BotonEliminarCliente;
     private javax.swing.JButton BotonModificarCliente;
     private javax.swing.JPanel PanelCliente;
+    private javax.swing.JTable TablaClientes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
