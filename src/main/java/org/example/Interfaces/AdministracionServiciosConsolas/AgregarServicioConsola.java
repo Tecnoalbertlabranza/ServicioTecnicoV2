@@ -39,41 +39,45 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
         jTextField5 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
+        btnAgregarServicioConsolas = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Ingrese los datos para su nuevo servicio para consolas");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
         jLabel2.setText("Nombre");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 210, 20));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 210, 20));
 
         jLabel3.setText("Valor");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
-        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 210, 20));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 210, 20));
 
         jLabel4.setText("Detalle");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
-        add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 210, 20));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
+        add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 210, 20));
 
         jLabel5.setText("Tiempo estimado");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
 
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField4ActionPerformed(evt);
             }
         });
-        add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 210, 20));
+        add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 210, 20));
 
         jLabel6.setText("Modelo De La Consola");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
-        add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 210, 20));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
+        add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 210, 20));
 
         jLabel7.setText("Marca Consola");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, -1));
-        add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 210, -1));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
+        add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 210, -1));
+
+        btnAgregarServicioConsolas.setText("Agregar Servicio");
+        add(btnAgregarServicioConsolas, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, 120, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
@@ -82,6 +86,7 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregarServicioConsolas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

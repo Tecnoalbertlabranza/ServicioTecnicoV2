@@ -31,10 +31,11 @@ public class AgregarProductos extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        txtCategoria = new javax.swing.JTextField();
+        txtValor = new javax.swing.JTextField();
+        txtStock = new javax.swing.JTextField();
+        btnAgregarProducto = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -52,22 +53,36 @@ public class AgregarProductos extends javax.swing.JPanel {
 
         jLabel5.setText("Stock");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 210, 20));
-        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 210, 20));
-        add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 210, 20));
-        add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 210, 20));
+        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 210, 20));
+        add(txtCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 210, 20));
+
+        txtValor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtValorActionPerformed(evt);
+            }
+        });
+        add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 210, 20));
+        add(txtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 210, 20));
+
+        btnAgregarProducto.setText("Agregar Producto");
+        add(btnAgregarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 150, 50));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtValorActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregarProducto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField txtCategoria;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtStock;
+    private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
 }

@@ -48,7 +48,6 @@ public class Productos extends javax.swing.JPanel {
         BotonAgregarProducto = new javax.swing.JButton();
         BotonModificarProducto = new javax.swing.JButton();
         BotonEliminarProducto = new javax.swing.JButton();
-        BotonAgregarDesucuento = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -95,14 +94,6 @@ public class Productos extends javax.swing.JPanel {
         });
         add(BotonEliminarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 300, -1, -1));
 
-        BotonAgregarDesucuento.setText("Agregar Descuento a un producto");
-        BotonAgregarDesucuento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonAgregarDesucuentoActionPerformed(evt);
-            }
-        });
-        add(BotonAgregarDesucuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, -1, -1));
-
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -129,11 +120,6 @@ public class Productos extends javax.swing.JPanel {
         MostrarPanelProducto(modprod);
     }//GEN-LAST:event_BotonModificarProductoActionPerformed
 
-    private void BotonAgregarDesucuentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarDesucuentoActionPerformed
-        AgregarDescuentos desprod = new AgregarDescuentos();
-        MostrarPanelProducto(desprod);
-    }//GEN-LAST:event_BotonAgregarDesucuentoActionPerformed
-
     private void BotonEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarProductoActionPerformed
         EliminarProductos eliprod = new EliminarProductos();
         MostrarPanelProducto(eliprod);
@@ -141,7 +127,6 @@ public class Productos extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BotonAgregarDesucuento;
     private javax.swing.JButton BotonAgregarProducto;
     private javax.swing.JButton BotonEliminarProducto;
     private javax.swing.JButton BotonModificarProducto;

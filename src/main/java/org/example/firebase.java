@@ -21,6 +21,8 @@ public class firebase {
     public firebase() {
     }
 
+
+
     public void inicializarconexion() {
         try {
             ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
@@ -41,6 +43,13 @@ public class firebase {
 
         } catch (java.lang.IllegalStateException e) {
         }
+    }
+
+    public Firestore getFirestore(){
+        if (firestore == null){
+            throw new IllegalStateException("Firestore no se inicializo . debes llamar a inicializarconexion() primero");
+        }
+        return firestore;
     }
 
     public void insertardatos(
