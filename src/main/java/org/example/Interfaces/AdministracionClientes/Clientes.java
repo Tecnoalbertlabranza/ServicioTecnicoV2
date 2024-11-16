@@ -28,7 +28,7 @@ public class Clientes extends javax.swing.JPanel {
 
      private void MostrarPanelCliente(JPanel pag ){
         
-        pag.setSize(810, 410);
+        pag.setSize(1500, 590);
         pag.setLocation(0,0);
         
         PanelCliente.removeAll();
@@ -51,8 +51,11 @@ public class Clientes extends javax.swing.JPanel {
     }
 
     private void cargarClientesDesdeFirebase(){
-        DefaultTableModel modeloTabla = (DefaultTableModel) TablaClientes.getModel();
-        modeloTabla.setRowCount(0);
+        DefaultTableModel modeloTablaClientes = (DefaultTableModel) TablaClientes.getModel();
+        modeloTablaClientes.setRowCount(0);
+
+        DefaultTableModel modeloDirecciones = (DefaultTableModel) TablaDireccionClientes.getModel();
+        modeloDirecciones.setRowCount(0);
 
         try{
            Firestore db = firebaseInstance.getFirestore();
@@ -61,15 +64,30 @@ public class Clientes extends javax.swing.JPanel {
             QuerySnapshot querySnapshot = future.get();
 
             List<String[]> listaClientes = new ArrayList<>();
+            List<String[]> listaDirecciones = new ArrayList<>();
 
             for (QueryDocumentSnapshot document : querySnapshot.getDocuments()) {
+                //para datos personales
                 String nombre = document.getString("Nombre");
                 String apellido = document.getString("Apellido");
-                String direccion = document.getString("Dirección");
+                String telefono = document.getString("Telefono");
+                String email = document.getString("Email");
+                String rut = document.getString("Rut");
 
-                listaClientes.add(new String[]{nombre, apellido, direccion});
+                //para direcciones
+                String region = document.getString("Region");
+                String comuna = document.getString("Comuna");
+                String calle = document.getString("Calle");
+                String numero = document.getString("Numero");
+
+                listaClientes.add(new String[]{nombre, apellido, telefono,email,rut});
+                listaDirecciones.add(new String[]{region, comuna, calle, numero});
+
         } for (String[] cliente : listaClientes) {
-                modeloTabla.addRow(cliente);
+                modeloTablaClientes.addRow(cliente);
+            }
+            for (String[] direccion : listaDirecciones) {
+                modeloDirecciones.addRow(direccion);
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -142,14 +160,9 @@ public class Clientes extends javax.swing.JPanel {
         jPanel1.add(BotonEliminarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 430, 120, 30));
 
         TablaClientes.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
+            new Object [][] {},
             new String [] {
-                "Nombre", "Apellido", "Direccion"
+                "Nombre", "Apellido", "Telefono","Email","Rut"
             }
         ));
         jScrollPane1.setViewportView(TablaClientes);
@@ -157,14 +170,9 @@ public class Clientes extends javax.swing.JPanel {
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 30, 520, 320));
 
         TablaDireccionClientes.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
+            new Object [][] {},
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Region", "Comuna", "Calle", "Numero"
             }
         ));
         jScrollPane2.setViewportView(TablaDireccionClientes);

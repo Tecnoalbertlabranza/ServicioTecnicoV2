@@ -182,12 +182,12 @@ public class AgregarCliente extends javax.swing.JPanel {
         String nombre = txtNombre.getText().trim();
         String apellido = txtApellido.getText().trim();
         String telefono = txtTelefono.getText().trim();
-        String email = txtTelefono.getText().trim();
-        String rut = txtTelefono.getText().trim();
-        String region = txtTelefono.getText().trim();
-        String comuna = txtTelefono.getText().trim();
-        String calle = txtTelefono.getText().trim();
-        String numero = txtTelefono.getText().trim();
+        String email = txtEmail.getText().trim();
+        String rut = txtRut.getText().trim();
+        String region = txtRegion.getText().trim();
+        String comuna = txtComuna.getText().trim();
+        String calle = txtCalle.getText().trim();
+        String numero = txtNumero.getText().trim();
 
 
         if (nombre.isEmpty() || apellido.isEmpty() || telefono.isEmpty()) {
