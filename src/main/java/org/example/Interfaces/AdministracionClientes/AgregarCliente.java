@@ -109,15 +109,23 @@ public class AgregarCliente extends javax.swing.JPanel {
     private void btnGuardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarClienteActionPerformed
         String nombre = txtNombre.getText().trim();
         String apellido = txtApellido.getText().trim();
-        String direccion = txtDireccion.getText().trim();
+        String telefono = txtDireccion.getText().trim();
+        String email = txtDireccion.getText().trim();
+        String rut = txtDireccion.getText().trim();
 
-        if (nombre.isEmpty() || apellido.isEmpty() || direccion.isEmpty()) {
+        String region = txtDireccion.getText().trim();
+        String comuna = txtDireccion.getText().trim();
+        String calle = txtDireccion.getText().trim();
+        String numero = txtDireccion.getText().trim();
+
+
+        if (nombre.isEmpty() || apellido.isEmpty() || telefono.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos");
             return;
         }
 
       ServicioTecnico servico = new ServicioTecnico("mi servicio",null,null,null,null);
-      servico.RegistrarCliente(nombre, apellido, direccion, firebaseInstance);
+      servico.RegistrarCliente(nombre, apellido, telefono, email, rut, region, comuna, calle, numero, firebaseInstance);
       JOptionPane.showMessageDialog(null, "Cliente registrado correctamente");
 
 
