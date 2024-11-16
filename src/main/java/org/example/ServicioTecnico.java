@@ -26,25 +26,19 @@ public class ServicioTecnico {
 			listaClientes = new ArrayList<>();
 		}
 
-
 		Cliente nuevoCliente = new Cliente(nombre, apellido, direccion);
 		listaClientes.add(nuevoCliente);
 		System.out.println("Cliente registrado localmente " + nuevoCliente);
 
+		Map<String, Object> data = new HashMap<>();
+		data.put("Nombre", nombre);
+		data.put("Apellido", apellido);
+		data.put("Dirección", direccion);
+		firebaseInstance.insertardatos("Registro De Clientes", "Clientes", data);
 
-
-
-			Map<String, Object> data = new HashMap<>();
-			data.put("Nombre", nombre);
-			data.put("Apellido", apellido);
-			data.put("Dirección", direccion);
-			firebaseInstance.insertardatos("Registro De Clientes", "Clientes", data);
-
-			String idDocumento = "CLIENTE_" + System.currentTimeMillis();
+		String idDocumento = "CLIENTE_" + System.currentTimeMillis();
 		firebaseInstance.insertardatos("Registro De Clientes", idDocumento, data);
-		    System.out.println("Cliente registrado en Firebase con id" + idDocumento);
-
-
+		System.out.println("Cliente registrado en Firebase con id" + idDocumento);
 	}
 
 	public void AgregarProducto(String nombreProducto, String categoriaProducto, double valorProducto, int stockProducto){
