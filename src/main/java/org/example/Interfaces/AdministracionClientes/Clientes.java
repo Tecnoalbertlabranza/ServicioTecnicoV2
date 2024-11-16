@@ -11,6 +11,7 @@ import com.google.cloud.firestore.QuerySnapshot;
 import org.example.firebase;
 
 import java.awt.BorderLayout;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
@@ -24,6 +25,7 @@ import javax.swing.table.DefaultTableModel;
 public class Clientes extends javax.swing.JPanel {
     private firebase firebaseInstance;
     private DefaultTableModel modeloTabla;
+
      private void MostrarPanelCliente(JPanel pag ){
         
         pag.setSize(810, 410);
@@ -43,12 +45,39 @@ public class Clientes extends javax.swing.JPanel {
     public Clientes(firebase firebaseInstance) {
         this.firebaseInstance = firebaseInstance;
         initComponents();
-
-
-
+        cargarClientesDesdeFirebase();
         AgregarCliente menucliente = new AgregarCliente (firebaseInstance);
         MostrarPanelCliente(menucliente);
-        
+    }
+
+    private void cargarClientesDesdeFirebase(){
+        DefaultTableModel modeloTabla = (DefaultTableModel) TablaClientes.getModel();
+        modeloTabla.setRowCount(0);
+
+        try{
+           Firestore db = firebaseInstance.getFirestore();
+
+            ApiFuture<QuerySnapshot> future = db.collection("Registro De Clientes").get();
+            QuerySnapshot querySnapshot = future.get();
+
+            List<String[]> listaClientes = new ArrayList<>();
+
+            for (QueryDocumentSnapshot document : querySnapshot.getDocuments()) {
+                String nombre = document.getString("Nombre");
+                String apellido = document.getString("Apellido");
+                String direccion = document.getString("Dirección");
+
+                listaClientes.add(new String[]{nombre, apellido, direccion});
+        } for (String[] cliente : listaClientes) {
+                modeloTabla.addRow(cliente);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("Error al cargar datos"+ e.getMessage());
+        }
+        }
+    public void refrescarTabla(){
+        cargarClientesDesdeFirebase();
     }
 
     /**
@@ -129,6 +158,7 @@ public class Clientes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarClienteActionPerformed
+       cargarClientesDesdeFirebase();
         AgregarCliente agcli = new AgregarCliente(firebaseInstance);
         MostrarPanelCliente(agcli);
         

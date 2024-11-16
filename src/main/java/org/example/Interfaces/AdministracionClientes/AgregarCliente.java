@@ -121,6 +121,8 @@ public class AgregarCliente extends javax.swing.JPanel {
       JOptionPane.showMessageDialog(null, "Cliente registrado correctamente");
 
 
+
+
     }//GEN-LAST:event_btnGuardarClienteActionPerformed
 
     private void txtApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoActionPerformed
