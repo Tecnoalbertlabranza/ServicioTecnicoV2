@@ -45,7 +45,7 @@ public class ServicioTecnico {
 
 		String idDocumento = nombre + " " + apellido;
 
-		firebaseInstance.insertardatos("Registro De Clientes", idDocumento, "Datos personales", datosPersonales);
+		firebaseInstance.insertardatos("Registro De Datos Personales", idDocumento, "Datos personales", datosPersonales);
 		firebaseInstance.insertardatos("Registro De Clientes", idDocumento, "Direccion", direccion);
 
 		System.out.println("Cliente registrado en Firebase con id: " + idDocumento);
