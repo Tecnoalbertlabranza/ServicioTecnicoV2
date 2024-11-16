@@ -3,22 +3,22 @@ package org.example;
 import java.util.*;
 
 public class ServicioTecnico {
-	private String NombreServicio;
+	private String nombreServicio;
 	Collection<Servicio> servicios;
 	Collection<Productos> productos;
 	List<Cliente> listaClientes;
-	private String Descripcion;
+	private String descripcion;
 
 	public List<Cliente> getListaClientes() {
 		return listaClientes;
 	}
 
 	public ServicioTecnico(String nombreServicio, Collection<Servicio> servicios, Collection<Productos> productos, List<Cliente> listaClientes, String descripcion) {
-		NombreServicio = nombreServicio;
+		this.nombreServicio = nombreServicio;
 		this.servicios = servicios;
 		this.productos = productos;
 		this.listaClientes = new ArrayList<>();
-		Descripcion = descripcion;
+		this.descripcion = descripcion;
 	}
 
 	public void RegistrarCliente(String nombre, String apellido,String direccion,firebase firebaseInstance) {
