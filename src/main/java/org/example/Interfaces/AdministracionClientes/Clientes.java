@@ -4,10 +4,7 @@
  */
 package org.example.Interfaces.AdministracionClientes;
 import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.Firestore;
-import com.google.cloud.firestore.Query;
-import com.google.cloud.firestore.QueryDocumentSnapshot;
-import com.google.cloud.firestore.QuerySnapshot;
+import com.google.cloud.firestore.*;
 import org.example.firebase;
 
 import java.awt.BorderLayout;
@@ -48,6 +45,7 @@ public class Clientes extends javax.swing.JPanel {
         cargarClientesDesdeFirebase();
         AgregarCliente menucliente = new AgregarCliente (firebaseInstance);
         MostrarPanelCliente(menucliente);
+
     }
 
     private void cargarClientesDesdeFirebase(){
@@ -60,38 +58,38 @@ public class Clientes extends javax.swing.JPanel {
         try{
            Firestore db = firebaseInstance.getFirestore();
 
-            ApiFuture<QuerySnapshot> future = db.collection("Registro De Datos Personales").get();
-            QuerySnapshot querySnapshot = future.get();
-
-            ApiFuture<QuerySnapshot> future1 = db.collection("Registro De Clientes").get();
-            QuerySnapshot querySnapshot1 = future1.get();
-
+            CollectionReference registroClientes = db.collection("Registro De Clientes");
             List<String[]> listaClientes = new ArrayList<>();
             List<String[]> listaDirecciones = new ArrayList<>();
 
-            for (QueryDocumentSnapshot document : querySnapshot.getDocuments()) {
-                //para datos personales
-                String nombre = document.getString("Nombre");
-                String apellido = document.getString("Apellido");
-                String telefono = document.getString("Telefono");
-                String email = document.getString("Email");
-                String rut = document.getString("Rut");
+            for (QueryDocumentSnapshot clienteDocument : registroClientes.get().get().getDocuments()) {
 
+                ApiFuture<QuerySnapshot> datosPersonalesFuture = clienteDocument.getReference().collection("Datos personales").get();
+                QuerySnapshot datosPersonalesSnapshot = datosPersonalesFuture.get();
 
+                for (QueryDocumentSnapshot document : datosPersonalesSnapshot.getDocuments()) {
+                    String nombre = document.getString("Nombre");
+                    String apellido = document.getString("Apellido");
+                    String telefono = document.getString("Telefono");
+                    String email = document.getString("Email");
+                    String rut = document.getString("Rut");
 
-                listaClientes.add(new String[]{nombre, apellido, telefono,email,rut});
+                    listaClientes.add(new String[]{nombre, apellido, telefono, email, rut});
+                }
 
+                ApiFuture<QuerySnapshot> direccionFuture = clienteDocument.getReference().collection("Direccion").get();
+                QuerySnapshot direccionSnapshot = direccionFuture.get();
 
-        }
-            for(QueryDocumentSnapshot document : querySnapshot1.getDocuments()){
-                
-                String region = document.getString("Region");
-                String comuna = document.getString("Comuna");
-                String calle = document.getString("Calle");
-                String numero = document.getString("Numero");
+                for (QueryDocumentSnapshot document : direccionSnapshot.getDocuments()) {
 
-                listaDirecciones.add(new String[]{region, comuna, calle, numero});
+                    String region = document.getString("Region");
+                    String comuna = document.getString("Comuna");
+                    String calle = document.getString("Calle");
+                    String numero = document.getString("Numero");
 
+                    listaDirecciones.add(new String[]{region, comuna, calle, numero});
+
+                }
             }
 
             for (String[] cliente : listaClientes) {
@@ -100,11 +98,12 @@ public class Clientes extends javax.swing.JPanel {
             for (String[] direccion : listaDirecciones) {
                 modeloDirecciones.addRow(direccion);
             }
-        }catch (Exception e){
+        }catch (ExecutionException | InterruptedException e){
             e.printStackTrace();
             System.out.println("Error al cargar datos"+ e.getMessage());
         }
-        }
+
+    }
     public void refrescarTabla(){
         cargarClientesDesdeFirebase();
     }
@@ -172,7 +171,7 @@ public class Clientes extends javax.swing.JPanel {
 
         TablaClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {},
-            new String [] {"Nombre","Apellido","Telefono","Email","Rut"
+            new String [] {"Nombre", "Apellido", "Telefono", "Email", "Rut"
             }
         ));
         jScrollPane1.setViewportView(TablaClientes);
@@ -181,8 +180,7 @@ public class Clientes extends javax.swing.JPanel {
 
         TablaDireccionClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {},
-            new String [] {
-                "Region", "Comuna", "Calle", "Numero"
+            new String [] {"Region", "Comuna", "Calle", "Numero"
             }
         ));
         jScrollPane2.setViewportView(TablaDireccionClientes);

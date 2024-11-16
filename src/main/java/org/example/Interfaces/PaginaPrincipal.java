@@ -163,7 +163,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonProductosActionPerformed
-        Productos prod = new Productos ();
+        Productos prod = new Productos (firebaseInstance);
         MostrarPanel(prod);
     }//GEN-LAST:event_BotonProductosActionPerformed
 

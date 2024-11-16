@@ -4,16 +4,22 @@
  */
 package org.example.Interfaces.AdministracionProductos;
 
+import org.example.firebase;
+
 /**
  *
  * @author basty
  */
 public class AgregarProductos extends javax.swing.JPanel {
+    private firebase firebaseInstance;
+
+
 
     /**
      * Creates new form AgregarProductos
      */
-    public AgregarProductos() {
+    public AgregarProductos(firebase firebaseInstance) {
+        this.firebaseInstance = firebaseInstance;
         initComponents();
     }
 

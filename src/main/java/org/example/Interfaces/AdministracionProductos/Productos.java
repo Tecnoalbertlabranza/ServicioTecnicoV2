@@ -4,14 +4,20 @@
  */
 package org.example.Interfaces.AdministracionProductos;
 
+import org.example.firebase;
+
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author basty
  */
 public class Productos extends javax.swing.JPanel {
+    private firebase firebaseInstance;
+    private DefaultTableModel modeloTablaProductos;
+
     
       private void MostrarPanelProducto(JPanel pag ){
         
@@ -27,10 +33,11 @@ public class Productos extends javax.swing.JPanel {
     /**
      * Creates new form Productos
      */
-    public Productos() {
+    public Productos(firebase firebaseInstance) {
+        this.firebaseInstance = firebaseInstance;
         initComponents();
         
-        AgregarProductos menuproductos = new AgregarProductos();
+        AgregarProductos menuproductos = new AgregarProductos(firebaseInstance);
         MostrarPanelProducto(menuproductos);
     }
 
@@ -111,7 +118,7 @@ public class Productos extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarProductoActionPerformed
-        AgregarProductos agrprod = new AgregarProductos();
+        AgregarProductos agrprod = new AgregarProductos(firebaseInstance);
                MostrarPanelProducto(agrprod);
     }//GEN-LAST:event_BotonAgregarProductoActionPerformed
 
