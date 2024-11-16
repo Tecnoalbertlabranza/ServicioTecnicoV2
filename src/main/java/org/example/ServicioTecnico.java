@@ -41,8 +41,22 @@ public class ServicioTecnico {
 		System.out.println("Cliente registrado en Firebase con id" + idDocumento);
 	}
 
-	public void AgregarProducto(String nombreProducto, String categoriaProducto, double valorProducto, int stockProducto){
-		productos.add(new Productos(nombreProducto, categoriaProducto, valorProducto, stockProducto));
+	public void AgregarProducto(String nombreProducto, String categoriaProducto, double valorProducto, int stockProducto, firebase firebaseInstance){
+		if (productos == null){ productos = new ArrayList<>(); }
+
+		Productos producto = new Productos(nombreProducto, categoriaProducto, valorProducto, stockProducto);
+		productos.add(producto);
+		System.out.println("Producto agregado localmente " + producto);
+
+		Map<String, Object> data = new HashMap<>();
+		data.put("Nombre", nombreProducto);
+		data.put("Categoria", categoriaProducto);
+		data.put("Valor", valorProducto);
+		data.put("Stock", stockProducto);
+		firebaseInstance.insertardatos("Registro De Productos", "Productos", data);
+		String idDocumento = "PRODUCTO_" + System.currentTimeMillis();
+		firebaseInstance.insertardatos("Registro De Productos", idDocumento, data);
+		System.out.println("Producto agregado en Firebase con id" + idDocumento);
 	}
 	public void AgregarServicioComputador(double valorServicio, String nombre, int tiempoEstimado, int tipoComputadora, int lineaDePorcesador, int usoComputadora){
 		servicios.add(new ServicioComputador(valorServicio, nombre, tiempoEstimado, tipoComputadora, lineaDePorcesador, usoComputadora));
