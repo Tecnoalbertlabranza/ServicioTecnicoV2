@@ -35,30 +35,7 @@ public class Clientes extends javax.swing.JPanel {
         PanelCliente.repaint(); 
      }
 
-     private void cargarClientesDesdeFirebase(){
-         Firestore db = firebaseInstance.getFirestore();
-         if(db==null){
-             JOptionPane.showMessageDialog(this,"no se pudo conectar con firebase");
-             return;
-         }
 
-         ApiFuture<QuerySnapshot> future = db.collection("Registro de clientes").get();
-         try {
-             List<QueryDocumentSnapshot> documentos = future.get().getDocuments();
-             modeloTabla.setRowCount(0);
-             for (QueryDocumentSnapshot doc : documentos) {
-                 Map<String, Object> data = doc.getData();
-                 String nombre = (String) data.get("Nombre");
-                 String apellido = (String) data.get("Apellido");
-                 String direccion = (String) data.get("Dirección");
-
-                 modeloTabla.addRow(new Object[]{nombre, apellido, direccion});
-             }
-         } catch (InterruptedException | ExecutionException e){
-             e.printStackTrace();
-             JOptionPane.showMessageDialog(this,"Error al cargar clientes desde firebase");
-         }
-     }
 
     /**
      * Creates new form Clientes
@@ -67,9 +44,8 @@ public class Clientes extends javax.swing.JPanel {
         this.firebaseInstance = firebaseInstance;
         initComponents();
 
-        modeloTabla = new DefaultTableModel(new String[]{"Nombre","Apellido","Direccion"},0);
-        TablaClientes.setModel(modeloTabla);
-        cargarClientesDesdeFirebase();
+
+
         AgregarCliente menucliente = new AgregarCliente (firebaseInstance);
         MostrarPanelCliente(menucliente);
         
@@ -136,13 +112,13 @@ public class Clientes extends javax.swing.JPanel {
 
         TablaClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombre", "Apellido", "Direccion"
             }
         ));
         jScrollPane1.setViewportView(TablaClientes);
@@ -155,7 +131,7 @@ public class Clientes extends javax.swing.JPanel {
     private void BotonAgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarClienteActionPerformed
         AgregarCliente agcli = new AgregarCliente(firebaseInstance);
         MostrarPanelCliente(agcli);
-        cargarClientesDesdeFirebase();
+        
     }//GEN-LAST:event_BotonAgregarClienteActionPerformed
 
     private void BotonModificarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonModificarClienteActionPerformed
