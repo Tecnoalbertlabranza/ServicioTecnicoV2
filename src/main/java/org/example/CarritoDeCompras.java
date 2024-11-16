@@ -1,10 +1,10 @@
 package org.example;
 public class CarritoDeCompras {
 
-	private int ValorTotalProductos;
+	private int valorTotalProductos;
 
 	public int getValorTotalProductos() {
-		return ValorTotalProductos;
+		return valorTotalProductos;
 	}
 
 	public void AgregarProductoCarrito() {

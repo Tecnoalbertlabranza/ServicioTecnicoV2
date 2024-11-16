@@ -3,22 +3,22 @@ package org.example;
 import java.util.*;
 
 public class ServicioTecnico {
-	private String NombreServicio;
+	private String nombreServicio;
 	Collection<Servicio> servicios;
 	Collection<Productos> productos;
 	List<Cliente> listaClientes;
-	private String Descripcion;
+	private String descripcion;
 
 	public List<Cliente> getListaClientes() {
 		return listaClientes;
 	}
 
 	public ServicioTecnico(String nombreServicio, Collection<Servicio> servicios, Collection<Productos> productos, List<Cliente> listaClientes, String descripcion) {
-		NombreServicio = nombreServicio;
+		this.nombreServicio = nombreServicio;
 		this.servicios = servicios;
 		this.productos = productos;
 		this.listaClientes = new ArrayList<>();
-		Descripcion = descripcion;
+		this.descripcion = descripcion;
 	}
 
 	public void RegistrarCliente(String nombre, String apellido,String direccion,firebase firebaseInstance) {
@@ -26,25 +26,44 @@ public class ServicioTecnico {
 			listaClientes = new ArrayList<>();
 		}
 
-
 		Cliente nuevoCliente = new Cliente(nombre, apellido, direccion);
 		listaClientes.add(nuevoCliente);
 		System.out.println("Cliente registrado localmente " + nuevoCliente);
 
+		Map<String, Object> data = new HashMap<>();
+		data.put("Nombre", nombre);
+		data.put("Apellido", apellido);
+		data.put("Dirección", direccion);
+		firebaseInstance.insertardatos("Registro De Clientes", "Clientes", data);
 
-
-
-			Map<String, Object> data = new HashMap<>();
-			data.put("Nombre", nombre);
-			data.put("Apellido", apellido);
-			data.put("Dirección", direccion);
-			firebaseInstance.insertardatos("Registro De Clientes", "Clientes", data);
-
-			String idDocumento = "CLIENTE_" + System.currentTimeMillis();
+		String idDocumento = "CLIENTE_" + System.currentTimeMillis();
 		firebaseInstance.insertardatos("Registro De Clientes", idDocumento, data);
-		    System.out.println("Cliente registrado en Firebase con id" + idDocumento);
+		System.out.println("Cliente registrado en Firebase con id" + idDocumento);
+	}
 
+	public void AgregarProducto(String nombreProducto, String categoriaProducto, double valorProducto, int stockProducto, firebase firebaseInstance){
+		if (productos == null){ productos = new ArrayList<>(); }
 
+		Productos producto = new Productos(nombreProducto, categoriaProducto, valorProducto, stockProducto);
+		productos.add(producto);
+		System.out.println("Producto agregado localmente " + producto);
+
+		Map<String, Object> data = new HashMap<>();
+		data.put("Nombre", nombreProducto);
+		data.put("Categoria", categoriaProducto);
+		data.put("Valor", valorProducto);
+		data.put("Stock", stockProducto);
+		firebaseInstance.insertardatos("Registro De Productos", "Productos", data);
+		String idDocumento = "PRODUCTO_" + System.currentTimeMillis();
+		firebaseInstance.insertardatos("Registro De Productos", idDocumento, data);
+		System.out.println("Producto agregado en Firebase con id" + idDocumento);
+	}
+	public void AgregarServicioComputador(double valorServicio, String nombre, int tiempoEstimado, int tipoComputadora, int lineaDePorcesador, int usoComputadora){
+		servicios.add(new ServicioComputador(valorServicio, nombre, tiempoEstimado, tipoComputadora, lineaDePorcesador, usoComputadora));
+	}
+
+	public void AgregarServicioConsolas(double valorServicio, String nombre, int tiempoEstimado, int modeloConsola, int marcaConsola){
+		servicios.add(new ServicioConsolas(valorServicio, nombre, tiempoEstimado, modeloConsola, marcaConsola));
 	}
 
 	public void EliminarCliente(String nombre) {

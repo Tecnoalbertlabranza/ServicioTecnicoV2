@@ -2,20 +2,20 @@ package org.example;
 import java.util.*;
 
 public class AgendaServicios {
-	private String FechaServicio;
-	List<Servicio> ServiciosRealizados;
-	private int CostoTotal;
+	private String fechaServicio;
+	List<Servicio> serviciosRealizados;
+	private int costoTotal;
 
 	public AgendaServicios(String fechaServicio, int costoTotal, List<Servicio> serviciosRealizados) {
-		FechaServicio = fechaServicio;
-		CostoTotal = costoTotal;
-		ServiciosRealizados = serviciosRealizados;
+		this.fechaServicio = fechaServicio;
+		this.costoTotal = costoTotal;
+		this.serviciosRealizados = serviciosRealizados;
 	}
 
-	public int getCostoTotal() {return CostoTotal;}
+	public int getCostoTotal() {return costoTotal;}
 
 	public Collection<Servicio> getServiciosRealizados() {
-		return ServiciosRealizados;
+		return serviciosRealizados;
 	}
 
 	public void ConsultarServicios(Cliente cliente) {
@@ -25,12 +25,12 @@ public class AgendaServicios {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		if (ServiciosRealizados != null && ServiciosRealizados.isEmpty()) {
-			sb.append("Fecha servicio: ").append(FechaServicio).append("\n");
-			for (Servicio servicio : ServiciosRealizados) {
+		if (serviciosRealizados != null && serviciosRealizados.isEmpty()) {
+			sb.append("Fecha servicio: ").append(fechaServicio).append("\n");
+			for (Servicio servicio : serviciosRealizados) {
 				sb.append(servicio.toString()).append("\n");
 			}
-			sb.append("Costo total: ").append(CostoTotal).append("\n");
+			sb.append("Costo total: ").append(costoTotal).append("\n");
 		} else {
 			sb.append("No hay servicios realizados. \n");
 		}

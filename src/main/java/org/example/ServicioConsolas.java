@@ -1,11 +1,11 @@
 package org.example;
 public class ServicioConsolas extends Servicio {
-	private int ModeloConsola;
-	private int MarcaConsola;
+	private int modeloConsola;
+	private int marcaConsola;
 
-	public ServicioConsolas(double valorServicio, String nombre, int tiempoEstimado, String detalleServicio, int modeloConsola, int marcaConsola) {
-		super(valorServicio, nombre, tiempoEstimado, detalleServicio);
-		ModeloConsola = modeloConsola;
-		MarcaConsola = marcaConsola;
+	public ServicioConsolas(double valorServicio, String nombre, int tiempoEstimado, int modeloConsola, int marcaConsola) {
+		super(valorServicio, nombre, tiempoEstimado);
+		this.modeloConsola = modeloConsola;
+		marcaConsola = marcaConsola;
 	}
 }
