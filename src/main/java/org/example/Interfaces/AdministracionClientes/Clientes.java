@@ -96,6 +96,8 @@ public class Clientes extends javax.swing.JPanel {
         BotonEliminarCliente = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaClientes = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        TablaDireccionClientes = new javax.swing.JTable();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -152,7 +154,22 @@ public class Clientes extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(TablaClientes);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 40, 330, 310));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 30, 520, 320));
+
+        TablaDireccionClientes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(TablaDireccionClientes);
+
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 30, 440, 320));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 590));
     }// </editor-fold>//GEN-END:initComponents
@@ -181,7 +198,9 @@ public class Clientes extends javax.swing.JPanel {
     private javax.swing.JButton BotonModificarCliente;
     private javax.swing.JPanel PanelCliente;
     private javax.swing.JTable TablaClientes;
+    private javax.swing.JTable TablaDireccionClientes;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }

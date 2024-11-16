@@ -40,8 +40,20 @@ public class AgregarCliente extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         txtApellido = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtDireccion = new javax.swing.JTextField();
+        txtTelefono = new javax.swing.JTextField();
         btnGuardarCliente = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        txtEmail = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        txtRut = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txtRegion = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        txtComuna = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txtCalle = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        txtNumero = new javax.swing.JTextField();
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -49,34 +61,34 @@ public class AgregarCliente extends javax.swing.JPanel {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 190, 30));
 
         jLabel2.setText("Nombre");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreActionPerformed(evt);
             }
         });
-        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 220, 20));
+        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 220, 20));
 
         jLabel3.setText("Apellido");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
 
         txtApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtApellidoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 220, 20));
+        jPanel1.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 220, 20));
 
-        jLabel5.setText("Direccion");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
+        jLabel5.setText("Telefono");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
 
-        txtDireccion.addActionListener(new java.awt.event.ActionListener() {
+        txtTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDireccionActionPerformed(evt);
+                txtTelefonoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 220, 20));
+        jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 220, 20));
 
         btnGuardarCliente.setText("Guardar Cliente");
         btnGuardarCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -84,7 +96,67 @@ public class AgregarCliente extends javax.swing.JPanel {
                 btnGuardarClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(btnGuardarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 160, 60));
+        jPanel1.add(btnGuardarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 520, 160, 60));
+
+        jLabel4.setText("Email");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
+
+        txtEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 220, 20));
+
+        jLabel6.setText("Rut");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
+
+        txtRut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRutActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtRut, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 220, 20));
+
+        jLabel7.setText("Region");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
+
+        txtRegion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRegionActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtRegion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 220, 20));
+
+        jLabel8.setText("Comuna");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, -1, -1));
+
+        txtComuna.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtComunaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 220, 20));
+
+        jLabel9.setText("calle");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, -1, -1));
+
+        txtCalle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCalleActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 220, 20));
+
+        jLabel10.setText("Numero");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, -1, -1));
+
+        txtNumero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNumeroActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 220, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -102,20 +174,20 @@ public class AgregarCliente extends javax.swing.JPanel {
 
     }//GEN-LAST:event_txtNombreActionPerformed
 
-    private void txtDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionActionPerformed
+    private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
 
-    }//GEN-LAST:event_txtDireccionActionPerformed
+    }//GEN-LAST:event_txtTelefonoActionPerformed
 
     private void btnGuardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarClienteActionPerformed
         String nombre = txtNombre.getText().trim();
         String apellido = txtApellido.getText().trim();
-        String telefono = txtDireccion.getText().trim();
-        String email = txtDireccion.getText().trim();
-        String rut = txtDireccion.getText().trim();
-        String region = txtDireccion.getText().trim();
-        String comuna = txtDireccion.getText().trim();
-        String calle = txtDireccion.getText().trim();
-        String numero = txtDireccion.getText().trim();
+        String telefono = txtTelefono.getText().trim();
+        String email = txtTelefono.getText().trim();
+        String rut = txtTelefono.getText().trim();
+        String region = txtTelefono.getText().trim();
+        String comuna = txtTelefono.getText().trim();
+        String calle = txtTelefono.getText().trim();
+        String numero = txtTelefono.getText().trim();
 
 
         if (nombre.isEmpty() || apellido.isEmpty() || telefono.isEmpty()) {
@@ -134,16 +206,52 @@ public class AgregarCliente extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApellidoActionPerformed
 
+    private void txtRutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRutActionPerformed
+
+    private void txtCalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCalleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCalleActionPerformed
+
+    private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumeroActionPerformed
+
+    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailActionPerformed
+
+    private void txtRegionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRegionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRegionActionPerformed
+
+    private void txtComunaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtComunaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtComunaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardarCliente;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtApellido;
-    private javax.swing.JTextField txtDireccion;
+    private javax.swing.JTextField txtCalle;
+    private javax.swing.JTextField txtComuna;
+    private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNumero;
+    private javax.swing.JTextField txtRegion;
+    private javax.swing.JTextField txtRut;
+    private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }

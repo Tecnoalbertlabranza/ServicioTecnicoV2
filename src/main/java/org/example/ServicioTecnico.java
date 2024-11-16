@@ -31,6 +31,8 @@ public class ServicioTecnico {
 		System.out.println("Cliente registrado localmente " + nuevoCliente);
 
 		Map<String, Object> datosPersonales = new HashMap<>();
+		datosPersonales.put("Nombre", nombre);
+		datosPersonales.put("Apellido", apellido);
 		datosPersonales.put("Teléfono", telefono);
 		datosPersonales.put("Email", email);
 		datosPersonales.put("Rut", rut);
