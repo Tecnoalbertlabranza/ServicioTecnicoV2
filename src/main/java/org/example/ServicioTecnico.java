@@ -47,8 +47,15 @@ public class ServicioTecnico {
 
 	}
 
-	public void agregarProducto(String nombreProducto, String categoriaProducto, double valorProducto, int stockProducto){
+	public void AgregarProducto(String nombreProducto, String categoriaProducto, double valorProducto, int stockProducto){
 		productos.add(new Productos(nombreProducto, categoriaProducto, valorProducto, stockProducto));
+	}
+	public void AgregarServicioComputador(double valorServicio, String nombre, int tiempoEstimado, int tipoComputadora, int lineaDePorcesador, int usoComputadora){
+		servicios.add(new ServicioComputador(valorServicio, nombre, tiempoEstimado, tipoComputadora, lineaDePorcesador, usoComputadora));
+	}
+
+	public void AgregarServicioConsolas(double valorServicio, String nombre, int tiempoEstimado, int modeloConsola, int marcaConsola){
+		servicios.add(new ServicioConsolas(valorServicio, nombre, tiempoEstimado, modeloConsola, marcaConsola));
 	}
 
 	public void EliminarCliente(String nombre) {
