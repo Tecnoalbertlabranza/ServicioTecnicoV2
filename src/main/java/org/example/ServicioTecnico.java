@@ -47,7 +47,7 @@ public class ServicioTecnico {
 	}
 
 
-	public void AgregarProducto(String nombreProducto, String categoriaProducto, double valorProducto, int stockProducto, firebase firebaseInstance) {
+	public void registrarProducto(String nombreProducto, String categoriaProducto, double valorProducto, int stockProducto, firebase firebaseInstance) {
 		if (productos == null) {
 			productos = new ArrayList<>();
 		}
@@ -71,7 +71,7 @@ public class ServicioTecnico {
 
 	}
 
-	public void AgregarServicioComputador(String nombre, double valorServicio, int tiempoEstimado, int tipoComputadora, int lineaDePorcesador, int usoComputadora){
+	public void registrarServicioComputador(String nombre, double valorServicio, int tiempoEstimado, int tipoComputadora, int lineaDePorcesador, int usoComputadora){
 		if (servicios == null) {
 			servicios = new ArrayList<>();
 		}
@@ -90,7 +90,7 @@ public class ServicioTecnico {
 
 	}
 
-	public void AgregarServicioConsolas(double valorServicio, String nombre, int tiempoEstimado, int modeloConsola, int marcaConsola){
+	public void registrarServicioConsolas(double valorServicio, String nombre, int tiempoEstimado, int modeloConsola, int marcaConsola){
 		if (servicios == null) {
 			servicios = new ArrayList<>();
 		}
