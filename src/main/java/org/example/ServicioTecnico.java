@@ -79,12 +79,41 @@ public class ServicioTecnico {
 		System.out.println("Producto agregado en Firebase con id: " + idDocumento);
 	}
 
-	public void AgregarServicioComputador(double valorServicio, String nombre, int tiempoEstimado, int tipoComputadora, int lineaDePorcesador, int usoComputadora){
-		servicios.add(new ServicioComputador(valorServicio, nombre, tiempoEstimado, tipoComputadora, lineaDePorcesador, usoComputadora));
+	public void AgregarServicioComputador(String nombre, double valorServicio, int tiempoEstimado, int tipoComputadora, int lineaDePorcesador, int usoComputadora){
+		if (servicios == null) {
+			servicios = new ArrayList<>();
+		}
+
+		ServicioComputador servicioComputador = new ServicioComputador(nombre, valorServicio, tiempoEstimado, tipoComputadora, lineaDePorcesador, usoComputadora);
+		servicios.add(servicioComputador);
+		System.out.println("Servicio agregado localmente: " + servicioComputador);
+
+		Map<String, Object> datosServicioComputador = new HashMap<>();
+		datosServicioComputador.put("Nombre", nombre);
+		datosServicioComputador.put("Valor", valorServicio);
+		datosServicioComputador.put("TiempoEstimado", tiempoEstimado);
+		datosServicioComputador.put("TipoComputadora", tipoComputadora);
+		datosServicioComputador.put("LineaDePorcesador", lineaDePorcesador);
+		datosServicioComputador.put("UsoComputadora", usoComputadora);
+
 	}
 
 	public void AgregarServicioConsolas(double valorServicio, String nombre, int tiempoEstimado, int modeloConsola, int marcaConsola){
-		servicios.add(new ServicioConsolas(valorServicio, nombre, tiempoEstimado, modeloConsola, marcaConsola));
+		if (servicios == null) {
+			servicios = new ArrayList<>();
+		}
+
+		ServicioConsolas servicioConsolas = new ServicioConsolas(nombre, valorServicio, tiempoEstimado, modeloConsola, marcaConsola);
+		servicios.add(servicioConsolas);
+		System.out.println("Servicio agregado localmente: " + servicioConsolas);
+
+		Map<String, Object> datosServicioConsolas = new HashMap<>();
+		datosServicioConsolas.put("Nombre", nombre);
+		datosServicioConsolas.put("Valor", valorServicio);
+		datosServicioConsolas.put("TiempoEstimado", tiempoEstimado);
+		datosServicioConsolas.put("ModeloConsola", modeloConsola);
+		datosServicioConsolas.put("MarcaConsola", marcaConsola);
+
 	}
 
 	public void EliminarCliente(String nombre) {

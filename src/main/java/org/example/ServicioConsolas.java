@@ -3,9 +3,9 @@ public class ServicioConsolas extends Servicio {
 	private int modeloConsola;
 	private int marcaConsola;
 
-	public ServicioConsolas(double valorServicio, String nombre, int tiempoEstimado, int modeloConsola, int marcaConsola) {
-		super(valorServicio, nombre, tiempoEstimado);
+	public ServicioConsolas(String nombre, double valorServicio, int tiempoEstimado, int modeloConsola, int marcaConsola) {
+		super(nombre, valorServicio, tiempoEstimado);
 		this.modeloConsola = modeloConsola;
-		marcaConsola = marcaConsola;
+		this.marcaConsola = marcaConsola;
 	}
 }
