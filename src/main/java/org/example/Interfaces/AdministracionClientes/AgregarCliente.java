@@ -16,12 +16,14 @@ import java.util.ArrayList;
  */
 public class AgregarCliente extends javax.swing.JPanel {
     private firebase firebaseInstance;
+    private Clientes clientespanel;
     /**
      * Creates new form AgregarCliente
      */
     public AgregarCliente(firebase firebaseInstance) {
         this.firebaseInstance = firebaseInstance;
         initComponents();
+
     }
 
     public void agregarNuevoCliente(){
@@ -39,12 +41,10 @@ public class AgregarCliente extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos");
             return;
         }
-
-
         ServicioTecnico servico = new ServicioTecnico("mi servicio",null,null,null,null);
         servico.RegistrarCliente(nombre, apellido, telefono, email, rut, region, comuna, calle, numero, firebaseInstance);
         JOptionPane.showMessageDialog(null, "Cliente registrado correctamente");
-
+        clientespanel.refrescarTabla();
     }
 
     /**
@@ -84,34 +84,37 @@ public class AgregarCliente extends javax.swing.JPanel {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 190, 30));
 
         jLabel2.setText("Nombre");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
 
+        txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreActionPerformed(evt);
             }
         });
-        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 220, 20));
+        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 220, 30));
 
         jLabel3.setText("Apellido");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
 
+        txtApellido.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtApellidoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 220, 20));
+        jPanel1.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 220, 30));
 
         jLabel5.setText("Telefono");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
 
+        txtTelefono.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTelefonoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 220, 20));
+        jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 220, 30));
 
         btnGuardarCliente.setText("Guardar Cliente");
         btnGuardarCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -124,62 +127,68 @@ public class AgregarCliente extends javax.swing.JPanel {
         jLabel4.setText("Email");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
 
+        txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailActionPerformed(evt);
             }
         });
-        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 220, 20));
+        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 220, 30));
 
         jLabel6.setText("Rut");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
 
+        txtRut.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtRut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRutActionPerformed(evt);
             }
         });
-        jPanel1.add(txtRut, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 220, 20));
+        jPanel1.add(txtRut, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 220, 30));
 
         jLabel7.setText("Region");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
 
+        txtRegion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtRegion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRegionActionPerformed(evt);
             }
         });
-        jPanel1.add(txtRegion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 220, 20));
+        jPanel1.add(txtRegion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 220, 30));
 
         jLabel8.setText("Comuna");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, -1, -1));
 
+        txtComuna.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtComuna.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtComunaActionPerformed(evt);
             }
         });
-        jPanel1.add(txtComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 220, 20));
+        jPanel1.add(txtComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 220, 30));
 
         jLabel9.setText("calle");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, -1, -1));
 
+        txtCalle.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtCalle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCalleActionPerformed(evt);
             }
         });
-        jPanel1.add(txtCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 220, 20));
+        jPanel1.add(txtCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 220, 30));
 
         jLabel10.setText("Numero");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, -1, -1));
 
+        txtNumero.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtNumero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNumeroActionPerformed(evt);
             }
         });
-        jPanel1.add(txtNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 220, 20));
+        jPanel1.add(txtNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 220, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

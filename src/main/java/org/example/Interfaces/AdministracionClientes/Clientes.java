@@ -149,7 +149,7 @@ public class Clientes extends javax.swing.JPanel {
                 BotonModificarClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(BotonModificarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 430, 130, 30));
+        jPanel1.add(BotonModificarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 440, 130, 30));
 
         BotonEliminarCliente.setText("Eliminar Cliente");
         BotonEliminarCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -157,11 +157,17 @@ public class Clientes extends javax.swing.JPanel {
                 BotonEliminarClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(BotonEliminarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 430, 120, 30));
+        jPanel1.add(BotonEliminarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 440, 120, 30));
 
         TablaClientes.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {},
-            new String [] {"Nombre", "Apellido", "Telefono", "Email", "Rut"
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Nombre", "Apellido", "Direccion"
             }
         ));
         jScrollPane1.setViewportView(TablaClientes);
@@ -169,8 +175,14 @@ public class Clientes extends javax.swing.JPanel {
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 30, 520, 320));
 
         TablaDireccionClientes.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {},
-            new String [] {"Region", "Comuna", "Calle", "Numero"
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
         jScrollPane2.setViewportView(TablaDireccionClientes);
