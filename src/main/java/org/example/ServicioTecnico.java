@@ -68,7 +68,7 @@ public class ServicioTecnico {
 
 		String idDocumento = nombreProducto;
 
-		
+
 	}
 
 	public void AgregarServicioComputador(String nombre, double valorServicio, int tiempoEstimado, int tipoComputadora, int lineaDePorcesador, int usoComputadora){

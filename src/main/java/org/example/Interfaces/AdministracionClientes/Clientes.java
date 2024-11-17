@@ -53,12 +53,18 @@ public class Clientes extends javax.swing.JPanel {
         DefaultTableModel modeloTabla = (DefaultTableModel) TablaClientes.getModel();
         modeloTabla.setRowCount(0);
 
+        DefaultTableModel modeloTablaDirecciones = (DefaultTableModel) TablaDireccionClientes.getModel();
+        modeloTablaDirecciones.setRowCount(0);
+
+
+
         try{
             Firestore db = firebaseInstance.getFirestore();
             ApiFuture<QuerySnapshot> future = db.collection("Registro De Clientes").get();
             QuerySnapshot querySnapshot = future.get();
 
             List<String[]> listaClientes = new ArrayList<>();
+            List<String[]> listaDirecciones = new ArrayList<>();
 
             for (QueryDocumentSnapshot document : querySnapshot.getDocuments()) {
                 String nombre = document.getString("Nombre");
@@ -71,10 +77,14 @@ public class Clientes extends javax.swing.JPanel {
                 String calle = document.getString("Calle");
                 String numero = document.getString("Numero");
 
-                listaClientes.add(new String[]{nombre, apellido, telefono,email,rut,region,comuna,calle,numero});
+                listaClientes.add(new String[]{nombre, apellido, telefono,email,rut,});
+                listaDirecciones.add(new String[]{region, comuna, calle, numero});
 
             } for (String[] cliente : listaClientes) {
                 modeloTabla.addRow(cliente);
+            }
+            for (String[] direccion : listaDirecciones) {
+                modeloTablaDirecciones.addRow(direccion);
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -151,7 +161,7 @@ public class Clientes extends javax.swing.JPanel {
 
         TablaClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {},
-            new String [] {"Nombre", "Apellido", "Telefono", "Email", "Rut","Region","Comuna","Calle","Numero"
+            new String [] {"Nombre", "Apellido", "Telefono", "Email", "Rut"
             }
         ));
         jScrollPane1.setViewportView(TablaClientes);
