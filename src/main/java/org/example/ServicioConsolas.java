@@ -8,4 +8,14 @@ public class ServicioConsolas extends Servicio {
 		this.modeloConsola = modeloConsola;
 		this.marcaConsola = marcaConsola;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder(super.toString());
+		sb.append(super.toString()).append("\n")
+		.append("Modelo Consola: ").append(modeloConsola).append("\n")
+		.append("Marca Consola: ").append(marcaConsola).append("\n");
+
+		return sb.toString();
+	}
 }
