@@ -4,7 +4,11 @@
  */
 package org.example.Interfaces.AdministracionProductos;
 
+import org.example.ServicioTecnico;
 import org.example.firebase;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -12,16 +16,39 @@ import org.example.firebase;
  */
 public class AgregarProductos extends javax.swing.JPanel {
     private firebase firebaseInstance;
+    private ServicioTecnico servicioTecnico;
 
 
 
     /**
      * Creates new form AgregarProductos
      */
-    public AgregarProductos(firebase firebaseInstance) {
+    public AgregarProductos(firebase firebaseInstance,ServicioTecnico servicioTecnico) {
         this.firebaseInstance = firebaseInstance;
+        this.servicioTecnico = servicioTecnico;
         initComponents();
     }
+
+    public void agegarNuevoProducto() {
+        String nombre = txtNombre.getText().trim();
+        String categoria = txtCategoria.getText().trim();
+        String valor = txtValor.getText().trim();
+        String stock = txtStock.getText().trim();
+
+        if (nombre.isEmpty() || categoria.isEmpty() || valor.isEmpty() || stock.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos");
+            return;
+        }
+        servicioTecnico.registrarProducto(nombre, categoria, Double.parseDouble(valor), Integer.parseInt(stock), firebaseInstance);
+        JOptionPane.showMessageDialog(null, "Producto registrado correctamente");
+
+        txtNombre.setText("");
+        txtCategoria.setText("");
+        txtValor.setText("");
+        txtStock.setText("");
+    }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -49,34 +76,73 @@ public class AgregarProductos extends javax.swing.JPanel {
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, -1, -1));
 
         jLabel2.setText("Nombre");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
 
         jLabel3.setText("Categoria");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
 
         jLabel4.setText("Valor");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
 
         jLabel5.setText("Stock");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
-        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 210, 20));
-        add(txtCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 210, 20));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
+
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
+        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 210, 20));
+
+        txtCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCategoriaActionPerformed(evt);
+            }
+        });
+        add(txtCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 210, 20));
 
         txtValor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtValorActionPerformed(evt);
             }
         });
-        add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 210, 20));
-        add(txtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 210, 20));
+        add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 210, 20));
+
+        txtStock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtStockActionPerformed(evt);
+            }
+        });
+        add(txtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 210, 20));
 
         btnAgregarProducto.setText("Agregar Producto");
+        btnAgregarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarProductoActionPerformed(evt);
+            }
+        });
         add(btnAgregarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 460, 150, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtValorActionPerformed
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void txtCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCategoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCategoriaActionPerformed
+
+    private void txtStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStockActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtStockActionPerformed
+
+    private void btnAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAgregarProductoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

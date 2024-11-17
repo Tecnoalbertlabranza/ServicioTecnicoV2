@@ -4,9 +4,16 @@
  */
 package org.example.Interfaces.AdministracionProductos;
 
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.Firestore;
+import com.google.cloud.firestore.QueryDocumentSnapshot;
+import com.google.cloud.firestore.QuerySnapshot;
+import org.example.ServicioTecnico;
 import org.example.firebase;
 
 import java.awt.BorderLayout;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -17,6 +24,7 @@ import javax.swing.table.DefaultTableModel;
 public class Productos extends javax.swing.JPanel {
     private firebase firebaseInstance;
     private DefaultTableModel modeloTablaProductos;
+    private ServicioTecnico servicioTecnico;
 
     
       private void MostrarPanelProducto(JPanel pag ){
@@ -30,14 +38,49 @@ public class Productos extends javax.swing.JPanel {
         PanelProductos.repaint(); 
      }
 
+     private void cargarProductosDesdeFirebase() {
+         modeloTablaProductos = (DefaultTableModel) TablaProductos.getModel();
+         modeloTablaProductos.setRowCount(0);
+
+         try {
+             Firestore db = firebaseInstance.getFirestore();
+             ApiFuture<QuerySnapshot> future = db.collection("Registro de Productos").get();
+             QuerySnapshot querySnapshot = future.get();
+
+             List<String[]> listaProductos = new ArrayList<>();
+
+             for (QueryDocumentSnapshot document : querySnapshot.getDocuments()) {
+                 String nombre = document.getString("Nombre");
+                 String categoria = document.getString("Categoria");
+                 String valor = document.getString("Valor");
+                 String stock = document.getString("Stock");
+
+                 listaProductos.add(new String[]{nombre, categoria, valor, stock});
+
+
+             }
+
+             for (String[] producto : listaProductos) {
+                 modeloTablaProductos.addRow(producto);
+             }
+         } catch (Exception e) {
+             e.printStackTrace();
+             System.out.println("Error al cargar datos" + e.getMessage());
+
+
+         }
+
+     }
+
+
     /**
      * Creates new form Productos
      */
     public Productos(firebase firebaseInstance) {
         this.firebaseInstance = firebaseInstance;
         initComponents();
-        
-        AgregarProductos menuproductos = new AgregarProductos(firebaseInstance);
+        cargarProductosDesdeFirebase();
+        AgregarProductos menuproductos = new AgregarProductos(firebaseInstance,servicioTecnico);
         MostrarPanelProducto(menuproductos);
     }
 
@@ -56,7 +99,7 @@ public class Productos extends javax.swing.JPanel {
         BotonModificarProducto = new javax.swing.JButton();
         BotonEliminarProducto = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TablaProductos = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -101,24 +144,19 @@ public class Productos extends javax.swing.JPanel {
         });
         add(BotonEliminarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 390, -1, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
+        TablaProductos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {},
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombre", "Categoria", "Valor", "Stock"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(TablaProductos);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 30, 260, 250));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 30, 360, 280));
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarProductoActionPerformed
-        AgregarProductos agrprod = new AgregarProductos(firebaseInstance);
+        AgregarProductos agrprod = new AgregarProductos(firebaseInstance, servicioTecnico);
                MostrarPanelProducto(agrprod);
     }//GEN-LAST:event_BotonAgregarProductoActionPerformed
 
@@ -138,8 +176,8 @@ public class Productos extends javax.swing.JPanel {
     private javax.swing.JButton BotonEliminarProducto;
     private javax.swing.JButton BotonModificarProducto;
     private javax.swing.JPanel PanelProductos;
+    private javax.swing.JTable TablaProductos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
