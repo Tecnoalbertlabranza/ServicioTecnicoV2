@@ -4,6 +4,7 @@
  */
 package org.example.Interfaces.AdministracionProductos;
 
+import org.example.Productos;
 import org.example.ServicioTecnico;
 import org.example.firebase;
 
@@ -16,16 +17,14 @@ import javax.swing.table.DefaultTableModel;
  */
 public class AgregarProductos extends javax.swing.JPanel {
     private firebase firebaseInstance;
-    private ServicioTecnico servicioTecnico;
-
+    private Productos productosPanel;
 
 
     /**
      * Creates new form AgregarProductos
      */
-    public AgregarProductos(firebase firebaseInstance,ServicioTecnico servicioTecnico) {
+    public AgregarProductos(firebase firebaseInstance) {
         this.firebaseInstance = firebaseInstance;
-        this.servicioTecnico = servicioTecnico;
         initComponents();
     }
 
@@ -39,13 +38,15 @@ public class AgregarProductos extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos");
             return;
         }
-        servicioTecnico.registrarProducto(nombre, categoria, Double.parseDouble(valor), Integer.parseInt(stock), firebaseInstance);
+        ServicioTecnico servicio = new ServicioTecnico("mi servicio",null,null,null,null);
+        servicio.registrarProducto(nombre, categoria, valor, stock, firebaseInstance);
         JOptionPane.showMessageDialog(null, "Producto registrado correctamente");
 
         txtNombre.setText("");
         txtCategoria.setText("");
         txtValor.setText("");
         txtStock.setText("");
+
     }
 
 
@@ -141,7 +142,7 @@ public class AgregarProductos extends javax.swing.JPanel {
     }//GEN-LAST:event_txtStockActionPerformed
 
     private void btnAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarProductoActionPerformed
-        // TODO add your handling code here:
+        agegarNuevoProducto();
     }//GEN-LAST:event_btnAgregarProductoActionPerformed
 
 

@@ -26,6 +26,7 @@ public class Productos extends javax.swing.JPanel {
     private DefaultTableModel modeloTablaProductos;
     private ServicioTecnico servicioTecnico;
 
+
     
       private void MostrarPanelProducto(JPanel pag ){
         
@@ -80,7 +81,7 @@ public class Productos extends javax.swing.JPanel {
         this.firebaseInstance = firebaseInstance;
         initComponents();
         cargarProductosDesdeFirebase();
-        AgregarProductos menuproductos = new AgregarProductos(firebaseInstance,servicioTecnico);
+        AgregarProductos menuproductos = new AgregarProductos(firebaseInstance);
         MostrarPanelProducto(menuproductos);
     }
 
@@ -156,7 +157,7 @@ public class Productos extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarProductoActionPerformed
-        AgregarProductos agrprod = new AgregarProductos(firebaseInstance, servicioTecnico);
+        AgregarProductos agrprod = new AgregarProductos(firebaseInstance);
                MostrarPanelProducto(agrprod);
     }//GEN-LAST:event_BotonAgregarProductoActionPerformed
 

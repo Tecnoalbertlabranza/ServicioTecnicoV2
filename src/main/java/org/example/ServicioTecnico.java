@@ -47,7 +47,7 @@ public class ServicioTecnico {
 	}
 
 
-	public void registrarProducto(String nombreProducto, String categoriaProducto, double valorProducto, int stockProducto, firebase firebaseInstance) {
+	public void registrarProducto(String nombreProducto, String categoriaProducto, String valorProducto, String stockProducto, firebase firebaseInstance) {
 		if (productos == null) {
 			productos = new ArrayList<>();
 		}
