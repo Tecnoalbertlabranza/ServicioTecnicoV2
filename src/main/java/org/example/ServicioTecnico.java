@@ -62,12 +62,8 @@ public class ServicioTecnico {
 		detallesProducto.put("Valor", valorProducto);
 		detallesProducto.put("Stock", stockProducto);
 
-		Map<String, Object> especificacionesProducto = new HashMap<>();
-		especificacionesProducto.put("Descripcion", "Computadora de alto rendimiento");
-		//Hay que agregar mas especificaciones del producto
-
-		String idDocumento = nombreProducto;
-
+		firebaseInstance.insertardatos("Registro de Productos",nombreProducto+""+ categoriaProducto,detallesProducto);
+		System.out.println("Producto registrado en Firebase con id" + nombreProducto+""+categoriaProducto);
 
 	}
 
