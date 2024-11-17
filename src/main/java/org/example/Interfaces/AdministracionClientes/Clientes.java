@@ -55,8 +55,6 @@ public class Clientes extends javax.swing.JPanel {
 
         try{
             Firestore db = firebaseInstance.getFirestore();
-
-
             ApiFuture<QuerySnapshot> future = db.collection("Registro De Clientes").get();
             QuerySnapshot querySnapshot = future.get();
 
@@ -65,9 +63,16 @@ public class Clientes extends javax.swing.JPanel {
             for (QueryDocumentSnapshot document : querySnapshot.getDocuments()) {
                 String nombre = document.getString("Nombre");
                 String apellido = document.getString("Apellido");
-                String direccion = document.getString("Dirección");
+                String telefono = document.getString("Telefono");
+                String email = document.getString("Email");
+                String rut = document.getString("Rut");
+                String region = document.getString("Region");
+                String comuna = document.getString("Comuna");
+                String calle = document.getString("Calle");
+                String numero = document.getString("Numero");
 
-                listaClientes.add(new String[]{nombre, apellido, direccion});
+                listaClientes.add(new String[]{nombre, apellido, telefono,email,rut,region,comuna,calle,numero});
+
             } for (String[] cliente : listaClientes) {
                 modeloTabla.addRow(cliente);
             }
@@ -146,7 +151,7 @@ public class Clientes extends javax.swing.JPanel {
 
         TablaClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {},
-            new String [] {"Nombre", "Apellido", "Telefono", "Email", "Rut"
+            new String [] {"Nombre", "Apellido", "Telefono", "Email", "Rut","Region","Comuna","Calle","Numero"
             }
         ));
         jScrollPane1.setViewportView(TablaClientes);

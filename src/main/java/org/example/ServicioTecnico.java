@@ -68,10 +68,7 @@ public class ServicioTecnico {
 
 		String idDocumento = nombreProducto;
 
-		firebaseInstance.insertardatos("Registro De Productos", idDocumento, "Detalles", detallesProducto);
-		firebaseInstance.insertardatos("Registro De Productos", idDocumento, "Especificaciones", especificacionesProducto);
-
-		System.out.println("Producto agregado en Firebase con id: " + idDocumento);
+		
 	}
 
 	public void AgregarServicioComputador(String nombre, double valorServicio, int tiempoEstimado, int tipoComputadora, int lineaDePorcesador, int usoComputadora){
