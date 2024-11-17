@@ -44,6 +44,7 @@ public class Clientes extends javax.swing.JPanel {
         this.firebaseInstance = firebaseInstance;
         initComponents();
         cargarClientesDesdeFirebase();
+        cargarDireccionesDesdeFirebse();
         AgregarCliente menucliente = new AgregarCliente (firebaseInstance);
         MostrarPanelCliente(menucliente);
 
@@ -53,48 +54,47 @@ public class Clientes extends javax.swing.JPanel {
         DefaultTableModel modeloClientes = (DefaultTableModel) TablaClientes.getModel();
         modeloClientes.setRowCount(0);
 
+        try {
+            Firestore db = firebaseInstance.getFirestore();
+            ApiFuture<QuerySnapshot> future = db.collection("Registro De Clientes").get();
+            QuerySnapshot querySnapshot = future.get();
+
+            for (QueryDocumentSnapshot document : querySnapshot.getDocuments()) {
+                String nombre = document.getString("Nombre");
+                String apellido = document.getString("Apellido");
+                String telefono = document.getString("Telefono");
+                String email = document.getString("Email");
+                String rut = document.getString("Rut");
+
+                modeloClientes.addRow(new Object[]{nombre, apellido, telefono, email, rut});
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("ERROR AL CARGAR LOS DATOS"+e.getMessage());
+        }
+    }
+
+    public void cargarDireccionesDesdeFirebse(){
         DefaultTableModel modeloDirecciones = (DefaultTableModel) TablaDireccionClientes.getModel();
         modeloDirecciones.setRowCount(0);
 
-        try{
-           Firestore fire = firebaseInstance.getFirestore();
+        try {
+            Firestore db = firebaseInstance.getFirestore();
+            ApiFuture<QuerySnapshot> future = db.collection("Registro De Direcciones de clientes").get();
+            QuerySnapshot querySnapshot = future.get();
 
-            CollectionReference registroClientes = fire.collection("Registro De Clientes");
-            List<Map<String, Object>> listaClientes = new ArrayList<>();
-            List<Map<String, Object>> listaDirecciones = new ArrayList<>();
+            for (QueryDocumentSnapshot document : querySnapshot.getDocuments()) {
+                String region = document.getString("Region");
+                String comuna = document.getString("Comuna");
+                String calle = document.getString("Calle");
+                String numero = document.getString("Numero");
 
-            for (QueryDocumentSnapshot clienteDocument : registroClientes.get().get().getDocuments()) {
-                System.out.println("Cliente id"+ clienteDocument.getId());
-
-                ApiFuture<QuerySnapshot> datosPersonalesFuture = clienteDocument.getReference().collection("Datos personales").get();
-                QuerySnapshot datosPersonalesSnapshot = datosPersonalesFuture.get();
-
-                for (QueryDocumentSnapshot document : datosPersonalesSnapshot.getDocuments()) {
-                    listaClientes.add(document.getData());
-                }
-
-                ApiFuture<QuerySnapshot> direccionFuture = clienteDocument.getReference().collection("Direccion").get();
-                QuerySnapshot direccionSnapshot = direccionFuture.get();
-
-                for (QueryDocumentSnapshot document : direccionSnapshot.getDocuments()) {
-                    listaDirecciones.add(document.getData());
-                }
+                modeloDirecciones.addRow(new Object[]{region, comuna, calle, numero});
             }
-            System.out.println("direcciones recuperados:");
-            for (Map<String, Object> direcion: listaDirecciones){
-                System.out.println(direcion);
-            }
-            System.out.println("clientes recuperados");
-            for (Map<String, Object> cliente: listaClientes){
-                System.out.println(cliente);
-            }
-
-            
-        }catch (ExecutionException | InterruptedException e){
+        }catch (Exception e){
             e.printStackTrace();
-            System.out.println("Error al cargar datos"+ e.getMessage());
+            System.out.println("ERROR AL CARGAR LOS DATOS"+e.getMessage());
         }
-
     }
     public void refrescarTabla(){
         cargarClientesDesdeFirebase();
