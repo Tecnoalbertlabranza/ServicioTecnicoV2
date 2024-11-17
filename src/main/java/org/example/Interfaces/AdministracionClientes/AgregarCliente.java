@@ -4,6 +4,7 @@
  */
 package org.example.Interfaces.AdministracionClientes;
 
+import org.example.Cliente;
 import org.example.ServicioTecnico;
 import org.example.firebase;
 
@@ -20,8 +21,9 @@ public class AgregarCliente extends javax.swing.JPanel {
     /**
      * Creates new form AgregarCliente
      */
-    public AgregarCliente(firebase firebaseInstance) {
+    public AgregarCliente(firebase firebaseInstance, Clientes clientespanel) {
         this.firebaseInstance = firebaseInstance;
+        this.clientespanel = clientespanel;
         initComponents();
 
     }

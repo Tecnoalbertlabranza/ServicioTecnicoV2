@@ -44,7 +44,7 @@ public class Clientes extends javax.swing.JPanel {
         this.firebaseInstance = firebaseInstance;
         initComponents();
         cargarClientesDesdeFirebase();
-        AgregarCliente menucliente = new AgregarCliente (firebaseInstance);
+        AgregarCliente menucliente = new AgregarCliente (firebaseInstance,this);
         MostrarPanelCliente(menucliente);
 
     }
@@ -194,7 +194,7 @@ public class Clientes extends javax.swing.JPanel {
 
     private void BotonAgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarClienteActionPerformed
        cargarClientesDesdeFirebase();
-        AgregarCliente agcli = new AgregarCliente(firebaseInstance);
+        AgregarCliente agcli = new AgregarCliente(firebaseInstance,this);
         MostrarPanelCliente(agcli);
         refrescarTabla();
         

@@ -24,7 +24,6 @@ import javax.swing.table.DefaultTableModel;
 public class Productos extends javax.swing.JPanel {
     private firebase firebaseInstance;
     private DefaultTableModel modeloTablaProductos;
-    private ServicioTecnico servicioTecnico;
 
 
     
@@ -45,43 +44,34 @@ public class Productos extends javax.swing.JPanel {
 
          try {
              Firestore db = firebaseInstance.getFirestore();
-             ApiFuture<QuerySnapshot> future = db.collection("Registro de Productos").get();
+             ApiFuture<QuerySnapshot> future = db.collection("Registro de Producto").get();
              QuerySnapshot querySnapshot = future.get();
-
-             List<String[]> listaProductos = new ArrayList<>();
 
              for (QueryDocumentSnapshot document : querySnapshot.getDocuments()) {
                  String nombre = document.getString("Nombre");
                  String categoria = document.getString("Categoria");
-                 String valor = document.getString("Valor");
-                 String stock = document.getString("Stock");
+                 double valor = document.getDouble("Valor");
+                 double stock = document.getDouble("Stock");
 
-                 listaProductos.add(new String[]{nombre, categoria, valor, stock});
+                 modeloTablaProductos.addRow(new Object[]{nombre,categoria,valor,stock});
 
-
-             }
-
-             for (String[] producto : listaProductos) {
-                 modeloTablaProductos.addRow(producto);
              }
          } catch (Exception e) {
              e.printStackTrace();
              System.out.println("Error al cargar datos" + e.getMessage());
-
-
          }
 
      }
 
 
     /**
-     * Creates new form Productos
+     * Creates new form Producto
      */
     public Productos(firebase firebaseInstance) {
         this.firebaseInstance = firebaseInstance;
         initComponents();
         cargarProductosDesdeFirebase();
-        AgregarProductos menuproductos = new AgregarProductos(firebaseInstance);
+        AgregarProductos menuproductos = new AgregarProductos(firebaseInstance,this);
         MostrarPanelProducto(menuproductos);
     }
 
@@ -157,7 +147,7 @@ public class Productos extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarProductoActionPerformed
-        AgregarProductos agrprod = new AgregarProductos(firebaseInstance);
+        AgregarProductos agrprod = new AgregarProductos(firebaseInstance,this);
                MostrarPanelProducto(agrprod);
     }//GEN-LAST:event_BotonAgregarProductoActionPerformed
 

@@ -4,12 +4,11 @@
  */
 package org.example.Interfaces.AdministracionProductos;
 
-import org.example.Productos;
+import org.example.Producto;
 import org.example.ServicioTecnico;
 import org.example.firebase;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -17,36 +16,48 @@ import javax.swing.table.DefaultTableModel;
  */
 public class AgregarProductos extends javax.swing.JPanel {
     private firebase firebaseInstance;
-    private Productos productosPanel;
+    private Productos vistaProductos;
 
 
     /**
      * Creates new form AgregarProductos
      */
-    public AgregarProductos(firebase firebaseInstance) {
+    public AgregarProductos(firebase firebaseInstance,Productos vistaProductos) {
         this.firebaseInstance = firebaseInstance;
+        this.vistaProductos = vistaProductos;
         initComponents();
     }
 
     public void agegarNuevoProducto() {
         String nombre = txtNombre.getText().trim();
         String categoria = txtCategoria.getText().trim();
-        String valor = txtValor.getText().trim();
-        String stock = txtStock.getText().trim();
+        double valor;
+        double stock;
 
-        if (nombre.isEmpty() || categoria.isEmpty() || valor.isEmpty() || stock.isEmpty()) {
+        try {
+            valor = Double.parseDouble(txtValor.getText().trim());
+            stock = Double.parseDouble(txtStock.getText().trim());
+        }catch (NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese valores numéricos en los campos Valor y Stock");
+            return;
+        }
+        if (valor <= 0 || stock <= 0) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese valores mayores a cero en los campos Valor y Stock");
+            return;
+        }
+
+        if (nombre.isEmpty() || categoria.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos");
             return;
         }
         ServicioTecnico servicio = new ServicioTecnico("mi servicio",null,null,null,null);
-        servicio.registrarProducto(nombre, categoria, valor, stock, firebaseInstance);
+        servicio.registrarProducto(nombre, categoria, valor,stock, firebaseInstance);
         JOptionPane.showMessageDialog(null, "Producto registrado correctamente");
 
         txtNombre.setText("");
         txtCategoria.setText("");
         txtValor.setText("");
         txtStock.setText("");
-
     }
 
 

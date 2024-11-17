@@ -90,7 +90,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 153, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BotonProductos.setText("Productos");
+        BotonProductos.setText("Producto");
         BotonProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonProductosActionPerformed(evt);

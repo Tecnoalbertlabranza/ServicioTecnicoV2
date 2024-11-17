@@ -5,7 +5,7 @@ import java.util.*;
 public class ServicioTecnico {
 	private String nombreServicio;
 	Collection<Servicio> servicios;
-	Collection<Productos> productos;
+	Collection<Producto> productos;
 	List<Cliente> listaClientes;
 	private String descripcion;
 
@@ -13,7 +13,7 @@ public class ServicioTecnico {
 		return listaClientes;
 	}
 
-	public ServicioTecnico(String nombreServicio, Collection<Servicio> servicios, Collection<Productos> productos, List<Cliente> listaClientes, String descripcion) {
+	public ServicioTecnico(String nombreServicio, Collection<Servicio> servicios, Collection<Producto> productos, List<Cliente> listaClientes, String descripcion) {
 		this.nombreServicio = nombreServicio;
 		this.servicios = servicios;
 		this.productos = productos;
@@ -47,12 +47,12 @@ public class ServicioTecnico {
 	}
 
 
-	public void registrarProducto(String nombreProducto, String categoriaProducto, String valorProducto, String stockProducto, firebase firebaseInstance) {
+	public void registrarProducto(String nombreProducto, String categoriaProducto, double valorProducto, double stockProducto, firebase firebaseInstance) {
 		if (productos == null) {
 			productos = new ArrayList<>();
 		}
 
-		Productos producto = new Productos(nombreProducto, categoriaProducto, valorProducto, stockProducto);
+		Producto producto = new Producto(nombreProducto, categoriaProducto, valorProducto, stockProducto);
 		productos.add(producto);
 		System.out.println("Producto agregado localmente: " + producto);
 
@@ -62,7 +62,7 @@ public class ServicioTecnico {
 		detallesProducto.put("Valor", valorProducto);
 		detallesProducto.put("Stock", stockProducto);
 
-		firebaseInstance.insertardatos("Registro de Productos",nombreProducto+""+ categoriaProducto,detallesProducto);
+		firebaseInstance.insertardatos("Registro de Producto",nombreProducto+""+ categoriaProducto,detallesProducto);
 		System.out.println("Producto registrado en Firebase con id" + nombreProducto+""+categoriaProducto);
 
 	}
@@ -123,7 +123,7 @@ public class ServicioTecnico {
 	}
 	
 	public void MostrarProductos() {
-		for (Productos producto : productos) {
+		for (Producto producto : productos) {
 			System.out.println(producto);
 		}
 	}

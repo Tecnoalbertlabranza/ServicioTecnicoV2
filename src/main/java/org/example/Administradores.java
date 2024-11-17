@@ -25,7 +25,7 @@ public class Administradores implements Usuarios {
 			System.out.println(cliente.getNombre());
 			if (!cliente.compraProductosCliente.isEmpty()) {
 				for (int j = 0; j < cliente.compraProductosCliente.size(); j++) {
-					Productos producto = cliente.compraProductosCliente.get(j);
+					Producto producto = cliente.compraProductosCliente.get(j);
 					System.out.println(producto.miniToString());
 				}
 			}
