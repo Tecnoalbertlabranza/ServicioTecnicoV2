@@ -4,9 +4,9 @@ public abstract class  Servicio {
 	private int tiempoEstimado;
 	private String nombre;
 
-	public Servicio(double valorServicio, String nombre, int tiempoEstimado) {
-		this.valorServicio = valorServicio;
+	public Servicio(String nombre, double valorServicio, int tiempoEstimado) {
 		this.nombre = nombre;
+		this.valorServicio = valorServicio;
 		this.tiempoEstimado = tiempoEstimado;
 	}
 
