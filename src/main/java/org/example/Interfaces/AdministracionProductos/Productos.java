@@ -63,6 +63,10 @@ public class Productos extends javax.swing.JPanel {
 
      }
 
+     public void refrescarTablaProductos(){
+          cargarProductosDesdeFirebase();
+     }
+
 
     /**
      * Creates new form Producto
@@ -108,8 +112,8 @@ public class Productos extends javax.swing.JPanel {
 
         add(PanelProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 590));
 
-        jLabel1.setText("Aqui ira la base de datos de productos");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 150, -1, -1));
+        jLabel1.setText("Productos ingresados : En esta tabla se mostraran todos los productos que usted registre y a medida que vaya agregando se mostraran en tiempo real");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, -1, -1));
 
         BotonAgregarProducto.setText("AgregarProducto");
         BotonAgregarProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -117,7 +121,7 @@ public class Productos extends javax.swing.JPanel {
                 BotonAgregarProductoActionPerformed(evt);
             }
         });
-        add(BotonAgregarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 390, -1, -1));
+        add(BotonAgregarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 470, -1, -1));
 
         BotonModificarProducto.setText("ModificarProducto");
         BotonModificarProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -125,7 +129,7 @@ public class Productos extends javax.swing.JPanel {
                 BotonModificarProductoActionPerformed(evt);
             }
         });
-        add(BotonModificarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 390, -1, -1));
+        add(BotonModificarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 470, -1, -1));
 
         BotonEliminarProducto.setText("EliminarProducto");
         BotonEliminarProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -133,17 +137,22 @@ public class Productos extends javax.swing.JPanel {
                 BotonEliminarProductoActionPerformed(evt);
             }
         });
-        add(BotonEliminarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 390, -1, -1));
+        add(BotonEliminarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 470, -1, -1));
 
         TablaProductos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {},
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
             new String [] {
-                "Nombre", "Categoria", "Valor", "Stock"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
         jScrollPane1.setViewportView(TablaProductos);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 30, 360, 280));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 90, 670, 330));
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarProductoActionPerformed

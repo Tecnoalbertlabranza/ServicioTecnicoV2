@@ -58,8 +58,9 @@ public class AgregarProductos extends javax.swing.JPanel {
         txtCategoria.setText("");
         txtValor.setText("");
         txtStock.setText("");
-    }
 
+        vistaProductos.refrescarTablaProductos();
+    }
 
 
     /**
