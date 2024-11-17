@@ -55,38 +55,19 @@ public class firebase {
     }
 
     public void insertardatos(
-            String tipotabla,
-            String nombretabla,
-            String rama,
+            String coleccion,
+            String documento,
             Map<String, Object> data) {
+
 
         try {
             if (firestore != null) {
-                DocumentReference docRef = firestore.collection(tipotabla).document(nombretabla);
-
+                DocumentReference docRef = firestore.collection(coleccion).document(documento);
                 ApiFuture<WriteResult> resultado = docRef.set(data);
-                WriteResult writeResult = resultado.get();
-                System.out.println("Documento principal actualizado en: " + writeResult.getUpdateTime());
-
-                Map<String, Object> direccionData = new HashMap<>();
-
-                CollectionReference direccionRef = docRef.collection("Direccion");
-
-                ApiFuture<DocumentReference> direccionResult = direccionRef.add(direccionData);
-                DocumentReference direccionDoc = direccionResult.get();
-                System.out.println("Datos agregados a la subcolección 'Direccion' con ID: " + direccionDoc.getId());
-
-                Map<String, Object> datosPersonalesData = new HashMap<>();
-
-                CollectionReference datosPersonalesRef = docRef.collection("Datos personales");
-
-                ApiFuture<DocumentReference> datosPersonalesResult = datosPersonalesRef.add(datosPersonalesData);
-                DocumentReference datosPersonalesDoc = datosPersonalesResult.get();
-                System.out.println("Datos agregados a la subcolección 'Datos personales' con ID: " + datosPersonalesDoc.getId());
-
+                System.out.println("" + resultado.get().getUpdateTime());
             }
         } catch (InterruptedException | ExecutionException e) {
-            System.err.println("Error durante la operación: " + e.getMessage());
+            System.out.println("Error durante la inicializacion "+e.getMessage());
         }
     }
 

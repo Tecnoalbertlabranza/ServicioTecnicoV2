@@ -21,34 +21,29 @@ public class ServicioTecnico {
 		this.descripcion = descripcion;
 	}
 
-	public void RegistrarCliente(String nombre, String apellido, String telefono, String email, String rut, String region, String comuna, String calle, String numero, firebase firebaseInstance) {
-		if (listaClientes == null) {
+	public void RegistrarCliente(String nombre, String apellido,String telefono,String email, String rut,String region, String comuna, String calle, String numero ,firebase firebaseInstance) {
+		if(listaClientes == null){
 			listaClientes = new ArrayList<>();
 		}
 
-		Cliente nuevoCliente = new Cliente(nombre, apellido, telefono, email, rut, region, comuna, calle, numero);
+		Cliente nuevoCliente = new Cliente(nombre, apellido, telefono, email, rut, region,comuna,calle,numero );
 		listaClientes.add(nuevoCliente);
 		System.out.println("Cliente registrado localmente " + nuevoCliente);
 
-		Map<String, Object> datosPersonales = new HashMap<>();
-		datosPersonales.put("Nombre", nombre);
-		datosPersonales.put("Apellido", apellido);
-		datosPersonales.put("Teléfono", telefono);
-		datosPersonales.put("Email", email);
-		datosPersonales.put("Rut", rut);
+			Map<String, Object> data = new HashMap<>();
+			data.put("Nombre", nombre);
+			data.put("Apellido", apellido);
+			data.put("Telefono", telefono);
+			data.put("Email", email);
+			data.put("Rut", rut);
+			data.put("Region", region);
+			data.put("Comuna", comuna);
+			data.put("Calle", calle);
+			data.put("Numero", numero);
 
-		Map<String, Object> direccion = new HashMap<>();
-		direccion.put("Region", region);
-		direccion.put("Comuna", comuna);
-		direccion.put("Calle", calle);
-		direccion.put("Numero", numero);
+		firebaseInstance.insertardatos("Registro De Clientes",nombre+""+ apellido,data);
 
-		String idDocumento = nombre + " " + apellido;
-
-		firebaseInstance.insertardatos("Registro De Clientes", idDocumento, "Datos personales", datosPersonales);
-		firebaseInstance.insertardatos("Registro De Direcciones de clientes", idDocumento, "Direccion", direccion);
-
-		System.out.println("Cliente registrado en Firebase con id: " + idDocumento);
+		System.out.println("Cliente registrado en Firebase con id" + nombre+""+apellido);
 	}
 
 

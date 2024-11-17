@@ -24,6 +24,29 @@ public class AgregarCliente extends javax.swing.JPanel {
         initComponents();
     }
 
+    public void agregarNuevoCliente(){
+        String nombre = txtNombre.getText().trim();
+        String apellido = txtApellido.getText().trim();
+        String telefono = txtTelefono.getText().trim();
+        String email = txtEmail.getText().trim();
+        String rut = txtRut.getText().trim();
+        String region = txtRegion.getText().trim();
+        String comuna = txtComuna.getText().trim();
+        String calle = txtCalle.getText().trim();
+        String numero = txtNumero.getText().trim();
+
+        if (nombre.isEmpty() || apellido.isEmpty() || telefono.isEmpty() || email.isEmpty() || rut.isEmpty() || region.isEmpty() || comuna.isEmpty() || calle.isEmpty() || numero.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos");
+            return;
+        }
+
+
+        ServicioTecnico servico = new ServicioTecnico("mi servicio",null,null,null,null);
+        servico.RegistrarCliente(nombre, apellido, telefono, email, rut, region, comuna, calle, numero, firebaseInstance);
+        JOptionPane.showMessageDialog(null, "Cliente registrado correctamente");
+
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -179,27 +202,7 @@ public class AgregarCliente extends javax.swing.JPanel {
     }//GEN-LAST:event_txtTelefonoActionPerformed
 
     private void btnGuardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarClienteActionPerformed
-        String nombre = txtNombre.getText().trim();
-        String apellido = txtApellido.getText().trim();
-        String telefono = txtTelefono.getText().trim();
-        String email = txtEmail.getText().trim();
-        String rut = txtRut.getText().trim();
-        String region = txtRegion.getText().trim();
-        String comuna = txtComuna.getText().trim();
-        String calle = txtCalle.getText().trim();
-        String numero = txtNumero.getText().trim();
-
-
-        if (nombre.isEmpty() || apellido.isEmpty() || telefono.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos");
-            return;
-        }
-
-      ServicioTecnico servico = new ServicioTecnico("mi servicio",null,null,null,null);
-      servico.RegistrarCliente(nombre, apellido, telefono, email, rut, region, comuna, calle, numero, firebaseInstance);
-      JOptionPane.showMessageDialog(null, "Cliente registrado correctamente");
-
-
+       agregarNuevoCliente();
     }//GEN-LAST:event_btnGuardarClienteActionPerformed
 
     private void txtApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoActionPerformed

@@ -44,61 +44,44 @@ public class Clientes extends javax.swing.JPanel {
         this.firebaseInstance = firebaseInstance;
         initComponents();
         cargarClientesDesdeFirebase();
-        cargarDireccionesDesdeFirebse();
         AgregarCliente menucliente = new AgregarCliente (firebaseInstance);
         MostrarPanelCliente(menucliente);
 
     }
 
     private void cargarClientesDesdeFirebase(){
-        DefaultTableModel modeloClientes = (DefaultTableModel) TablaClientes.getModel();
-        modeloClientes.setRowCount(0);
+        DefaultTableModel modeloTabla = (DefaultTableModel) TablaClientes.getModel();
+        modeloTabla.setRowCount(0);
 
-        try {
+        try{
             Firestore db = firebaseInstance.getFirestore();
+
+
             ApiFuture<QuerySnapshot> future = db.collection("Registro De Clientes").get();
             QuerySnapshot querySnapshot = future.get();
+
+            List<String[]> listaClientes = new ArrayList<>();
 
             for (QueryDocumentSnapshot document : querySnapshot.getDocuments()) {
                 String nombre = document.getString("Nombre");
                 String apellido = document.getString("Apellido");
-                String telefono = document.getString("Telefono");
-                String email = document.getString("Email");
-                String rut = document.getString("Rut");
+                String direccion = document.getString("Dirección");
 
-                modeloClientes.addRow(new Object[]{nombre, apellido, telefono, email, rut});
+                listaClientes.add(new String[]{nombre, apellido, direccion});
+            } for (String[] cliente : listaClientes) {
+                modeloTabla.addRow(cliente);
             }
         }catch (Exception e){
             e.printStackTrace();
-            System.out.println("ERROR AL CARGAR LOS DATOS"+e.getMessage());
-        }
-    }
-
-    public void cargarDireccionesDesdeFirebse(){
-        DefaultTableModel modeloDirecciones = (DefaultTableModel) TablaDireccionClientes.getModel();
-        modeloDirecciones.setRowCount(0);
-
-        try {
-            Firestore db = firebaseInstance.getFirestore();
-            ApiFuture<QuerySnapshot> future = db.collection("Registro De Direcciones de clientes").get();
-            QuerySnapshot querySnapshot = future.get();
-
-            for (QueryDocumentSnapshot document : querySnapshot.getDocuments()) {
-                String region = document.getString("Region");
-                String comuna = document.getString("Comuna");
-                String calle = document.getString("Calle");
-                String numero = document.getString("Numero");
-
-                modeloDirecciones.addRow(new Object[]{region, comuna, calle, numero});
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-            System.out.println("ERROR AL CARGAR LOS DATOS"+e.getMessage());
+            System.out.println("Error al cargar datos"+ e.getMessage());
         }
     }
     public void refrescarTabla(){
         cargarClientesDesdeFirebase();
     }
+
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
