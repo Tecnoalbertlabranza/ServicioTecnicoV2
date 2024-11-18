@@ -4,23 +4,56 @@
  */
 package org.example.Interfaces.AdministracionClientes;
 
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.CollectionReference;
+import com.google.cloud.firestore.Firestore;
+import com.google.cloud.firestore.QueryDocumentSnapshot;
+import com.google.cloud.firestore.QuerySnapshot;
 import org.example.ServicioTecnico;
+import org.example.firebase;
 
 import javax.swing.*;
+import java.util.concurrent.ExecutionException;
 
 /**
  *
  * @author basty
  */
 public class EliminarCliente extends javax.swing.JPanel {
-    private ServicioTecnico servicioTecnico;
+
+    private firebase firebaseInstance;
 
     /**
      * Creates new form EliminarCliente
      */
-    public EliminarCliente() {
-        this.servicioTecnico = new ServicioTecnico("Mi servicio",null,null,null,null);
+    public EliminarCliente(firebase firebaseInstance) {
+        this.firebaseInstance = firebaseInstance;
+
         initComponents();
+    }
+
+    private void eliminarClientePorRut(String rut){
+        try{
+            Firestore db = firebaseInstance.getFirestore();
+            CollectionReference collectionRef = db.collection("Registro De Clientes");
+            ApiFuture<QuerySnapshot> query = collectionRef.whereEqualTo("Rut",rut).get();
+            QuerySnapshot querySnapshot = query.get();
+
+            if(!querySnapshot.isEmpty()){
+                for(QueryDocumentSnapshot document : querySnapshot.getDocuments()){
+                    document.getReference().delete().get();
+                    System.out.println("Cliente con Rut"+ rut +"Eliminado de la firebase");
+                }
+                JOptionPane.showMessageDialog(null, "Cliente con Rut "+ rut +" eliminado de la firebase");
+            }else {
+                JOptionPane.showMessageDialog(null, "No hay clientes con Rut "+ rut +" en la firebase");
+                System.out.println("No se encontro un cliente con rut"+ rut);
+            }
+        }catch (InterruptedException| ExecutionException e){
+            e.printStackTrace();
+            System.err.println("Error durante la operacion"+e.getMessage());
+        }
+
     }
 
 
@@ -70,6 +103,12 @@ public class EliminarCliente extends javax.swing.JPanel {
     }//GEN-LAST:event_txtEliminarClientePorRutActionPerformed
 
     private void BtnEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarClienteActionPerformed
+         String rut = txtEliminarClientePorRut.getText().trim();
+         if(rut.isEmpty()){
+             JOptionPane.showMessageDialog(null, "Debe ingresar el rut del cliente");
+             return;
+         }
+         eliminarClientePorRut(rut);
 
 
     }//GEN-LAST:event_BtnEliminarClienteActionPerformed

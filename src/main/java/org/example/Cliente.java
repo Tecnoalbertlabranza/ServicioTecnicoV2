@@ -31,6 +31,10 @@ public class Cliente implements Usuarios {
 		this.numero = numero;
 	}
 
+	public String getApellido(){
+		return apellido;
+	}
+
 	public String getNombre() {
 		return nombre;
 	}

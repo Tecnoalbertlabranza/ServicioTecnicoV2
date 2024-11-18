@@ -22,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Clientes extends javax.swing.JPanel {
     private firebase firebaseInstance;
-    private DefaultTableModel modeloTabla;
+
 
      private void MostrarPanelCliente(JPanel pag ){
         
@@ -206,8 +206,7 @@ public class Clientes extends javax.swing.JPanel {
     }//GEN-LAST:event_BotonModificarClienteActionPerformed
 
     private void BotonEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarClienteActionPerformed
-        this.firebaseInstance = firebaseInstance;
-        EliminarCliente elicli = new EliminarCliente ();
+        EliminarCliente elicli = new EliminarCliente (firebaseInstance);
         MostrarPanelCliente(elicli);
     }//GEN-LAST:event_BotonEliminarClienteActionPerformed
 

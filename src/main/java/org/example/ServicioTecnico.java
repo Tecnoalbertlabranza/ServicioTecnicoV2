@@ -114,8 +114,9 @@ public class ServicioTecnico {
 			Cliente cliente = listaClientes.get(i);
 			if (cliente.getRut().equalsIgnoreCase(rut)) {
 				listaClientes.remove(cliente);
+				System.out.println("Cliente eliminado localmente"+cliente);
 
-				firebaseInstance.eliminarDatos("Registro De Clientes",cliente.getRut());
+				firebaseInstance.eliminarDatos("Registro De Clientes",cliente.getNombre()+" "+cliente.getApellido());
 				System.out.println("Cliente "+cliente.getNombre()+"eliminado exitosamente");
 				return;
 			}
