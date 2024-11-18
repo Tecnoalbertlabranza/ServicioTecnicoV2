@@ -167,7 +167,7 @@ public class Clientes extends javax.swing.JPanel {
                 {null, null, null}
             },
             new String [] {
-                "Nombre", "Apellido", "Direccion"
+                "Nombre", "Apellido", "Direccion","Rut"
             }
         ));
         jScrollPane1.setViewportView(TablaClientes);

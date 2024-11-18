@@ -4,18 +4,28 @@
  */
 package org.example.Interfaces.AdministracionClientes;
 
+import org.example.ServicioTecnico;
+
+import javax.swing.*;
+
 /**
  *
  * @author basty
  */
 public class EliminarCliente extends javax.swing.JPanel {
+    private ServicioTecnico servicioTecnico;
 
     /**
      * Creates new form EliminarCliente
      */
     public EliminarCliente() {
+        this.servicioTecnico = new ServicioTecnico("Mi servicio",null,null,null,null);
         initComponents();
     }
+
+
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -60,7 +70,8 @@ public class EliminarCliente extends javax.swing.JPanel {
     }//GEN-LAST:event_txtEliminarClientePorRutActionPerformed
 
     private void BtnEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarClienteActionPerformed
-        // TODO add your handling code here:
+
+
     }//GEN-LAST:event_BtnEliminarClienteActionPerformed
 
 

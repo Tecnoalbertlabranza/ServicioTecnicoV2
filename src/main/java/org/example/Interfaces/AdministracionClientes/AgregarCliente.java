@@ -16,12 +16,14 @@ import java.util.ArrayList;
  * @author basty
  */
 public class AgregarCliente extends javax.swing.JPanel {
+    private ServicioTecnico servicioTecnico;
     private firebase firebaseInstance;
     private Clientes clientespanel;
     /**
      * Creates new form AgregarCliente
      */
     public AgregarCliente(firebase firebaseInstance, Clientes clientespanel) {
+        this.servicioTecnico = new ServicioTecnico("mi servicio",null,null,null,null);
         this.firebaseInstance = firebaseInstance;
         this.clientespanel = clientespanel;
         initComponents();
@@ -43,8 +45,8 @@ public class AgregarCliente extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos");
             return;
         }
-        ServicioTecnico servico = new ServicioTecnico("mi servicio",null,null,null,null);
-        servico.RegistrarCliente(nombre, apellido, telefono, email, rut, region, comuna, calle, numero, firebaseInstance);
+
+        servicioTecnico.RegistrarCliente(nombre, apellido, telefono, email, rut, region, comuna, calle, numero, firebaseInstance);
         JOptionPane.showMessageDialog(null, "Cliente registrado correctamente");
         clientespanel.refrescarTabla();
     }

@@ -37,7 +37,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
    
     
     public PaginaPrincipal() {
-        
+
         firebaseInstance = new firebase();
         firebaseInstance.inicializarconexion();
         initComponents();
