@@ -4,9 +4,15 @@
  */
 package org.example.Interfaces.AdministracionServiciosPc;
 
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.Firestore;
+import com.google.cloud.firestore.QueryDocumentSnapshot;
+import com.google.cloud.firestore.QuerySnapshot;
 import org.example.firebase;
 
 import java.awt.BorderLayout;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -36,6 +42,36 @@ public class ServiciosPc extends javax.swing.JPanel {
         initComponents();
         AgregarServiciosPc agrserpc = new AgregarServiciosPc(firebaseInstance);
         MostrarPanelServiciosPc(agrserpc);
+        cargarServiciosPcEnTabla();
+    }
+
+    private void cargarServiciosPcEnTabla(){
+        DefaultTableModel modeloTablaServicioPc = (DefaultTableModel) TablaServiciosPC.getModel();
+        modeloTablaServicioPc.setRowCount(0);
+
+
+        try{
+            Firestore db = firebaseInstance.getFirestore();
+            ApiFuture<QuerySnapshot> future = db.collection("Registro de servicio computador").get();
+            QuerySnapshot querySnapshot = future.get();
+
+            List<String[]> listaServiciosPc = new ArrayList<>();
+
+            for (QueryDocumentSnapshot document : querySnapshot.getDocuments()) {
+
+                String nombre = document.getString("Nombre");
+                double valorserviciopc = document.getDouble("Valor");
+                String tiempoestimado = document.getString("TiempoEstimado");
+                String tipocomputadora = document.getString("TipoComputadora");
+                String lineadeprocesador = document.getString("LineaDePorcesador");
+                String usocomputadora = document.getString("UsoComputadora");
+
+                modeloTablaServicioPc.addRow(new Object[]{nombre,valorserviciopc,tiempoestimado,tipocomputadora,lineadeprocesador,usocomputadora});
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("Error al cargar datos"+ e.getMessage());
+        }
     }
     
 
@@ -111,7 +147,7 @@ public class ServiciosPc extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombre", "Valor", "Tiempo Estimado", "TipoComputadora","LineaProcesador","UsoDeComputadora"
             }
         ));
         jScrollPane1.setViewportView(TablaServiciosPC);

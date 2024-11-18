@@ -77,8 +77,6 @@ public class Clientes extends javax.swing.JPanel {
                 String calle = document.getString("Calle");
                 String numero = document.getString("Numero");
 
-                System.out.println("Nombre: " + nombre + ", Apellido: " + apellido + ", Telefono: " + telefono + ", Email: " + email + ", Rut: " + rut + ", Region: " + region + ", Comuna: " + comuna + ", Calle: " + calle + ", Numero: " + numero);
-
                 listaClientes.add(new String[]{nombre, apellido, telefono,email,rut,});
                 listaDirecciones.add(new String[]{region, comuna, calle, numero});
 
@@ -208,6 +206,7 @@ public class Clientes extends javax.swing.JPanel {
     }//GEN-LAST:event_BotonModificarClienteActionPerformed
 
     private void BotonEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarClienteActionPerformed
+        this.firebaseInstance = firebaseInstance;
         EliminarCliente elicli = new EliminarCliente ();
         MostrarPanelCliente(elicli);
     }//GEN-LAST:event_BotonEliminarClienteActionPerformed
