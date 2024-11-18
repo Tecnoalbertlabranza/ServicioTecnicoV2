@@ -31,8 +31,6 @@ public class ServicioTecnico {
 		System.out.println("Cliente registrado localmente " + nuevoCliente);
 
 			Map<String, Object> data = new HashMap<>();
-			data.put("Nombre", nombre);
-			data.put("Apellido", apellido);
 			data.put("Telefono", telefono);
 			data.put("Email", email);
 			data.put("Rut", rut);
@@ -41,9 +39,9 @@ public class ServicioTecnico {
 			data.put("Calle", calle);
 			data.put("Numero", numero);
 
-		firebaseInstance.insertardatos("Registro De Clientes",nombre+""+ apellido,data);
+		firebaseInstance.insertardatos("Registro De Clientes",nombre+" "+ apellido,data);
 
-		System.out.println("Cliente registrado en Firebase con id" + nombre+""+apellido);
+		System.out.println("Cliente registrado en Firebase con id" + nombre+" "+apellido);
 	}
 
 
@@ -57,13 +55,12 @@ public class ServicioTecnico {
 		System.out.println("Producto agregado localmente: " + producto);
 
 		Map<String, Object> detallesProducto = new HashMap<>();
-		detallesProducto.put("Nombre", nombreProducto);
 		detallesProducto.put("Categoria", categoriaProducto);
 		detallesProducto.put("Valor", valorProducto);
 		detallesProducto.put("Stock", stockProducto);
 
-		firebaseInstance.insertardatos("Registro de Producto",nombreProducto+""+ categoriaProducto,detallesProducto);
-		System.out.println("Producto registrado en Firebase con id" + nombreProducto+""+categoriaProducto);
+		firebaseInstance.insertardatos("Registro de Producto",nombreProducto+" ",detallesProducto);
+		System.out.println("Producto registrado en Firebase con id" + nombreProducto);
 
 	}
 
