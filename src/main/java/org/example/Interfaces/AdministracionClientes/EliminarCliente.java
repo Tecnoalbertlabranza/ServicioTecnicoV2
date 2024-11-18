@@ -28,22 +28,46 @@ public class EliminarCliente extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtEliminarClientePorRut = new javax.swing.JTextField();
+        BtnEliminarCliente = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Aqui se eliminaran los clientes");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, -1, -1));
 
-        jLabel2.setText("Ingrese el nombre de el cliente al que desee eliminar ");
+        jLabel2.setText("Ingrese el rut de el cliente que decee eliminar");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 290, 30));
+
+        txtEliminarClientePorRut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEliminarClientePorRutActionPerformed(evt);
+            }
+        });
+        add(txtEliminarClientePorRut, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 290, 30));
+
+        BtnEliminarCliente.setText("Eliminar cliente");
+        BtnEliminarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminarClienteActionPerformed(evt);
+            }
+        });
+        add(BtnEliminarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 250, 120));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtEliminarClientePorRutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEliminarClientePorRutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEliminarClientePorRutActionPerformed
+
+    private void BtnEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnEliminarClienteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnEliminarCliente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtEliminarClientePorRut;
     // End of variables declaration//GEN-END:variables
 }
