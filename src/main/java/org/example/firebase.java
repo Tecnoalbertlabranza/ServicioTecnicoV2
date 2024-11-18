@@ -24,7 +24,6 @@ public class firebase {
     }
 
 
-
     public void inicializarconexion() {
         try {
             ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
@@ -47,8 +46,8 @@ public class firebase {
         }
     }
 
-    public Firestore getFirestore(){
-        if (firestore == null){
+    public Firestore getFirestore() {
+        if (firestore == null) {
             throw new IllegalStateException("Firestore no se inicializo . debes llamar a inicializarconexion() primero");
         }
         return firestore;
@@ -67,9 +66,20 @@ public class firebase {
                 System.out.println("" + resultado.get().getUpdateTime());
             }
         } catch (InterruptedException | ExecutionException e) {
-            System.out.println("Error durante la inicializacion "+e.getMessage());
+            System.out.println("Error durante la inicializacion " + e.getMessage());
         }
     }
 
 
+    public void eliminarDatos(String coleccion, String documento) {
+        try {
+            if (firestore != null) {
+                DocumentReference docRef = firestore.collection(coleccion).document(documento);
+                ApiFuture<WriteResult> resultado = docRef.delete();
+                System.out.println("documento eliminado en"+ resultado.get().getUpdateTime());
+            }
+        } catch (InterruptedException | ExecutionException e) {
+            System.out.println("Error durante la operación" + e.getMessage());
+        }
+    }
 }

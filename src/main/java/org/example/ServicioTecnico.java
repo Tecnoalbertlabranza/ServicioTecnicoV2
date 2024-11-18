@@ -109,13 +109,18 @@ public class ServicioTecnico {
 		System.out.println("Servicio consola registrado en Firebase con id" + nombre + "" + valorServicio);
 	}
 
-	public void EliminarCliente(String rut) {
+	public void EliminarCliente(String rut, firebase firebaseInstance) {
 		for (int i = 0; i < listaClientes.size(); i++) {
 			Cliente cliente = listaClientes.get(i);
 			if (cliente.getRut().equalsIgnoreCase(rut)) {
 				listaClientes.remove(cliente);
+
+				firebaseInstance.eliminarDatos("Registro De Clientes",cliente.getRut());
+				System.out.println("Cliente "+cliente.getNombre()+"eliminado exitosamente");
+				return;
 			}
 		}
+		System.out.println("Cliente con RUT "+rut+"no encontrado");
 	}
 
 	public void EliminarServicio(String nombreServicio) {
