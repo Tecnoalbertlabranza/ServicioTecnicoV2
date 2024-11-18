@@ -35,6 +35,11 @@ public class Cliente implements Usuarios {
 		return nombre;
 	}
 
+
+	public String getRut() {
+		return rut;
+	}
+
 	public void IniciarSesion() {
 		System.out.println("hola mundo lolaso");
 

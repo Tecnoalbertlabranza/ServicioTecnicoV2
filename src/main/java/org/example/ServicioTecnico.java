@@ -109,9 +109,10 @@ public class ServicioTecnico {
 		System.out.println("Servicio consola registrado en Firebase con id" + nombre + "" + valorServicio);
 	}
 
-	public void EliminarCliente(String nombre) {
-		for (Cliente cliente : listaClientes) {
-			if (cliente.getNombre().equalsIgnoreCase(nombre)) {
+	public void EliminarCliente(String rut) {
+		for (int i = 0; i < listaClientes.size(); i++) {
+			Cliente cliente = listaClientes.get(i);
+			if (cliente.getRut().equalsIgnoreCase(rut)) {
 				listaClientes.remove(cliente);
 			}
 		}
