@@ -4,6 +4,8 @@
  */
 package org.example.Interfaces.AdministracionServiciosPc;
 
+import org.example.firebase;
+
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
@@ -12,6 +14,10 @@ import javax.swing.JPanel;
  * @author basty
  */
 public class ServiciosPc extends javax.swing.JPanel {
+    private firebase firebaseInstance;
+
+
+
       private void MostrarPanelServiciosPc(JPanel pag ){
         
         pag.setSize(1500, 590);
@@ -26,9 +32,9 @@ public class ServiciosPc extends javax.swing.JPanel {
     /**
      * Creates new form ServiciosPc
      */
-    public ServiciosPc() {
+    public ServiciosPc(firebase firebaseInstance) {
+        this.firebaseInstance = firebaseInstance;
         initComponents();
-        
         AgregarServiciosPc agrserpc = new AgregarServiciosPc();
         MostrarPanelServiciosPc(agrserpc);
     }

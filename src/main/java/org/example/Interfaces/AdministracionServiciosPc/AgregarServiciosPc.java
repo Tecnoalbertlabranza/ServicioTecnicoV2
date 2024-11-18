@@ -6,6 +6,10 @@ package org.example.Interfaces.AdministracionServiciosPc;
 
 import org.example.ServicioComputador;
 import org.example.ServicioTecnico;
+import org.example.firebase;
+import java.util.ArrayList;
+import java.util.List;
+
 
 import javax.swing.*;
 
@@ -14,6 +18,8 @@ import javax.swing.*;
  * @author basty
  */
 public class AgregarServiciosPc extends javax.swing.JPanel {
+    private ServicioTecnico servicioTecnico;
+    private firebase firebaseInstance;
 
     /**
      * Creates new form AgregarServiciosPc
@@ -21,41 +27,39 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
    public void AgregarServicioParaPc(){
        String nombre = txtNombre.getText();
        double valorServicio;
-       String tiempoEstimado = txtTiempoEstimado.getText();
-       String tipoComputadora = txtTipoDeComputador.getText();
-       String usoComputadora = txtUsoDeComputadora.getText();
 
-       try{
+       try {
            valorServicio = Double.parseDouble(txtValorServicioPc.getText());
-
-           ServicioComputador servicioPc = new ServicioComputador(
-                   nombre,
-                   valorServicio,
-                   tiempoEstimado,
-                   tipoComputadora,
-                   usoComputadora
-           );
-
-           ServicioTecnico servicioTecnico = new ServicioTecnico("Mi servicio",null,null,null,null);
-           servicioTecnico.registrarServicioComputador(servicioPc);
-
-           JOptionPane.showMessageDialog(null, "Servicio para PC registrado correctamente");
-
-           txtNombre.setText("");
-           txtValorServicioPc.setText("");
-           txtDetalleServicioPc.setText("");
-           txtTiempoEstimado.setText("");
-           txtTipoDeComputador.setText("");
-           txtUsoDeComputadora.setText("");
-       }catch (NumberFormatException e){
-           JOptionPane.showMessageDialog(this, "Por favor, ingrese un valor numérico en el campo Valor del Servicio","Error",JOptionPane.ERROR_MESSAGE);
+       }catch (NumberFormatException ex){
+           JOptionPane.showMessageDialog(this, "Por favor, ingrese un valor numérico en el campo Valor");
+           return;
        }
+
+       String tiempoEstimado = txtTiempoEstimado.getText();
+       String tipoDeComputadora = txtTipoDeComputador.getText();
+       String lineaDeProcesador = txtLineaDeProcesador.getText();
+       String usoDeComputadora = txtUsoDeComputadora.getText();
+
+       if(nombre.isEmpty()|| tiempoEstimado.isEmpty()||tipoDeComputadora.isEmpty()||lineaDeProcesador.isEmpty()||usoDeComputadora.isEmpty()){
+           JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos");
+           return;
+       }
+       servicioTecnico.registrarServicioComputador(nombre,valorServicio,tiempoEstimado,tipoDeComputadora,lineaDeProcesador,usoDeComputadora,firebaseInstance);
+       JOptionPane.showMessageDialog(this, "Servicio agregado correctamente");
+
+       txtNombre.setText("");
+       txtValorServicioPc.setText("");
+       txtTiempoEstimado.setText("");
+       txtTipoDeComputador.setText("");
+       txtLineaDeProcesador.setText("");
+       txtUsoDeComputadora.setText("");
 
    }
 
 
 
     public AgregarServiciosPc() {
+
         initComponents();
     }
 
@@ -82,6 +86,8 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         txtUsoDeComputadora = new javax.swing.JTextField();
         btnAgregarServiciosPc = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        txtLineaDeProcesador = new javax.swing.JTextField();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -155,6 +161,10 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
             }
         });
         add(btnAgregarServiciosPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 460, 150, 40));
+
+        jLabel8.setText("Linea De Procesador");
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
+        add(txtLineaDeProcesador, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 260, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtUsoDeComputadoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsoDeComputadoraActionPerformed
@@ -182,7 +192,7 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
     }//GEN-LAST:event_txtTipoDeComputadorActionPerformed
 
     private void btnAgregarServiciosPcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarServiciosPcActionPerformed
-        // TODO add your handling code here:
+        AgregarServicioParaPc();
     }//GEN-LAST:event_btnAgregarServiciosPcActionPerformed
 
 
@@ -195,7 +205,9 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField txtDetalleServicioPc;
+    private javax.swing.JTextField txtLineaDeProcesador;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtTiempoEstimado;
     private javax.swing.JTextField txtTipoDeComputador;
