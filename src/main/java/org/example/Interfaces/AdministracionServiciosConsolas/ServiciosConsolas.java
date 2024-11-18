@@ -4,6 +4,8 @@
  */
 package org.example.Interfaces.AdministracionServiciosConsolas;
 
+import org.example.firebase;
+
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
@@ -12,6 +14,8 @@ import javax.swing.JPanel;
  * @author basty
  */
 public class ServiciosConsolas extends javax.swing.JPanel {
+    private firebase firebaseInstance;
+
       private void MostrarPanelConsolas(JPanel pag ){
         
         pag.setSize(1500, 590);
@@ -26,7 +30,7 @@ public class ServiciosConsolas extends javax.swing.JPanel {
     /**
      * Creates new form ServiciosConsolas
      */
-    public ServiciosConsolas() {
+    public ServiciosConsolas(firebase firebaseInstance) {
         initComponents();
         
         AgregarServicioConsola menuconsolas = new AgregarServicioConsola();

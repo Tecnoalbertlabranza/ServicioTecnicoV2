@@ -168,7 +168,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonProductosActionPerformed
 
     private void BotonServiciosConsolasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonServiciosConsolasActionPerformed
-       ServiciosConsolas sercon = new ServiciosConsolas();
+       ServiciosConsolas sercon = new ServiciosConsolas(firebaseInstance);
        MostrarPanel(sercon);
     }//GEN-LAST:event_BotonServiciosConsolasActionPerformed
 

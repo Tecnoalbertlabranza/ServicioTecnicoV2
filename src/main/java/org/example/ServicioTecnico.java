@@ -21,29 +21,29 @@ public class ServicioTecnico {
 		this.descripcion = descripcion;
 	}
 
-	public void RegistrarCliente(String nombre, String apellido,String telefono,String email, String rut,String region, String comuna, String calle, String numero ,firebase firebaseInstance) {
-		if(listaClientes == null){
+	public void RegistrarCliente(String nombre, String apellido, String telefono, String email, String rut, String region, String comuna, String calle, String numero, firebase firebaseInstance) {
+		if (listaClientes == null) {
 			listaClientes = new ArrayList<>();
 		}
 
-		Cliente nuevoCliente = new Cliente(nombre, apellido, telefono, email, rut, region,comuna,calle,numero );
+		Cliente nuevoCliente = new Cliente(nombre, apellido, telefono, email, rut, region, comuna, calle, numero);
 		listaClientes.add(nuevoCliente);
 		System.out.println("Cliente registrado localmente " + nuevoCliente);
 
-			Map<String, Object> data = new HashMap<>();
-			data.put("Nombre",nombre);
-			data.put("Apellido", apellido);
-			data.put("Telefono", telefono);
-			data.put("Email", email);
-			data.put("Rut", rut);
-			data.put("Region", region);
-			data.put("Comuna", comuna);
-			data.put("Calle", calle);
-			data.put("Numero", numero);
+		Map<String, Object> data = new HashMap<>();
+		data.put("Nombre", nombre);
+		data.put("Apellido", apellido);
+		data.put("Telefono", telefono);
+		data.put("Email", email);
+		data.put("Rut", rut);
+		data.put("Region", region);
+		data.put("Comuna", comuna);
+		data.put("Calle", calle);
+		data.put("Numero", numero);
 
-		firebaseInstance.insertardatos("Registro De Clientes",nombre+" "+ apellido,data);
+		firebaseInstance.insertardatos("Registro De Clientes", nombre + " " + apellido, data);
 
-		System.out.println("Cliente registrado en Firebase con id" + nombre+" "+apellido);
+		System.out.println("Cliente registrado en Firebase con id" + nombre + " " + apellido);
 	}
 
 
@@ -63,12 +63,12 @@ public class ServicioTecnico {
 		detallesProducto.put("Valor", valorProducto);
 		detallesProducto.put("Stock", stockProducto);
 
-		firebaseInstance.insertardatos("Registro de Producto",nombreProducto+" ",detallesProducto);
+		firebaseInstance.insertardatos("Registro de Producto", nombreProducto + " ", detallesProducto);
 		System.out.println("Producto registrado en Firebase con id" + nombreProducto);
 
 	}
 
-	public void registrarServicioComputador(String nombre, double valorServicio, String tiempoEstimado, String tipoComputadora, String lineaDePorcesador, String usoComputadora, firebase firebaseInstance){
+	public void registrarServicioComputador(String nombre, double valorServicio, String tiempoEstimado, String tipoComputadora, String lineaDePorcesador, String usoComputadora, firebase firebaseInstance) {
 		if (servicios == null) {
 			servicios = new ArrayList<>();
 		}
@@ -85,11 +85,11 @@ public class ServicioTecnico {
 		datosServicioComputador.put("LineaDePorcesador", lineaDePorcesador);
 		datosServicioComputador.put("UsoComputadora", usoComputadora);
 
-		firebaseInstance.insertardatos("Registro de servicio computador", nombre+""+ valorServicio,datosServicioComputador);
-		System.out.println("Servicio computador registrado en firebase con id"+ nombre+""+valorServicio);
+		firebaseInstance.insertardatos("Registro de servicio computador", nombre + " " + valorServicio, datosServicioComputador);
+		System.out.println("Servicio computador registrado en firebase con id" + nombre + " " + valorServicio);
 	}
 
-	public void registrarServicioConsolas(double valorServicio, String nombre, String tiempoEstimado, String modeloConsola, String marcaConsola, firebase firebaseInstance){
+	public void registrarServicioConsolas(double valorServicio, String nombre, String tiempoEstimado, String modeloConsola, String marcaConsola, firebase firebaseInstance) {
 		if (servicios == null) {
 			servicios = new ArrayList<>();
 		}
@@ -105,8 +105,8 @@ public class ServicioTecnico {
 		datosServicioConsolas.put("ModeloConsola", modeloConsola);
 		datosServicioConsolas.put("MarcaConsola", marcaConsola);
 
-		firebaseInstance.insertardatos("Registro de servicio consola", nombre+""+ valorServicio,datosServicioConsolas);
-		System.out.println("Servicio consola registrado en Firebase con id" + nombre+""+valorServicio);
+		firebaseInstance.insertardatos("Registro de servicio consola", nombre + "" + valorServicio, datosServicioConsolas);
+		System.out.println("Servicio consola registrado en Firebase con id" + nombre + "" + valorServicio);
 	}
 
 	public void EliminarCliente(String nombre) {
@@ -122,7 +122,7 @@ public class ServicioTecnico {
 			servicios.remove(servicio);
 		}
 	}
-	
+
 	public void MostrarProductos() {
 		for (Producto producto : productos) {
 			System.out.println(producto);

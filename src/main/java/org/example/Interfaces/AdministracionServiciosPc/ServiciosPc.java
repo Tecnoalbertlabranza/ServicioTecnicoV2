@@ -8,6 +8,7 @@ import org.example.firebase;
 
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,8 +16,6 @@ import javax.swing.JPanel;
  */
 public class ServiciosPc extends javax.swing.JPanel {
     private firebase firebaseInstance;
-
-
 
       private void MostrarPanelServiciosPc(JPanel pag ){
         
@@ -35,9 +34,10 @@ public class ServiciosPc extends javax.swing.JPanel {
     public ServiciosPc(firebase firebaseInstance) {
         this.firebaseInstance = firebaseInstance;
         initComponents();
-        AgregarServiciosPc agrserpc = new AgregarServiciosPc();
+        AgregarServiciosPc agrserpc = new AgregarServiciosPc(firebaseInstance);
         MostrarPanelServiciosPc(agrserpc);
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -122,7 +122,7 @@ public class ServiciosPc extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAgregarServicioPcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarServicioPcActionPerformed
-       AgregarServiciosPc agrserpc = new AgregarServiciosPc();
+       AgregarServiciosPc agrserpc = new AgregarServiciosPc(firebaseInstance);
         MostrarPanelServiciosPc(agrserpc);
     }//GEN-LAST:event_BotonAgregarServicioPcActionPerformed
 

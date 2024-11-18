@@ -4,11 +4,8 @@
  */
 package org.example.Interfaces.AdministracionServiciosPc;
 
-import org.example.ServicioComputador;
 import org.example.ServicioTecnico;
 import org.example.firebase;
-import java.util.ArrayList;
-import java.util.List;
 
 
 import javax.swing.*;
@@ -18,7 +15,6 @@ import javax.swing.*;
  * @author basty
  */
 public class AgregarServiciosPc extends javax.swing.JPanel {
-    private ServicioTecnico servicioTecnico;
     private firebase firebaseInstance;
 
     /**
@@ -44,7 +40,8 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
            JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos");
            return;
        }
-       servicioTecnico.registrarServicioComputador(nombre,valorServicio,tiempoEstimado,tipoDeComputadora,lineaDeProcesador,usoDeComputadora,firebaseInstance);
+       ServicioTecnico servicioTecnico1 = new ServicioTecnico("Mi servicio",null,null,null,null);
+       servicioTecnico1.registrarServicioComputador(nombre,valorServicio,tiempoEstimado,tipoDeComputadora,lineaDeProcesador,usoDeComputadora,firebaseInstance);
        JOptionPane.showMessageDialog(this, "Servicio agregado correctamente");
 
        txtNombre.setText("");
@@ -58,8 +55,8 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
 
 
 
-    public AgregarServiciosPc() {
-
+    public AgregarServiciosPc(firebase firebaseInstance){
+       this.firebaseInstance = firebaseInstance;
         initComponents();
     }
 
