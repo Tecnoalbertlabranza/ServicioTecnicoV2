@@ -1,10 +1,10 @@
 package org.example;
 public class ServicioComputador extends Servicio {
-	private int tipoComputadora;
-	private int usoComputadora;
-	private int lineaDePorcesador;
+	private String tipoComputadora;
+	private String usoComputadora;
+	private String lineaDePorcesador;
 
-	public ServicioComputador(String nombre, double valorServicio, int tiempoEstimado, int tipoComputadora, int lineaDePorcesador, int usoComputadora) {
+	public ServicioComputador(String nombre, double valorServicio, String tiempoEstimado, String tipoComputadora, String lineaDePorcesador, String usoComputadora) {
 		super(nombre, valorServicio, tiempoEstimado);
 		this.tipoComputadora = tipoComputadora;
 		this.lineaDePorcesador = lineaDePorcesador;

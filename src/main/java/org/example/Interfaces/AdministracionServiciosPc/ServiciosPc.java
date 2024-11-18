@@ -95,7 +95,7 @@ public class ServiciosPc extends javax.swing.JPanel {
                 BotonModificarServicioPcActionPerformed(evt);
             }
         });
-        jPanel1.add(BotonModificarServicioPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 420, 160, 30));
+        jPanel1.add(BotonModificarServicioPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 390, 160, 30));
 
         TablaServiciosPC.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

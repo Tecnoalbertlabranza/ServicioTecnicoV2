@@ -67,7 +67,7 @@ public class ServicioTecnico {
 
 	}
 
-	public void registrarServicioComputador(String nombre, double valorServicio, int tiempoEstimado, int tipoComputadora, int lineaDePorcesador, int usoComputadora, firebase firebaseInstance){
+	public void registrarServicioComputador(String nombre, double valorServicio, String tiempoEstimado, String tipoComputadora, String lineaDePorcesador, String usoComputadora, firebase firebaseInstance){
 		if (servicios == null) {
 			servicios = new ArrayList<>();
 		}
@@ -88,7 +88,7 @@ public class ServicioTecnico {
 		System.out.println("Servicio computador registrado en firebase con id"+ nombre+""+valorServicio);
 	}
 
-	public void registrarServicioConsolas(double valorServicio, String nombre, int tiempoEstimado, int modeloConsola, int marcaConsola, firebase firebaseInstance){
+	public void registrarServicioConsolas(double valorServicio, String nombre, String tiempoEstimado, String modeloConsola, String marcaConsola, firebase firebaseInstance){
 		if (servicios == null) {
 			servicios = new ArrayList<>();
 		}

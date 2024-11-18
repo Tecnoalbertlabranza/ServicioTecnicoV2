@@ -13,6 +13,13 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
     /**
      * Creates new form AgregarServiciosPc
      */
+   public void AgregarServicioParaPc(){
+       String nombre = txtNombre.getText();
+
+   }
+
+
+
     public AgregarServiciosPc() {
         initComponents();
     }
@@ -28,17 +35,17 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtValorServicioPc = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtDetalleServicioPc = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtTiempoEstimado = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txtTipoDeComputador = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        txtUsoDeComputadora = new javax.swing.JTextField();
         btnAgregarServiciosPc = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -48,31 +55,100 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
 
         jLabel2.setText("Nombre");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 260, 30));
+
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
+        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 260, 30));
 
         jLabel3.setText("Valor Servicio");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
-        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 260, 30));
+
+        txtValorServicioPc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtValorServicioPcActionPerformed(evt);
+            }
+        });
+        add(txtValorServicioPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 260, 30));
 
         jLabel4.setText("Detalle Servicio");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
-        add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 260, 30));
+
+        txtDetalleServicioPc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDetalleServicioPcActionPerformed(evt);
+            }
+        });
+        add(txtDetalleServicioPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 260, 30));
 
         jLabel5.setText("Tiempo Estimado");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
-        add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 260, 30));
+
+        txtTiempoEstimado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTiempoEstimadoActionPerformed(evt);
+            }
+        });
+        add(txtTiempoEstimado, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 260, 30));
 
         jLabel6.setText("Tipo De Computador");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
-        add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 260, 30));
+
+        txtTipoDeComputador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTipoDeComputadorActionPerformed(evt);
+            }
+        });
+        add(txtTipoDeComputador, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 260, 30));
 
         jLabel7.setText("Uso de Computadora");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
-        add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 260, 30));
+
+        txtUsoDeComputadora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsoDeComputadoraActionPerformed(evt);
+            }
+        });
+        add(txtUsoDeComputadora, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 260, 30));
 
         btnAgregarServiciosPc.setText("Agregar Servicio Pc");
-        add(btnAgregarServiciosPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 510, 150, 40));
+        btnAgregarServiciosPc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarServiciosPcActionPerformed(evt);
+            }
+        });
+        add(btnAgregarServiciosPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 460, 150, 40));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtUsoDeComputadoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsoDeComputadoraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsoDeComputadoraActionPerformed
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void txtValorServicioPcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorServicioPcActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtValorServicioPcActionPerformed
+
+    private void txtDetalleServicioPcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDetalleServicioPcActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDetalleServicioPcActionPerformed
+
+    private void txtTiempoEstimadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTiempoEstimadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTiempoEstimadoActionPerformed
+
+    private void txtTipoDeComputadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTipoDeComputadorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTipoDeComputadorActionPerformed
+
+    private void btnAgregarServiciosPcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarServiciosPcActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAgregarServiciosPcActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -84,11 +160,11 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField txtDetalleServicioPc;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtTiempoEstimado;
+    private javax.swing.JTextField txtTipoDeComputador;
+    private javax.swing.JTextField txtUsoDeComputadora;
+    private javax.swing.JTextField txtValorServicioPc;
     // End of variables declaration//GEN-END:variables
 }
