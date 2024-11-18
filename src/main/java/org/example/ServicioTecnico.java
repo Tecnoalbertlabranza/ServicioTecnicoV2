@@ -31,6 +31,8 @@ public class ServicioTecnico {
 		System.out.println("Cliente registrado localmente " + nuevoCliente);
 
 			Map<String, Object> data = new HashMap<>();
+			data.put("Nombre",nombre);
+			data.put("Apellido", apellido);
 			data.put("Telefono", telefono);
 			data.put("Email", email);
 			data.put("Rut", rut);
@@ -55,6 +57,8 @@ public class ServicioTecnico {
 		System.out.println("Producto agregado localmente: " + producto);
 
 		Map<String, Object> detallesProducto = new HashMap<>();
+		detallesProducto.put("Nombre", nombreProducto);
+		detallesProducto.put("Categoría", categoriaProducto);
 		detallesProducto.put("Categoria", categoriaProducto);
 		detallesProducto.put("Valor", valorProducto);
 		detallesProducto.put("Stock", stockProducto);

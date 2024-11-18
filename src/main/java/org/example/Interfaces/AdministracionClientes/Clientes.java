@@ -77,6 +77,8 @@ public class Clientes extends javax.swing.JPanel {
                 String calle = document.getString("Calle");
                 String numero = document.getString("Numero");
 
+                System.out.println("Nombre: " + nombre + ", Apellido: " + apellido + ", Telefono: " + telefono + ", Email: " + email + ", Rut: " + rut + ", Region: " + region + ", Comuna: " + comuna + ", Calle: " + calle + ", Numero: " + numero);
+
                 listaClientes.add(new String[]{nombre, apellido, telefono,email,rut,});
                 listaDirecciones.add(new String[]{region, comuna, calle, numero});
 
