@@ -4,6 +4,11 @@
  */
 package org.example.Interfaces.AdministracionServiciosPc;
 
+import org.example.ServicioComputador;
+import org.example.ServicioTecnico;
+
+import javax.swing.*;
+
 /**
  *
  * @author basty
@@ -15,6 +20,36 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
      */
    public void AgregarServicioParaPc(){
        String nombre = txtNombre.getText();
+       double valorServicio;
+       String tiempoEstimado = txtTiempoEstimado.getText();
+       String tipoComputadora = txtTipoDeComputador.getText();
+       String usoComputadora = txtUsoDeComputadora.getText();
+
+       try{
+           valorServicio = Double.parseDouble(txtValorServicioPc.getText());
+
+           ServicioComputador servicioPc = new ServicioComputador(
+                   nombre,
+                   valorServicio,
+                   tiempoEstimado,
+                   tipoComputadora,
+                   usoComputadora
+           );
+
+           ServicioTecnico servicioTecnico = new ServicioTecnico("Mi servicio",null,null,null,null);
+           servicioTecnico.registrarServicioComputador(servicioPc);
+
+           JOptionPane.showMessageDialog(null, "Servicio para PC registrado correctamente");
+
+           txtNombre.setText("");
+           txtValorServicioPc.setText("");
+           txtDetalleServicioPc.setText("");
+           txtTiempoEstimado.setText("");
+           txtTipoDeComputador.setText("");
+           txtUsoDeComputadora.setText("");
+       }catch (NumberFormatException e){
+           JOptionPane.showMessageDialog(this, "Por favor, ingrese un valor numérico en el campo Valor del Servicio","Error",JOptionPane.ERROR_MESSAGE);
+       }
 
    }
 
