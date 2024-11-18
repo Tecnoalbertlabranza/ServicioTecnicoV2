@@ -9,6 +9,7 @@ import org.example.Interfaces.AdministracionClientes.Clientes;
 import org.example.Interfaces.AdministracionProductos.Productos;
 import org.example.Interfaces.AdministracionServiciosConsolas.ServiciosConsolas;
 import org.example.Interfaces.AdministracionServiciosPc.ServiciosPc;
+import org.example.ServicioTecnico;
 import org.example.firebase;
 
 import java.awt.*;
@@ -19,7 +20,7 @@ import javax.swing.JPanel;
  * @author basty
  */
 public class PaginaPrincipal extends javax.swing.JFrame {
-
+    private ServicioTecnico servicioTecnico;
     private firebase firebaseInstance;
 
     private void MostrarPanel(JPanel pag ){
@@ -36,6 +37,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
    
     
     public PaginaPrincipal() {
+        
         firebaseInstance = new firebase();
         firebaseInstance.inicializarconexion();
         initComponents();
