@@ -48,27 +48,27 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
 
         jLabel2.setText("Nombre");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 260, 20));
+        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 260, 30));
 
         jLabel3.setText("Valor Servicio");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
-        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 260, 20));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 260, 30));
 
         jLabel4.setText("Detalle Servicio");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
-        add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 260, 20));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
+        add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 260, 30));
 
         jLabel5.setText("Tiempo Estimado");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
-        add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 260, 20));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
+        add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 260, 30));
 
         jLabel6.setText("Tipo De Computador");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
-        add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 260, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+        add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 260, 30));
 
         jLabel7.setText("Uso de Computadora");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
-        add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 260, -1));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
+        add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 260, 30));
 
         btnAgregarServiciosPc.setText("Agregar Servicio Pc");
         add(btnAgregarServiciosPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 510, 150, 40));

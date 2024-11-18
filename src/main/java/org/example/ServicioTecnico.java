@@ -85,7 +85,7 @@ public class ServicioTecnico {
 		datosServicioComputador.put("UsoComputadora", usoComputadora);
 
 		firebaseInstance.insertardatos("Registro de servicio computador", nombre+""+ valorServicio,datosServicioComputador);
-		System.out.println("Servicio computador registrado en firebase con id" + nombre+""+valorServicio);
+		System.out.println("Servicio computador registrado en firebase con id"+ nombre+""+valorServicio);
 	}
 
 	public void registrarServicioConsolas(double valorServicio, String nombre, int tiempoEstimado, int modeloConsola, int marcaConsola, firebase firebaseInstance){
