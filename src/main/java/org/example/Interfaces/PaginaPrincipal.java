@@ -9,6 +9,7 @@ import org.example.Interfaces.AdministracionClientes.Clientes;
 import org.example.Interfaces.AdministracionProductos.Productos;
 import org.example.Interfaces.AdministracionServiciosConsolas.ServiciosConsolas;
 import org.example.Interfaces.AdministracionServiciosPc.ServiciosPc;
+import org.example.Interfaces.CarritoDeComprasCliente.CarritoDeComprasCliente;
 import org.example.ServicioTecnico;
 import org.example.firebase;
 
@@ -67,6 +68,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         BotonInicioSesion = new javax.swing.JButton();
         BotonServiciosPc = new javax.swing.JButton();
         BotonClientes = new javax.swing.JButton();
+        BotonCarritoDeCompras = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -92,7 +94,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 153, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BotonProductos.setText("Producto");
+        BotonProductos.setText("Productos");
         BotonProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonProductosActionPerformed(evt);
@@ -126,6 +128,14 @@ public class PaginaPrincipal extends javax.swing.JFrame {
             }
         });
         jPanel1.add(BotonClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 10, 78, 42));
+
+        BotonCarritoDeCompras.setText("Carrito De Compras");
+        BotonCarritoDeCompras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonCarritoDeComprasActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BotonCarritoDeCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, 190, 50));
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 1500, 70));
 
@@ -185,6 +195,11 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         MostrarPanel(cli);
     }//GEN-LAST:event_BotonClientesActionPerformed
 
+    private void BotonCarritoDeComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCarritoDeComprasActionPerformed
+        CarritoDeComprasCliente carrito = new CarritoDeComprasCliente();
+        MostrarPanel(carrito);
+    }//GEN-LAST:event_BotonCarritoDeComprasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -221,6 +236,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonCarritoDeCompras;
     private javax.swing.JButton BotonClientes;
     private javax.swing.JButton BotonInicioSesion;
     private javax.swing.JButton BotonProductos;
