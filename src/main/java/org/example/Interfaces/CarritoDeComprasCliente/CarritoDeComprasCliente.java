@@ -5,8 +5,12 @@
 package org.example.Interfaces.CarritoDeComprasCliente;
 
 import com.google.cloud.firestore.Firestore;
+import com.google.cloud.firestore.QueryDocumentSnapshot;
+import com.google.cloud.firestore.QuerySnapshot;
 
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.util.List;
 
 /**
  *
@@ -24,8 +28,31 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
     public CarritoDeComprasCliente(Firestore db) {
         this.db = db;
         initComponents();
+        cargarListaDeProductos();
 
     }
+    private void cargarListaDeProductos(){
+        DefaultListModel<String> modeloLista = new DefaultListModel<>();
+        ListaDeProductos.setModel(modeloLista);
+
+        try {
+            List<QueryDocumentSnapshot> productos = db.collection("Registro de Producto").get().get().getDocuments();
+            for(QueryDocumentSnapshot doc : productos){
+                String nombre = doc.getString("Nombre");
+                double valor = doc.getDouble("Valor");
+                double stock = doc.getDouble("Stock");
+                modeloLista.addElement(nombre + " - $" + valor + " - Stock: " + stock);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("Error al cargar productos: " + e.getMessage());
+        }
+
+
+
+    }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
