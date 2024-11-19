@@ -28,9 +28,20 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
     public CarritoDeComprasCliente(Firestore db) {
         this.db = db;
         initComponents();
+        configurarTablaCarrito();
         cargarListaDeProductos();
 
     }
+
+    private void configurarTablaCarrito() {
+        modeloTablaCarrito = new DefaultTableModel(new Object[][]{}, new String[]{"Producto", "Cantidad", "PrecioUnitario", "Total"}) {
+            public boolean isCellEditable(int row, int column) {
+                return column == 1;
+            }
+        };
+        TablaCarrito.setModel(modeloTablaCarrito);
+    }
+
     private void cargarListaDeProductos(){
         DefaultListModel<String> modeloLista = new DefaultListModel<>();
         ListaDeProductos.setModel(modeloLista);
@@ -47,10 +58,46 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
             e.printStackTrace();
             System.out.println("Error al cargar productos: " + e.getMessage());
         }
+    }
 
+    private void agregarProductoAlCarrito(){
+        String seleccion = ListaDeProductos.getSelectedValue();
+        if(seleccion!= null)return;
 
+        String[] partes = seleccion.split(" - \\$");
+        String nombreProducto = partes[0];
+        String [] precioYStock = partes[1].split("\\(Stock;:");
+        double precio = Double.parseDouble(precioYStock[0]);
+        double stock = Double.parseDouble(precioYStock[1].replace(")", ""));
+
+        if(stock<=0){
+            JOptionPane.showMessageDialog(this, "El producto no tiene stock disponible");
+            return;
+        }
+
+        boolean productoYaEnCarrito = false;
+
+        for(int i=0;i < modeloTablaCarrito.getRowCount(); i++){
+            if(modeloTablaCarrito.getValueAt(i,0).equals(nombreProducto)){
+                int cantidad = (int) modeloTablaCarrito.getValueAt(i,1)+1;
+                if(cantidad>stock){
+                    JOptionPane.showMessageDialog(this, "No hay stock suficiente para agregar más productos");
+                    return;
+                }
+                modeloTablaCarrito.setValueAt(cantidad, i, 1);
+                modeloTablaCarrito.setValueAt(precio*cantidad, i, 3);
+                productoYaEnCarrito = true;
+                break;
+            }
+        }if(!productoYaEnCarrito){
+            modeloTablaCarrito.addRow(new Object[]{nombreProducto,1,precio,precio});
+        }
 
     }
+
+    
+
+
 
 
 
