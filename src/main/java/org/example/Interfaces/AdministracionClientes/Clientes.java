@@ -167,7 +167,7 @@ public class Clientes extends javax.swing.JPanel {
                 {null, null, null}
             },
             new String [] {
-                "Nombre", "Apellido", "Direccion","Rut"
+                "Nombre", "Apellido", "Telefono","Email","Rut"
             }
         ));
         jScrollPane1.setViewportView(TablaClientes);
@@ -182,7 +182,7 @@ public class Clientes extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Region", "Comuna", "Calle", "Numero"
             }
         ));
         jScrollPane2.setViewportView(TablaDireccionClientes);

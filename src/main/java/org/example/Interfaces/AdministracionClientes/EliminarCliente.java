@@ -20,7 +20,7 @@ import java.util.concurrent.ExecutionException;
  * @author basty
  */
 public class EliminarCliente extends javax.swing.JPanel {
-
+    private Clientes clientes;
     private firebase firebaseInstance;
 
     /**
@@ -28,7 +28,7 @@ public class EliminarCliente extends javax.swing.JPanel {
      */
     public EliminarCliente(firebase firebaseInstance) {
         this.firebaseInstance = firebaseInstance;
-
+        this.clientes = new Clientes(firebaseInstance);
         initComponents();
     }
 
@@ -36,8 +36,9 @@ public class EliminarCliente extends javax.swing.JPanel {
         try{
             Firestore db = firebaseInstance.getFirestore();
             CollectionReference collectionRef = db.collection("Registro De Clientes");
-            ApiFuture<QuerySnapshot> query = collectionRef.whereEqualTo("Rut",rut).get();
+            ApiFuture<QuerySnapshot> query = collectionRef.whereEqualTo("Rut", rut).get();
             QuerySnapshot querySnapshot = query.get();
+            System.out.println("consultando clientes con rut"+ rut);
 
             if(!querySnapshot.isEmpty()){
                 for(QueryDocumentSnapshot document : querySnapshot.getDocuments()){
@@ -55,10 +56,6 @@ public class EliminarCliente extends javax.swing.JPanel {
         }
 
     }
-
-
-
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -109,6 +106,7 @@ public class EliminarCliente extends javax.swing.JPanel {
              return;
          }
          eliminarClientePorRut(rut);
+         clientes.refrescarTabla();
 
 
     }//GEN-LAST:event_BtnEliminarClienteActionPerformed
