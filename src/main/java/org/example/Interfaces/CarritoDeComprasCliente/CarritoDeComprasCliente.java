@@ -85,19 +85,9 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         }
 
         String[] partes = seleccion.split(" - ");
-        String nombreProducto = partes[0];
-        String[] precioYStock = partes[1].split("Stock: ");
-
-
-
-        if(precioYStock.length<2 ){
-            JOptionPane.showMessageDialog(this, "El producto no tiene stock disponible");
-            return;
-        }
-
-        String precioString = precioYStock[0].replace("$", "");
-        double precio = Double.parseDouble(precioString);
-        double stock = Double.parseDouble(precioYStock[1]);
+        String nombre = partes[0];
+        double precio = Double.parseDouble(partes[1].replace("$", ""));
+        double stock = Double.parseDouble(partes[2].replace("Stock: ", ""));
 
         if(stock<=0){
             JOptionPane.showMessageDialog(this, "El producto no tiene stock disponible");
@@ -107,7 +97,7 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         boolean productoYaEnCarrito = false;
 
         for(int i=0;i < modeloTablaCarrito.getRowCount(); i++){
-            if(modeloTablaCarrito.getValueAt(i,0).equals(nombreProducto)){
+            if(modeloTablaCarrito.getValueAt(i,0).equals(nombre)){
                 int cantidad = (int) modeloTablaCarrito.getValueAt(i,1)+1;
                 if(cantidad>stock){
                     JOptionPane.showMessageDialog(this, "No hay stock suficiente para agregar más productos");
@@ -118,11 +108,13 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
                 productoYaEnCarrito = true;
                 break;
             }
-        }if(!productoYaEnCarrito){
-            modeloTablaCarrito.addRow(new Object[]{nombreProducto,1,precio,precio});
         }
-        actualizarTotales();
 
+        if(!productoYaEnCarrito){
+            modeloTablaCarrito.addRow(new Object[]{nombre,1,precio,precio});
+        }
+
+        actualizarTotales();
     }
 
     private void actualizarTotales(){
