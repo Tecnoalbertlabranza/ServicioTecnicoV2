@@ -10,6 +10,8 @@ import org.example.firebase;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -45,10 +47,38 @@ public class AgregarCliente extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos");
             return;
         }
+        if (!nombre.trim().isEmpty()){
+            if (!validarRut(rut)){
+                JOptionPane.showMessageDialog(null, "Rut no valido");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos");
+        }
 
         servicioTecnico.RegistrarCliente(nombre, apellido, telefono, email, rut, region, comuna, calle, numero, firebaseInstance);
         JOptionPane.showMessageDialog(null, "Cliente registrado correctamente");
         clientespanel.refrescarTabla();
+    }
+
+    public static Boolean validarRut(String rut){
+        Pattern pattern = Pattern.compile("^[0-9]+-[0-9kK]{1}$");
+        Matcher matcher = pattern.matcher(rut);
+        if (!matcher.matches()) return false;
+
+        String[] stringRut = rut.split("-");
+        String rutNumerico = stringRut[0];
+        String rutDv = stringRut[1].toLowerCase();
+
+        return rutDv.equals(dv(rutNumerico).toLowerCase());
+    }
+
+    public static String dv (String rut){
+        Integer M=0, S=1, T=Integer.parseInt(rut);
+        for (; T != 0; T /= 10){
+            S = (S + T % 10 * (9 - M++ % 6)) % 11;
+        }
+
+        return ( S > 0 ) ? String.valueOf(S - 1) : "k";
     }
 
     /**
