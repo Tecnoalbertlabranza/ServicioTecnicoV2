@@ -92,10 +92,21 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         }if(!productoYaEnCarrito){
             modeloTablaCarrito.addRow(new Object[]{nombreProducto,1,precio,precio});
         }
+        actualizarTotales();
 
     }
 
-    
+    private void actualizarTotales(){
+        subtotal = 0.0;
+        for(int i=0; i < modeloTablaCarrito.getRowCount();i++){
+            subtotal += (double) modeloTablaCarrito.getValueAt(i,3);
+        }
+        double iva = subtotal * IVA_porcentaje;
+        double total = subtotal + iva;
+        txtSubtotal.setText(String.format("$ %.2f", subtotal));
+        txtIVA.setText(String.format("$ %.2f", iva));
+        txtTotal.setText(String.format("$ %.2f", total));
+    }
 
 
 
@@ -123,9 +134,9 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         BtnGuardarVenta = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        txtSubtotal = new javax.swing.JTextField();
+        txtIVA = new javax.swing.JTextField();
+        txtTotal = new javax.swing.JTextField();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -189,19 +200,26 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         });
         add(BtnGuardarVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 420, 160, 80));
 
-        jTextField1.setText("jTextField1");
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 390, 180, 30));
-
-        jTextField2.setText("jTextField2");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtSubtotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtSubtotalActionPerformed(evt);
             }
         });
-        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 450, 210, 30));
+        add(txtSubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 390, 180, 30));
 
-        jTextField3.setText("jTextField3");
-        add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 510, 200, 30));
+        txtIVA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIVAActionPerformed(evt);
+            }
+        });
+        add(txtIVA, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 450, 210, 30));
+
+        txtTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTotalActionPerformed(evt);
+            }
+        });
+        add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 510, 200, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtRutClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRutClienteActionPerformed
@@ -212,9 +230,17 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnGuardarVentaActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtIVAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIVAActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtIVAActionPerformed
+
+    private void txtSubtotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSubtotalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSubtotalActionPerformed
+
+    private void txtTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTotalActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -230,9 +256,9 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField txtIVA;
     private javax.swing.JTextField txtRutCliente;
+    private javax.swing.JTextField txtSubtotal;
+    private javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables
 }
