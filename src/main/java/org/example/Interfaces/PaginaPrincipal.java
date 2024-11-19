@@ -196,7 +196,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonClientesActionPerformed
 
     private void BotonCarritoDeComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCarritoDeComprasActionPerformed
-        CarritoDeComprasCliente carrito = new CarritoDeComprasCliente();
+        CarritoDeComprasCliente carrito = new CarritoDeComprasCliente(firebaseInstance.getFirestore());
         MostrarPanel(carrito);
     }//GEN-LAST:event_BotonCarritoDeComprasActionPerformed
 

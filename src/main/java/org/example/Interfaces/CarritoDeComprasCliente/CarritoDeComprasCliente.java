@@ -4,17 +4,27 @@
  */
 package org.example.Interfaces.CarritoDeComprasCliente;
 
+import com.google.cloud.firestore.Firestore;
+
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author basty
  */
 public class CarritoDeComprasCliente extends javax.swing.JPanel {
+    private DefaultTableModel modeloTablaCarrito;
+    private Firestore db;
+    private double subtotal = 0.0;
+    private final double IVA_porcentaje = 0.19;
 
     /**
      * Creates new form CarritoDeComprasCliente
      */
-    public CarritoDeComprasCliente() {
+    public CarritoDeComprasCliente(Firestore db) {
+        this.db = db;
         initComponents();
+
     }
 
     /**
@@ -30,9 +40,9 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         txtRutCliente = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        ListaDeProductos = new javax.swing.JList<>();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TablaCarrito = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -58,16 +68,16 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         });
         add(txtRutCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 280, 30));
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        ListaDeProductos.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(ListaDeProductos);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 130, 360, 230));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TablaCarrito.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -78,7 +88,7 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(TablaCarrito);
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 50, 540, 320));
 
@@ -135,6 +145,8 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnGuardarVenta;
+    private javax.swing.JList<String> ListaDeProductos;
+    private javax.swing.JTable TablaCarrito;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -142,10 +154,8 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;

@@ -22,6 +22,7 @@ import javax.swing.table.DefaultTableModel;
  * @author basty
  */
 public class Productos extends javax.swing.JPanel {
+
     private firebase firebaseInstance;
     private DefaultTableModel modeloTablaProductos;
 
