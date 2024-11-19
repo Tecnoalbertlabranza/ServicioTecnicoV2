@@ -10,7 +10,11 @@ import com.google.cloud.firestore.QuerySnapshot;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -31,7 +35,9 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         configurarTablaCarrito();
         cargarListaDeProductos();
 
+
     }
+
 
     private void configurarTablaCarrito() {
         modeloTablaCarrito = new DefaultTableModel(new Object[][]{}, new String[]{"Producto", "Cantidad", "PrecioUnitario", "Total"}) {
@@ -42,33 +48,56 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         TablaCarrito.setModel(modeloTablaCarrito);
     }
 
-    private void cargarListaDeProductos(){
+
+
+    private void cargarListaDeProductos() {
         DefaultListModel<String> modeloLista = new DefaultListModel<>();
         ListaDeProductos.setModel(modeloLista);
 
         try {
             List<QueryDocumentSnapshot> productos = db.collection("Registro de Producto").get().get().getDocuments();
-            for(QueryDocumentSnapshot doc : productos){
+            for (QueryDocumentSnapshot doc : productos) {
                 String nombre = doc.getString("Nombre");
                 double valor = doc.getDouble("Valor");
                 double stock = doc.getDouble("Stock");
                 modeloLista.addElement(nombre + " - $" + valor + " - Stock: " + stock);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Error al cargar productos: " + e.getMessage());
         }
+        ListaDeProductos.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent evt) {
+                if (evt.getClickCount() == 1) {
+                   agregarProductoAlCarrito();
+                }
+            }
+        });
     }
+
 
     private void agregarProductoAlCarrito(){
         String seleccion = ListaDeProductos.getSelectedValue();
-        if(seleccion!= null)return;
+        if(seleccion== null){
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un producto");
+            return;
+        }
 
-        String[] partes = seleccion.split(" - \\$");
+        String[] partes = seleccion.split(" - ");
         String nombreProducto = partes[0];
-        String [] precioYStock = partes[1].split("\\(Stock;:");
-        double precio = Double.parseDouble(precioYStock[0]);
-        double stock = Double.parseDouble(precioYStock[1].replace(")", ""));
+        String[] precioYStock = partes[1].split("Stock: ");
+
+
+
+        if(precioYStock.length<2 ){
+            JOptionPane.showMessageDialog(this, "El producto no tiene stock disponible");
+            return;
+        }
+
+        String precioString = precioYStock[0].replace("$", "");
+        double precio = Double.parseDouble(precioString);
+        double stock = Double.parseDouble(precioYStock[1]);
 
         if(stock<=0){
             JOptionPane.showMessageDialog(this, "El producto no tiene stock disponible");
@@ -106,6 +135,44 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         txtSubtotal.setText(String.format("$ %.2f", subtotal));
         txtIVA.setText(String.format("$ %.2f", iva));
         txtTotal.setText(String.format("$ %.2f", total));
+    }
+
+    private boolean validarRut(String rut) {
+        return rut.matches("\\d{7,8}-[\\dkK]");
+    }
+
+    public void guardarVenta(){
+        String rutCliente = txtRutCliente.getText();
+        if(!validarRut(rutCliente)){
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese un RUT válido");
+            return;
+        }
+        try{
+            Map<String, Object> detallesVenta = new HashMap<>();
+            detallesVenta.put("RutCliente", rutCliente);
+            detallesVenta.put("Subtotal", subtotal);
+            detallesVenta.put("IVA", subtotal * IVA_porcentaje);
+            detallesVenta.put("Total", subtotal + (subtotal * IVA_porcentaje));
+            detallesVenta.put("Productos", obtenerProductosDelCarrito());
+
+            db.collection("Registro De Ventas").add(detallesVenta);
+            JOptionPane.showMessageDialog(this, "Venta guardada exitosamente.");
+            modeloTablaCarrito.setRowCount(0);
+            actualizarTotales();
+        }catch(Exception e){
+            e.printStackTrace();
+            System.out.println("Error al guardar venta: " + e.getMessage());
+        }
+    }
+
+    private String obtenerProductosDelCarrito(){
+        StringBuilder productos = new StringBuilder();
+        for (int i = 0; i < modeloTablaCarrito.getRowCount(); i++) {
+            String nombre = (String) modeloTablaCarrito.getValueAt(i, 0);
+            int cantidad = (int) modeloTablaCarrito.getValueAt(i, 1);
+            productos.append(nombre).append(" x").append(cantidad).append(", ");
+        }
+        return productos.toString();
     }
 
 
@@ -227,7 +294,7 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
     }//GEN-LAST:event_txtRutClienteActionPerformed
 
     private void BtnGuardarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarVentaActionPerformed
-        // TODO add your handling code here:
+        guardarVenta();
     }//GEN-LAST:event_BtnGuardarVentaActionPerformed
 
     private void txtIVAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIVAActionPerformed
