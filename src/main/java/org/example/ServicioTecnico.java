@@ -89,7 +89,7 @@ public class ServicioTecnico {
 		System.out.println("Servicio computador registrado en firebase con id" + nombre + " " + valorServicio);
 	}
 
-	public void registrarServicioConsolas(double valorServicio, String nombre, String tiempoEstimado, String modeloConsola, String marcaConsola, firebase firebaseInstance) {
+	public void registrarServicioConsolas(String nombre,double valorServicio, String tiempoEstimado, String modeloConsola, String marcaConsola, firebase firebaseInstance) {
 		if (servicios == null) {
 			servicios = new ArrayList<>();
 		}
@@ -105,8 +105,8 @@ public class ServicioTecnico {
 		datosServicioConsolas.put("ModeloConsola", modeloConsola);
 		datosServicioConsolas.put("MarcaConsola", marcaConsola);
 
-		firebaseInstance.insertardatos("Registro de servicio consola", nombre + "" + valorServicio, datosServicioConsolas);
-		System.out.println("Servicio consola registrado en Firebase con id" + nombre + "" + valorServicio);
+		firebaseInstance.insertardatos("Registro de servicio consola", nombre + " " + valorServicio, datosServicioConsolas);
+		System.out.println("Servicio consola registrado en Firebase con id" + nombre + " " + valorServicio);
 	}
 
 	public void EliminarCliente(String rut, firebase firebaseInstance) {

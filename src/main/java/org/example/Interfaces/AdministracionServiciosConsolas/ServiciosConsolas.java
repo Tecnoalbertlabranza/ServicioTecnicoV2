@@ -4,6 +4,7 @@
  */
 package org.example.Interfaces.AdministracionServiciosConsolas;
 
+import org.example.ServicioTecnico;
 import org.example.firebase;
 
 import java.awt.BorderLayout;
@@ -15,6 +16,7 @@ import javax.swing.JPanel;
  */
 public class ServiciosConsolas extends javax.swing.JPanel {
     private firebase firebaseInstance;
+
 
       private void MostrarPanelConsolas(JPanel pag ){
         
@@ -31,9 +33,9 @@ public class ServiciosConsolas extends javax.swing.JPanel {
      * Creates new form ServiciosConsolas
      */
     public ServiciosConsolas(firebase firebaseInstance) {
+        this.firebaseInstance = firebaseInstance;
         initComponents();
-        
-        AgregarServicioConsola menuconsolas = new AgregarServicioConsola();
+        AgregarServicioConsola menuconsolas = new AgregarServicioConsola(firebaseInstance);
         MostrarPanelConsolas(menuconsolas);
     }
 
@@ -53,7 +55,7 @@ public class ServiciosConsolas extends javax.swing.JPanel {
         ModificarServicioConsola = new javax.swing.JButton();
         EliminarServicioConsola = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TablaServicioConsolas = new javax.swing.JTable();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -82,7 +84,7 @@ public class ServiciosConsolas extends javax.swing.JPanel {
                 AgregarServicioConsolaActionPerformed(evt);
             }
         });
-        jPanel1.add(AgregarServicioConsola, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 320, 170, 40));
+        jPanel1.add(AgregarServicioConsola, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 350, 170, 40));
 
         ModificarServicioConsola.setText("Modificar Servicio consola");
         ModificarServicioConsola.addActionListener(new java.awt.event.ActionListener() {
@@ -90,7 +92,7 @@ public class ServiciosConsolas extends javax.swing.JPanel {
                 ModificarServicioConsolaActionPerformed(evt);
             }
         });
-        jPanel1.add(ModificarServicioConsola, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 340, 170, 40));
+        jPanel1.add(ModificarServicioConsola, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 350, 170, 40));
 
         EliminarServicioConsola.setText("Eliminar Servicio Consola");
         EliminarServicioConsola.addActionListener(new java.awt.event.ActionListener() {
@@ -100,7 +102,7 @@ public class ServiciosConsolas extends javax.swing.JPanel {
         });
         jPanel1.add(EliminarServicioConsola, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 420, 170, 40));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TablaServicioConsolas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -111,7 +113,7 @@ public class ServiciosConsolas extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(TablaServicioConsolas);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 60, 300, 210));
 
@@ -119,7 +121,7 @@ public class ServiciosConsolas extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AgregarServicioConsolaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarServicioConsolaActionPerformed
-      AgregarServicioConsola menuconsolas = new AgregarServicioConsola();
+      AgregarServicioConsola menuconsolas = new AgregarServicioConsola(firebaseInstance);
         MostrarPanelConsolas(menuconsolas);
     }//GEN-LAST:event_AgregarServicioConsolaActionPerformed
 
@@ -139,9 +141,9 @@ public class ServiciosConsolas extends javax.swing.JPanel {
     private javax.swing.JButton EliminarServicioConsola;
     private javax.swing.JButton ModificarServicioConsola;
     private javax.swing.JPanel PanelServiciosConsolas;
+    private javax.swing.JTable TablaServicioConsolas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

@@ -54,7 +54,6 @@ public class Productos extends javax.swing.JPanel {
                  double stock = document.getDouble("Stock");
 
                  modeloTablaProductos.addRow(new Object[]{nombre,categoria,valor,stock});
-
              }
          } catch (Exception e) {
              e.printStackTrace();

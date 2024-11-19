@@ -4,18 +4,51 @@
  */
 package org.example.Interfaces.AdministracionServiciosConsolas;
 
+import org.example.ServicioTecnico;
+import org.example.firebase;
+
+import javax.swing.*;
+
 /**
  *
  * @author basty
  */
 public class AgregarServicioConsola extends javax.swing.JPanel {
+    private firebase firebaseInstance;
 
     /**
      * Creates new form AgregarServicioConsola
      */
-    public AgregarServicioConsola() {
+    public AgregarServicioConsola(firebase firebaseInstance) {
+        this.firebaseInstance = firebaseInstance;
         initComponents();
     }
+
+    public void AgregarServiciosParaConsolas(){
+        String nombre = txtNombre.getText();
+        double valorServicio;
+
+        try {
+            valorServicio = Double.parseDouble(txtValor.getText());
+        }catch (NumberFormatException ex){
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese un valor numérico en el campo Valor");
+            return;
+        }
+
+        String tiempoestimado = txtTiempoEstimado.getText();
+        String modeloDeConsola = txtModeloDeConsola.getText();
+        String marcaConsola = txtMarcaConsola.getText();
+
+        if(nombre.isEmpty() || valorServicio <= 0 || tiempoestimado.isEmpty() || modeloDeConsola.isEmpty() || marcaConsola.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos");
+            return;
+        }
+        ServicioTecnico servicioTecnico = new ServicioTecnico("Mi servicio",null,null,null,null);
+        servicioTecnico.registrarServicioConsolas(nombre, valorServicio, tiempoestimado, modeloDeConsola, marcaConsola, firebaseInstance);
+        JOptionPane.showMessageDialog(this, "Servicio de consola agregado correctamente");
+    }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,17 +61,17 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtValor = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtDetalle = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtTiempoEstimado = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txtModeloDeConsola = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        txtMarcaConsola = new javax.swing.JTextField();
         btnAgregarServicioConsolas = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -48,41 +81,100 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
 
         jLabel2.setText("Nombre");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 210, 20));
+
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
+        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 210, 20));
 
         jLabel3.setText("Valor");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
-        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 210, 20));
+
+        txtValor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtValorActionPerformed(evt);
+            }
+        });
+        add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 210, 20));
 
         jLabel4.setText("Detalle");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
-        add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 210, 20));
+
+        txtDetalle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDetalleActionPerformed(evt);
+            }
+        });
+        add(txtDetalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 210, 20));
 
         jLabel5.setText("Tiempo estimado");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        txtTiempoEstimado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                txtTiempoEstimadoActionPerformed(evt);
             }
         });
-        add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 210, 20));
+        add(txtTiempoEstimado, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 210, 20));
 
         jLabel6.setText("Modelo De La Consola");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
-        add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 210, 20));
+
+        txtModeloDeConsola.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtModeloDeConsolaActionPerformed(evt);
+            }
+        });
+        add(txtModeloDeConsola, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 210, 20));
 
         jLabel7.setText("Marca Consola");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
-        add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 210, -1));
+
+        txtMarcaConsola.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMarcaConsolaActionPerformed(evt);
+            }
+        });
+        add(txtMarcaConsola, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 210, -1));
 
         btnAgregarServicioConsolas.setText("Agregar Servicio");
-        add(btnAgregarServicioConsolas, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, 120, 50));
+        btnAgregarServicioConsolas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarServicioConsolasActionPerformed(evt);
+            }
+        });
+        add(btnAgregarServicioConsolas, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 440, 120, 50));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void txtTiempoEstimadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTiempoEstimadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_txtTiempoEstimadoActionPerformed
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void txtValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtValorActionPerformed
+
+    private void txtDetalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDetalleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDetalleActionPerformed
+
+    private void txtModeloDeConsolaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtModeloDeConsolaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtModeloDeConsolaActionPerformed
+
+    private void txtMarcaConsolaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMarcaConsolaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMarcaConsolaActionPerformed
+
+    private void btnAgregarServicioConsolasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarServicioConsolasActionPerformed
+       AgregarServiciosParaConsolas();
+    }//GEN-LAST:event_btnAgregarServicioConsolasActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -94,11 +186,11 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField txtDetalle;
+    private javax.swing.JTextField txtMarcaConsola;
+    private javax.swing.JTextField txtModeloDeConsola;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtTiempoEstimado;
+    private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
 }

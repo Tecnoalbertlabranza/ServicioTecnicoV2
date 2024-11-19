@@ -22,8 +22,6 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Clientes extends javax.swing.JPanel {
     private firebase firebaseInstance;
-
-
      private void MostrarPanelCliente(JPanel pag ){
         
         pag.setSize(1500, 590);
@@ -55,8 +53,6 @@ public class Clientes extends javax.swing.JPanel {
 
         DefaultTableModel modeloTablaDirecciones = (DefaultTableModel) TablaDireccionClientes.getModel();
         modeloTablaDirecciones.setRowCount(0);
-
-
 
         try{
             Firestore db = firebaseInstance.getFirestore();
