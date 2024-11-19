@@ -4,11 +4,18 @@
  */
 package org.example.Interfaces.AdministracionServiciosConsolas;
 
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.Firestore;
+import com.google.cloud.firestore.QueryDocumentSnapshot;
+import com.google.cloud.firestore.QuerySnapshot;
 import org.example.ServicioTecnico;
 import org.example.firebase;
 
 import java.awt.BorderLayout;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,6 +23,7 @@ import javax.swing.JPanel;
  */
 public class ServiciosConsolas extends javax.swing.JPanel {
     private firebase firebaseInstance;
+    private DefaultTableModel modelotablaServicios;
 
 
       private void MostrarPanelConsolas(JPanel pag ){
@@ -37,6 +45,42 @@ public class ServiciosConsolas extends javax.swing.JPanel {
         initComponents();
         AgregarServicioConsola menuconsolas = new AgregarServicioConsola(firebaseInstance);
         MostrarPanelConsolas(menuconsolas);
+        cargarServiciosConsolasDesdeFirebase();
+    }
+
+    public void cargarServiciosConsolasDesdeFirebase(){
+        modelotablaServicios = (DefaultTableModel) TablaServicioConsolas.getModel();
+        modelotablaServicios.setRowCount(0);
+
+        try{
+            Firestore db = firebaseInstance.getFirestore();
+            ApiFuture<QuerySnapshot> future = db.collection("Registro de servicio consola").get();
+            QuerySnapshot querySnapshot = future.get();
+
+            List<String[]> listaServicios = new ArrayList<>();
+
+            for (QueryDocumentSnapshot documet : querySnapshot.getDocuments()) {
+                String nombre = documet.getString("Nombre");
+                double valorservicio = documet.getDouble("Valor");
+                String tiempoestimado = documet.getString("TiempoEstimado");
+                String tipoconsola = documet.getString("TipoConsola");
+                String marcaconsola = documet.getString("MarcaConsola");
+
+                listaServicios.add(new String[]{nombre, String.valueOf(valorservicio), tiempoestimado, tipoconsola, marcaconsola});
+            }
+
+
+            for(String[] servicio : listaServicios){
+                modelotablaServicios.addRow(servicio);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("Error al cargar datos"+ e.getMessage());
+        }
+    }
+
+    public void refrescarTabla(){
+        cargarServiciosConsolasDesdeFirebase();
     }
 
     /**
@@ -110,7 +154,7 @@ public class ServiciosConsolas extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombre", "Valor", "Tiempo Estimado", "Modelo Consola","Marca Consola"
             }
         ));
         jScrollPane1.setViewportView(TablaServicioConsolas);
