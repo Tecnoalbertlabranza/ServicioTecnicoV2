@@ -150,4 +150,12 @@ public class ServicioTecnico {
 	public Collection<Producto> getProductos() {
 		return productos;
 	}
+
+	public void setServiciosComputador(Collection<ServicioComputador> serviciosComputador) {
+		this.serviciosComputador = serviciosComputador;
+	}
+
+	public void setServiciosConsola(Collection<ServicioConsolas> serviciosConsola) {
+		this.serviciosConsola = serviciosConsola;
+	}
 }

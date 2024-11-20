@@ -9,6 +9,7 @@ import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 import org.example.Interfaces.PaginaPrincipal;
+import org.example.ServicioConsolas;
 import org.example.ServicioTecnico;
 import org.example.firebase;
 
@@ -55,12 +56,14 @@ public class ServiciosConsolas extends javax.swing.JPanel {
         modelotablaServicios = (DefaultTableModel) TablaServicioConsolas.getModel();
         modelotablaServicios.setRowCount(0);
 
+        List<ServicioConsolas> listaServicios = new ArrayList<>();
+
         try{
             Firestore db = firebaseInstance.getFirestore();
             ApiFuture<QuerySnapshot> future = db.collection("Registro de servicio consola").get();
             QuerySnapshot querySnapshot = future.get();
 
-            List<String[]> listaServicios = new ArrayList<>();
+
 
             for (QueryDocumentSnapshot documet : querySnapshot.getDocuments()) {
                 String nombre = documet.getString("Nombre");
@@ -69,13 +72,20 @@ public class ServiciosConsolas extends javax.swing.JPanel {
                 String tipoconsola = documet.getString("TipoConsola");
                 String marcaconsola = documet.getString("MarcaConsola");
 
-                listaServicios.add(new String[]{nombre, String.valueOf(valorservicio), tiempoestimado, tipoconsola, marcaconsola});
+                ServicioConsolas serviciosConsola = new ServicioConsolas(nombre,valorservicio,tiempoestimado,tipoconsola,marcaconsola);
+                listaServicios.add(serviciosConsola);
+
+                modelotablaServicios.addRow(new Object[]{nombre,valorservicio,tiempoestimado,tipoconsola,marcaconsola});
+            }
+
+           servicioTecnico.setServiciosConsola(listaServicios);
+
+            System.out.println("Servicios consola existentes");
+            for (ServicioConsolas serviciosConsola : listaServicios){
+                System.out.println(serviciosConsola);
             }
 
 
-            for(String[] servicio : listaServicios){
-                modelotablaServicios.addRow(servicio);
-            }
         }catch (Exception e){
             e.printStackTrace();
             System.out.println("Error al cargar datos"+ e.getMessage());

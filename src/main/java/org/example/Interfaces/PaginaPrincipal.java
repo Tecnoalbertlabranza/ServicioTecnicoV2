@@ -38,7 +38,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
    
     
     public PaginaPrincipal() {
-        this.servicioTecnico = new ServicioTecnico("Mi Servicio",null,null,null,null);
+        this.servicioTecnico = new ServicioTecnico("Mi Servicio",null,null,null,null,null);
         firebaseInstance = new firebase();
         firebaseInstance.inicializarconexion();
         initComponents();

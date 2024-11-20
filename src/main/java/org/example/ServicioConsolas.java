@@ -1,5 +1,6 @@
 package org.example;
 public class ServicioConsolas extends Servicio {
+	public Object add;
 	private String modeloConsola;
 	private String marcaConsola;
 
@@ -8,6 +9,10 @@ public class ServicioConsolas extends Servicio {
 		this.modeloConsola = modeloConsola;
 		this.marcaConsola = marcaConsola;
 	}
+
+
+
+
 
 	@Override
 	public String toString() {
