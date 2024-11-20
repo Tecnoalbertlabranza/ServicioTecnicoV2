@@ -63,8 +63,6 @@ public class ServiciosConsolas extends javax.swing.JPanel {
             ApiFuture<QuerySnapshot> future = db.collection("Registro de servicio consola").get();
             QuerySnapshot querySnapshot = future.get();
 
-
-
             for (QueryDocumentSnapshot documet : querySnapshot.getDocuments()) {
                 String nombre = documet.getString("Nombre");
                 double valorservicio = documet.getDouble("Valor");
@@ -74,25 +72,21 @@ public class ServiciosConsolas extends javax.swing.JPanel {
 
                 ServicioConsolas serviciosConsola = new ServicioConsolas(nombre,valorservicio,tiempoestimado,tipoconsola,marcaconsola);
                 listaServicios.add(serviciosConsola);
-
                 modelotablaServicios.addRow(new Object[]{nombre,valorservicio,tiempoestimado,tipoconsola,marcaconsola});
             }
-
            servicioTecnico.setServiciosConsola(listaServicios);
 
             System.out.println("Servicios consola existentes");
             for (ServicioConsolas serviciosConsola : listaServicios){
                 System.out.println(serviciosConsola);
             }
-
-
         }catch (Exception e){
             e.printStackTrace();
             System.out.println("Error al cargar datos"+ e.getMessage());
         }
     }
 
-    public void refrescarTabla(){
+    public void refrescarTablaConsolas(){
         cargarServiciosConsolasDesdeFirebase();
     }
 

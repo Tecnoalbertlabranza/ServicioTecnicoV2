@@ -9,6 +9,7 @@ import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 import org.example.Interfaces.PaginaPrincipal;
+import org.example.ServicioComputador;
 import org.example.ServicioTecnico;
 import org.example.firebase;
 
@@ -53,13 +54,14 @@ public class ServiciosPc extends javax.swing.JPanel {
         DefaultTableModel modeloTablaServicioPc = (DefaultTableModel) TablaServiciosPC.getModel();
         modeloTablaServicioPc.setRowCount(0);
 
+        List<ServicioComputador> listaServiciosComputador  = new ArrayList<>();
+
 
         try{
             Firestore db = firebaseInstance.getFirestore();
             ApiFuture<QuerySnapshot> future = db.collection("Registro de servicio computador").get();
             QuerySnapshot querySnapshot = future.get();
 
-            List<String[]> listaServiciosPc = new ArrayList<>();
 
             for (QueryDocumentSnapshot document : querySnapshot.getDocuments()) {
 
@@ -70,8 +72,17 @@ public class ServiciosPc extends javax.swing.JPanel {
                 String lineadeprocesador = document.getString("LineaDePorcesador");
                 String usocomputadora = document.getString("UsoComputadora");
 
+                ServicioComputador servicioComputador = new ServicioComputador(nombre,valorserviciopc,tiempoestimado,tipocomputadora,lineadeprocesador,usocomputadora);
+                listaServiciosComputador.add(servicioComputador);
+
                 modeloTablaServicioPc.addRow(new Object[]{nombre,valorserviciopc,tiempoestimado,tipocomputadora,lineadeprocesador,usocomputadora});
             }
+            servicioTecnico.setServiciosComputador(listaServiciosComputador);
+            System.out.println("Servicios para computador existente");
+            for (ServicioComputador servicio : listaServiciosComputador){
+                System.out.println(servicio);
+            }
+
         }catch (Exception e){
             e.printStackTrace();
             System.out.println("Error al cargar datos"+ e.getMessage());
