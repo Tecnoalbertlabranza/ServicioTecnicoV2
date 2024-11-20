@@ -9,6 +9,10 @@ public class ServicioTecnico {
 	List<Cliente> listaClientes;
 	private String descripcion;
 
+
+
+
+
 	public List<Cliente> getListaClientes() {
 		return listaClientes;
 	}

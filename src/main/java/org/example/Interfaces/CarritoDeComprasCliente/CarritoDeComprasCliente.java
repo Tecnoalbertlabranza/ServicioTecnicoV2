@@ -259,6 +259,7 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         });
         add(BtnGuardarVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 420, 160, 80));
 
+        txtSubtotal.setEditable(false);
         txtSubtotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSubtotalActionPerformed(evt);
@@ -266,6 +267,7 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         });
         add(txtSubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 390, 180, 30));
 
+        txtIVA.setEditable(false);
         txtIVA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIVAActionPerformed(evt);
@@ -273,6 +275,7 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         });
         add(txtIVA, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 450, 210, 30));
 
+        txtTotal.setEditable(false);
         txtTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTotalActionPerformed(evt);
