@@ -145,4 +145,11 @@ public class ServicioTecnico {
 			System.out.println(servicio);
 		}
 	}
+
+	public void setListaClientes(List<Cliente> listaClientes) {
+		this.listaClientes = listaClientes;
+	}
+
+
+
 }

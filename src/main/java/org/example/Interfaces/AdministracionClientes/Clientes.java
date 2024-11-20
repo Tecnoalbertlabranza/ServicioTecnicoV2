@@ -5,6 +5,8 @@
 package org.example.Interfaces.AdministracionClientes;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
+import org.example.Cliente;
+import org.example.ServicioTecnico;
 import org.example.firebase;
 
 import java.awt.BorderLayout;
@@ -22,6 +24,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Clientes extends javax.swing.JPanel {
     private firebase firebaseInstance;
+    private ServicioTecnico servicioTecnico;
      private void MostrarPanelCliente(JPanel pag ){
         
         pag.setSize(1500, 590);
@@ -40,10 +43,12 @@ public class Clientes extends javax.swing.JPanel {
      */
     public Clientes(firebase firebaseInstance) {
         this.firebaseInstance = firebaseInstance;
+        this.servicioTecnico = new ServicioTecnico("Mi servicio",null,null,null,null);
         initComponents();
         cargarClientesDesdeFirebase();
-        AgregarCliente menucliente = new AgregarCliente (firebaseInstance,this);
-        MostrarPanelCliente(menucliente);
+        //AgregarCliente menucliente = new AgregarCliente (firebaseInstance,this,);
+        //MostrarPanelCliente(menucliente);
+
 
     }
 
@@ -54,13 +59,13 @@ public class Clientes extends javax.swing.JPanel {
         DefaultTableModel modeloTablaDirecciones = (DefaultTableModel) TablaDireccionClientes.getModel();
         modeloTablaDirecciones.setRowCount(0);
 
+        List<Cliente> listaClientesLocal = new ArrayList<>();
+
         try{
             Firestore db = firebaseInstance.getFirestore();
             ApiFuture<QuerySnapshot> future = db.collection("Registro De Clientes").get();
             QuerySnapshot querySnapshot = future.get();
 
-            List<String[]> listaClientes = new ArrayList<>();
-            List<String[]> listaDirecciones = new ArrayList<>();
 
             for (QueryDocumentSnapshot document : querySnapshot.getDocuments()) {
                 String nombre = document.getString("Nombre");
@@ -73,15 +78,22 @@ public class Clientes extends javax.swing.JPanel {
                 String calle = document.getString("Calle");
                 String numero = document.getString("Numero");
 
-                listaClientes.add(new String[]{nombre, apellido, telefono,email,rut,});
-                listaDirecciones.add(new String[]{region, comuna, calle, numero});
+                Cliente cliente = new Cliente(nombre, apellido, telefono,email,rut,region,comuna,calle,numero);
+                listaClientesLocal.add(cliente);
 
-            } for (String[] cliente : listaClientes) {
-                modeloTabla.addRow(cliente);
+                modeloTabla.addRow(new Object[]{nombre, apellido, telefono, email, rut});
+                modeloTablaDirecciones.addRow(new Object[]{region, comuna, calle, numero});
             }
-            for (String[] direccion : listaDirecciones) {
-                modeloTablaDirecciones.addRow(direccion);
+
+            servicioTecnico.setListaClientes(listaClientesLocal);
+
+            System.out.println("Clientes existentes");
+            for (Cliente cliente : listaClientesLocal){
+                System.out.println(cliente);
             }
+
+
+
         }catch (Exception e){
             e.printStackTrace();
             System.out.println("Error al cargar datos"+ e.getMessage());
