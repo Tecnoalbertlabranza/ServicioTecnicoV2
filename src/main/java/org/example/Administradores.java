@@ -50,9 +50,7 @@ public class Administradores implements Usuarios {
 
     }
 
-    public void DetalleUsuario() {
 
-    }
 
 
 

@@ -62,7 +62,5 @@ public class Cliente implements Usuarios {
 
     }
 
-    public void DetalleUsuario(){
 
-    }
 }

@@ -9,6 +9,6 @@ public interface Usuarios {
 
 	void CambiarContraseña();
 
-	void DetalleUsuario();
+
 
 }

@@ -42,7 +42,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         firebaseInstance = new firebase();
         firebaseInstance.inicializarconexion();
         initComponents();
-        
+        servicioTecnico.registrarAdministrador("Bastian","Wenckhans","21992926-9","02440244","basty.wenckhansbello@gmail.com",firebaseInstance);
         InicioMenu menu = new InicioMenu();
         MostrarPanel(menu);
     }
