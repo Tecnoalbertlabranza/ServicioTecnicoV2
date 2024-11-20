@@ -47,8 +47,8 @@ public class Clientes extends javax.swing.JPanel {
         this.servicioTecnico = PaginaPrincipal.getServicioTecnico();
         initComponents();
         cargarClientesDesdeFirebase();
-        //AgregarCliente menucliente = new AgregarCliente (firebaseInstance,this,);
-        //MostrarPanelCliente(menucliente);
+        AgregarCliente menucliente = new AgregarCliente (firebaseInstance,this);
+        MostrarPanelCliente(menucliente);
 
 
     }

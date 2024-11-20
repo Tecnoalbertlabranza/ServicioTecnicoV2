@@ -4,6 +4,7 @@
  */
 package org.example.Interfaces.AdministracionProductos;
 
+import org.example.Interfaces.PaginaPrincipal;
 import org.example.Producto;
 import org.example.ServicioTecnico;
 import org.example.firebase;
@@ -17,6 +18,7 @@ import javax.swing.*;
 public class AgregarProductos extends javax.swing.JPanel {
     private firebase firebaseInstance;
     private Productos vistaProductos;
+    private ServicioTecnico servicioTecnico;
 
 
     /**
@@ -24,6 +26,7 @@ public class AgregarProductos extends javax.swing.JPanel {
      */
     public AgregarProductos(firebase firebaseInstance,Productos vistaProductos) {
         this.firebaseInstance = firebaseInstance;
+        this.servicioTecnico = PaginaPrincipal.getServicioTecnico();
         this.vistaProductos = vistaProductos;
         initComponents();
     }
@@ -57,8 +60,8 @@ public class AgregarProductos extends javax.swing.JPanel {
 
 
         // Hasta aqui se pueden colocar condiciones. mas abajo no.
-        ServicioTecnico servicio = new ServicioTecnico("mi servicio",null,null,null,null);
-        servicio.registrarProducto(nombre, categoria, valor,stock, firebaseInstance);
+
+        servicioTecnico.registrarProducto(nombre, categoria, valor,stock, firebaseInstance);
         JOptionPane.showMessageDialog(null, "Producto registrado correctamente");
 
         txtNombre.setText("");

@@ -4,6 +4,7 @@
  */
 package org.example.Interfaces.AdministracionServiciosPc;
 
+import org.example.Interfaces.PaginaPrincipal;
 import org.example.ServicioTecnico;
 import org.example.firebase;
 
@@ -16,6 +17,7 @@ import javax.swing.*;
  */
 public class AgregarServiciosPc extends javax.swing.JPanel {
     private firebase firebaseInstance;
+    private ServicioTecnico servicioTecnico;
 
     /**
      * Creates new form AgregarServiciosPc
@@ -46,8 +48,8 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
 
        // Hasta aqui pueden agregar condiciones
 
-       ServicioTecnico servicioTecnico1 = new ServicioTecnico("Mi servicio",null,null,null,null);
-       servicioTecnico1.registrarServicioComputador(nombre,valorServicio,tiempoEstimado,tipoDeComputadora,lineaDeProcesador,usoDeComputadora,firebaseInstance);
+
+       servicioTecnico.registrarServicioComputador(nombre,valorServicio,tiempoEstimado,tipoDeComputadora,lineaDeProcesador,usoDeComputadora,firebaseInstance);
        JOptionPane.showMessageDialog(this, "Servicio agregado correctamente");
 
        txtNombre.setText("");
@@ -62,6 +64,7 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
 
 
     public AgregarServiciosPc(firebase firebaseInstance){
+       this.servicioTecnico = PaginaPrincipal.getServicioTecnico();
        this.firebaseInstance = firebaseInstance;
         initComponents();
     }

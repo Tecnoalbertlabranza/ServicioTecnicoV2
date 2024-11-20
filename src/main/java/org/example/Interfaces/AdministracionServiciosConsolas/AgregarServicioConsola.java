@@ -4,6 +4,7 @@
  */
 package org.example.Interfaces.AdministracionServiciosConsolas;
 
+import org.example.Interfaces.PaginaPrincipal;
 import org.example.ServicioTecnico;
 import org.example.firebase;
 
@@ -15,11 +16,13 @@ import javax.swing.*;
  */
 public class AgregarServicioConsola extends javax.swing.JPanel {
     private firebase firebaseInstance;
+    private ServicioTecnico servicioTecnico;
 
     /**
      * Creates new form AgregarServicioConsola
      */
     public AgregarServicioConsola(firebase firebaseInstance) {
+        this.servicioTecnico = PaginaPrincipal.getServicioTecnico();
         this.firebaseInstance = firebaseInstance;
         initComponents();
     }
@@ -48,7 +51,6 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
 
 
         // Hasta aqui se pueden colocar condiciones de ingreso de datos mas abajo no ya que el codigo e rompe
-        ServicioTecnico servicioTecnico = new ServicioTecnico("Mi servicio",null,null,null,null);
         servicioTecnico.registrarServicioConsolas(nombre, valorServicio, tiempoestimado, modeloDeConsola, marcaConsola, firebaseInstance);
         JOptionPane.showMessageDialog(this, "Servicio de consola agregado correctamente");
     }
