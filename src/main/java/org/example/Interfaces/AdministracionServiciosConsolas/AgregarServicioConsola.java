@@ -28,6 +28,8 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
         String nombre = txtNombre.getText();
         double valorServicio;
 
+        // Desde aqui hacia abajo se pueden colocar condiciones a el ingreso de servicios para consolas
+
         try {
             valorServicio = Double.parseDouble(txtValor.getText());
         }catch (NumberFormatException ex){
@@ -43,6 +45,9 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos");
             return;
         }
+
+
+        // Hasta aqui se pueden colocar condiciones de ingreso de datos mas abajo no ya que el codigo e rompe
         ServicioTecnico servicioTecnico = new ServicioTecnico("Mi servicio",null,null,null,null);
         servicioTecnico.registrarServicioConsolas(nombre, valorServicio, tiempoestimado, modeloDeConsola, marcaConsola, firebaseInstance);
         JOptionPane.showMessageDialog(this, "Servicio de consola agregado correctamente");

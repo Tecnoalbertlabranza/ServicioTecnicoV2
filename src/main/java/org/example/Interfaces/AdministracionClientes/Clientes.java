@@ -87,6 +87,7 @@ public class Clientes extends javax.swing.JPanel {
             System.out.println("Error al cargar datos"+ e.getMessage());
         }
     }
+
     public void refrescarTabla(){
         cargarClientesDesdeFirebase();
     }

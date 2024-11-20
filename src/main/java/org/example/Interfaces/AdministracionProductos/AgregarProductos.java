@@ -34,6 +34,8 @@ public class AgregarProductos extends javax.swing.JPanel {
         double valor;
         double stock;
 
+        // Desde aqui hacia abajo se pueden colocar condicionales para el ingreso de productos.
+
         try {
             valor = Double.parseDouble(txtValor.getText().trim());
             stock = Double.parseDouble(txtStock.getText().trim());
@@ -41,6 +43,7 @@ public class AgregarProductos extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Por favor, ingrese valores numéricos en los campos Valor y Stock");
             return;
         }
+
         if (valor <= 0 || stock <= 0) {
             JOptionPane.showMessageDialog(null, "Por favor, ingrese valores mayores a cero en los campos Valor y Stock");
             return;
@@ -50,6 +53,10 @@ public class AgregarProductos extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos");
             return;
         }
+
+
+
+        // Hasta aqui se pueden colocar condiciones. mas abajo no.
         ServicioTecnico servicio = new ServicioTecnico("mi servicio",null,null,null,null);
         servicio.registrarProducto(nombre, categoria, valor,stock, firebaseInstance);
         JOptionPane.showMessageDialog(null, "Producto registrado correctamente");

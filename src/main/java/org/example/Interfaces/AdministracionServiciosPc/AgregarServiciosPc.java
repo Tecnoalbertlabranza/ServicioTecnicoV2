@@ -24,6 +24,8 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
        String nombre = txtNombre.getText();
        double valorServicio;
 
+       // Desde aqui hacia abajo pueden colocar condiciones a los datos ingresados
+
        try {
            valorServicio = Double.parseDouble(txtValorServicioPc.getText());
        }catch (NumberFormatException ex){
@@ -40,6 +42,10 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
            JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos");
            return;
        }
+
+
+       // Hasta aqui pueden agregar condiciones
+
        ServicioTecnico servicioTecnico1 = new ServicioTecnico("Mi servicio",null,null,null,null);
        servicioTecnico1.registrarServicioComputador(nombre,valorServicio,tiempoEstimado,tipoDeComputadora,lineaDeProcesador,usoDeComputadora,firebaseInstance);
        JOptionPane.showMessageDialog(this, "Servicio agregado correctamente");

@@ -43,6 +43,8 @@ public class AgregarCliente extends javax.swing.JPanel {
         String calle = txtCalle.getText().trim();
         String numero = txtNumero.getText().trim();
 
+        // Desde aqui hacia abajo pueden colocarle todas las condiciones que quieran para el ingreso de datos de cliente
+
         if (nombre.isEmpty() || apellido.isEmpty() || telefono.isEmpty() || email.isEmpty() || rut.isEmpty() || region.isEmpty() || comuna.isEmpty() || calle.isEmpty() || numero.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos");
             return;
@@ -55,6 +57,9 @@ public class AgregarCliente extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos");
         }
 
+
+
+        // Hasta aqui se pueden colocar las condiciones. mas abajo nop ya que dañarian el codigo
         servicioTecnico.RegistrarCliente(nombre, apellido, telefono, email, rut, region, comuna, calle, numero, firebaseInstance);
         JOptionPane.showMessageDialog(null, "Cliente registrado correctamente");
         clientespanel.refrescarTabla();
@@ -169,7 +174,7 @@ public class AgregarCliente extends javax.swing.JPanel {
         });
         jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 220, 30));
 
-        jLabel6.setText("Rut");
+        jLabel6.setText("Rut ( Sin puntos y con guion )");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
 
         txtRut.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
