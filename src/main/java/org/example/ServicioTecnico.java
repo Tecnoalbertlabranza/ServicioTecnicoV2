@@ -4,26 +4,27 @@ import java.util.*;
 
 public class ServicioTecnico {
 	private String nombreServicio;
-	Collection<Servicio> servicios;
+	Collection<ServicioConsolas> serviciosConsola;
+	Collection<ServicioComputador> serviciosComputador;
 	Collection<Producto> productos;
 	List<Cliente> listaClientes;
 	private String descripcion;
 
 
-
-
+	public ServicioTecnico(String nombreServicio, Collection<ServicioConsolas> serviciosConsola, Collection<ServicioComputador> serviciosComputador, Collection<Producto> productos, List<Cliente> listaClientes, String descripcion) {
+		this.nombreServicio = nombreServicio;
+		this.serviciosConsola = serviciosConsola;
+		this.serviciosComputador = serviciosComputador;
+		this.productos = productos;
+		this.listaClientes = listaClientes;
+		this.descripcion = descripcion;
+	}
 
 	public List<Cliente> getListaClientes() {
 		return listaClientes;
 	}
 
-	public ServicioTecnico(String nombreServicio, Collection<Servicio> servicios, Collection<Producto> productos, List<Cliente> listaClientes, String descripcion) {
-		this.nombreServicio = nombreServicio;
-		this.servicios = servicios;
-		this.productos = productos;
-		this.listaClientes = new ArrayList<>();
-		this.descripcion = descripcion;
-	}
+
 
 	public void RegistrarCliente(String nombre, String apellido, String telefono, String email, String rut, String region, String comuna, String calle, String numero, firebase firebaseInstance) {
 		if (listaClientes == null) {
@@ -73,12 +74,12 @@ public class ServicioTecnico {
 	}
 
 	public void registrarServicioComputador(String nombre, double valorServicio, String tiempoEstimado, String tipoComputadora, String lineaDePorcesador, String usoComputadora, firebase firebaseInstance) {
-		if (servicios == null) {
-			servicios = new ArrayList<>();
+		if (serviciosComputador == null) {
+			serviciosComputador = new ArrayList<>();
 		}
 
 		ServicioComputador servicioComputador = new ServicioComputador(nombre, valorServicio, tiempoEstimado, tipoComputadora, lineaDePorcesador, usoComputadora);
-		servicios.add(servicioComputador);
+		serviciosComputador.add(servicioComputador);
 		System.out.println("Servicio agregado localmente: " + servicioComputador);
 
 		Map<String, Object> datosServicioComputador = new HashMap<>();
@@ -94,12 +95,12 @@ public class ServicioTecnico {
 	}
 
 	public void registrarServicioConsolas(String nombre,double valorServicio, String tiempoEstimado, String modeloConsola, String marcaConsola, firebase firebaseInstance) {
-		if (servicios == null) {
-			servicios = new ArrayList<>();
+		if (serviciosConsola == null) {
+			serviciosConsola = new ArrayList<>();
 		}
 
 		ServicioConsolas servicioConsolas = new ServicioConsolas(nombre, valorServicio, tiempoEstimado, modeloConsola, marcaConsola);
-		servicios.add(servicioConsolas);
+		serviciosConsola.add(servicioConsolas);
 		System.out.println("Servicio agregado localmente: " + servicioConsolas);
 
 		Map<String, Object> datosServicioConsolas = new HashMap<>();
@@ -128,11 +129,7 @@ public class ServicioTecnico {
 		System.out.println("Cliente con RUT "+rut+"no encontrado");
 	}
 
-	public void EliminarServicio(String nombreServicio) {
-		for (Servicio servicio : servicios) {
-			servicios.remove(servicio);
-		}
-	}
+
 
 	public void MostrarProductos() {
 		for (Producto producto : productos) {
@@ -140,11 +137,7 @@ public class ServicioTecnico {
 		}
 	}
 
-	public void MostrarServicios() {
-		for (Servicio servicio : servicios) {
-			System.out.println(servicio);
-		}
-	}
+
 
 	public void setListaClientes(List<Cliente> listaClientes) {
 		this.listaClientes = listaClientes;
