@@ -6,6 +6,7 @@ package org.example.Interfaces.AdministracionClientes;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
 import org.example.Cliente;
+import org.example.Interfaces.PaginaPrincipal;
 import org.example.ServicioTecnico;
 import org.example.firebase;
 
@@ -43,7 +44,7 @@ public class Clientes extends javax.swing.JPanel {
      */
     public Clientes(firebase firebaseInstance) {
         this.firebaseInstance = firebaseInstance;
-        this.servicioTecnico = new ServicioTecnico("Mi servicio",null,null,null,null);
+        this.servicioTecnico = PaginaPrincipal.getServicioTecnico();
         initComponents();
         cargarClientesDesdeFirebase();
         //AgregarCliente menucliente = new AgregarCliente (firebaseInstance,this,);

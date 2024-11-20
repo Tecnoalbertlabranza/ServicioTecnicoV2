@@ -150,6 +150,11 @@ public class ServicioTecnico {
 		this.listaClientes = listaClientes;
 	}
 
+	public void setListaProductos(Collection<Producto> productos) {
+		this.productos = productos;
+	}
 
-
+	public Collection<Producto> getProductos() {
+		return productos;
+	}
 }

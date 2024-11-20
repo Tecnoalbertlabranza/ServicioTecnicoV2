@@ -21,7 +21,7 @@ import javax.swing.JPanel;
  * @author basty
  */
 public class PaginaPrincipal extends javax.swing.JFrame {
-    private ServicioTecnico servicioTecnico;
+    private static ServicioTecnico servicioTecnico;
     private firebase firebaseInstance;
 
     private void MostrarPanel(JPanel pag ){
@@ -38,7 +38,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
    
     
     public PaginaPrincipal() {
-
+        this.servicioTecnico = new ServicioTecnico("Mi Servicio",null,null,null,null);
         firebaseInstance = new firebase();
         firebaseInstance.inicializarconexion();
         initComponents();
@@ -49,6 +49,10 @@ public class PaginaPrincipal extends javax.swing.JFrame {
 
     public firebase getFirebaseInstance(){
         return firebaseInstance;
+    }
+
+    public static ServicioTecnico getServicioTecnico() {
+        return servicioTecnico;
     }
 
     /**

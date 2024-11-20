@@ -8,6 +8,8 @@ import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
+import org.example.Interfaces.PaginaPrincipal;
+import org.example.Producto;
 import org.example.ServicioTecnico;
 import org.example.firebase;
 
@@ -25,6 +27,7 @@ public class Productos extends javax.swing.JPanel {
 
     private firebase firebaseInstance;
     private DefaultTableModel modeloTablaProductos;
+    private ServicioTecnico servicioTecnico;
 
 
     
@@ -43,6 +46,8 @@ public class Productos extends javax.swing.JPanel {
          modeloTablaProductos = (DefaultTableModel) TablaProductos.getModel();
          modeloTablaProductos.setRowCount(0);
 
+         List<Producto> listaProductosLocal = new ArrayList<>();
+
          try {
              Firestore db = firebaseInstance.getFirestore();
              ApiFuture<QuerySnapshot> future = db.collection("Registro de Producto").get();
@@ -54,8 +59,21 @@ public class Productos extends javax.swing.JPanel {
                  double valor = document.getDouble("Valor");
                  double stock = document.getDouble("Stock");
 
+                 Producto producto = new Producto(nombre, categoria,valor,stock);
+
+                 listaProductosLocal.add(producto);
+
                  modeloTablaProductos.addRow(new Object[]{nombre,categoria,valor,stock});
              }
+
+             servicioTecnico.setListaProductos(listaProductosLocal);
+
+             System.out.println("Productos existentes");
+             for (Producto producto : servicioTecnico.getProductos()){
+                 System.out.println(producto);
+             }
+
+
          } catch (Exception e) {
              e.printStackTrace();
              System.out.println("Error al cargar datos" + e.getMessage());
@@ -73,6 +91,7 @@ public class Productos extends javax.swing.JPanel {
      */
     public Productos(firebase firebaseInstance) {
         this.firebaseInstance = firebaseInstance;
+        this.servicioTecnico = PaginaPrincipal.getServicioTecnico();
         initComponents();
         cargarProductosDesdeFirebase();
         AgregarProductos menuproductos = new AgregarProductos(firebaseInstance,this);
