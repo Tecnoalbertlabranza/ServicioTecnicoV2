@@ -4,22 +4,70 @@
  */
 package org.example.Interfaces.InicioSesion;
 
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.*;
+import org.example.Interfaces.InterfazDeCliente.InterfazParaElCliente;
+import org.example.Interfaces.PaginaPrincipal;
 import org.example.ServicioTecnico;
 import org.example.firebase;
+
+import javax.swing.*;
+import java.util.Map;
 
 /**
  *
  * @author basty
  */
 public class InicioSesion extends javax.swing.JFrame {
+    private JTextField getTxtIngresoDeRut;
+    private JButton getBtnIngresar;
+    private firebase firebaseInstance;
+
     /**
      * Creates new form InicioSesion
      */
     public InicioSesion() {
-        firebase f1 = new firebase();
-        f1.inicializarconexion();
+        firebaseInstance = new firebase();
+        firebaseInstance.inicializarconexion();
         initComponents();
+
     }
+
+    private void iniciarSesion() {
+        String rutIngresado = txtIngresoDeRut.getText();
+
+        Firestore db = firebaseInstance.getFirestore();
+        DocumentReference docRef = db.collection("Registro De Clientes").document(rutIngresado);
+        ApiFuture<DocumentSnapshot> future = docRef.get();
+
+        try {
+            DocumentSnapshot document = future.get();
+            if (document.exists()) {
+                InterfazParaElCliente interfazCliente = new InterfazParaElCliente();
+                interfazCliente.setVisible(true);
+                dispose();
+            } else {
+                DocumentReference adminDocRef = db.collection("Administradores").document(rutIngresado);
+                ApiFuture<DocumentSnapshot> adminFuture = adminDocRef.get();
+                adminFuture.get();
+                if (adminFuture.isDone() && adminFuture.get().exists()) {
+                    PaginaPrincipal paginaPrincipal = new PaginaPrincipal();
+                    paginaPrincipal.setVisible(true);
+                    dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "El Rut no existe");
+                }
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Error durante la operación: " + ex.getMessage());
+        }
+
+    }
+        
+    
+        
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,6 +85,7 @@ public class InicioSesion extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtIngresoDeRut = new javax.swing.JTextField();
+        btnIngresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -62,12 +111,24 @@ public class InicioSesion extends javax.swing.JFrame {
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, -1));
         getContentPane().add(txtIngresoDeRut, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 230, 30));
 
+        btnIngresar.setText("Iniciar Sesion");
+        btnIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 220, 70));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNombreDeUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreDeUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreDeUsuarioActionPerformed
+
+    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+      iniciarSesion();
+    }//GEN-LAST:event_btnIngresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -105,6 +166,7 @@ public class InicioSesion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnIngresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
