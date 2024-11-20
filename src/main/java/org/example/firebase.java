@@ -2,13 +2,11 @@ package org.example;
 
 import com.google.api.core.ApiFuture;
 import com.google.auth.oauth2.GoogleCredentials;
-import com.google.cloud.firestore.CollectionReference;
-import com.google.cloud.firestore.DocumentReference;
-import com.google.cloud.firestore.Firestore;
-import com.google.cloud.firestore.WriteResult;
+import com.google.cloud.firestore.*;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.cloud.FirestoreClient;
+import io.netty.handler.codec.serialization.ObjectEncoder;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,6 +21,26 @@ public class firebase {
     public firebase() {
     }
 
+    public Map<String, Object> leerDatos(String coleccion, String documento){
+        try {
+            if (firestore != null) {
+                DocumentReference docRef = firestore.collection(coleccion).document(documento);
+                ApiFuture<DocumentSnapshot> future = docRef.get();
+                DocumentSnapshot document = future.get();
+
+                if (document.exists()) {
+                    return document.getData();
+                } else {
+                    System.out.println("No such document!");
+                    return null;
+                }
+            } else {
+                throw new IllegalStateException("Firestore no se inicializo. Debe llamar a inicializarconexion() primero.");}
+        } catch (InterruptedException | ExecutionException e){
+            System.out.println("Error durante la lectura del documento: " + e.getMessage());
+            return null;
+        }
+    }
 
     public void inicializarconexion() {
         try {
