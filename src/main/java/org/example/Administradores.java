@@ -7,7 +7,7 @@ public class Administradores implements Usuarios {
 	private String apellido;
 	private String email;
 
-	public Administradores(int id_Administrador, String nombre, String rut, String contraseña, String apellido, String email ){
+	public Administradores(String nombre, String apellido, String rut, String contraseña, String email ){
 		this.nombre = nombre;
 		this.rut = rut;
 		this.contraseña = contraseña;

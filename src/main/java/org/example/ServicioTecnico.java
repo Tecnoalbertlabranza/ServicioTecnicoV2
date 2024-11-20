@@ -24,7 +24,18 @@ public class ServicioTecnico {
 		return listaClientes;
 	}
 
+	public void registrarAdministrador (String nombre, String apellido, String rut, String contraseña, String email ,firebase firebaseInstance) {
+		Administradores admin = new Administradores(nombre, apellido, rut, contraseña, email);
+		Map<String, Object> data = new HashMap<>();
+		data.put("Nombre", nombre);
+		data.put("Apellido", apellido);
+		data.put("Rut", rut);
+		data.put("Contraseña", contraseña);
+		data.put("Email", email);
 
+		firebaseInstance.insertardatos("Administradores", nombre + "" + apellido, data);
+		System.out.println("Administradores registrado en firebase con id " + nombre + "" + apellido);
+	}
 
 	public void RegistrarCliente(String nombre, String apellido, String telefono, String email, String rut, String region, String comuna, String calle, String numero, firebase firebaseInstance) {
 		if (listaClientes == null) {
