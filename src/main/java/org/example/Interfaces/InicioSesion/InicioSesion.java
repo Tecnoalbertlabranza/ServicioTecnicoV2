@@ -6,24 +6,33 @@ package org.example.Interfaces.InicioSesion;
 
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
+import org.example.Cliente;
 import org.example.Interfaces.InterfazDeCliente.InterfazParaElCliente;
 import org.example.Interfaces.PaginaPrincipal;
 import org.example.ServicioTecnico;
 import org.example.firebase;
+import org.netbeans.lib.awtextra.AbsoluteConstraints;
+import org.netbeans.lib.awtextra.AbsoluteLayout;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author basty
  */
-public class InicioSesion extends javax.swing.JFrame {
+public class InicioSesion extends JFrame {
     private JTextField getTxtIngresoDeRut;
     private JButton getBtnIngresar;
     private firebase firebaseInstance;
+    private ServicioTecnico servicioTecnico;
 
     /**
      * Creates new form InicioSesion
@@ -85,7 +94,18 @@ public class InicioSesion extends javax.swing.JFrame {
             System.err.println("Error durante la operacion"+e.getMessage());
         }
     }
-    
+
+    ServicioTecnico s1 = new ServicioTecnico("Tecnoalbert",null,null,null,null,null);
+    public Cliente obtenerDatosDelCliente(String rut){
+        List<Cliente>clientes = s1.getListaClientes();
+        for (Cliente cliente : clientes){
+            if (cliente.getRut().equals(rut)){
+                return cliente;
+            }
+        }
+        return null;
+    }
+
         
 
 
@@ -99,65 +119,65 @@ public class InicioSesion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        txtNombreDeUsuario = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        txtIngresoDeRut = new javax.swing.JTextField();
-        btnIngresar = new javax.swing.JButton();
+        jLabel1 = new JLabel();
+        txtNombreDeUsuario = new JTextField();
+        jLabel2 = new JLabel();
+        jLabel3 = new JLabel();
+        jTextField2 = new JTextField();
+        jLabel4 = new JLabel();
+        txtIngresoDeRut = new JTextField();
+        btnIngresar = new JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new AbsoluteLayout());
 
         jLabel1.setText("Logo empresa");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 140, 40));
+        getContentPane().add(jLabel1, new AbsoluteConstraints(130, 30, 140, 40));
 
-        txtNombreDeUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        txtNombreDeUsuario.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 txtNombreDeUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(txtNombreDeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 230, 30));
+        getContentPane().add(txtNombreDeUsuario, new AbsoluteConstraints(80, 170, 230, 30));
 
         jLabel2.setText("Ingrese su nombre de usuario");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 160, 30));
+        getContentPane().add(jLabel2, new AbsoluteConstraints(80, 140, 160, 30));
 
         jLabel3.setText("Ingrese contraseña");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, -1, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 230, 30));
+        getContentPane().add(jLabel3, new AbsoluteConstraints(80, 300, -1, -1));
+        getContentPane().add(jTextField2, new AbsoluteConstraints(80, 330, 230, 30));
 
         jLabel4.setText("Ingrese Su Rut");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, -1));
+        getContentPane().add(jLabel4, new AbsoluteConstraints(80, 210, -1, -1));
 
-        txtIngresoDeRut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        txtIngresoDeRut.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 txtIngresoDeRutActionPerformed(evt);
             }
         });
-        getContentPane().add(txtIngresoDeRut, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 230, 30));
+        getContentPane().add(txtIngresoDeRut, new AbsoluteConstraints(80, 240, 230, 30));
 
         btnIngresar.setText("Iniciar Sesion");
-        btnIngresar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnIngresar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 btnIngresarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 220, 70));
+        getContentPane().add(btnIngresar, new AbsoluteConstraints(170, 390, 220, 70));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNombreDeUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreDeUsuarioActionPerformed
+    private void txtNombreDeUsuarioActionPerformed(ActionEvent evt) {//GEN-FIRST:event_txtNombreDeUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreDeUsuarioActionPerformed
 
-    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+    private void btnIngresarActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
       iniciarSesion();
     }//GEN-LAST:event_btnIngresarActionPerformed
 
-    private void txtIngresoDeRutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIngresoDeRutActionPerformed
+    private void txtIngresoDeRutActionPerformed(ActionEvent evt) {//GEN-FIRST:event_txtIngresoDeRutActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIngresoDeRutActionPerformed
 
@@ -171,25 +191,25 @@ public class InicioSesion extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            Logger.getLogger(InicioSesion.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            Logger.getLogger(InicioSesion.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            Logger.getLogger(InicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(InicioSesion.class.getName()).log(Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new InicioSesion().setVisible(true);
             }
@@ -197,13 +217,13 @@ public class InicioSesion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnIngresar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField txtIngresoDeRut;
-    private javax.swing.JTextField txtNombreDeUsuario;
+    private JButton btnIngresar;
+    private JLabel jLabel1;
+    private JLabel jLabel2;
+    private JLabel jLabel3;
+    private JLabel jLabel4;
+    private JTextField jTextField2;
+    private JTextField txtIngresoDeRut;
+    private JTextField txtNombreDeUsuario;
     // End of variables declaration//GEN-END:variables
 }

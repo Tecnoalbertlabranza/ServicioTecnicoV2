@@ -38,8 +38,6 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         initComponents();
         configurarTablaCarrito();
         cargarListaDeProductos();
-
-
     }
 
     private void configurarTablaCarrito() {

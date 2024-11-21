@@ -23,7 +23,7 @@ public class ServicioTecnico {
 		return listaClientes;
 	}
 
-	public void registrarAdministrador (String nombre, String apellido, String rut, String contraseña, String email ,firebase firebaseInstance) {
+	public void registrarAdministrador (String nombre, String apellido, String rut, String contraseña, String email , firebase firebaseInstance) {
 		Administradores admin = new Administradores(nombre, apellido, rut, contraseña, email);
 		Map<String, Object> data = new HashMap<>();
 		data.put("Nombre", nombre);

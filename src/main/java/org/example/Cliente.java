@@ -15,8 +15,6 @@ public class Cliente implements Usuarios {
 	private String numero;
 
 	AgendaServicios agendaCliente;
-	CarritoDeCompras carrito;
-	Collection<Venta> comprassCliente;
 
 	public Cliente(String nombre, String apellido, String telefono, String email, String rut,String region, String comuna, String calle, String numero) {
 		this.nombre = nombre;
