@@ -12,7 +12,9 @@ import org.example.ServicioTecnico;
 import org.example.firebase;
 
 import javax.swing.*;
+import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 /**
  *
@@ -35,35 +37,54 @@ public class InicioSesion extends javax.swing.JFrame {
 
     private void iniciarSesion() {
         String rutIngresado = txtIngresoDeRut.getText();
+        System.out.println("RUT ingresado: " + rutIngresado);
 
-        Firestore db = firebaseInstance.getFirestore();
-        DocumentReference docRef = db.collection("Registro De Clientes").document(rutIngresado);
-        ApiFuture<DocumentSnapshot> future = docRef.get();
+        CollectionReference clientesCollection = firebaseInstance.getFirestore().collection("Registro De Clientes");
+        ApiFuture<QuerySnapshot> querySnapshot = clientesCollection.get();
 
         try {
-            DocumentSnapshot document = future.get();
-            if (document.exists()) {
-                InterfazParaElCliente interfazCliente = new InterfazParaElCliente();
-                interfazCliente.setVisible(true);
-                dispose();
-            } else {
-                DocumentReference adminDocRef = db.collection("Administradores").document(rutIngresado);
-                ApiFuture<DocumentSnapshot> adminFuture = adminDocRef.get();
-                adminFuture.get();
-                if (adminFuture.isDone() && adminFuture.get().exists()) {
-                    PaginaPrincipal paginaPrincipal = new PaginaPrincipal();
-                    paginaPrincipal.setVisible(true);
+            List<QueryDocumentSnapshot> documents = querySnapshot.get().getDocuments();
+            for (QueryDocumentSnapshot document : documents) {
+                Map<String, Object> clienteData = document.getData();
+                String rutCliente = (String) clienteData.get("Rut");
+
+                if (rutCliente.equals(rutIngresado)) {
+                    System.out.println("Cliente encontrado: " + clienteData);
+                    InterfazParaElCliente interfazCliente = new InterfazParaElCliente();
+                    interfazCliente.setVisible(true);
                     dispose();
-                } else {
-                    JOptionPane.showMessageDialog(null, "El Rut no existe");
+                    return;
                 }
             }
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Error durante la operación: " + ex.getMessage());
+
+            JOptionPane.showMessageDialog(null, "El RUT De cliente no existe");
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
         }
 
+        CollectionReference administradoresCollection = firebaseInstance.getFirestore().collection("Administradores");
+        ApiFuture<QuerySnapshot> querySnapshotAdministradores = administradoresCollection.get();
+
+        try{
+            List<QueryDocumentSnapshot> documentsAdministradores = querySnapshotAdministradores.get().getDocuments();
+            for (QueryDocumentSnapshot document : documentsAdministradores){
+                Map<String, Object> administradorData = document.getData();
+                String rutAdministrador = (String) administradorData.get("Rut");
+
+                if(rutAdministrador.equals(rutIngresado)){
+                    System.out.println("Administrador encontrado: " + administradorData);
+                    PaginaPrincipal interfazPaginaPrincipal = new PaginaPrincipal();
+                    interfazPaginaPrincipal.setVisible(true);
+                    dispose();
+                    return;
+                }
+            }
+            JOptionPane.showMessageDialog(null, "El RUT no existe");
+        }catch (InterruptedException | ExecutionException e){
+            e.printStackTrace();
+            System.err.println("Error durante la operacion"+e.getMessage());
+        }
     }
-        
     
         
 
@@ -109,6 +130,12 @@ public class InicioSesion extends javax.swing.JFrame {
 
         jLabel4.setText("Ingrese Su Rut");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, -1));
+
+        txtIngresoDeRut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIngresoDeRutActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtIngresoDeRut, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 230, 30));
 
         btnIngresar.setText("Iniciar Sesion");
@@ -129,6 +156,10 @@ public class InicioSesion extends javax.swing.JFrame {
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
       iniciarSesion();
     }//GEN-LAST:event_btnIngresarActionPerformed
+
+    private void txtIngresoDeRutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIngresoDeRutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIngresoDeRutActionPerformed
 
     /**
      * @param args the command line arguments
