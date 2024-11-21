@@ -1,5 +1,4 @@
 package org.example;
-
 import java.util.*;
 
 public class ServicioTecnico {
@@ -124,31 +123,6 @@ public class ServicioTecnico {
 		firebaseInstance.insertardatos("Registro de servicio consola", nombre + " " + valorServicio, datosServicioConsolas);
 		System.out.println("Servicio consola registrado en Firebase con id" + nombre + " " + valorServicio);
 	}
-
-	public void EliminarCliente(String rut, firebase firebaseInstance) {
-		for (int i = 0; i < listaClientes.size(); i++) {
-			Cliente cliente = listaClientes.get(i);
-			if (cliente.getRut().equalsIgnoreCase(rut)) {
-				listaClientes.remove(cliente);
-				System.out.println("Cliente eliminado localmente"+cliente);
-
-				firebaseInstance.eliminarDatos("Registro De Clientes",cliente.getNombre()+" "+cliente.getApellido());
-				System.out.println("Cliente "+cliente.getNombre()+"eliminado exitosamente");
-				return;
-			}
-		}
-		System.out.println("Cliente con RUT "+rut+"no encontrado");
-	}
-
-
-
-	public void MostrarProductos() {
-		for (Producto producto : productos) {
-			System.out.println(producto);
-		}
-	}
-
-
 
 	public void setListaClientes(List<Cliente> listaClientes) {
 		this.listaClientes = listaClientes;
