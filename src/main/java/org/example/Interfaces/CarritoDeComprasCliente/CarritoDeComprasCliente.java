@@ -3,11 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package org.example.Interfaces.CarritoDeComprasCliente;
-
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
-import com.google.cloud.firestore.QuerySnapshot;
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.MouseAdapter;
@@ -38,7 +35,6 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
 
     }
 
-
     private void configurarTablaCarrito() {
         modeloTablaCarrito = new DefaultTableModel(new Object[][]{}, new String[]{"Producto", "Cantidad", "PrecioUnitario", "Total"}) {
             public boolean isCellEditable(int row, int column) {
@@ -47,7 +43,6 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         };
         TablaCarrito.setModel(modeloTablaCarrito);
     }
-
 
     private void cargarListaDeProductos() {
         DefaultListModel<String> modeloLista = new DefaultListModel<>();
@@ -74,7 +69,6 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
             }
         });
     }
-
 
     private void agregarProductoAlCarrito(){
         String seleccion = ListaDeProductos.getSelectedValue();
@@ -165,8 +159,6 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         }
         return productos.toString();
     }
-
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -377,8 +369,7 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
-
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnGuardarVenta;
     private javax.swing.JList<String> ListaDeProductos;
