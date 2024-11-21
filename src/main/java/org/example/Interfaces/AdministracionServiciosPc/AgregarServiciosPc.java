@@ -4,6 +4,7 @@
  */
 package org.example.Interfaces.AdministracionServiciosPc;
 
+import org.example.Interfaces.InicioSesion.InicioSesion;
 import org.example.Interfaces.PaginaPrincipal;
 import org.example.ServicioTecnico;
 import org.example.firebase;
@@ -64,7 +65,7 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
 
 
     public AgregarServiciosPc(firebase firebaseInstance){
-       this.servicioTecnico = PaginaPrincipal.getServicioTecnico();
+       this.servicioTecnico = InicioSesion.getServicioTecnico();
        this.firebaseInstance = firebaseInstance;
         initComponents();
     }

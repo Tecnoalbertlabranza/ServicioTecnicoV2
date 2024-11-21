@@ -8,6 +8,7 @@ import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
+import org.example.Interfaces.InicioSesion.InicioSesion;
 import org.example.Interfaces.PaginaPrincipal;
 import org.example.Producto;
 import org.example.ServicioTecnico;
@@ -91,7 +92,7 @@ public class Productos extends javax.swing.JPanel {
      */
     public Productos(firebase firebaseInstance) {
         this.firebaseInstance = firebaseInstance;
-        this.servicioTecnico = PaginaPrincipal.getServicioTecnico();
+        this.servicioTecnico = InicioSesion.getServicioTecnico();
         initComponents();
         cargarProductosDesdeFirebase();
         AgregarProductos menuproductos = new AgregarProductos(firebaseInstance,this);

@@ -4,6 +4,7 @@
  */
 package org.example.Interfaces.AdministracionProductos;
 
+import org.example.Interfaces.InicioSesion.InicioSesion;
 import org.example.Interfaces.PaginaPrincipal;
 import org.example.Producto;
 import org.example.ServicioTecnico;
@@ -26,7 +27,7 @@ public class AgregarProductos extends javax.swing.JPanel {
      */
     public AgregarProductos(firebase firebaseInstance,Productos vistaProductos) {
         this.firebaseInstance = firebaseInstance;
-        this.servicioTecnico = PaginaPrincipal.getServicioTecnico();
+        this.servicioTecnico = InicioSesion.getServicioTecnico();
         this.vistaProductos = vistaProductos;
         initComponents();
     }

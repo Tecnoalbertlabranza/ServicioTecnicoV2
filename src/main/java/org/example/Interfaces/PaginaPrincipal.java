@@ -11,6 +11,7 @@ import org.example.Interfaces.AdministracionProductos.Productos;
 import org.example.Interfaces.AdministracionServiciosConsolas.ServiciosConsolas;
 import org.example.Interfaces.AdministracionServiciosPc.ServiciosPc;
 import org.example.Interfaces.CarritoDeComprasCliente.CarritoDeComprasCliente;
+import org.example.Interfaces.InicioSesion.InicioSesion;
 import org.example.ServicioTecnico;
 import org.example.firebase;
 
@@ -22,8 +23,8 @@ import javax.swing.JPanel;
  * @author basty
  */
 public class PaginaPrincipal extends javax.swing.JFrame {
-    private static ServicioTecnico servicioTecnico;
-    private firebase firebaseInstance;
+    private  ServicioTecnico servicioTecnico;
+    private  firebase firebaseInstance;
 
     private void MostrarPanel(JPanel pag ){
         
@@ -38,12 +39,12 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     
    
     
-    public PaginaPrincipal() {
-        this.servicioTecnico = new ServicioTecnico("Mi Servicio",null,null,null,null,null);
-        firebaseInstance = new firebase();
+    public PaginaPrincipal(firebase firebaseInstance) {
+        this.firebaseInstance = firebaseInstance;
+        this.servicioTecnico = InicioSesion.getServicioTecnico();
         firebaseInstance.inicializarconexion();
         initComponents();
-        servicioTecnico.registrarAdministrador("Bastian","Wenckhans","21992926-9","02440244","basty.wenckhansbello@gmail.com",firebaseInstance);
+
         InicioMenu menu = new InicioMenu();
         MostrarPanel(menu);
     }
@@ -52,9 +53,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         return firebaseInstance;
     }
 
-    public static ServicioTecnico getServicioTecnico() {
-        return servicioTecnico;
-    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -235,7 +234,8 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PaginaPrincipal().setVisible(true);
+                firebase firebaseInstance = new firebase();
+                new PaginaPrincipal(firebaseInstance).setVisible(true);
             }
         });
     }

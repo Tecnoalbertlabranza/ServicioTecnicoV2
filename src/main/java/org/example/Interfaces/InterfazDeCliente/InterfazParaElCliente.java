@@ -4,11 +4,14 @@
  */
 package org.example.Interfaces.InterfazDeCliente;
 
+import org.example.firebase;
+
 /**
  *
  * @author basty
  */
 public class InterfazParaElCliente extends javax.swing.JFrame {
+    private firebase firebaseInstance;
 
     /**
      * Creates new form InterfazParaElCliente

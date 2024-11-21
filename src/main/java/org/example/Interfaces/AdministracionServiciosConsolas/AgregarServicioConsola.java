@@ -4,6 +4,7 @@
  */
 package org.example.Interfaces.AdministracionServiciosConsolas;
 
+import org.example.Interfaces.InicioSesion.InicioSesion;
 import org.example.Interfaces.PaginaPrincipal;
 import org.example.ServicioTecnico;
 import org.example.firebase;
@@ -22,7 +23,7 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
      * Creates new form AgregarServicioConsola
      */
     public AgregarServicioConsola(firebase firebaseInstance) {
-        this.servicioTecnico = PaginaPrincipal.getServicioTecnico();
+        this.servicioTecnico = InicioSesion.getServicioTecnico();
         this.firebaseInstance = firebaseInstance;
         initComponents();
     }

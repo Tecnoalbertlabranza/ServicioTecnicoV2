@@ -29,16 +29,16 @@ import java.util.logging.Logger;
  * @author basty
  */
 public class InicioSesion extends JFrame {
-    private JTextField getTxtIngresoDeRut;
-    private JButton getBtnIngresar;
-    private firebase firebaseInstance;
-    private ServicioTecnico servicioTecnico;
+
+    private  firebase firebaseInstance;
+    private static ServicioTecnico servicioTecnico;
 
     /**
      * Creates new form InicioSesion
      */
     public InicioSesion() {
-        firebaseInstance = new firebase();
+        this.servicioTecnico = new ServicioTecnico("Mi Servicio",null,null,null,null,null);
+        this.firebaseInstance = new firebase();
         firebaseInstance.inicializarconexion();
         initComponents();
 
@@ -82,7 +82,7 @@ public class InicioSesion extends JFrame {
 
                 if(rutAdministrador.equals(rutIngresado)){
                     System.out.println("Administrador encontrado: " + administradorData);
-                    PaginaPrincipal interfazPaginaPrincipal = new PaginaPrincipal();
+                    PaginaPrincipal interfazPaginaPrincipal = new PaginaPrincipal(firebaseInstance);
                     interfazPaginaPrincipal.setVisible(true);
                     dispose();
                     return;
@@ -95,16 +95,20 @@ public class InicioSesion extends JFrame {
         }
     }
 
-    ServicioTecnico s1 = new ServicioTecnico("Tecnoalbert",null,null,null,null,null);
-    public Cliente obtenerDatosDelCliente(String rut){
-        List<Cliente>clientes = s1.getListaClientes();
-        for (Cliente cliente : clientes){
-            if (cliente.getRut().equals(rut)){
-                return cliente;
-            }
-        }
-        return null;
+    public static ServicioTecnico getServicioTecnico(){
+        return servicioTecnico;
     }
+
+
+   // public Cliente obtenerDatosDelCliente(String rut){
+       // List<Cliente>clientes = s1.getListaClientes();
+      //  for (Cliente cliente : clientes){
+       //     if (cliente.getRut().equals(rut)){
+           //     return cliente;
+        //    }
+       // }
+       // return null;
+ //   }
 
         
 

@@ -8,6 +8,7 @@ import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
+import org.example.Interfaces.InicioSesion.InicioSesion;
 import org.example.Interfaces.PaginaPrincipal;
 import org.example.ServicioConsolas;
 import org.example.ServicioTecnico;
@@ -44,7 +45,7 @@ public class ServiciosConsolas extends javax.swing.JPanel {
      * Creates new form ServiciosConsolas
      */
     public ServiciosConsolas(firebase firebaseInstance) {
-        this.servicioTecnico = PaginaPrincipal.getServicioTecnico();
+        this.servicioTecnico = InicioSesion.getServicioTecnico();
         this.firebaseInstance = firebaseInstance;
         initComponents();
         AgregarServicioConsola menuconsolas = new AgregarServicioConsola(firebaseInstance);

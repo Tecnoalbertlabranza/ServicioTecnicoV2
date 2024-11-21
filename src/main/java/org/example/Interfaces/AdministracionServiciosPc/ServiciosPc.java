@@ -8,6 +8,7 @@ import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
+import org.example.Interfaces.InicioSesion.InicioSesion;
 import org.example.Interfaces.PaginaPrincipal;
 import org.example.ServicioComputador;
 import org.example.ServicioTecnico;
@@ -42,7 +43,7 @@ public class ServiciosPc extends javax.swing.JPanel {
      * Creates new form ServiciosPc
      */
     public ServiciosPc(firebase firebaseInstance) {
-        this.servicioTecnico = PaginaPrincipal.getServicioTecnico();
+        this.servicioTecnico = InicioSesion.getServicioTecnico();
         this.firebaseInstance = firebaseInstance;
         initComponents();
         AgregarServiciosPc agrserpc = new AgregarServiciosPc(firebaseInstance);
