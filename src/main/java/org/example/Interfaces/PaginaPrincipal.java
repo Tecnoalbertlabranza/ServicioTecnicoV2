@@ -5,6 +5,7 @@
 package org.example.Interfaces;
 
 
+import com.google.cloud.firestore.Firestore;
 import org.example.Interfaces.AdministracionClientes.Clientes;
 import org.example.Interfaces.AdministracionProductos.Productos;
 import org.example.Interfaces.AdministracionServiciosConsolas.ServiciosConsolas;
@@ -200,7 +201,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonClientesActionPerformed
 
     private void BotonCarritoDeComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCarritoDeComprasActionPerformed
-        CarritoDeComprasCliente carrito = new CarritoDeComprasCliente(firebaseInstance.getFirestore());
+        CarritoDeComprasCliente carrito = new CarritoDeComprasCliente(firebaseInstance, firebaseInstance.getFirestore(),servicioTecnico);
         MostrarPanel(carrito);
     }//GEN-LAST:event_BotonCarritoDeComprasActionPerformed
 

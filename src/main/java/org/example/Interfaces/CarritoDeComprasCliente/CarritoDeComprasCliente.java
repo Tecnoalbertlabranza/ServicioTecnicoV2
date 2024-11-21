@@ -5,6 +5,7 @@
 package org.example.Interfaces.CarritoDeComprasCliente;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
+import org.example.ServicioTecnico;
 import org.example.firebase;
 
 import javax.swing.*;
@@ -20,6 +21,8 @@ import java.util.Map;
  * @author basty
  */
 public class CarritoDeComprasCliente extends javax.swing.JPanel {
+    private ServicioTecnico servicioTecnico;
+    private firebase firebaseInstance;
     private DefaultTableModel modeloTablaCarrito;
     private Firestore db;
     private double subtotal = 0.0;
@@ -28,7 +31,9 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
     /**
      * Creates new form CarritoDeComprasCliente
      */
-    public CarritoDeComprasCliente(Firestore db) {
+    public CarritoDeComprasCliente(firebase firebaseInstance, Firestore db,ServicioTecnico servicioTecnico) {
+        this.servicioTecnico = servicioTecnico;
+        this.firebaseInstance = firebaseInstance;
         this.db = db;
         initComponents();
         configurarTablaCarrito();
@@ -65,7 +70,7 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         ListaDeProductos.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent evt) {
-                if (evt.getClickCount() == 1) {
+                if (evt.getClickCount() == 2) {
                    agregarProductoAlCarrito();
                 }
             }
@@ -129,9 +134,10 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
     }
 
     public void guardarVenta() {
-        firebase firebase = new firebase();
-        firebase.inicializarconexion();
+
         String rutCliente = txtRutCliente.getText();
+        System.out.println(" rut ingresado"+rutCliente);
+
         if (!validarRut(rutCliente)) {
             JOptionPane.showMessageDialog(this, "Por favor, ingrese un RUT válido");
             return;
@@ -139,7 +145,7 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
 
 
 
-        Map<String, Object> clienteData = firebase.leerDatos("Clientes", rutCliente);
+        Map<String, Object> clienteData = firebaseInstance.leerDatos("Clientes", rutCliente);
         if (clienteData == null || clienteData.isEmpty()) {
             JOptionPane.showMessageDialog(this, "No se pudo encontrar el cliente con el RUT ingresado");
             return;
@@ -158,7 +164,7 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
             detallesVenta.put("Productos", obtenerProductosDelCarrito());
 
 
-            firebase.insertardatos("Registro De Ventas", nombreApellido, detallesVenta);
+            firebaseInstance.insertardatos("Registro De Ventas", nombreApellido, detallesVenta);
             JOptionPane.showMessageDialog(this, "Venta guardada exitosamente.");
 
             modeloTablaCarrito.setRowCount(0);
@@ -205,16 +211,17 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         txtSubtotal = new javax.swing.JTextField();
         txtIVA = new javax.swing.JTextField();
         txtTotal = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        BotonObtenerDatosDelCliente = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtNombreCliente = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtApellidoDelCliente = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtTelefonoDelCliente = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtEmailDelCliente = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Aqui va el carrito de compras");
@@ -301,53 +308,57 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         });
         add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 510, 200, 30));
 
-        jButton1.setText("Obtener Datos Del cliente");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BotonObtenerDatosDelCliente.setText("Obtener Datos Del cliente");
+        BotonObtenerDatosDelCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BotonObtenerDatosDelClienteActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 190, 50));
+        add(BotonObtenerDatosDelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 190, 50));
 
         jLabel8.setText("Nombre :");
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 60, 20));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtNombreCliente.setEditable(false);
+        txtNombreCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtNombreClienteActionPerformed(evt);
             }
         });
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 160, 30));
+        add(txtNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 160, 30));
 
         jLabel9.setText("Apellido :");
         add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtApellidoDelCliente.setEditable(false);
+        txtApellidoDelCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtApellidoDelClienteActionPerformed(evt);
             }
         });
-        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 160, 30));
+        add(txtApellidoDelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 160, 30));
 
         jLabel10.setText("Telefono:");
         add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        txtTelefonoDelCliente.setEditable(false);
+        txtTelefonoDelCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                txtTelefonoDelClienteActionPerformed(evt);
             }
         });
-        add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 160, 30));
+        add(txtTelefonoDelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 160, 30));
 
         jLabel11.setText("Email :");
         add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, -1, -1));
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        txtEmailDelCliente.setEditable(false);
+        txtEmailDelCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                txtEmailDelClienteActionPerformed(evt);
             }
         });
-        add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 420, 160, 30));
+        add(txtEmailDelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 420, 160, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtRutClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRutClienteActionPerformed
@@ -370,31 +381,31 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTotalActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtApellidoDelClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoDelClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtApellidoDelClienteActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BotonObtenerDatosDelClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonObtenerDatosDelClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_BotonObtenerDatosDelClienteActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtNombreClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtNombreClienteActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void txtTelefonoDelClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoDelClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_txtTelefonoDelClienteActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void txtEmailDelClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailDelClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_txtEmailDelClienteActionPerformed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonObtenerDatosDelCliente;
     private javax.swing.JButton BtnGuardarVenta;
     private javax.swing.JList<String> ListaDeProductos;
     private javax.swing.JTable TablaCarrito;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -408,13 +419,13 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField txtApellidoDelCliente;
+    private javax.swing.JTextField txtEmailDelCliente;
     private javax.swing.JTextField txtIVA;
+    private javax.swing.JTextField txtNombreCliente;
     private javax.swing.JTextField txtRutCliente;
     private javax.swing.JTextField txtSubtotal;
+    private javax.swing.JTextField txtTelefonoDelCliente;
     private javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables
 }

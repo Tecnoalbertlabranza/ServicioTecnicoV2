@@ -32,8 +32,8 @@ public class ServicioTecnico {
 		data.put("Contraseña", contraseña);
 		data.put("Email", email);
 
-		firebaseInstance.insertardatos("Administradores", nombre + "" + apellido, data);
-		System.out.println("Administradores registrado en firebase con id " + nombre + "" + apellido);
+		firebaseInstance.insertardatos("Administradores", nombre + " " + apellido, data);
+		System.out.println("Administradores registrado en firebase con id " + nombre + " " + apellido);
 	}
 
 	public void RegistrarCliente(String nombre, String apellido, String telefono, String email, String rut, String region, String comuna, String calle, String numero, firebase firebaseInstance) {
