@@ -14,7 +14,6 @@ public class Cliente implements Usuarios {
 	private String calle;
 	private String numero;
 
-
 	AgendaServicios agendaCliente;
 	CarritoDeCompras carrito;
 	Collection<Venta> comprassCliente;
@@ -39,28 +38,21 @@ public class Cliente implements Usuarios {
 		return nombre;
 	}
 
-
 	public String getRut() {
 		return rut;
 	}
 
 	public void IniciarSesion() {
-		System.out.println("hola mundo lolaso");
-
 	}
 
 	public void cerrarSesion(){
-		System.out.println("PruebaPush");
-
 	}
 
     public void ActualizarDatosPersonales(){
-
-    }
+	}
 
     public void CambiarContraseña(){
-
-    }
+	}
 
 
 }
