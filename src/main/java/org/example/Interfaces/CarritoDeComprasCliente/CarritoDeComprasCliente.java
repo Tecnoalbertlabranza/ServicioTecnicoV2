@@ -5,6 +5,8 @@
 package org.example.Interfaces.CarritoDeComprasCliente;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
+import org.example.firebase;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.MouseAdapter;
@@ -126,13 +128,28 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         return rut.matches("\\d{7,8}-[\\dkK]");
     }
 
-    public void guardarVenta(){
+    public void guardarVenta() {
+        firebase firebase = new firebase();
+        firebase.inicializarconexion();
         String rutCliente = txtRutCliente.getText();
-        if(!validarRut(rutCliente)){
+        if (!validarRut(rutCliente)) {
             JOptionPane.showMessageDialog(this, "Por favor, ingrese un RUT válido");
             return;
         }
-        try{
+
+
+
+        Map<String, Object> clienteData = firebase.leerDatos("Clientes", rutCliente);
+        if (clienteData == null || clienteData.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "No se pudo encontrar el cliente con el RUT ingresado");
+            return;
+        }
+
+        String nombre = (String) clienteData.get("Nombre");
+        String apellido = (String) clienteData.get("Apellido");
+        String nombreApellido = nombre + " " + apellido;
+
+        try {
             Map<String, Object> detallesVenta = new HashMap<>();
             detallesVenta.put("RutCliente", rutCliente);
             detallesVenta.put("Subtotal", subtotal);
@@ -140,15 +157,18 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
             detallesVenta.put("Total", subtotal + (subtotal * IVA_porcentaje));
             detallesVenta.put("Productos", obtenerProductosDelCarrito());
 
-            db.collection("Registro De Ventas").add(detallesVenta);
+
+            firebase.insertardatos("Registro De Ventas", nombreApellido, detallesVenta);
             JOptionPane.showMessageDialog(this, "Venta guardada exitosamente.");
+
             modeloTablaCarrito.setRowCount(0);
             actualizarTotales();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error al guardar venta: " + e.getMessage());
+            JOptionPane.showMessageDialog(this, "Error al guardar venta: " + e.getMessage());
         }
     }
+
 
     private String obtenerProductosDelCarrito(){
         StringBuilder productos = new StringBuilder();
