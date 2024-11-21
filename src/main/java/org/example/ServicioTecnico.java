@@ -124,6 +124,15 @@ public class ServicioTecnico {
 		System.out.println("Servicio consola registrado en Firebase con id" + nombre + " " + valorServicio);
 	}
 
+	public Cliente obtenerDatosDelCliente(String rut){
+		for (Cliente cliente : listaClientes){
+			if (cliente.getRut().equals(rut)){
+				return cliente;
+			}
+		}
+		return null;
+	}
+
 	public void setListaClientes(List<Cliente> listaClientes) {
 		this.listaClientes = listaClientes;
 	}

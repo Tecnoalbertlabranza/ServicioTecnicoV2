@@ -37,7 +37,7 @@ public class InicioSesion extends JFrame {
      * Creates new form InicioSesion
      */
     public InicioSesion() {
-        this.servicioTecnico = new ServicioTecnico("Mi Servicio",null,null,null,null,null);
+        servicioTecnico = new ServicioTecnico("Mi Servicio",null,null,null,null,null);
         this.firebaseInstance = new firebase();
         firebaseInstance.inicializarconexion();
         initComponents();
@@ -100,15 +100,7 @@ public class InicioSesion extends JFrame {
     }
 
 
-    public Cliente obtenerDatosDelCliente(String rut){
-        List<Cliente>clientes = servicioTecnico.getListaClientes();
-        for (Cliente cliente : clientes){
-           if (cliente.getRut().equals(rut)){
-               return cliente;
-            }
-        }
-        return null;
-    }
+
 
         
 

@@ -40,6 +40,15 @@ public class Cliente implements Usuarios {
 		return rut;
 	}
 
+    public String getTelefono(){
+        return telefono;
+    }
+
+    public String getEmail(){
+        return email;
+    }
+
+
 	public void IniciarSesion() {
 	}
 

@@ -5,6 +5,8 @@
 package org.example.Interfaces.CarritoDeComprasCliente;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
+import org.example.Cliente;
+import org.example.Interfaces.InicioSesion.InicioSesion;
 import org.example.ServicioTecnico;
 import org.example.firebase;
 
@@ -183,6 +185,20 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         }
         return productos.toString();
     }
+
+    public void cargarInformacionCliente(){
+        String rutIngresado = txtRutCliente.getText();
+        Cliente cliente = InicioSesion.getServicioTecnico().obtenerDatosDelCliente(rutIngresado);
+        if (cliente != null){
+            txtNombreCliente.setText(cliente.getNombre());
+            txtApellidoDelCliente.setText(cliente.getApellido());
+            txtTelefonoDelCliente.setText(cliente.getTelefono());
+            txtEmailDelCliente.setText(cliente.getEmail());
+        }else{
+            JOptionPane.showMessageDialog(this, "No se encontró el cliente con el RUT ingresado");
+        }
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -384,7 +400,7 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
     }//GEN-LAST:event_txtApellidoDelClienteActionPerformed
 
     private void BotonObtenerDatosDelClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonObtenerDatosDelClienteActionPerformed
-        // TODO add your handling code here:
+        cargarInformacionCliente();
     }//GEN-LAST:event_BotonObtenerDatosDelClienteActionPerformed
 
     private void txtNombreClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreClienteActionPerformed
