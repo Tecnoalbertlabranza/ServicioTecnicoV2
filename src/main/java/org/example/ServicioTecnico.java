@@ -9,7 +9,7 @@ public class ServicioTecnico {
 	List<Cliente> listaClientes;
 	private String descripcion;
 
-
+	Cliente cliente = new Cliente(null,null,null,null,null,null,null,null,null);
 	public ServicioTecnico(String nombreServicio, Collection<ServicioConsolas> serviciosConsola, Collection<ServicioComputador> serviciosComputador, Collection<Producto> productos, List<Cliente> listaClientes, String descripcion) {
 		this.nombreServicio = nombreServicio;
 		this.serviciosConsola = serviciosConsola;
@@ -131,6 +131,20 @@ public class ServicioTecnico {
 			}
 		}
 		return null;
+	}
+
+	public void registrarVenta(String nombreCliente, String apellidoCliente, String fecha, int iva, double total, firebase firebaseInstance){
+		List<Venta> ventascliente = cliente.getVentascliente();
+		Map<String, Object> detalleVenta = new HashMap<>();
+
+		detalleVenta.put("Nombre Cliente", nombreCliente);
+		detalleVenta.put("Apellido Cliente", apellidoCliente);
+		detalleVenta.put("Fecha De Venta", fecha);
+		detalleVenta.put("IVA Impuesto", iva);
+		detalleVenta.put("Total Venta", total);
+
+		firebaseInstance.insertardatos("Registro De Ventas", nombreCliente+ " "+ apellidoCliente, detalleVenta);
+		System.out.println("Fecha registrada con exito con fecha: "+ fecha);
 	}
 
 	public void setListaClientes(List<Cliente> listaClientes) {

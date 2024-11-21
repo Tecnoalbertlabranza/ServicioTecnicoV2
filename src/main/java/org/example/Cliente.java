@@ -1,5 +1,7 @@
 package org.example;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Cliente implements Usuarios {
 	//---------Datos Personales-------------
@@ -13,6 +15,7 @@ public class Cliente implements Usuarios {
 	private String comuna;
 	private String calle;
 	private String numero;
+	List<Venta> ventascliente;
 
 	AgendaServicios agendaCliente;
 
@@ -26,6 +29,15 @@ public class Cliente implements Usuarios {
 		this.comuna = comuna;
 		this.calle = calle;
 		this.numero = numero;
+		this.ventascliente = new ArrayList<>();
+	}
+
+	public List<Venta> getVentascliente() {
+		return ventascliente;
+	}
+
+	public void setVentascliente(List<Venta> ventascliente) {
+		this.ventascliente = ventascliente;
 	}
 
 	public String getApellido(){
