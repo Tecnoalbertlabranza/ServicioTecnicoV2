@@ -10,14 +10,4 @@ public class Venta {
 		this.iva = iva;
 		this.total = total;
 	}
-
-	public void CalcularIva() {
-		iva = (int)(total * 0.16);
-	}
-
-	public void CalcularTotal(Cliente cliente) {
-		total += cliente.agendaCliente.getCostoTotal();
-		total += cliente.carrito.getValorTotalProductos();
-	}
-
 }
