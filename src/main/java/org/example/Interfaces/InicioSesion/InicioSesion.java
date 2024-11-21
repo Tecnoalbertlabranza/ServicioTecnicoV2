@@ -100,15 +100,15 @@ public class InicioSesion extends JFrame {
     }
 
 
-   // public Cliente obtenerDatosDelCliente(String rut){
-       // List<Cliente>clientes = s1.getListaClientes();
-      //  for (Cliente cliente : clientes){
-       //     if (cliente.getRut().equals(rut)){
-           //     return cliente;
-        //    }
-       // }
-       // return null;
- //   }
+    public Cliente obtenerDatosDelCliente(String rut){
+        List<Cliente>clientes = servicioTecnico.getListaClientes();
+        for (Cliente cliente : clientes){
+           if (cliente.getRut().equals(rut)){
+               return cliente;
+            }
+        }
+        return null;
+    }
 
         
 
