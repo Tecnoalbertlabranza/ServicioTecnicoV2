@@ -1,19 +1,14 @@
 package org.example;
-
 import com.google.api.core.ApiFuture;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.firestore.*;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.cloud.FirestoreClient;
-import io.netty.handler.codec.serialization.ObjectEncoder;
-
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
-
 
 public class firebase {
     Firestore firestore;
@@ -76,7 +71,6 @@ public class firebase {
             String documento,
             Map<String, Object> data) {
 
-
         try {
             if (firestore != null) {
                 DocumentReference docRef = firestore.collection(coleccion).document(documento);
@@ -87,7 +81,6 @@ public class firebase {
             System.out.println("Error durante la inicializacion " + e.getMessage());
         }
     }
-
 
     public void eliminarDatos(String coleccion, String documento) {
         try {
