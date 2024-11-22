@@ -45,7 +45,7 @@ public class InterfazParaElCliente extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Esta sera la interfaz del cliente ");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 310, 40));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 310, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
