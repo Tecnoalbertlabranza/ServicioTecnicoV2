@@ -59,7 +59,7 @@ public class InicioSesion extends JFrame {
 
                 if (rutCliente.equals(rutIngresado)) {
                     System.out.println("Cliente encontrado: " + clienteData);
-                    InterfazParaElCliente interfazCliente = new InterfazParaElCliente();
+                    InterfazParaElCliente interfazCliente = new InterfazParaElCliente(firebaseInstance);
                     interfazCliente.setVisible(true);
                     dispose();
                     return;
