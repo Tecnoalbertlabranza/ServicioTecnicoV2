@@ -1,22 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package org.example.Interfaces.AdministracionClientes;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
 import org.example.Cliente;
 import org.example.Interfaces.InicioSesion.InicioSesion;
-import org.example.Interfaces.PaginaPrincipal;
 import org.example.ServicioTecnico;
 import org.example.firebase;
-
 import java.awt.BorderLayout;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ExecutionException;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -201,26 +192,23 @@ public class Clientes extends javax.swing.JPanel {
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 590));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BotonAgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarClienteActionPerformed
-       cargarClientesDesdeFirebase();
-        AgregarCliente agcli = new AgregarCliente(firebaseInstance,this);
+    private void BotonAgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {
+        cargarClientesDesdeFirebase();
+        AgregarCliente agcli = new AgregarCliente(firebaseInstance, this);
         MostrarPanelCliente(agcli);
         refrescarTabla();
-        
-    }//GEN-LAST:event_BotonAgregarClienteActionPerformed
+    }
 
-    private void BotonModificarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonModificarClienteActionPerformed
+    private void BotonModificarClienteActionPerformed(java.awt.event.ActionEvent evt) {
         ModificarCliente modcli = new ModificarCliente();
         MostrarPanelCliente(modcli);
-    }//GEN-LAST:event_BotonModificarClienteActionPerformed
+    }
 
-    private void BotonEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarClienteActionPerformed
+    private void BotonEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {
         EliminarCliente elicli = new EliminarCliente (firebaseInstance);
         MostrarPanelCliente(elicli);
-    }//GEN-LAST:event_BotonEliminarClienteActionPerformed
+}
 
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAgregarCliente;
     private javax.swing.JButton BotonEliminarCliente;
     private javax.swing.JButton BotonModificarCliente;
@@ -230,5 +218,4 @@ public class Clientes extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    // End of variables declaration//GEN-END:variables
 }

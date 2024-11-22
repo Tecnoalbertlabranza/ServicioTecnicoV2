@@ -27,14 +27,6 @@ public class Cliente implements Usuarios {
 		this.ventascliente = new ArrayList<>();
 	}
 
-	public List<Venta> getVentascliente() {
-		return ventascliente;
-	}
-
-	public void setVentascliente(List<Venta> ventascliente) {
-		this.ventascliente = ventascliente;
-	}
-
 	public String getApellido(){
 		return apellido;
 	}
@@ -43,30 +35,19 @@ public class Cliente implements Usuarios {
 		return nombre;
 	}
 
-	public String getRut() {
-		return rut;
-	}
+	public String getRut() {return rut;}
 
     public String getTelefono(){
         return telefono;
     }
 
-    public String getEmail(){
-        return email;
-    }
+    public String getEmail(){return email;}
 
+	public void IniciarSesion() {}
 
-	public void IniciarSesion() {
-	}
+	public void cerrarSesion(){}
 
-	public void cerrarSesion(){
-	}
+    public void ActualizarDatosPersonales(){}
 
-    public void ActualizarDatosPersonales(){
-	}
-
-    public void CambiarContraseña(){
-	}
-
-
+    public void CambiarContraseña(){}
 }
