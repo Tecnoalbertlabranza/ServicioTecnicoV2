@@ -11,6 +11,7 @@ public class ServicioTecnico {
 	Collection<Producto> productos;
 	List<Cliente> listaClientes;
 	private String descripcion;
+	List<Cliente> clientesRut = new ArrayList<>();
 
 	Cliente cliente = new Cliente(null,null,null,null,null,null,null,null,null);
 	public ServicioTecnico(String nombreServicio, Collection<ServicioConsolas> serviciosConsola, Collection<ServicioComputador> serviciosComputador, Collection<Producto> productos, List<Cliente> listaClientes, String descripcion) {
@@ -127,12 +128,6 @@ public class ServicioTecnico {
 		System.out.println("Servicio consola registrado en Firebase con id" + nombre + " " + valorServicio);
 	}
 
-	List<Cliente> clientesRut = new ArrayList<>();
-
-	public List<Cliente> getClientesRut() {
-		return clientesRut;
-	}
-
 	public Cliente obtenerDatosDelCliente(String rut){
 		for (Cliente cliente : listaClientes){
 			if (cliente.getRut().equals(rut)){
@@ -161,6 +156,10 @@ public class ServicioTecnico {
 			firebaseInstance.insertardatos("Registro De Ventas", nombre+" " + apellido, detalleVenta);
 			System.out.println("Fecha registrada con exito con fecha: " + fecha);
 		}
+	}
+
+	public List<Cliente> getClientesRut() {
+		return clientesRut;
 	}
 
 	public void setListaClientes(List<Cliente> listaClientes) {
