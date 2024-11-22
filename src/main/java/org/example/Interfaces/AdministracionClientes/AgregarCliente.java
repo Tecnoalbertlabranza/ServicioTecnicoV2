@@ -54,6 +54,7 @@ public class AgregarCliente extends javax.swing.JPanel {
         if (!nombre.trim().isEmpty()){
             if (!validarRut(rut)){
                 JOptionPane.showMessageDialog(null, "Rut no valido");
+                return;
             }
         } else {
             JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos");
