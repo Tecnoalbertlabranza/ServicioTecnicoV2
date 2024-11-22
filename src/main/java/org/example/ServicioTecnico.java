@@ -137,6 +137,8 @@ public class ServicioTecnico {
 			String nombre = cliente.getNombre();
 			String apellido = cliente.getApellido();
 
+
+			List<Venta> ventascliente = cliente.getVentascliente();
 			Map<String, Object> detalleVenta = new HashMap<>();
 
 			detalleVenta.put("Nombre Cliente", nombreCliente);
