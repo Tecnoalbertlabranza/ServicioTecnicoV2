@@ -4,6 +4,8 @@
  */
 package org.example.Interfaces.InterfazDeCliente;
 
+import org.example.Interfaces.InicioSesion.InicioSesion;
+import org.example.ServicioTecnico;
 import org.example.firebase;
 
 /**
@@ -11,13 +13,21 @@ import org.example.firebase;
  * @author basty
  */
 public class InterfazParaElCliente extends javax.swing.JFrame {
+    private ServicioTecnico servicioTecnico;
     private firebase firebaseInstance;
 
     /**
      * Creates new form InterfazParaElCliente
      */
-    public InterfazParaElCliente() {
+    public InterfazParaElCliente(firebase firebaseInstance) {
+        this.firebaseInstance = firebaseInstance;
+        this.servicioTecnico = InicioSesion.getServicioTecnico();
+        firebaseInstance.inicializarconexion();
         initComponents();
+    }
+
+    public firebase getFirebaseInstance(){
+        return firebaseInstance;
     }
 
     /**
@@ -70,7 +80,8 @@ public class InterfazParaElCliente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InterfazParaElCliente().setVisible(true);
+                firebase firebaseInstance = new firebase();
+                new InterfazParaElCliente(firebaseInstance).setVisible(true);
             }
         });
     }
