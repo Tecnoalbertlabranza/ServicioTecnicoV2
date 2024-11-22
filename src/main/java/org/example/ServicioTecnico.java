@@ -1,6 +1,5 @@
 package org.example;
 import io.grpc.lb.v1.ClientStats;
-import io.opencensus.stats.AggregationData;
 
 import java.util.*;
 
@@ -11,9 +10,8 @@ public class ServicioTecnico {
 	Collection<Producto> productos;
 	List<Cliente> listaClientes;
 	private String descripcion;
-	List<Cliente> clientesRut = new ArrayList<>();
-	Cliente cliente = new Cliente(null,null,null,null,null,null,null);
 
+	Cliente cliente = new Cliente(null,null,null,null,null,null,null);
 	public ServicioTecnico(String nombreServicio, Collection<ServicioConsolas> serviciosConsola, Collection<ServicioComputador> serviciosComputador, Collection<Producto> productos, List<Cliente> listaClientes, String descripcion) {
 		this.nombreServicio = nombreServicio;
 		this.serviciosConsola = serviciosConsola;
@@ -21,6 +19,10 @@ public class ServicioTecnico {
 		this.productos = productos;
 		this.listaClientes = listaClientes;
 		this.descripcion = descripcion;
+	}
+
+	public List<Cliente> getListaClientes() {
+		return listaClientes;
 	}
 
 	public void registrarAdministrador (String nombre, String apellido, String rut, String contraseña, String email , firebase firebaseInstance) {
@@ -53,6 +55,8 @@ public class ServicioTecnico {
 		data.put("Rut", rut);
 		data.put("Region", region);
 		data.put("Comuna", comuna);
+		data.put("Calle", calle);
+		data.put("Numero", numero);
 
 		firebaseInstance.insertardatos("Registro De Clientes", nombre + " " + apellido, data);
 
@@ -122,6 +126,7 @@ public class ServicioTecnico {
 		System.out.println("Servicio consola registrado en Firebase con id" + nombre + " " + valorServicio);
 	}
 
+	List<Cliente> clientesRut = new ArrayList<>();
 	public Cliente obtenerDatosDelCliente(String rut){
 		for (Cliente cliente : listaClientes){
 			if (cliente.getRut().equals(rut)){
@@ -136,9 +141,6 @@ public class ServicioTecnico {
 		for (Cliente cliente : clientesRut) {
 			String nombre = cliente.getNombre();
 			String apellido = cliente.getApellido();
-
-
-			List<Venta> ventascliente = cliente.getVentascliente();
 			Map<String, Object> detalleVenta = new HashMap<>();
 
 			detalleVenta.put("Nombre Cliente", nombreCliente);
@@ -147,13 +149,9 @@ public class ServicioTecnico {
 			detalleVenta.put("IVA Impuesto", iva);
 			detalleVenta.put("Total Venta", total);
 
-			firebaseInstance.insertardatos("Registro De Ventas", nombre+" " + apellido, detalleVenta);
+			firebaseInstance.insertardatos("Registro De Ventas", nombre + " " + apellido, detalleVenta);
 			System.out.println("Fecha registrada con exito con fecha: " + fecha);
 		}
-	}
-
-	public List<Cliente> getClientesRut() {
-		return clientesRut;
 	}
 
 	public void setListaClientes(List<Cliente> listaClientes) {
