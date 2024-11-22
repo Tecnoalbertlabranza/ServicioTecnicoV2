@@ -132,7 +132,7 @@ public class ServicioTecnico {
 		return null;
 	}
 
-	public void registrarVenta(String nombreCliente, String apellidoCliente, String fecha, double iva, double total, firebase firebaseInstance) {
+	public void registrarVenta(String nombreCliente, String apellidoCliente, String fecha, String iva, String total, firebase firebaseInstance) {
 		for (Cliente cliente : clientesRut) {
 			String nombre = cliente.getNombre();
 			String apellido = cliente.getApellido();

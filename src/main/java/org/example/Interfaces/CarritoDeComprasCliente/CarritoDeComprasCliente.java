@@ -140,11 +140,11 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         String nombreCliente = txtNombreCliente.getText();
         String apellidoCliente = txtApellidoDelCliente.getText();
         String fechaVenta = txtFecha.getText();
-        double totalVenta = Double.parseDouble(txtTotal.getText());
-        double totalIva = Double.parseDouble(txtIVA.getText());
+        String totalVenta = txtTotal.getText();
+        String totalIva = txtIVA.getText();
 
         servicioTecnico.registrarVenta(nombreCliente,apellidoCliente,fechaVenta,totalIva,totalVenta,firebaseInstance);
-        JOptionPane.showMessageDialog(null,"Venta Registrada Correctamente");
+        JOptionPane.showMessageDialog(null,"Se registro la venta ");
     }
 
 
@@ -272,7 +272,6 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         });
         add(BtnGuardarVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 420, 160, 80));
 
-        txtSubtotal.setEditable(false);
         txtSubtotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSubtotalActionPerformed(evt);
@@ -280,7 +279,6 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         });
         add(txtSubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 390, 180, 30));
 
-        txtIVA.setEditable(false);
         txtIVA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIVAActionPerformed(evt);
@@ -288,7 +286,6 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         });
         add(txtIVA, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 450, 210, 30));
 
-        txtTotal.setEditable(false);
         txtTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTotalActionPerformed(evt);
