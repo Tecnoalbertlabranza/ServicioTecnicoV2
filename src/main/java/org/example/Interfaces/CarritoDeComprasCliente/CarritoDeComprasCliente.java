@@ -137,42 +137,14 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
 
         String rutCliente = txtRutCliente.getText();
         System.out.println(" rut ingresado"+rutCliente);
+        String nombreCliente = txtNombreCliente.getText();
+        String apellidoCliente = txtApellidoDelCliente.getText();
+        String fechaVenta = txtFecha.getText();
+        double totalVenta = Double.parseDouble(txtTotal.getText());
+        double totalIva = Double.parseDouble(txtIVA.getText());
 
-        if (!validarRut(rutCliente)) {
-            JOptionPane.showMessageDialog(this, "Por favor, ingrese un RUT válido");
-            return;
-        }
-
-
-
-        Map<String, Object> clienteData = firebaseInstance.leerDatos("Clientes", rutCliente);
-        if (clienteData == null || clienteData.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "No se pudo encontrar el cliente con el RUT ingresado");
-            return;
-        }
-
-        String nombre = (String) clienteData.get("Nombre");
-        String apellido = (String) clienteData.get("Apellido");
-        String nombreApellido = nombre + " " + apellido;
-
-        try {
-            Map<String, Object> detallesVenta = new HashMap<>();
-            detallesVenta.put("RutCliente", rutCliente);
-            detallesVenta.put("Subtotal", subtotal);
-            detallesVenta.put("IVA", subtotal * IVA_porcentaje);
-            detallesVenta.put("Total", subtotal + (subtotal * IVA_porcentaje));
-            detallesVenta.put("Productos", obtenerProductosDelCarrito());
-
-
-            firebaseInstance.insertardatos("Registro De Ventas", nombreApellido, detallesVenta);
-            JOptionPane.showMessageDialog(this, "Venta guardada exitosamente.");
-
-            modeloTablaCarrito.setRowCount(0);
-            actualizarTotales();
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Error al guardar venta: " + e.getMessage());
-        }
+        servicioTecnico.registrarVenta(nombreCliente,apellidoCliente,fechaVenta,totalIva,totalVenta,firebaseInstance);
+        JOptionPane.showMessageDialog(null,"Venta Registrada Correctamente");
     }
 
 
@@ -234,6 +206,8 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         txtTelefonoDelCliente = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         txtEmailDelCliente = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        txtFecha = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -373,6 +347,16 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
             }
         });
         add(txtEmailDelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 420, 160, 30));
+
+        jLabel12.setText("fecha para venta");
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 440, -1, -1));
+
+        txtFecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFechaActionPerformed(evt);
+            }
+        });
+        add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 440, 170, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtRutClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRutClienteActionPerformed
@@ -414,6 +398,10 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
     private void txtEmailDelClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailDelClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmailDelClienteActionPerformed
+
+    private void txtFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFechaActionPerformed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonObtenerDatosDelCliente;
@@ -423,6 +411,7 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -435,6 +424,7 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField txtApellidoDelCliente;
     private javax.swing.JTextField txtEmailDelCliente;
+    private javax.swing.JTextField txtFecha;
     private javax.swing.JTextField txtIVA;
     private javax.swing.JTextField txtNombreCliente;
     private javax.swing.JTextField txtRutCliente;
