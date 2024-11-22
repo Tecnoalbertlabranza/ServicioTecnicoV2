@@ -1,4 +1,7 @@
 package org.example;
+import io.grpc.lb.v1.ClientStats;
+import io.opencensus.stats.AggregationData;
+
 import java.util.*;
 
 public class ServicioTecnico {
@@ -124,27 +127,40 @@ public class ServicioTecnico {
 		System.out.println("Servicio consola registrado en Firebase con id" + nombre + " " + valorServicio);
 	}
 
+	List<Cliente> clientesRut = new ArrayList<>();
+
+	public List<Cliente> getClientesRut() {
+		return clientesRut;
+	}
+
 	public Cliente obtenerDatosDelCliente(String rut){
 		for (Cliente cliente : listaClientes){
 			if (cliente.getRut().equals(rut)){
+				clientesRut.add(cliente);
 				return cliente;
 			}
 		}
 		return null;
 	}
 
-	public void registrarVenta(String nombreCliente, String apellidoCliente, String fecha, int iva, double total, firebase firebaseInstance){
-		List<Venta> ventascliente = cliente.getVentascliente();
-		Map<String, Object> detalleVenta = new HashMap<>();
+	public void registrarVenta(String nombreCliente, String apellidoCliente, String fecha, int iva, double total, firebase firebaseInstance) {
+		for (Cliente cliente : clientesRut) {
+			String nombre = cliente.getNombre();
+			String apellido = cliente.getApellido();
 
-		detalleVenta.put("Nombre Cliente", nombreCliente);
-		detalleVenta.put("Apellido Cliente", apellidoCliente);
-		detalleVenta.put("Fecha De Venta", fecha);
-		detalleVenta.put("IVA Impuesto", iva);
-		detalleVenta.put("Total Venta", total);
 
-		firebaseInstance.insertardatos("Registro De Ventas", nombreCliente+ " "+ apellidoCliente, detalleVenta);
-		System.out.println("Fecha registrada con exito con fecha: "+ fecha);
+			List<Venta> ventascliente = cliente.getVentascliente();
+			Map<String, Object> detalleVenta = new HashMap<>();
+
+			detalleVenta.put("Nombre Cliente", nombreCliente);
+			detalleVenta.put("Apellido Cliente", apellidoCliente);
+			detalleVenta.put("Fecha De Venta", fecha);
+			detalleVenta.put("IVA Impuesto", iva);
+			detalleVenta.put("Total Venta", total);
+
+			firebaseInstance.insertardatos("Registro De Ventas", nombre+" " + apellido, detalleVenta);
+			System.out.println("Fecha registrada con exito con fecha: " + fecha);
+		}
 	}
 
 	public void setListaClientes(List<Cliente> listaClientes) {
