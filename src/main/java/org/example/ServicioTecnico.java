@@ -11,8 +11,9 @@ public class ServicioTecnico {
 	Collection<Producto> productos;
 	List<Cliente> listaClientes;
 	private String descripcion;
+	List<Cliente> clientesRut = new ArrayList<>();
+	Cliente cliente = new Cliente(null,null,null,null,null,null,null);
 
-	Cliente cliente = new Cliente(null,null,null,null,null,null,null,null,null);
 	public ServicioTecnico(String nombreServicio, Collection<ServicioConsolas> serviciosConsola, Collection<ServicioComputador> serviciosComputador, Collection<Producto> productos, List<Cliente> listaClientes, String descripcion) {
 		this.nombreServicio = nombreServicio;
 		this.serviciosConsola = serviciosConsola;
@@ -20,10 +21,6 @@ public class ServicioTecnico {
 		this.productos = productos;
 		this.listaClientes = listaClientes;
 		this.descripcion = descripcion;
-	}
-
-	public List<Cliente> getListaClientes() {
-		return listaClientes;
 	}
 
 	public void registrarAdministrador (String nombre, String apellido, String rut, String contraseña, String email , firebase firebaseInstance) {
@@ -44,7 +41,7 @@ public class ServicioTecnico {
 			listaClientes = new ArrayList<>();
 		}
 
-		Cliente nuevoCliente = new Cliente(nombre, apellido, telefono, email, rut, region, comuna, calle, numero);
+		Cliente nuevoCliente = new Cliente(nombre, apellido, telefono, email, rut, region, comuna);
 		listaClientes.add(nuevoCliente);
 		System.out.println("Cliente registrado localmente " + nuevoCliente);
 
@@ -56,8 +53,6 @@ public class ServicioTecnico {
 		data.put("Rut", rut);
 		data.put("Region", region);
 		data.put("Comuna", comuna);
-		data.put("Calle", calle);
-		data.put("Numero", numero);
 
 		firebaseInstance.insertardatos("Registro De Clientes", nombre + " " + apellido, data);
 
@@ -127,12 +122,6 @@ public class ServicioTecnico {
 		System.out.println("Servicio consola registrado en Firebase con id" + nombre + " " + valorServicio);
 	}
 
-	List<Cliente> clientesRut = new ArrayList<>();
-
-	public List<Cliente> getClientesRut() {
-		return clientesRut;
-	}
-
 	public Cliente obtenerDatosDelCliente(String rut){
 		for (Cliente cliente : listaClientes){
 			if (cliente.getRut().equals(rut)){
@@ -161,6 +150,10 @@ public class ServicioTecnico {
 			firebaseInstance.insertardatos("Registro De Ventas", nombre+" " + apellido, detalleVenta);
 			System.out.println("Fecha registrada con exito con fecha: " + fecha);
 		}
+	}
+
+	public List<Cliente> getClientesRut() {
+		return clientesRut;
 	}
 
 	public void setListaClientes(List<Cliente> listaClientes) {

@@ -1,5 +1,4 @@
 package org.example;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,13 +12,11 @@ public class Cliente implements Usuarios {
 	//------Parametros de Direccion-----------
 	private String region;
 	private String comuna;
-	private String calle;
-	private String numero;
 	List<Venta> ventascliente;
 
 	AgendaServicios agendaCliente;
 
-	public Cliente(String nombre, String apellido, String telefono, String email, String rut,String region, String comuna, String calle, String numero) {
+	public Cliente(String nombre, String apellido, String telefono, String email, String rut,String region, String comuna) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.telefono = telefono;
@@ -27,8 +24,6 @@ public class Cliente implements Usuarios {
 		this.rut = rut;
 		this.region = region;
 		this.comuna = comuna;
-		this.calle = calle;
-		this.numero = numero;
 		this.ventascliente = new ArrayList<>();
 	}
 

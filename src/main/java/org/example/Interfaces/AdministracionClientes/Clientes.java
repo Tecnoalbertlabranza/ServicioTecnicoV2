@@ -77,14 +77,12 @@ public class Clientes extends javax.swing.JPanel {
                 String rut = document.getString("Rut");
                 String region = document.getString("Region");
                 String comuna = document.getString("Comuna");
-                String calle = document.getString("Calle");
-                String numero = document.getString("Numero");
 
-                Cliente cliente = new Cliente(nombre, apellido, telefono,email,rut,region,comuna,calle,numero);
+                Cliente cliente = new Cliente(nombre, apellido, telefono,email,rut,region,comuna);
                 listaClientesLocal.add(cliente);
 
                 modeloTabla.addRow(new Object[]{nombre, apellido, telefono, email, rut});
-                modeloTablaDirecciones.addRow(new Object[]{region, comuna, calle, numero});
+                modeloTablaDirecciones.addRow(new Object[]{region, comuna});
             }
 
             servicioTecnico.setListaClientes(listaClientesLocal);
