@@ -41,17 +41,4 @@ public class Administradores implements Usuarios {
     public void cerrarSesion() {
 
     }
-
-    public void ActualizarDatosPersonales() {
-
-    }
-
-    public void CambiarContraseña() {
-
-    }
-
-
-
-
-
 }

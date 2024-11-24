@@ -61,12 +61,4 @@ public class Cliente implements Usuarios {
 
 	public void cerrarSesion(){
 	}
-
-    public void ActualizarDatosPersonales(){
-	}
-
-    public void CambiarContraseña(){
-	}
-
-
 }
