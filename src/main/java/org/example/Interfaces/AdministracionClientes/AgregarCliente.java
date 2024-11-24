@@ -55,12 +55,10 @@ public class AgregarCliente extends javax.swing.JPanel {
             if (!validarRut(rut)){
                 JOptionPane.showMessageDialog(null, "Rut no valido");
                 return;
+            } else {
+                rut = rut.replaceAll("[.\\-]", "");
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos");
         }
-
-
 
         // Hasta aqui se pueden colocar las condiciones. mas abajo nop ya que dañarian el codigo
         servicioTecnico.RegistrarCliente(nombre, apellido, telefono, email, rut, region, comuna, calle, numero, firebaseInstance);
@@ -69,24 +67,24 @@ public class AgregarCliente extends javax.swing.JPanel {
     }
 
     public static Boolean validarRut(String rut){
-        Pattern pattern = Pattern.compile("^[0-9]+-[0-9kK]{1}$");
-        Matcher matcher = pattern.matcher(rut);
-        if (!matcher.matches()) return false;
+        rut = rut.replaceAll("[.\\-]", "");
 
-        String[] stringRut = rut.split("-");
-        String rutNumerico = stringRut[0];
-        String rutDv = stringRut[1].toLowerCase();
+        if (!rut.matches("^[0-9]+[0-9kK]{1}$")){return false;}
 
-        return rutDv.equals(dv(rutNumerico).toLowerCase());
+        String rutNumerico = rut.substring(0, rut.length() - 1);
+        char rutDv = rut.charAt(rut.length() - 1);
+
+        return rutDv == dv(rutNumerico).charAt(0);
     }
 
-    public static String dv (String rut){
-        Integer M=0, S=1, T=Integer.parseInt(rut);
-        for (; T != 0; T /= 10){
-            S = (S + T % 10 * (9 - M++ % 6)) % 11;
-        }
 
-        return ( S > 0 ) ? String.valueOf(S - 1) : "k";
+    public static String dv(String rut) {
+        int M = 0, S = 1;
+        for (int i = rut.length() - 1; i >= 0; i--) {
+            int digit = rut.charAt(i) - '0';
+            S = (S + digit * (9 - M++ % 6)) % 11;
+        }
+        return (S > 0) ? String.valueOf(S - 1) : "k";
     }
 
     /**
