@@ -14,25 +14,6 @@ public class Administradores implements Usuarios {
 		this.apellido = apellido;
 		this.email = email;
 	}
-	
-	public void GestionarUsuarios() {
-
-	}
-
-	public void GestionarProductos() {
-
-	}
-
-	public void GestionarServicios() {
-
-	}
-
-	public void AsignarDescuentos() {
-
-	}
-
-	public void ConsultarReseñas() {
-	}
 
 	public void IniciarSesion() {
 
