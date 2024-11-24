@@ -50,6 +50,9 @@ public class AgregarCliente extends javax.swing.JPanel {
         if (nombre.isEmpty() || apellido.isEmpty() || telefono.isEmpty() || email.isEmpty() || rut.isEmpty() || region.isEmpty() || comuna.isEmpty() || calle.isEmpty() || numero.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos");
             return;
+        } else if (!nombre.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ]+")) {
+            JOptionPane.showMessageDialog(null, "El nombre es invalido");
+            return;
         } else if (!validarTelefono(telefono)) {
             JOptionPane.showMessageDialog(null, "Numero de telefono no valido");
             return;
