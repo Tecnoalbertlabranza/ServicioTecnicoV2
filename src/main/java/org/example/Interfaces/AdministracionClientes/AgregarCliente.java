@@ -50,8 +50,13 @@ public class AgregarCliente extends javax.swing.JPanel {
         if (nombre.isEmpty() || apellido.isEmpty() || telefono.isEmpty() || email.isEmpty() || rut.isEmpty() || region.isEmpty() || comuna.isEmpty() || calle.isEmpty() || numero.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos");
             return;
-        }
-        if (!nombre.trim().isEmpty()){
+        } else if (!validarTelefono(telefono)) {
+            JOptionPane.showMessageDialog(null, "Numero de telefono no valido");
+            return;
+        } else if (!validarEmail(email)) {
+            JOptionPane.showMessageDialog(null, "Email no valido");
+            return;
+        } else if (!nombre.trim().isEmpty()){
             if (!validarRut(rut)){
                 JOptionPane.showMessageDialog(null, "Rut no valido");
                 return;
@@ -64,6 +69,14 @@ public class AgregarCliente extends javax.swing.JPanel {
         servicioTecnico.RegistrarCliente(nombre, apellido, telefono, email, rut, region, comuna, calle, numero, firebaseInstance);
         JOptionPane.showMessageDialog(null, "Cliente registrado correctamente");
         clientespanel.refrescarTabla();
+    }
+
+    public static boolean validarTelefono(String telefono) {
+        return telefono.matches("\\d{9}|\\d{11}");
+    }
+
+    public static boolean validarEmail(String email) {
+        return email.matches("^[\\w-+]+(\\.[\\w-]{1,62})*@[a-zA-Z0-9-]{1,63}\\.[a-zA-Z0-9-]{2,6}$");
     }
 
     public static Boolean validarRut(String rut){
