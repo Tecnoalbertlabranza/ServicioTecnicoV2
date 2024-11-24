@@ -53,6 +53,9 @@ public class AgregarCliente extends javax.swing.JPanel {
         } else if (!nombre.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ]+")) {
             JOptionPane.showMessageDialog(null, "El nombre es invalido");
             return;
+        } else if (!apellido.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ]+")) {
+            JOptionPane.showMessageDialog(null, "El apellido es invalido");
+            return;
         } else if (!validarTelefono(telefono)) {
             JOptionPane.showMessageDialog(null, "Numero de telefono no valido");
             return;
