@@ -129,7 +129,7 @@ public class InicioSesion extends JFrame {
         txtCorreoElectronico = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtContraseña = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtIngresoDeRut = new javax.swing.JTextField();
         btnIngresar = new javax.swing.JButton();
@@ -152,7 +152,7 @@ public class InicioSesion extends JFrame {
 
         jLabel3.setText("Ingrese contraseña");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, -1, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 230, 30));
+        getContentPane().add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 230, 30));
 
         jLabel4.setText("Ingrese Su Rut");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, -1));
@@ -228,7 +228,7 @@ public class InicioSesion extends JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField txtContraseña;
     private javax.swing.JTextField txtCorreoElectronico;
     private javax.swing.JTextField txtIngresoDeRut;
     // End of variables declaration//GEN-END:variables
