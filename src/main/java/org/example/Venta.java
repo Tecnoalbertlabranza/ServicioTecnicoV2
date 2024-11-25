@@ -34,4 +34,13 @@ public class Venta {
 	public void setIva(String iva) {
 		this.iva = iva;
 	}
+
+	@Override
+	public String toString() {
+		return "Venta{" +
+				"fechaVenta='" + fechaVenta + '\'' +
+				", total='" + total + '\'' +
+				", iva='" + iva + '\'' +
+				'}';
+	}
 }

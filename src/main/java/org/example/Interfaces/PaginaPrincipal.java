@@ -5,17 +5,23 @@
 package org.example.Interfaces;
 
 
+import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.Firestore;
+import com.google.cloud.firestore.QueryDocumentSnapshot;
+import com.google.cloud.firestore.QuerySnapshot;
 import org.example.Interfaces.AdministracionClientes.Clientes;
 import org.example.Interfaces.AdministracionProductos.Productos;
 import org.example.Interfaces.AdministracionServiciosConsolas.ServiciosConsolas;
 import org.example.Interfaces.AdministracionServiciosPc.ServiciosPc;
 import org.example.Interfaces.CarritoDeComprasCliente.CarritoDeComprasCliente;
 import org.example.Interfaces.InicioSesion.InicioSesion;
+import org.example.Producto;
 import org.example.ServicioTecnico;
+import org.example.Venta;
 import org.example.firebase;
-
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JPanel;
 
 /**
@@ -42,6 +48,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     public PaginaPrincipal(firebase firebaseInstance) {
         this.firebaseInstance = firebaseInstance;
         this.servicioTecnico = InicioSesion.getServicioTecnico();
+        cargarVentasDesdeFirebase();
         firebaseInstance.inicializarconexion();
         initComponents();
 
@@ -51,6 +58,35 @@ public class PaginaPrincipal extends javax.swing.JFrame {
 
     public firebase getFirebaseInstance(){
         return firebaseInstance;
+    }
+
+    public void cargarVentasDesdeFirebase(){
+        List<Venta> ventasFirebase = new ArrayList<>();
+        try {
+            Firestore db = firebaseInstance.getFirestore();
+            ApiFuture<QuerySnapshot> future = db.collection("Registro De Ventas").get();
+            QuerySnapshot querySnapshot = future.get();
+
+            for (QueryDocumentSnapshot document : querySnapshot.getDocuments()) {
+                String fecha = document.getString("Fecha De Venta");
+                String iva = document.getString("IVA Impuesto");
+                String total = document.getString("Total Venta");
+
+                Venta venta = new Venta(fecha, iva,total);
+                ventasFirebase.add(venta);
+
+            }
+            servicioTecnico.setListaVentas(ventasFirebase);
+            System.out.println("ventas existentes");
+            for (Venta venta : servicioTecnico.getListaVentas()){
+                System.out.println(venta);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error al cargar datos" + e.getMessage());
+        }
+
     }
 
 
