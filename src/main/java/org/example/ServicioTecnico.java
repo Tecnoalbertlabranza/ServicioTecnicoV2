@@ -23,146 +23,144 @@ public class ServicioTecnico {
 		return listaClientes;
 	}
 
-	public void registrarAdministrador (String nombre, String apellido, String rut, String contraseña, String email , firebase firebaseInstance) {
+	public void registrarAdministrador(String nombre, String apellido, String rut, String contraseña, String email, firebase firebaseInstance) {
 		Administradores admin = new Administradores(nombre, apellido, rut, contraseña, email);
-		Map<String, Object> data = new HashMap<>();
-		data.put("Nombre", nombre);
-		data.put("Apellido", apellido);
-		data.put("Rut", rut);
-		data.put("Contraseña", contraseña);
-		data.put("Email", email);
+		Map<String, Object> data = Map.of(
+			"Nombre", nombre,
+			"Apellido", apellido,
+			"Rut", rut,
+			"Contraseña", contraseña,
+			"Email", email
+				);
 
 		firebaseInstance.insertardatos("Administradores", nombre + " " + apellido, data);
 		System.out.println("Administradores registrado en firebase con id " + nombre + " " + apellido);
 	}
 
-	public void RegistrarCliente(String nombre, String apellido, String telefono, String email, String rut,String contraseña, String region, String comuna, firebase firebaseInstance) {
-		if (listaClientes == null) {
-			listaClientes = new ArrayList<>();
-		}
+	public void RegistrarCliente(String nombre, String apellido, String telefono, String email, String rut, String contraseña, String region, String comuna, firebase firebaseInstance) {
+		listaClientes = java.util.stream.Stream.ofNullable(listaClientes)
+				.findFirst()
+				.orElseGet(ArrayList::new);
 
 		Cliente nuevoCliente = new Cliente(nombre, apellido, telefono, email, rut, region, comuna);
 		listaClientes.add(nuevoCliente);
 		System.out.println("Cliente registrado localmente " + nuevoCliente);
 
-		Map<String, Object> data = new HashMap<>();
-		data.put("Nombre", nombre);
-		data.put("Apellido", apellido);
-		data.put("Telefono", telefono);
-		data.put("Email", email);
-		data.put("Rut", rut);
-		data.put("Contraseña", contraseña);
-		data.put("Region", region);
-		data.put("Comuna", comuna);
+		Map<String, Object> data = Map.of(
+			"Nombre", nombre,
+			"Apellido", apellido,
+			"Telefono", telefono,
+			"Email", email,
+			"Rut", rut,
+			"Contraseña", contraseña,
+			"Region", region,
+			"Comuna", comuna
+				);
 
 		firebaseInstance.insertardatos("Registro De Clientes", nombre + " " + apellido, data);
 		System.out.println("Cliente registrado en Firebase con id" + nombre + " " + apellido);
 	}
 
 	public void registrarProducto(String nombreProducto, String categoriaProducto, double valorProducto, double stockProducto, firebase firebaseInstance) {
-		if (productos == null) {
-			productos = new ArrayList<>();
-		}
+		productos = java.util.stream.Stream.ofNullable(productos)
+				.findFirst()
+				.orElseGet(ArrayList::new);
 
 		Producto producto = new Producto(nombreProducto, categoriaProducto, valorProducto, stockProducto);
 		productos.add(producto);
 		System.out.println("Producto agregado localmente: " + producto);
 
-		Map<String, Object> detallesProducto = new HashMap<>();
-		detallesProducto.put("Nombre", nombreProducto);
-		detallesProducto.put("Categoría", categoriaProducto);
-		detallesProducto.put("Categoria", categoriaProducto);
-		detallesProducto.put("Valor", valorProducto);
-		detallesProducto.put("Stock", stockProducto);
+		Map<String, Object> detallesProducto = Map.of(
+			"Nombre", nombreProducto,
+			"Categoría", categoriaProducto,
+			"Categoria", categoriaProducto,
+			"Valor", valorProducto,
+			"Stock", stockProducto
+				);
 
 		firebaseInstance.insertardatos("Registro de Producto", nombreProducto + " ", detallesProducto);
 		System.out.println("Producto registrado en Firebase con id" + nombreProducto);
-
 	}
 
 	public void registrarServicioComputador(String nombre, double valorServicio, String tiempoEstimado, String tipoComputadora, String lineaDePorcesador, String usoComputadora, firebase firebaseInstance) {
-		if (serviciosComputador == null) {
-			serviciosComputador = new ArrayList<>();
-		}
+		serviciosComputador = java.util.stream.Stream.ofNullable(serviciosComputador)
+				.findFirst()
+				.orElseGet(ArrayList::new);
 
 		ServicioComputador servicioComputador = new ServicioComputador(nombre, valorServicio, tiempoEstimado, tipoComputadora, lineaDePorcesador, usoComputadora);
 		serviciosComputador.add(servicioComputador);
 		System.out.println("Servicio agregado localmente: " + servicioComputador);
 
-		Map<String, Object> datosServicioComputador = new HashMap<>();
-		datosServicioComputador.put("Nombre", nombre);
-		datosServicioComputador.put("Valor", valorServicio);
-		datosServicioComputador.put("TiempoEstimado", tiempoEstimado);
-		datosServicioComputador.put("TipoComputadora", tipoComputadora);
-		datosServicioComputador.put("LineaDePorcesador", lineaDePorcesador);
-		datosServicioComputador.put("UsoComputadora", usoComputadora);
+		Map<String, Object> datosServicioComputador = Map.of(
+			"Nombre", nombre,
+			"Valor", valorServicio,
+			"TiempoEstimado", tiempoEstimado,
+			"TipoComputadora", tipoComputadora,
+			"LineaDePorcesador", lineaDePorcesador,
+			"UsoComputadora", usoComputadora
+					);
 
 		firebaseInstance.insertardatos("Registro de servicio computador", nombre + " " + valorServicio, datosServicioComputador);
 		System.out.println("Servicio computador registrado en firebase con id" + nombre + " " + valorServicio);
 	}
 
-	public void registrarServicioConsolas(String nombre,double valorServicio, String tiempoEstimado, String modeloConsola, String marcaConsola, firebase firebaseInstance) {
-		if (serviciosConsola == null) {
-			serviciosConsola = new ArrayList<>();
-		}
+	public void registrarServicioConsolas(String nombre, double valorServicio, String tiempoEstimado, String modeloConsola, String marcaConsola, firebase firebaseInstance) {
+		serviciosConsola = java.util.stream.Stream.ofNullable(serviciosConsola)
+				.findFirst()
+				.orElseGet(ArrayList::new);
 
 		ServicioConsolas servicioConsolas = new ServicioConsolas(nombre, valorServicio, tiempoEstimado, modeloConsola, marcaConsola);
 		serviciosConsola.add(servicioConsolas);
 		System.out.println("Servicio agregado localmente: " + servicioConsolas);
 
-		Map<String, Object> datosServicioConsolas = new HashMap<>();
-		datosServicioConsolas.put("Nombre", nombre);
-		datosServicioConsolas.put("Valor", valorServicio);
-		datosServicioConsolas.put("TiempoEstimado", tiempoEstimado);
-		datosServicioConsolas.put("ModeloConsola", modeloConsola);
-		datosServicioConsolas.put("MarcaConsola", marcaConsola);
+		Map<String, Object> datosServicioConsolas = Map.of(
+			"Nombre", nombre,
+			"Valor", valorServicio,
+			"TiempoEstimado", tiempoEstimado,
+			"ModeloConsola", modeloConsola,
+			"MarcaConsola", marcaConsola
+				);
 
 		firebaseInstance.insertardatos("Registro de servicio consola", nombre + " " + valorServicio, datosServicioConsolas);
 		System.out.println("Servicio consola registrado en Firebase con id" + nombre + " " + valorServicio);
 	}
 
-	public Cliente obtenerDatosDelCliente(String rut){
-		for (Cliente cliente : listaClientes){
-			if (cliente.getRut().equals(rut)){
-				return cliente;
-			}
-		}
-		return null;
+	public Cliente obtenerDatosDelCliente(String rut) {
+		return listaClientes.stream()
+				.filter(cliente -> cliente.getRut().equals(rut))
+				.findFirst()
+				.orElse(null);
 	}
 
-	public void registrarVenta(String nombreCliente, String apellidoCliente, String fecha, String iva, String total,String rut, firebase firebaseInstance) {
-		for (Cliente cliente : listaClientes) {
-			if (cliente.getRut().equals(rut)) {
+	public void registrarVenta(String nombreCliente, String apellidoCliente, String fecha, String iva, String total, String rut, firebase firebaseInstance) {
+		listaClientes.stream()
+				.filter(cliente -> cliente.getRut().equals(rut))
+				.findFirst()
+				.ifPresent(cliente -> {
+					cliente.setVentascliente(
+							cliente.getVentascliente() == null ? new ArrayList<>() : cliente.getVentascliente()
+					);
 
-				if (cliente.getVentascliente() == null) {
-					cliente.setVentascliente(new ArrayList<>());
-				}
+					Map<String, Object> detalleVenta = Map.of(
+							"Nombre Cliente", cliente.getNombre(),
+							"Apellido Cliente", cliente.getApellido(),
+							"Fecha De Venta", fecha,
+							"IVA Impuesto", iva,
+							"Total Venta", total,
+							"Rut Cliente", rut
+					);
 
-				String nombre = cliente.getNombre();
-				String apellido = cliente.getApellido();
-				Map<String, Object> detalleVenta = new HashMap<>();
+					Venta nuevaVenta = new Venta(fecha, iva, total);
+					cliente.getVentascliente().add(nuevaVenta);
 
-				detalleVenta.put("Nombre Cliente", nombreCliente);
-				detalleVenta.put("Apellido Cliente", apellidoCliente);
-				detalleVenta.put("Fecha De Venta", fecha);
-				detalleVenta.put("IVA Impuesto", iva);
-				detalleVenta.put("Total Venta", total);
-				detalleVenta.put("Rut Cliente", rut);
+					firebaseInstance.insertardatos("Registro De Ventas", cliente.getNombre() + " " + cliente.getApellido(), detalleVenta);
+					System.out.println("Fecha registrada con exito con fecha: " + fecha);
 
-				Venta nuevaVenta = new Venta(fecha, iva, total);
-				cliente.getVentascliente().add(nuevaVenta);
-
-
-				firebaseInstance.insertardatos("Registro De Ventas", nombre + " " + apellido, detalleVenta);
-				System.out.println("Fecha registrada con exito con fecha: " + fecha);
-
-				if (listaVentas == null) {
-					listaVentas = new ArrayList<>();
-				}
-				listaVentas.add(nuevaVenta);
-			}
-		}
+					listaVentas = listaVentas == null ? new ArrayList<>() : listaVentas;
+					listaVentas.add(nuevaVenta);
+				});
 	}
+
 
 	public List<Venta> getListaVentas() {
 		return listaVentas;
