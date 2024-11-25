@@ -1,6 +1,6 @@
 package org.example;
 
-public class Administradores implements Usuarios {
+public class Administradores  {
 	private String nombre;
 	private String rut;
 	private String contraseña;

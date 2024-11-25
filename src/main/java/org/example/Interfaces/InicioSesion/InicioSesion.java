@@ -6,11 +6,9 @@ package org.example.Interfaces.InicioSesion;
 
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
-import org.example.Cliente;
+import org.example.*;
 import org.example.Interfaces.InterfazDeCliente.InterfazParaElCliente;
 import org.example.Interfaces.PaginaPrincipal;
-import org.example.ServicioTecnico;
-import org.example.firebase;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 
@@ -53,62 +51,19 @@ public class InicioSesion extends JFrame {
         String contraseñaIngresada = txtContraseña.getText();
         System.out.println("RUT ingresado: " + rutIngresado);
 
-        CollectionReference clientesCollection = firebaseInstance.getFirestore().collection("Registro De Clientes");
-        ApiFuture<QuerySnapshot> querySnapshot = clientesCollection.get();
+        // Crear las instancias de Cliente y Administrador
+        VerificacionCliente cliente = new VerificacionCliente(firebaseInstance, rutIngresado, emailIngresado, contraseñaIngresada);
+        VerificacionAdministrador administrador = new VerificacionAdministrador(firebaseInstance, rutIngresado, emailIngresado, contraseñaIngresada);
 
-        try {
-            // Buscar en la colección "Clientes"
-            List<QueryDocumentSnapshot> documents = querySnapshot.get().getDocuments();
-            boolean clienteEncontrado = false;
-
-            for (QueryDocumentSnapshot document : documents) {
-                Map<String, Object> clienteData = document.getData();
-                String rutCliente = (String) clienteData.get("Rut");
-                String emailCliente = (String) clienteData.get("Email");
-                String contraseñaCliente = (String) clienteData.get("Contraseña");
-
-                if (rutCliente.equals(rutIngresado) && emailCliente.equals(emailIngresado) && contraseñaCliente.equals(contraseñaIngresada)) {
-                    System.out.println("Cliente encontrado: " + clienteData);
-                    InterfazParaElCliente interfazCliente = new InterfazParaElCliente(firebaseInstance);
-                    interfazCliente.setVisible(true);
-                    dispose();
-                    clienteEncontrado = true;
-                    break;
-                }
+        // Primero, verificar si es un cliente
+        if (!cliente.IniciarSesion()) {
+            // Si no es cliente, verificar si es administrador
+            if (!administrador.IniciarSesion()) {
+                JOptionPane.showMessageDialog(null, "Usuario no encontrado");
             }
-
-            if (!clienteEncontrado) {
-                // Si no se encontró el cliente, buscar en la colección "Administradores"
-                CollectionReference administradoresCollection = firebaseInstance.getFirestore().collection("Administradores");
-                ApiFuture<QuerySnapshot> querySnapshotAdministradores = administradoresCollection.get();
-                List<QueryDocumentSnapshot> documentsAdministradores = querySnapshotAdministradores.get().getDocuments();
-
-                boolean administradorEncontrado = false;
-                for (QueryDocumentSnapshot document : documentsAdministradores) {
-                    Map<String, Object> administradorData = document.getData();
-                    String rutAdministrador = (String) administradorData.get("Rut");
-                    String emailAdministrador = (String) administradorData.get("Email");
-                    String contraseñaAdministrador = (String) administradorData.get("Contraseña");
-
-                    if (rutAdministrador.equals(rutIngresado) && emailAdministrador.equals(emailIngresado) && contraseñaAdministrador.equals(contraseñaIngresada)) {
-                        System.out.println("Administrador encontrado: " + administradorData);
-                        PaginaPrincipal interfazPaginaPrincipal = new PaginaPrincipal(firebaseInstance);
-                        interfazPaginaPrincipal.setVisible(true);
-                        dispose();
-                        administradorEncontrado = true;
-                        break;
-                    }
-                }
-
-                if (!administradorEncontrado) {
-                    JOptionPane.showMessageDialog(null, "Usuario no encontrado");
-                }
-            }
-        } catch (InterruptedException | ExecutionException e) {
-            e.printStackTrace();
-            System.err.println("Error durante la operación: " + e.getMessage());
         }
 
+        // Si es cliente o administrador, la interfaz correspondiente ya se mostró
     }
 
     public static ServicioTecnico getServicioTecnico(){

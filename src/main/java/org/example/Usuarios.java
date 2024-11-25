@@ -1,7 +1,7 @@
 package org.example;
 public interface Usuarios {
 
-	void IniciarSesion();
+	boolean IniciarSesion();
 
 
 }

@@ -2,7 +2,7 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cliente implements Usuarios {
+public class Cliente  {
 	//---------Datos Personales-------------
 	private String nombre;
 	private String apellido;
