@@ -71,7 +71,13 @@ public class Clientes extends javax.swing.JPanel {
                 String region = document.getString("Region");
                 String comuna = document.getString("Comuna");
 
-                Cliente cliente = new Cliente(nombre, apellido, telefono,email,rut,region,comuna);
+                Cliente cliente = new Cliente(nombre,
+                        apellido,
+                        telefono,
+                        email,
+                        rut,
+                        region,
+                        comuna);
                 listaClientesLocal.add(cliente);
 
                 modeloTabla.addRow(new Object[]{nombre, apellido, telefono, email, rut});
@@ -103,6 +109,9 @@ public class Clientes extends javax.swing.JPanel {
             servicioTecnico.setListaClientes(listaClientesLocal);
 
             System.out.println("Clientes existentes");
+
+           //debug
+            listaClientesLocal.stream().forEach(System.out::println);
             for (Cliente cliente : listaClientesLocal){
                 System.out.println(cliente);
             }
