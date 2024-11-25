@@ -13,6 +13,7 @@ import org.example.Interfaces.AdministracionClientes.Clientes;
 import org.example.Interfaces.AdministracionProductos.Productos;
 import org.example.Interfaces.AdministracionServiciosConsolas.ServiciosConsolas;
 import org.example.Interfaces.AdministracionServiciosPc.ServiciosPc;
+import org.example.Interfaces.AdministracionVentas.VentasServicio;
 import org.example.Interfaces.CarritoDeComprasCliente.CarritoDeComprasCliente;
 import org.example.Interfaces.InicioSesion.InicioSesion;
 import org.example.Producto;
@@ -109,6 +110,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         BotonServiciosPc = new javax.swing.JButton();
         BotonClientes = new javax.swing.JButton();
         BotonCarritoDeCompras = new javax.swing.JButton();
+        botonVentas = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -177,6 +179,14 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         });
         jPanel1.add(BotonCarritoDeCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, 190, 50));
 
+        botonVentas.setText("Ventas ");
+        botonVentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonVentasActionPerformed(evt);
+            }
+        });
+        jPanel1.add(botonVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 10, 150, 50));
+
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 1500, 70));
 
         jLabel3.setText("Bienvenido a Su Administrdor");
@@ -240,6 +250,11 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         MostrarPanel(carrito);
     }//GEN-LAST:event_BotonCarritoDeComprasActionPerformed
 
+    private void botonVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVentasActionPerformed
+        VentasServicio venser = new VentasServicio(servicioTecnico);
+        MostrarPanel(venser);
+    }//GEN-LAST:event_botonVentasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -283,6 +298,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton BotonProductos;
     private javax.swing.JButton BotonServiciosConsolas;
     private javax.swing.JButton BotonServiciosPc;
+    private javax.swing.JButton botonVentas;
     private javax.swing.JPanel content;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
