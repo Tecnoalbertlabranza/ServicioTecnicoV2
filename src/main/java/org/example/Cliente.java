@@ -13,8 +13,8 @@ public class Cliente implements Usuarios {
 	//------Parametros de Direccion-----------
 	private String region;
 	private String comuna;
-	List<Venta> ventascliente;
 
+	List<Venta> ventascliente;
 	AgendaServicios agendaCliente;
 
 	public Cliente(String nombre, String apellido, String telefono, String email, String rut,String region, String comuna) {

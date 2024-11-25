@@ -1,6 +1,4 @@
 package org.example;
-import io.grpc.lb.v1.ClientStats;
-
 import java.util.*;
 
 public class ServicioTecnico {
@@ -11,7 +9,6 @@ public class ServicioTecnico {
 	List<Cliente> listaClientes;
 	List<Venta> listaVentas;
 	private String descripcion;
-
 
 	public ServicioTecnico(String nombreServicio, Collection<ServicioConsolas> serviciosConsola, Collection<ServicioComputador> serviciosComputador, Collection<Producto> productos, List<Cliente> listaClientes, String descripcion) {
 		this.nombreServicio = nombreServicio;
@@ -58,12 +55,9 @@ public class ServicioTecnico {
 		data.put("Region", region);
 		data.put("Comuna", comuna);
 
-
 		firebaseInstance.insertardatos("Registro De Clientes", nombre + " " + apellido, data);
-
 		System.out.println("Cliente registrado en Firebase con id" + nombre + " " + apellido);
 	}
-
 
 	public void registrarProducto(String nombreProducto, String categoriaProducto, double valorProducto, double stockProducto, firebase firebaseInstance) {
 		if (productos == null) {
@@ -127,7 +121,6 @@ public class ServicioTecnico {
 		System.out.println("Servicio consola registrado en Firebase con id" + nombre + " " + valorServicio);
 	}
 
-
 	public Cliente obtenerDatosDelCliente(String rut){
 		for (Cliente cliente : listaClientes){
 			if (cliente.getRut().equals(rut)){
@@ -170,7 +163,6 @@ public class ServicioTecnico {
 			}
 		}
 	}
-
 
 	public List<Venta> getListaVentas() {
 		return listaVentas;
