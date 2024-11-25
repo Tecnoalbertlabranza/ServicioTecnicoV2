@@ -18,11 +18,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -40,6 +42,7 @@ public class InicioSesion extends JFrame {
         servicioTecnico = new ServicioTecnico("Mi Servicio",null,null,null,null,null);
         this.firebaseInstance = new firebase();
         firebaseInstance.inicializarconexion();
+        cargarClientesDesdeFirebase();
         initComponents();
 
     }
@@ -112,6 +115,29 @@ public class InicioSesion extends JFrame {
         return servicioTecnico;
     }
 
+    public void cargarClientesDesdeFirebase() {
+        try {
+            QuerySnapshot querySnapshot = firebaseInstance.getFirestore().collection("Registro De Clientes").get().get();
+            List<Cliente> clientesFirebase = querySnapshot.getDocuments().stream()
+                    .map(document -> {
+                        String nombre = document.getString("Nombre");
+                        String apellido = document.getString("Apellido");
+                        String telefono = document.getString("Telefono");
+                        String email = document.getString("Email");
+                        String rut = document.getString("Rut");
+                        String region = document.getString("Region");
+                        String comuna = document.getString("Comuna");
+
+                        return new Cliente(nombre, apellido, telefono, email, rut, region, comuna);
+                    })
+                    .collect(Collectors.toList());
+
+            clientesFirebase.forEach(System.out::println);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error al cargar datos de clientes : " + e.getMessage());
+        }
+    }
 
 
 

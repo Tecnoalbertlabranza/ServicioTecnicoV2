@@ -17,5 +17,4 @@ public class Administradores implements Usuarios {
 
 	public void IniciarSesion() {}
 
-    public void cerrarSesion() {}
 }
