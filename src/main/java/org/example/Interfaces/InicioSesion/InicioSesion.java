@@ -47,6 +47,7 @@ public class InicioSesion extends JFrame {
     private void iniciarSesion() {
         String emailIngresado = txtCorreoElectronico.getText();
         String rutIngresado = txtIngresoDeRut.getText();
+        String contraseñaIngresada = txtContraseña.getText();
         System.out.println("RUT ingresado: " + rutIngresado);
 
         CollectionReference clientesCollection = firebaseInstance.getFirestore().collection("Registro De Clientes");
@@ -61,8 +62,9 @@ public class InicioSesion extends JFrame {
                 Map<String, Object> clienteData = document.getData();
                 String rutCliente = (String) clienteData.get("Rut");
                 String emailCliente = (String) clienteData.get("Email");
+                String contraseñaCliente = (String) clienteData.get("Contraseña");
 
-                if (rutCliente.equals(rutIngresado) && emailCliente.equals(emailIngresado)) {
+                if (rutCliente.equals(rutIngresado) && emailCliente.equals(emailIngresado) && contraseñaCliente.equals(contraseñaIngresada)) {
                     System.out.println("Cliente encontrado: " + clienteData);
                     InterfazParaElCliente interfazCliente = new InterfazParaElCliente(firebaseInstance);
                     interfazCliente.setVisible(true);
@@ -83,8 +85,9 @@ public class InicioSesion extends JFrame {
                     Map<String, Object> administradorData = document.getData();
                     String rutAdministrador = (String) administradorData.get("Rut");
                     String emailAdministrador = (String) administradorData.get("Email");
+                    String contraseñaAdministrador = (String) administradorData.get("Contraseña");
 
-                    if (rutAdministrador.equals(rutIngresado) && emailAdministrador.equals(emailIngresado)) {
+                    if (rutAdministrador.equals(rutIngresado) && emailAdministrador.equals(emailIngresado) && contraseñaAdministrador.equals(contraseñaIngresada)) {
                         System.out.println("Administrador encontrado: " + administradorData);
                         PaginaPrincipal interfazPaginaPrincipal = new PaginaPrincipal(firebaseInstance);
                         interfazPaginaPrincipal.setVisible(true);
