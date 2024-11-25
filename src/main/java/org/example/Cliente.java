@@ -9,6 +9,7 @@ public class Cliente implements Usuarios {
 	private String telefono;
 	private String email;
 	private String rut;
+	private String contraseña;
 	//------Parametros de Direccion-----------
 	private String region;
 	private String comuna;
@@ -55,6 +56,13 @@ public class Cliente implements Usuarios {
         return email;
     }
 
+	public String getContraseña() {
+		return contraseña;
+	}
+
+	public void setContraseña(String contraseña) {
+		this.contraseña = contraseña;
+	}
 
 	public void IniciarSesion() {
 	}

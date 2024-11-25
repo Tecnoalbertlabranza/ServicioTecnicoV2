@@ -39,7 +39,7 @@ public class ServicioTecnico {
 		System.out.println("Administradores registrado en firebase con id " + nombre + " " + apellido);
 	}
 
-	public void RegistrarCliente(String nombre, String apellido, String telefono, String email, String rut, String region, String comuna, String calle, String numero, firebase firebaseInstance) {
+	public void RegistrarCliente(String nombre, String apellido, String telefono, String email, String rut,String contraseña, String region, String comuna, firebase firebaseInstance) {
 		if (listaClientes == null) {
 			listaClientes = new ArrayList<>();
 		}
@@ -54,10 +54,10 @@ public class ServicioTecnico {
 		data.put("Telefono", telefono);
 		data.put("Email", email);
 		data.put("Rut", rut);
+		data.put("Contraseña", contraseña);
 		data.put("Region", region);
 		data.put("Comuna", comuna);
-		data.put("Calle", calle);
-		data.put("Numero", numero);
+
 
 		firebaseInstance.insertardatos("Registro De Clientes", nombre + " " + apellido, data);
 

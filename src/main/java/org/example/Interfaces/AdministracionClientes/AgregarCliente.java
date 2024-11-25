@@ -40,14 +40,13 @@ public class AgregarCliente extends javax.swing.JPanel {
         String telefono = txtTelefono.getText().trim();
         String email = txtEmail.getText().trim();
         String rut = txtRut.getText().trim();
+        String contraseña = txtContraseña.getText().trim();
         String region = txtRegion.getText().trim();
         String comuna = txtComuna.getText().trim();
-        String calle = txtCalle.getText().trim();
-        String numero = txtNumero.getText().trim();
 
         // Desde aqui hacia abajo pueden colocarle todas las condiciones que quieran para el ingreso de datos de cliente
 
-        if (nombre.isEmpty() || apellido.isEmpty() || telefono.isEmpty() || email.isEmpty() || rut.isEmpty() || region.isEmpty() || comuna.isEmpty() || calle.isEmpty() || numero.isEmpty()) {
+        if (nombre.isEmpty() || apellido.isEmpty() || telefono.isEmpty() || email.isEmpty() || rut.isEmpty() || region.isEmpty() || comuna.isEmpty() ) {
             JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos");
             return;
         } else if (!nombre.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ]+")) {
@@ -70,7 +69,8 @@ public class AgregarCliente extends javax.swing.JPanel {
         rut = rut.replaceAll("[.\\-]", "");
 
         // Hasta aqui se pueden colocar las condiciones. mas abajo nop ya que dañarian el codigo
-        servicioTecnico.RegistrarCliente(nombre, apellido, telefono, email, rut, region, comuna, calle, numero, firebaseInstance);
+
+        servicioTecnico.RegistrarCliente(nombre, apellido, telefono, email, rut,contraseña, region, comuna, firebaseInstance);
         JOptionPane.showMessageDialog(null, "Cliente registrado correctamente");
         clientespanel.refrescarTabla();
     }
@@ -123,9 +123,7 @@ public class AgregarCliente extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         txtComuna = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        txtCalle = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        txtNumero = new javax.swing.JTextField();
+        txtContraseña = new javax.swing.JTextField();
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -196,7 +194,7 @@ public class AgregarCliente extends javax.swing.JPanel {
         jPanel1.add(txtRut, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 220, 30));
 
         jLabel7.setText("Region");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, -1, -1));
 
         txtRegion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtRegion.addActionListener(new java.awt.event.ActionListener() {
@@ -204,10 +202,10 @@ public class AgregarCliente extends javax.swing.JPanel {
                 txtRegionActionPerformed(evt);
             }
         });
-        jPanel1.add(txtRegion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 220, 30));
+        jPanel1.add(txtRegion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 220, 30));
 
         jLabel8.setText("Comuna");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, -1, -1));
 
         txtComuna.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtComuna.addActionListener(new java.awt.event.ActionListener() {
@@ -215,29 +213,11 @@ public class AgregarCliente extends javax.swing.JPanel {
                 txtComunaActionPerformed(evt);
             }
         });
-        jPanel1.add(txtComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 220, 30));
+        jPanel1.add(txtComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 220, 30));
 
-        jLabel9.setText("calle");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, -1, -1));
-
-        txtCalle.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtCalle.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCalleActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 220, 30));
-
-        jLabel10.setText("Numero");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, -1, -1));
-
-        txtNumero.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtNumero.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNumeroActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 220, 30));
+        jLabel9.setText("Contraseña");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, -1, -1));
+        jPanel1.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 220, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -271,14 +251,6 @@ public class AgregarCliente extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtRutActionPerformed
 
-    private void txtCalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCalleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCalleActionPerformed
-
-    private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNumeroActionPerformed
-
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmailActionPerformed
@@ -295,7 +267,6 @@ public class AgregarCliente extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardarCliente;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -306,11 +277,10 @@ public class AgregarCliente extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtApellido;
-    private javax.swing.JTextField txtCalle;
     private javax.swing.JTextField txtComuna;
+    private javax.swing.JTextField txtContraseña;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtNumero;
     private javax.swing.JTextField txtRegion;
     private javax.swing.JTextField txtRut;
     private javax.swing.JTextField txtTelefono;
