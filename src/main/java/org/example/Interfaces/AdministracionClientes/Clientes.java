@@ -4,6 +4,7 @@ import com.google.cloud.firestore.*;
 import org.example.Cliente;
 import org.example.Interfaces.InicioSesion.InicioSesion;
 import org.example.ServicioTecnico;
+import org.example.Venta;
 import org.example.firebase;
 import java.awt.BorderLayout;
 import java.util.ArrayList;
@@ -53,6 +54,7 @@ public class Clientes extends javax.swing.JPanel {
         modeloTablaDirecciones.setRowCount(0);
 
         List<Cliente> listaClientesLocal = new ArrayList<>();
+        StringBuilder clientesConVentas = new StringBuilder();
 
         try{
             Firestore db = firebaseInstance.getFirestore();
@@ -74,6 +76,28 @@ public class Clientes extends javax.swing.JPanel {
 
                 modeloTabla.addRow(new Object[]{nombre, apellido, telefono, email, rut});
                 modeloTablaDirecciones.addRow(new Object[]{region, comuna});
+
+                ApiFuture<QuerySnapshot> futureVentas = db.collection("Registro De Ventas").whereEqualTo("Rut Cliente", rut).get();
+                QuerySnapshot querySnapshotVentas = futureVentas.get();
+
+                List<Venta> listaVentasCliente = new ArrayList<>();
+                for (QueryDocumentSnapshot documentVenta : querySnapshotVentas.getDocuments()) {
+                    String fechaVenta = documentVenta.getString("Fecha De Venta");
+                    String totalVenta = documentVenta.getString("Total Venta");
+                    String ivaVenta = documentVenta.getString("IVA Impuesto");
+
+                    Venta venta = new Venta(fechaVenta, ivaVenta,totalVenta);
+                    listaVentasCliente.add(venta);
+            }
+
+                cliente.setVentascliente(listaVentasCliente);
+
+                clientesConVentas.append("Cliente: ").append(cliente.getNombre()).append(" ").append(cliente.getApellido()).append("\n");
+                clientesConVentas.append("Ventas: \n");
+                for (Venta venta : listaVentasCliente) {
+                    clientesConVentas.append("- Fecha: ").append(venta.getFechaVenta()).append(", Total: ").append(venta.getTotal()).append("\n");
+                }
+                clientesConVentas.append("\n");
             }
 
             servicioTecnico.setListaClientes(listaClientesLocal);
@@ -83,7 +107,8 @@ public class Clientes extends javax.swing.JPanel {
                 System.out.println(cliente);
             }
 
-
+            System.out.println("\nClientes con ventas:");
+            System.out.println(clientesConVentas.toString());
 
         }catch (Exception e){
             e.printStackTrace();

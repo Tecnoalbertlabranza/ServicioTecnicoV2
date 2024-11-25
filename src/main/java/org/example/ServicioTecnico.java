@@ -9,9 +9,10 @@ public class ServicioTecnico {
 	Collection<ServicioComputador> serviciosComputador;
 	Collection<Producto> productos;
 	List<Cliente> listaClientes;
+	List<Venta> listaVentas;
 	private String descripcion;
 
-	Cliente cliente = new Cliente(null,null,null,null,null,null,null);
+
 	public ServicioTecnico(String nombreServicio, Collection<ServicioConsolas> serviciosConsola, Collection<ServicioComputador> serviciosComputador, Collection<Producto> productos, List<Cliente> listaClientes, String descripcion) {
 		this.nombreServicio = nombreServicio;
 		this.serviciosConsola = serviciosConsola;
@@ -126,32 +127,57 @@ public class ServicioTecnico {
 		System.out.println("Servicio consola registrado en Firebase con id" + nombre + " " + valorServicio);
 	}
 
-	List<Cliente> clientesRut = new ArrayList<>();
+
 	public Cliente obtenerDatosDelCliente(String rut){
 		for (Cliente cliente : listaClientes){
 			if (cliente.getRut().equals(rut)){
-				clientesRut.add(cliente);
 				return cliente;
 			}
 		}
 		return null;
 	}
 
-	public void registrarVenta(String nombreCliente, String apellidoCliente, String fecha, String iva, String total, firebase firebaseInstance) {
-		for (Cliente cliente : clientesRut) {
-			String nombre = cliente.getNombre();
-			String apellido = cliente.getApellido();
-			Map<String, Object> detalleVenta = new HashMap<>();
+	public void registrarVenta(String nombreCliente, String apellidoCliente, String fecha, String iva, String total,String rut, firebase firebaseInstance) {
+		for (Cliente cliente : listaClientes) {
+			if (cliente.getRut().equals(rut)) {
 
-			detalleVenta.put("Nombre Cliente", nombreCliente);
-			detalleVenta.put("Apellido Cliente", apellidoCliente);
-			detalleVenta.put("Fecha De Venta", fecha);
-			detalleVenta.put("IVA Impuesto", iva);
-			detalleVenta.put("Total Venta", total);
+				if (cliente.getVentascliente() == null) {
+					cliente.setVentascliente(new ArrayList<>());
+				}
 
-			firebaseInstance.insertardatos("Registro De Ventas", nombre + " " + apellido, detalleVenta);
-			System.out.println("Fecha registrada con exito con fecha: " + fecha);
+				String nombre = cliente.getNombre();
+				String apellido = cliente.getApellido();
+				Map<String, Object> detalleVenta = new HashMap<>();
+
+				detalleVenta.put("Nombre Cliente", nombreCliente);
+				detalleVenta.put("Apellido Cliente", apellidoCliente);
+				detalleVenta.put("Fecha De Venta", fecha);
+				detalleVenta.put("IVA Impuesto", iva);
+				detalleVenta.put("Total Venta", total);
+				detalleVenta.put("Rut Cliente", rut);
+
+				Venta nuevaVenta = new Venta(fecha, iva, total);
+				cliente.getVentascliente().add(nuevaVenta);
+
+
+				firebaseInstance.insertardatos("Registro De Ventas", nombre + " " + apellido, detalleVenta);
+				System.out.println("Fecha registrada con exito con fecha: " + fecha);
+
+				if (listaVentas == null) {
+					listaVentas = new ArrayList<>();
+				}
+				listaVentas.add(nuevaVenta);
+			}
 		}
+	}
+
+
+	public List<Venta> getListaVentas() {
+		return listaVentas;
+	}
+
+	public void setListaVentas(List<Venta> listaVentas) {
+		this.listaVentas = listaVentas;
 	}
 
 	public void setListaClientes(List<Cliente> listaClientes) {

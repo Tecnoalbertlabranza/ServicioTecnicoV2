@@ -137,13 +137,15 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
 
         String rutCliente = txtRutCliente.getText();
         System.out.println(" rut ingresado"+rutCliente);
+
         String nombreCliente = txtNombreCliente.getText();
         String apellidoCliente = txtApellidoDelCliente.getText();
         String fechaVenta = txtFecha.getText();
         String totalVenta = txtTotal.getText();
         String totalIva = txtIVA.getText();
+        String rut = txtRutCliente.getText();
 
-        servicioTecnico.registrarVenta(nombreCliente,apellidoCliente,fechaVenta,totalIva,totalVenta,firebaseInstance);
+        servicioTecnico.registrarVenta(nombreCliente,apellidoCliente,fechaVenta,totalIva,totalVenta,rutCliente,firebaseInstance);
         JOptionPane.showMessageDialog(null,"Se registro la venta ");
     }
 
@@ -362,6 +364,7 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
 
     private void BtnGuardarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarVentaActionPerformed
         guardarVenta();
+
     }//GEN-LAST:event_BtnGuardarVentaActionPerformed
 
     private void txtIVAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIVAActionPerformed

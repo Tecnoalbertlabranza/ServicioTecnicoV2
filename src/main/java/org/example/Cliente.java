@@ -61,4 +61,26 @@ public class Cliente implements Usuarios {
 
 	public void cerrarSesion(){
 	}
+
+	public void addVenta(Venta venta) {
+		if (ventascliente == null) {
+			ventascliente = new ArrayList<>();
+		}
+		ventascliente.add(venta);
+	}
+
+	@Override
+	public String toString() {
+		return "Cliente{" +
+				"nombre='" + nombre + '\'' +
+				", apellido='" + apellido + '\'' +
+				", telefono='" + telefono + '\'' +
+				", email='" + email + '\'' +
+				", rut='" + rut + '\'' +
+				", region='" + region + '\'' +
+				", comuna='" + comuna + '\'' +
+				", ventascliente=" + ventascliente +
+				", agendaCliente=" + agendaCliente +
+				'}';
+	}
 }
