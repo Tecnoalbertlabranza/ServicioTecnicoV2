@@ -15,11 +15,7 @@ public class Administradores implements Usuarios {
 		this.email = email;
 	}
 
-	public void IniciarSesion() {
+	public void IniciarSesion() {}
 
-    }
-
-    public void cerrarSesion() {
-
-    }
+    public void cerrarSesion() {}
 }

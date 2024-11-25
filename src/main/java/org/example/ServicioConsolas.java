@@ -10,10 +10,6 @@ public class ServicioConsolas extends Servicio {
 		this.marcaConsola = marcaConsola;
 	}
 
-
-
-
-
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder(super.toString());
