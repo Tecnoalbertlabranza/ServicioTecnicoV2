@@ -45,6 +45,7 @@ public class InicioSesion extends JFrame {
     }
 
     private void iniciarSesion() {
+        String emailIngresado = txtCorreoElectronico.getText();
         String rutIngresado = txtIngresoDeRut.getText();
         System.out.println("RUT ingresado: " + rutIngresado);
 
@@ -59,8 +60,9 @@ public class InicioSesion extends JFrame {
             for (QueryDocumentSnapshot document : documents) {
                 Map<String, Object> clienteData = document.getData();
                 String rutCliente = (String) clienteData.get("Rut");
+                String emailCliente = (String) clienteData.get("Email");
 
-                if (rutCliente.equals(rutIngresado)) {
+                if (rutCliente.equals(rutIngresado) && emailCliente.equals(emailIngresado)) {
                     System.out.println("Cliente encontrado: " + clienteData);
                     InterfazParaElCliente interfazCliente = new InterfazParaElCliente(firebaseInstance);
                     interfazCliente.setVisible(true);
@@ -80,8 +82,9 @@ public class InicioSesion extends JFrame {
                 for (QueryDocumentSnapshot document : documentsAdministradores) {
                     Map<String, Object> administradorData = document.getData();
                     String rutAdministrador = (String) administradorData.get("Rut");
+                    String emailAdministrador = (String) administradorData.get("Email");
 
-                    if (rutAdministrador.equals(rutIngresado)) {
+                    if (rutAdministrador.equals(rutIngresado) && emailAdministrador.equals(emailIngresado)) {
                         System.out.println("Administrador encontrado: " + administradorData);
                         PaginaPrincipal interfazPaginaPrincipal = new PaginaPrincipal(firebaseInstance);
                         interfazPaginaPrincipal.setVisible(true);
