@@ -10,23 +10,6 @@ public abstract class  Servicio {
 		this.tiempoEstimado = tiempoEstimado;
 	}
 
-	public void MostrarValor() {
-		System.out.println("Precio: " + valorServicio);
-	}
-
-	public void CalcularTiempoEstimado() {
-
-	}
-
-	public void ActualizarValorServicio(int NuevoValorServicio) {
-		valorServicio = NuevoValorServicio;
-	}
-
-	public void ActualizarNombreServicio(String NuevoNombre) {
-		nombre = NuevoNombre;
-	}
-
-
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
@@ -34,9 +17,5 @@ public abstract class  Servicio {
 				.append("Valor: "+valorServicio).append("\n")
 				.append("Tiempo estimado: "+tiempoEstimado).append("\n");
 		return sb.toString();
-	}
-
-	public String miniToString() {
-		return "Servicio: " + nombre;
 	}
 }
