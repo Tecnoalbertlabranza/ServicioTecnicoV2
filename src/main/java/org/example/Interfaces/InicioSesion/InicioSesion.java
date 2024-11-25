@@ -52,7 +52,10 @@ public class InicioSesion extends JFrame {
         ApiFuture<QuerySnapshot> querySnapshot = clientesCollection.get();
 
         try {
+            // Buscar en la colección "Clientes"
             List<QueryDocumentSnapshot> documents = querySnapshot.get().getDocuments();
+            boolean clienteEncontrado = false;
+
             for (QueryDocumentSnapshot document : documents) {
                 Map<String, Object> clienteData = document.getData();
                 String rutCliente = (String) clienteData.get("Rut");
@@ -62,37 +65,41 @@ public class InicioSesion extends JFrame {
                     InterfazParaElCliente interfazCliente = new InterfazParaElCliente(firebaseInstance);
                     interfazCliente.setVisible(true);
                     dispose();
-                    return;
+                    clienteEncontrado = true;
+                    break;
                 }
             }
 
-            JOptionPane.showMessageDialog(null, "El RUT De cliente no existe");
+            if (!clienteEncontrado) {
+                // Si no se encontró el cliente, buscar en la colección "Administradores"
+                CollectionReference administradoresCollection = firebaseInstance.getFirestore().collection("Administradores");
+                ApiFuture<QuerySnapshot> querySnapshotAdministradores = administradoresCollection.get();
+                List<QueryDocumentSnapshot> documentsAdministradores = querySnapshotAdministradores.get().getDocuments();
+
+                boolean administradorEncontrado = false;
+                for (QueryDocumentSnapshot document : documentsAdministradores) {
+                    Map<String, Object> administradorData = document.getData();
+                    String rutAdministrador = (String) administradorData.get("Rut");
+
+                    if (rutAdministrador.equals(rutIngresado)) {
+                        System.out.println("Administrador encontrado: " + administradorData);
+                        PaginaPrincipal interfazPaginaPrincipal = new PaginaPrincipal(firebaseInstance);
+                        interfazPaginaPrincipal.setVisible(true);
+                        dispose();
+                        administradorEncontrado = true;
+                        break;
+                    }
+                }
+
+                if (!administradorEncontrado) {
+                    JOptionPane.showMessageDialog(null, "Usuario no encontrado");
+                }
+            }
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
+            System.err.println("Error durante la operación: " + e.getMessage());
         }
 
-        CollectionReference administradoresCollection = firebaseInstance.getFirestore().collection("Administradores");
-        ApiFuture<QuerySnapshot> querySnapshotAdministradores = administradoresCollection.get();
-
-        try{
-            List<QueryDocumentSnapshot> documentsAdministradores = querySnapshotAdministradores.get().getDocuments();
-            for (QueryDocumentSnapshot document : documentsAdministradores){
-                Map<String, Object> administradorData = document.getData();
-                String rutAdministrador = (String) administradorData.get("Rut");
-
-                if(rutAdministrador.equals(rutIngresado)){
-                    System.out.println("Administrador encontrado: " + administradorData);
-                    PaginaPrincipal interfazPaginaPrincipal = new PaginaPrincipal(firebaseInstance);
-                    interfazPaginaPrincipal.setVisible(true);
-                    dispose();
-                    return;
-                }
-            }
-            JOptionPane.showMessageDialog(null, "El RUT no existe");
-        }catch (InterruptedException | ExecutionException e){
-            e.printStackTrace();
-            System.err.println("Error durante la operacion"+e.getMessage());
-        }
     }
 
     public static ServicioTecnico getServicioTecnico(){
