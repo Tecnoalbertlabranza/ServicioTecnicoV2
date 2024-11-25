@@ -4,9 +4,19 @@
  */
 package org.example.Interfaces.InterfazDeCliente;
 
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.Firestore;
+import com.google.cloud.firestore.QueryDocumentSnapshot;
+import com.google.cloud.firestore.QuerySnapshot;
+import org.example.Cliente;
 import org.example.Interfaces.InicioSesion.InicioSesion;
 import org.example.ServicioTecnico;
+import org.example.Venta;
 import org.example.firebase;
+
+import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -25,6 +35,81 @@ public class InterfazParaElCliente extends javax.swing.JFrame {
         firebaseInstance.inicializarconexion();
         initComponents();
     }
+
+    private void cargarClientesDesdeFirebase(){
+
+
+        List<Cliente> listaClientesLocal = new ArrayList<>();
+        StringBuilder clientesConVentas = new StringBuilder();
+
+        try{
+            Firestore db = firebaseInstance.getFirestore();
+            ApiFuture<QuerySnapshot> future = db.collection("Registro De Clientes").get();
+            QuerySnapshot querySnapshot = future.get();
+
+
+            for (QueryDocumentSnapshot document : querySnapshot.getDocuments()) {
+                String nombre = document.getString("Nombre");
+                String apellido = document.getString("Apellido");
+                String telefono = document.getString("Telefono");
+                String email = document.getString("Email");
+                String rut = document.getString("Rut");
+                String region = document.getString("Region");
+                String comuna = document.getString("Comuna");
+
+                Cliente cliente = new Cliente(nombre,
+                        apellido,
+                        telefono,
+                        email,
+                        rut,
+                        region,
+                        comuna);
+                listaClientesLocal.add(cliente);
+
+
+
+                ApiFuture<QuerySnapshot> futureVentas = db.collection("Registro De Ventas").whereEqualTo("Rut Cliente", rut).get();
+                QuerySnapshot querySnapshotVentas = futureVentas.get();
+
+                List<Venta> listaVentasCliente = new ArrayList<>();
+                for (QueryDocumentSnapshot documentVenta : querySnapshotVentas.getDocuments()) {
+                    String fechaVenta = documentVenta.getString("Fecha De Venta");
+                    String totalVenta = documentVenta.getString("Total Venta");
+                    String ivaVenta = documentVenta.getString("IVA Impuesto");
+
+                    Venta venta = new Venta(fechaVenta, ivaVenta,totalVenta);
+                    listaVentasCliente.add(venta);
+                }
+
+                cliente.setVentascliente(listaVentasCliente);
+
+                clientesConVentas.append("Cliente: ").append(cliente.getNombre()).append(" ").append(cliente.getApellido()).append("\n");
+                clientesConVentas.append("Ventas: \n");
+                for (Venta venta : listaVentasCliente) {
+                    clientesConVentas.append("- Fecha: ").append(venta.getFechaVenta()).append(", Total: ").append(venta.getTotal()).append("\n");
+                }
+                clientesConVentas.append("\n");
+            }
+
+            servicioTecnico.setListaClientes(listaClientesLocal);
+
+            System.out.println("Clientes existentes");
+
+            //debug
+            listaClientesLocal.stream().forEach(System.out::println);
+            for (Cliente cliente : listaClientesLocal){
+                System.out.println(cliente);
+            }
+
+            System.out.println("\nClientes con ventas:");
+            System.out.println(clientesConVentas.toString());
+
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("Error al cargar datos"+ e.getMessage());
+        }
+    }
+
 
     public firebase getFirebaseInstance(){
         return firebaseInstance;

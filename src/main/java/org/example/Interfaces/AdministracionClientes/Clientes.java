@@ -39,95 +39,15 @@ public class Clientes extends javax.swing.JPanel {
         this.firebaseInstance = firebaseInstance;
         this.servicioTecnico = InicioSesion.getServicioTecnico();
         initComponents();
-        cargarClientesDesdeFirebase();
         AgregarCliente menucliente = new AgregarCliente (firebaseInstance,this);
         MostrarPanelCliente(menucliente);
 
 
     }
 
-    private void cargarClientesDesdeFirebase(){
-        DefaultTableModel modeloTabla = (DefaultTableModel) TablaClientes.getModel();
-        modeloTabla.setRowCount(0);
-
-        DefaultTableModel modeloTablaDirecciones = (DefaultTableModel) TablaDireccionClientes.getModel();
-        modeloTablaDirecciones.setRowCount(0);
-
-        List<Cliente> listaClientesLocal = new ArrayList<>();
-        StringBuilder clientesConVentas = new StringBuilder();
-
-        try{
-            Firestore db = firebaseInstance.getFirestore();
-            ApiFuture<QuerySnapshot> future = db.collection("Registro De Clientes").get();
-            QuerySnapshot querySnapshot = future.get();
 
 
-            for (QueryDocumentSnapshot document : querySnapshot.getDocuments()) {
-                String nombre = document.getString("Nombre");
-                String apellido = document.getString("Apellido");
-                String telefono = document.getString("Telefono");
-                String email = document.getString("Email");
-                String rut = document.getString("Rut");
-                String region = document.getString("Region");
-                String comuna = document.getString("Comuna");
 
-                Cliente cliente = new Cliente(nombre,
-                        apellido,
-                        telefono,
-                        email,
-                        rut,
-                        region,
-                        comuna);
-                listaClientesLocal.add(cliente);
-
-                modeloTabla.addRow(new Object[]{nombre, apellido, telefono, email, rut});
-                modeloTablaDirecciones.addRow(new Object[]{region, comuna});
-
-                ApiFuture<QuerySnapshot> futureVentas = db.collection("Registro De Ventas").whereEqualTo("Rut Cliente", rut).get();
-                QuerySnapshot querySnapshotVentas = futureVentas.get();
-
-                List<Venta> listaVentasCliente = new ArrayList<>();
-                for (QueryDocumentSnapshot documentVenta : querySnapshotVentas.getDocuments()) {
-                    String fechaVenta = documentVenta.getString("Fecha De Venta");
-                    String totalVenta = documentVenta.getString("Total Venta");
-                    String ivaVenta = documentVenta.getString("IVA Impuesto");
-
-                    Venta venta = new Venta(fechaVenta, ivaVenta,totalVenta);
-                    listaVentasCliente.add(venta);
-            }
-
-                cliente.setVentascliente(listaVentasCliente);
-
-                clientesConVentas.append("Cliente: ").append(cliente.getNombre()).append(" ").append(cliente.getApellido()).append("\n");
-                clientesConVentas.append("Ventas: \n");
-                for (Venta venta : listaVentasCliente) {
-                    clientesConVentas.append("- Fecha: ").append(venta.getFechaVenta()).append(", Total: ").append(venta.getTotal()).append("\n");
-                }
-                clientesConVentas.append("\n");
-            }
-
-            servicioTecnico.setListaClientes(listaClientesLocal);
-
-            System.out.println("Clientes existentes");
-
-           //debug
-            listaClientesLocal.stream().forEach(System.out::println);
-            for (Cliente cliente : listaClientesLocal){
-                System.out.println(cliente);
-            }
-
-            System.out.println("\nClientes con ventas:");
-            System.out.println(clientesConVentas.toString());
-
-        }catch (Exception e){
-            e.printStackTrace();
-            System.out.println("Error al cargar datos"+ e.getMessage());
-        }
-    }
-
-    public void refrescarTabla(){
-        cargarClientesDesdeFirebase();
-    }
 
 
 
@@ -227,10 +147,8 @@ public class Clientes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {
-        cargarClientesDesdeFirebase();
         AgregarCliente agcli = new AgregarCliente(firebaseInstance, this);
         MostrarPanelCliente(agcli);
-        refrescarTabla();
     }
 
     private void BotonModificarClienteActionPerformed(java.awt.event.ActionEvent evt) {
