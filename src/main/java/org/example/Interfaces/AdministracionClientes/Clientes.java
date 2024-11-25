@@ -9,6 +9,7 @@ import org.example.firebase;
 import java.awt.BorderLayout;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -41,15 +42,55 @@ public class Clientes extends javax.swing.JPanel {
         initComponents();
         AgregarCliente menucliente = new AgregarCliente (firebaseInstance,this);
         MostrarPanelCliente(menucliente);
+        cargarClientesDesdeFirebase();
+        cargarClientesLocales();
 
 
     }
+    public void cargarClientesDesdeFirebase() {
+        try {
+            QuerySnapshot querySnapshot = firebaseInstance.getFirestore().collection("Registro De Clientes").get().get();
+            List<Cliente> clientesFirebase = querySnapshot.getDocuments().stream()
+                    .map(document -> {
+                        String nombre = document.getString("Nombre");
+                        String apellido = document.getString("Apellido");
+                        String telefono = document.getString("Telefono");
+                        String email = document.getString("Email");
+                        String rut = document.getString("Rut");
+                        String region = document.getString("Region");
+                        String comuna = document.getString("Comuna");
+
+                        return new Cliente(nombre, apellido, telefono, email, rut, region, comuna);
+                    })
+                    .collect(Collectors.toList());
+
+            servicioTecnico.setListaClientes(clientesFirebase);
+
+            clientesFirebase.forEach(System.out::println);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error al cargar datos de clientes : " + e.getMessage());
+        }
+    }
+
+    public void cargarClientesLocales(){
+        List<Cliente> clientes = servicioTecnico.getListaClientes();
+
+        if(clientes != null) {
+
+            DefaultTableModel model = (DefaultTableModel) TablaClientes.getModel();
+            model.setRowCount(0);
+
+            for (Cliente cliente : clientes) {
+                Object[] fila = {cliente.getNombre(), cliente.getApellido(), cliente.getTelefono(), cliente.getEmail(), cliente.getRut()};
+                model.addRow(fila);
+            }
+        }else{
+            System.out.println("lista vacia");
+        }
 
 
-
-
-
-
+    }
 
 
     /**

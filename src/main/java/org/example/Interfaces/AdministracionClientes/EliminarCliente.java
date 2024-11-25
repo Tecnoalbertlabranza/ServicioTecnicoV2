@@ -54,7 +54,7 @@ public class EliminarCliente extends javax.swing.JPanel {
             e.printStackTrace();
             System.err.println("Error durante la operacion"+e.getMessage());
         }
-        clientes.refrescarTabla();
+
     }
 
     /**
@@ -106,7 +106,7 @@ public class EliminarCliente extends javax.swing.JPanel {
              return;
          }
          eliminarClientePorRut(rut);
-         clientes.refrescarTabla();
+
 
 
     }//GEN-LAST:event_BtnEliminarClienteActionPerformed

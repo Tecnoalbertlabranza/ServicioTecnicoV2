@@ -131,6 +131,7 @@ public class InicioSesion extends JFrame {
                         return new Cliente(nombre, apellido, telefono, email, rut, region, comuna);
                     })
                     .collect(Collectors.toList());
+            servicioTecnico.setListaClientes(clientesFirebase);
 
             clientesFirebase.forEach(System.out::println);
         } catch (Exception e) {
