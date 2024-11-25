@@ -122,59 +122,59 @@ public class InicioSesion extends JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new JLabel();
-        txtNombreDeUsuario = new JTextField();
-        jLabel2 = new JLabel();
-        jLabel3 = new JLabel();
-        jTextField2 = new JTextField();
-        jLabel4 = new JLabel();
-        txtIngresoDeRut = new JTextField();
-        btnIngresar = new JButton();
+        jLabel1 = new javax.swing.JLabel();
+        txtCorreoElectronico = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txtIngresoDeRut = new javax.swing.JTextField();
+        btnIngresar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new AbsoluteLayout());
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Logo empresa");
-        getContentPane().add(jLabel1, new AbsoluteConstraints(130, 30, 140, 40));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 140, 40));
 
-        txtNombreDeUsuario.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                txtNombreDeUsuarioActionPerformed(evt);
+        txtCorreoElectronico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCorreoElectronicoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtNombreDeUsuario, new AbsoluteConstraints(80, 170, 230, 30));
+        getContentPane().add(txtCorreoElectronico, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 230, 30));
 
-        jLabel2.setText("Ingrese su nombre de usuario");
-        getContentPane().add(jLabel2, new AbsoluteConstraints(80, 140, 160, 30));
+        jLabel2.setText("Ingrese su correo electronico");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 160, 30));
 
         jLabel3.setText("Ingrese contraseña");
-        getContentPane().add(jLabel3, new AbsoluteConstraints(80, 300, -1, -1));
-        getContentPane().add(jTextField2, new AbsoluteConstraints(80, 330, 230, 30));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, -1, -1));
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 230, 30));
 
         jLabel4.setText("Ingrese Su Rut");
-        getContentPane().add(jLabel4, new AbsoluteConstraints(80, 210, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, -1));
 
-        txtIngresoDeRut.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
+        txtIngresoDeRut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIngresoDeRutActionPerformed(evt);
             }
         });
-        getContentPane().add(txtIngresoDeRut, new AbsoluteConstraints(80, 240, 230, 30));
+        getContentPane().add(txtIngresoDeRut, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 230, 30));
 
         btnIngresar.setText("Iniciar Sesion");
-        btnIngresar.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
+        btnIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIngresarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnIngresar, new AbsoluteConstraints(170, 390, 220, 70));
+        getContentPane().add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 220, 70));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNombreDeUsuarioActionPerformed(ActionEvent evt) {//GEN-FIRST:event_txtNombreDeUsuarioActionPerformed
+    private void txtCorreoElectronicoActionPerformed(ActionEvent evt) {//GEN-FIRST:event_txtCorreoElectronicoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreDeUsuarioActionPerformed
+    }//GEN-LAST:event_txtCorreoElectronicoActionPerformed
 
     private void btnIngresarActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
       iniciarSesion();
@@ -220,13 +220,13 @@ public class InicioSesion extends JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private JButton btnIngresar;
-    private JLabel jLabel1;
-    private JLabel jLabel2;
-    private JLabel jLabel3;
-    private JLabel jLabel4;
-    private JTextField jTextField2;
-    private JTextField txtIngresoDeRut;
-    private JTextField txtNombreDeUsuario;
+    private javax.swing.JButton btnIngresar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField txtCorreoElectronico;
+    private javax.swing.JTextField txtIngresoDeRut;
     // End of variables declaration//GEN-END:variables
 }
