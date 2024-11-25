@@ -12,8 +12,11 @@ import org.example.firebase;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Predicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -43,41 +46,62 @@ public class AgregarCliente extends javax.swing.JPanel {
         String contraseña = txtContraseña.getText().trim();
         String region = txtRegion.getText().trim();
         String comuna = txtComuna.getText().trim();
-
+        rut = rut.replaceAll("[.\\-]", "");
         // Desde aqui hacia abajo pueden colocarle todas las condiciones que quieran para el ingreso de datos de cliente
 
-        if (nombre.isEmpty() || apellido.isEmpty() || telefono.isEmpty() || email.isEmpty() || rut.isEmpty() || region.isEmpty() || comuna.isEmpty() ) {
-            JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos");
-            return;
-        } else if (!nombre.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ]+")) {
-            JOptionPane.showMessageDialog(null, "El nombre es invalido");
-            return;
-        } else if (!apellido.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ]+")) {
-            JOptionPane.showMessageDialog(null, "El apellido es invalido");
-            return;
-        } else if (!telefono.matches("\\d{9}|\\d{11}")) {
-            JOptionPane.showMessageDialog(null, "Numero de telefono no valido");
-            return;
-        } else if (!email.matches("^[\\w-+]+(\\.[\\w-]{1,62})*@[a-zA-Z0-9-]{1,63}\\.[a-zA-Z0-9-]{2,6}$")) {
-            JOptionPane.showMessageDialog(null, "Email no valido");
-            return;
-        } else if (!validarRut(rut)){
-            JOptionPane.showMessageDialog(null, "Rut no valido");
-            return;
-        }
+        List<String> errors = validarCampos(nombre, apellido, telefono, email, rut, contraseña, region, comuna);
 
-        rut = rut.replaceAll("[.\\-]", "");
+        System.out.println(String.join("\n", errors));
+
+        if (!errors.isEmpty()) {
+            JOptionPane.showMessageDialog(null, String.join("\n", errors));
+            return;  // Detenemos el flujo si hay errores
+        } else {
+            JOptionPane.showMessageDialog(null, "Datos válidos");
+        }
 
         // Hasta aqui se pueden colocar las condiciones. mas abajo nop ya que dañarian el codigo
 
         servicioTecnico.RegistrarCliente(nombre, apellido, telefono, email, rut,contraseña, region, comuna, firebaseInstance);
         JOptionPane.showMessageDialog(null, "Cliente registrado correctamente");
-        clientespanel.refrescarTabla();
     }
 
-    public static Boolean validarRut(String rut){
-        rut = rut.replaceAll("[.\\-]", "");
+    public static List<String> validarCampos(String nombre, String apellido, String telefono, String email,
+                                             String rut, String contraseña, String region, String comuna) {
+        return List.of(
+                        validarCampo(nombre, "Nombre", v -> v.matches("^[A-Z]{1}[a-záéíóúÁÉÍÓÚñÑ]+")),
+                        validarCampo(apellido, "Apellido", v -> v.matches("^[A-Z]{1}[a-záéíóúÁÉÍÓÚñÑ]+")),
+                        validarCampo(telefono, "Telefono", v -> v.matches("\\d{9}|\\d{11}")),
+                        validarCampo(email, "Email", v -> v.matches("^[\\w]+@[a-zA-Z0-9]{1,15}\\.[a-zA-Z]{2,6}$")),
+                        validarCampo(rut, "Rut", v -> validarRut(v)),
+                        validarCampo(contraseña, "Contraseña", v -> v.matches("^(?=.*[a-z])(?=.*[A-Z]).{6,}$")),
+                        validarCampo(region, "Region", v -> !v.isEmpty()),
+                        validarCampo(comuna, "Comuna", v -> !v.isEmpty())
+                ).stream()
+                .filter(error -> !error.isEmpty())
+                .collect(Collectors.toList());
+    }
 
+    public static String validarCampo(String valor, String campo, Predicate<String> validacion) {
+        if (valor.isEmpty()) {
+            return campo + " no puede estar vacío";
+        }
+        if (!validacion.test(valor)) {
+            return campo + " inválido";
+        }
+        return "";
+    }
+
+    public static Boolean validarRut(String rut) {
+        // Verifica si el RUT tiene 8 dígitos numéricos seguidos de una "K" (mayúscula o minúscula)
+        if (!rut.matches("^[0-9]{8}[kK0-9]{1}$")) {
+            return false;
+        }
+        return true;
+    }
+
+    /*
+    public static Boolean validarRut(String rut){
         if (!rut.matches("^[0-9]+[0-9kK]{1}$")){return false;}
 
         String rutNumerico = rut.substring(0, rut.length() - 1);
@@ -86,7 +110,6 @@ public class AgregarCliente extends javax.swing.JPanel {
         return rutDv == dv(rutNumerico).charAt(0);
     }
 
-
     public static String dv(String rut) {
         int M = 0, S = 1;
         for (int i = rut.length() - 1; i >= 0; i--) {
@@ -94,7 +117,7 @@ public class AgregarCliente extends javax.swing.JPanel {
             S = (S + digit * (9 - M++ % 6)) % 11;
         }
         return (S > 0) ? String.valueOf(S - 1) : "k";
-    }
+    } */
 
     /**
      * This method is called from within the constructor to initialize the form.
