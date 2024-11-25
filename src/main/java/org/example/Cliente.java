@@ -67,8 +67,7 @@ public class Cliente implements Usuarios {
 	public void IniciarSesion() {
 	}
 
-	public void cerrarSesion(){
-	}
+
 
 	public void addVenta(Venta venta) {
 		if (ventascliente == null) {
