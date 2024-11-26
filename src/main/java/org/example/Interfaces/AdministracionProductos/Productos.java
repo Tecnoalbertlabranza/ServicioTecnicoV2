@@ -30,8 +30,6 @@ public class Productos extends javax.swing.JPanel {
     private DefaultTableModel modeloTablaProductos;
     private ServicioTecnico servicioTecnico;
 
-
-    
       private void MostrarPanelProducto(JPanel pag ){
         
         pag.setSize(1500, 590);
@@ -54,38 +52,36 @@ public class Productos extends javax.swing.JPanel {
              ApiFuture<QuerySnapshot> future = db.collection("Registro de Producto").get();
              QuerySnapshot querySnapshot = future.get();
 
-             for (QueryDocumentSnapshot document : querySnapshot.getDocuments()) {
-                 String nombre = document.getString("Nombre");
-                 String categoria = document.getString("Categoria");
-                 double valor = document.getDouble("Valor");
-                 double stock = document.getDouble("Stock");
-
-                 Producto producto = new Producto(nombre, categoria,valor,stock);
-
-                 listaProductosLocal.add(producto);
-
-                 modeloTablaProductos.addRow(new Object[]{nombre,categoria,valor,stock});
-             }
+             querySnapshot.getDocuments().stream()
+                     .map(document -> new Producto(
+                             document.getString("Nombre"),
+                             document.getString("Categoria"),
+                             document.getDouble("Valor"),
+                             document.getDouble("Stock")
+                     ))
+                     .peek(producto -> listaProductosLocal.add(producto))
+                     .forEach(producto -> modeloTablaProductos.addRow(new Object[]{
+                             producto.getNombreProducto(),
+                             producto.getCategoriaProducto(),
+                             producto.getValorProducto(),
+                             producto.getStockProducto()
+                     }));
 
              servicioTecnico.setListaProductos(listaProductosLocal);
 
              System.out.println("Productos existentes");
-             for (Producto producto : servicioTecnico.getProductos()){
-                 System.out.println(producto);
-             }
-
+             servicioTecnico.getProductos().stream()
+                     .forEach(System.out ::println);
 
          } catch (Exception e) {
              e.printStackTrace();
              System.out.println("Error al cargar datos" + e.getMessage());
          }
-
      }
 
      public void refrescarTablaProductos(){
           cargarProductosDesdeFirebase();
      }
-
 
     /**
      * Creates new form Producto
@@ -189,7 +185,6 @@ public class Productos extends javax.swing.JPanel {
         EliminarProductos eliprod = new EliminarProductos();
         MostrarPanelProducto(eliprod);
     }//GEN-LAST:event_BotonEliminarProductoActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAgregarProducto;
