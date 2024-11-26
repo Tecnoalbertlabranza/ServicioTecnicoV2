@@ -13,8 +13,6 @@ public class ServicioTecnico {
 	List<Venta> listaVentas;
 	private String descripcion;
 
-
-
 	public ServicioTecnico(String nombreServicio, Collection<ServicioConsolas> serviciosConsola, Collection<ServicioComputador> serviciosComputador, Collection<Producto> productos, List<Cliente> listaClientes, String descripcion) {
 		this.nombreServicio = nombreServicio;
 		this.serviciosConsola = serviciosConsola;
@@ -130,32 +128,6 @@ public class ServicioTecnico {
 		System.out.println("Servicio consola registrado en Firebase con id" + nombre + " " + valorServicio);
 	}
 
-	public void cargarClientesDesdeFirebase(firebase firebaseInstance) {
-		try {
-
-			QuerySnapshot querySnapshot = firebaseInstance.getFirestore().collection("Registro De Clientes").get().get();
-			List<Cliente> clientesFirebase = querySnapshot.getDocuments().stream()
-					.map(document -> {
-						String nombre = document.getString("Nombre");
-						String apellido = document.getString("Apellido");
-						String telefono = document.getString("Telefono");
-						String email = document.getString("Email");
-						String rut = document.getString("Rut");
-						String region = document.getString("Region");
-						String comuna = document.getString("Comuna");
-
-						return new Cliente(nombre, apellido, telefono, email, rut, region, comuna);
-					})
-					.collect(Collectors.toList());
-			setListaClientes(clientesFirebase);
-
-			clientesFirebase.forEach(System.out::println);
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("Error al cargar datos de clientes : " + e.getMessage());
-		}
-	}
-
 	public Cliente obtenerDatosDelCliente(String rut) {
 		return listaClientes.stream()
 				.filter(cliente -> cliente.getRut().equals(rut))
@@ -190,6 +162,31 @@ public class ServicioTecnico {
 					listaVentas = listaVentas == null ? new ArrayList<>() : listaVentas;
 					listaVentas.add(nuevaVenta);
 				});
+	}
+
+	public void cargarClientesDesdeFirebase(firebase firebaseInstance) {
+		try {
+			QuerySnapshot querySnapshot = firebaseInstance.getFirestore().collection("Registro De Clientes").get().get();
+			List<Cliente> clientesFirebase = querySnapshot.getDocuments().stream()
+					.map(document -> {
+						String nombre = document.getString("Nombre");
+						String apellido = document.getString("Apellido");
+						String telefono = document.getString("Telefono");
+						String email = document.getString("Email");
+						String rut = document.getString("Rut");
+						String region = document.getString("Region");
+						String comuna = document.getString("Comuna");
+
+						return new Cliente(nombre, apellido, telefono, email, rut, region, comuna);
+					})
+					.collect(Collectors.toList());
+			setListaClientes(clientesFirebase);
+
+			clientesFirebase.forEach(System.out::println);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Error al cargar datos de clientes : " + e.getMessage());
+		}
 	}
 
 
