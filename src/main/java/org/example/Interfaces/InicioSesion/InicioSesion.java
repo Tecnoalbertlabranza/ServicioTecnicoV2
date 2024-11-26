@@ -51,19 +51,14 @@ public class InicioSesion extends JFrame {
         String contraseñaIngresada = txtContraseña.getText();
         System.out.println("RUT ingresado: " + rutIngresado);
 
-        // Crear las instancias de Cliente y Administrador
-        VerificacionCliente cliente = new VerificacionCliente(firebaseInstance, rutIngresado, emailIngresado, contraseñaIngresada);
-        VerificacionAdministrador administrador = new VerificacionAdministrador(firebaseInstance, rutIngresado, emailIngresado, contraseñaIngresada);
+        VerificacionCliente cliente = new VerificacionCliente(this, firebaseInstance, rutIngresado, emailIngresado, contraseñaIngresada);
+        VerificacionAdministrador administrador = new VerificacionAdministrador(this, firebaseInstance, rutIngresado, emailIngresado, contraseñaIngresada);
 
-        // Primero, verificar si es un cliente
         if (!cliente.IniciarSesion()) {
-            // Si no es cliente, verificar si es administrador
             if (!administrador.IniciarSesion()) {
                 JOptionPane.showMessageDialog(null, "Usuario no encontrado");
             }
         }
-
-        // Si es cliente o administrador, la interfaz correspondiente ya se mostró
     }
 
     public static ServicioTecnico getServicioTecnico(){
