@@ -264,6 +264,7 @@ public class AgregarCliente extends javax.swing.JPanel {
 
     private void btnGuardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarClienteActionPerformed
        agregarNuevoCliente();
+       servicioTecnico.cargarClientesDesdeFirebase(firebaseInstance);
     }//GEN-LAST:event_btnGuardarClienteActionPerformed
 
     private void txtApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoActionPerformed

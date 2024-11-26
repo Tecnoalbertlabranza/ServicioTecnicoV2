@@ -42,35 +42,9 @@ public class Clientes extends javax.swing.JPanel {
         initComponents();
         AgregarCliente menucliente = new AgregarCliente (firebaseInstance,this);
         MostrarPanelCliente(menucliente);
-        cargarClientesDesdeFirebase();
         cargarClientesLocales();
 
 
-    }
-    public void cargarClientesDesdeFirebase() {
-        try {
-            QuerySnapshot querySnapshot = firebaseInstance.getFirestore().collection("Registro De Clientes").get().get();
-            List<Cliente> clientesFirebase = querySnapshot.getDocuments().stream()
-                    .map(document -> {
-                        String nombre = document.getString("Nombre");
-                        String apellido = document.getString("Apellido");
-                        String telefono = document.getString("Telefono");
-                        String email = document.getString("Email");
-                        String rut = document.getString("Rut");
-                        String region = document.getString("Region");
-                        String comuna = document.getString("Comuna");
-
-                        return new Cliente(nombre, apellido, telefono, email, rut, region, comuna);
-                    })
-                    .collect(Collectors.toList());
-
-            servicioTecnico.setListaClientes(clientesFirebase);
-
-            clientesFirebase.forEach(System.out::println);
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Error al cargar datos de clientes : " + e.getMessage());
-        }
     }
 
     public void cargarClientesLocales(){
