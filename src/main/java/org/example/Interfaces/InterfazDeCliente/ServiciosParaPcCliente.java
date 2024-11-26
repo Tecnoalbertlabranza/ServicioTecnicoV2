@@ -4,17 +4,49 @@
  */
 package org.example.Interfaces.InterfazDeCliente;
 
+import org.example.Interfaces.InicioSesion.InicioSesion;
+import org.example.ServicioComputador;
+import org.example.ServicioTecnico;
+
+import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 /**
  *
  * @author basty
  */
 public class ServiciosParaPcCliente extends javax.swing.JPanel {
+    private ServicioTecnico servicioTecnico;
 
     /**
      * Creates new form ServiciosParaPcCliente
      */
     public ServiciosParaPcCliente() {
         initComponents();
+        this.servicioTecnico = InicioSesion.getServicioTecnico();
+        cargarServiciosParaPcATabla();
+    }
+
+    private void cargarServiciosParaPcATabla() {
+        DefaultTableModel modeloTablaServicioParaPc = (DefaultTableModel) TablaServicioParaPc.getModel();
+        modeloTablaServicioParaPc.setRowCount(0);
+
+        Collection<ServicioComputador> servicioParaPcCol = servicioTecnico.getServiciosComputador();
+        List<ServicioComputador> servicioParaPc = new ArrayList<>(servicioParaPcCol);
+
+        servicioParaPc.stream()
+                .map(
+                        servicio -> new Object[]{
+                                servicio.getNombre(),
+                                servicio.getValorServicio(),
+                                servicio.getTiempoEstimado(),
+                                servicio.getTipoComputadora(),
+                                servicio.getLineaDePorcesador(),
+                                servicio.getUsoComputadora()
+                        })
+                .forEach(modeloTablaServicioParaPc :: addRow);
     }
 
     /**
@@ -43,7 +75,7 @@ public class ServiciosParaPcCliente extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombre", "Valor", "Tiempo Estimado", "Tipo de computadora", "Linea de Procesador", "Uso de Computadora"
             }
         ));
         jScrollPane1.setViewportView(TablaServicioParaPc);

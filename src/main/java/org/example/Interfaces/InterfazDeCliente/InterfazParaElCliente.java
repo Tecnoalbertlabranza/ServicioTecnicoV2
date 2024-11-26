@@ -36,6 +36,7 @@ public class InterfazParaElCliente extends javax.swing.JFrame {
         initComponents();
        cargarProductosDesdeFirebase();
        cargarServicioConsolasDesdeFirebase();
+       cargarServiciosComputadorDesdeLaFirebase();
     }
 
     private void cargarClientesDesdeFirebase(){
@@ -180,6 +181,32 @@ public class InterfazParaElCliente extends javax.swing.JFrame {
             System.out.println("Error al cargar datos"+ e.getMessage());
         }
 
+    }
+
+    private void cargarServiciosComputadorDesdeLaFirebase(){
+        List<ServicioComputador> listaServiciosPCLocal = new ArrayList<>();
+        try{
+            Firestore db = firebaseInstance.getFirestore();
+            ApiFuture<QuerySnapshot> future = db.collection("Registro de servicio computador").get();
+            QuerySnapshot querySnapshot = future.get();
+
+            listaServiciosPCLocal = querySnapshot.getDocuments().stream()
+                    .map(document-> new ServicioComputador(
+                            document.getString("Nombre"),
+                            document.getDouble("Valor"),
+                            document.getString("TiempoEstimado"),
+                            document.getString("TipoComputadora"),
+                            document.getString("LineaDePorcesador"),
+                            document.getString("UsoComputadora")))
+                    .collect(Collectors.toList());
+
+            servicioTecnico.setServiciosComputador(listaServiciosPCLocal);
+            System.out.println("Servicios para pc existentes");
+            listaServiciosPCLocal.stream().forEach(System.out::println);
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("Error al cargar datos"+ e.getMessage());
+        }
     }
 
     /**
