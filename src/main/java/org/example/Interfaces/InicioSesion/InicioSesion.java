@@ -81,7 +81,6 @@ public class InicioSesion extends JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         txtCorreoElectronico = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -89,36 +88,35 @@ public class InicioSesion extends JFrame {
         jLabel4 = new javax.swing.JLabel();
         txtIngresoDeRut = new javax.swing.JTextField();
         btnIngresar = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setText("Logo empresa");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 140, 40));
 
         txtCorreoElectronico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCorreoElectronicoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtCorreoElectronico, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 230, 30));
+        getContentPane().add(txtCorreoElectronico, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 230, 30));
 
         jLabel2.setText("Ingrese su correo electronico");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 160, 30));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 160, 30));
 
         jLabel3.setText("Ingrese contraseña");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, -1, -1));
-        getContentPane().add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 230, 30));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, -1, -1));
+        getContentPane().add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 230, 30));
 
         jLabel4.setText("Ingrese Su Rut");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, -1, -1));
 
         txtIngresoDeRut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIngresoDeRutActionPerformed(evt);
             }
         });
-        getContentPane().add(txtIngresoDeRut, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 230, 30));
+        getContentPane().add(txtIngresoDeRut, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, 230, 30));
 
         btnIngresar.setText("Iniciar Sesion");
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
@@ -126,7 +124,17 @@ public class InicioSesion extends JFrame {
                 btnIngresarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 220, 70));
+        getContentPane().add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 460, 220, 70));
+
+        jPanel1.setBackground(new java.awt.Color(102, 102, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Inicio De Sesion");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 350, 70));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 120));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -184,6 +192,7 @@ public class InicioSesion extends JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtContraseña;
     private javax.swing.JTextField txtCorreoElectronico;
     private javax.swing.JTextField txtIngresoDeRut;

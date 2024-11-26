@@ -148,6 +148,7 @@ public class AgregarCliente extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         txtContraseña = new javax.swing.JTextField();
 
+        jPanel1.setBackground(new java.awt.Color(51, 153, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Ingrese los datos del nuevo cliente");

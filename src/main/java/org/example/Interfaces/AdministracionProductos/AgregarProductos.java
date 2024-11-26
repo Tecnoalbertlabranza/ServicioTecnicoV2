@@ -94,6 +94,7 @@ public class AgregarProductos extends javax.swing.JPanel {
         txtStock = new javax.swing.JTextField();
         btnAgregarProducto = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(51, 153, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Ingrese Los Datos De Su Nuevo Producto");
@@ -103,41 +104,41 @@ public class AgregarProductos extends javax.swing.JPanel {
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
 
         jLabel3.setText("Categoria");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
 
         jLabel4.setText("Valor");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, 10));
 
         jLabel5.setText("Stock");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, -1, -1));
 
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreActionPerformed(evt);
             }
         });
-        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 210, 20));
+        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 290, 30));
 
         txtCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCategoriaActionPerformed(evt);
             }
         });
-        add(txtCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 210, 20));
+        add(txtCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 290, 30));
 
         txtValor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtValorActionPerformed(evt);
             }
         });
-        add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 210, 20));
+        add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 290, 30));
 
         txtStock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtStockActionPerformed(evt);
             }
         });
-        add(txtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 210, 20));
+        add(txtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 290, 30));
 
         btnAgregarProducto.setText("Agregar Producto");
         btnAgregarProducto.addActionListener(new java.awt.event.ActionListener() {

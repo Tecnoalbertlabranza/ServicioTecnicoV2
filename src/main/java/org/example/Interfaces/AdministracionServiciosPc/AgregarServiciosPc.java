@@ -96,6 +96,7 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         txtLineaDeProcesador = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(0, 153, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Ingrese su nuevo servicio para pc");
@@ -109,7 +110,7 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
                 txtNombreActionPerformed(evt);
             }
         });
-        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 260, 30));
+        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 230, 30));
 
         jLabel3.setText("Valor Servicio");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
@@ -119,7 +120,7 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
                 txtValorServicioPcActionPerformed(evt);
             }
         });
-        add(txtValorServicioPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 260, 30));
+        add(txtValorServicioPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 230, 30));
 
         jLabel4.setText("Detalle Servicio");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
@@ -129,37 +130,37 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
                 txtDetalleServicioPcActionPerformed(evt);
             }
         });
-        add(txtDetalleServicioPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 260, 30));
+        add(txtDetalleServicioPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 380, 140));
 
         jLabel5.setText("Tiempo Estimado");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
 
         txtTiempoEstimado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTiempoEstimadoActionPerformed(evt);
             }
         });
-        add(txtTiempoEstimado, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 260, 30));
+        add(txtTiempoEstimado, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 230, 30));
 
         jLabel6.setText("Tipo De Computador");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, -1, -1));
 
         txtTipoDeComputador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTipoDeComputadorActionPerformed(evt);
             }
         });
-        add(txtTipoDeComputador, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 260, 30));
+        add(txtTipoDeComputador, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 230, 30));
 
         jLabel7.setText("Uso de Computadora");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, -1, -1));
 
         txtUsoDeComputadora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsoDeComputadoraActionPerformed(evt);
             }
         });
-        add(txtUsoDeComputadora, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 260, 30));
+        add(txtUsoDeComputadora, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 230, 30));
 
         btnAgregarServiciosPc.setText("Agregar Servicio Pc");
         btnAgregarServiciosPc.addActionListener(new java.awt.event.ActionListener() {
@@ -167,11 +168,11 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
                 btnAgregarServiciosPcActionPerformed(evt);
             }
         });
-        add(btnAgregarServiciosPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 460, 150, 40));
+        add(btnAgregarServiciosPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 460, 150, 40));
 
         jLabel8.setText("Linea De Procesador");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
-        add(txtLineaDeProcesador, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 260, 30));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 480, 130, 20));
+        add(txtLineaDeProcesador, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 500, 230, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtUsoDeComputadoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsoDeComputadoraActionPerformed

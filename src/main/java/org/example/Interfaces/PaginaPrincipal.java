@@ -106,7 +106,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         BotonProductos = new javax.swing.JButton();
         BotonServiciosConsolas = new javax.swing.JButton();
-        BotonInicioSesion = new javax.swing.JButton();
+        BotonCerrarSesion = new javax.swing.JButton();
         BotonServiciosPc = new javax.swing.JButton();
         BotonClientes = new javax.swing.JButton();
         BotonCarritoDeCompras = new javax.swing.JButton();
@@ -133,7 +133,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
 
         jPanel2.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1500, 590));
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(102, 102, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BotonProductos.setText("Productos");
@@ -152,8 +152,8 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         });
         jPanel1.add(BotonServiciosConsolas, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, 42));
 
-        BotonInicioSesion.setText("Cerrar Sesion");
-        jPanel1.add(BotonInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1330, 10, 121, 42));
+        BotonCerrarSesion.setText("Cerrar Sesion");
+        jPanel1.add(BotonCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1330, 10, 121, 42));
 
         BotonServiciosPc.setText("Servicios para Pc");
         BotonServiciosPc.addActionListener(new java.awt.event.ActionListener() {
@@ -189,24 +189,13 @@ public class PaginaPrincipal extends javax.swing.JFrame {
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 1500, 70));
 
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel3.setText("Bienvenido a Su Administrdor");
+        jPanel5.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 181, 40));
 
         jLabel1.setText("Menu Administrador");
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1208, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jPanel5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1340, 0, 111, 40));
 
         jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 40));
 
@@ -293,8 +282,8 @@ public class PaginaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonCarritoDeCompras;
+    private javax.swing.JButton BotonCerrarSesion;
     private javax.swing.JButton BotonClientes;
-    private javax.swing.JButton BotonInicioSesion;
     private javax.swing.JButton BotonProductos;
     private javax.swing.JButton BotonServiciosConsolas;
     private javax.swing.JButton BotonServiciosPc;

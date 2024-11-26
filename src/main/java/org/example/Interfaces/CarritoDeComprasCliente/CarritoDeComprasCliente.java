@@ -183,7 +183,6 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtRutCliente = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -210,22 +209,20 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         txtEmailDelCliente = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         txtFecha = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Aqui va el carrito de compras");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 17, 180, 32));
-
         jLabel2.setText("Ingrese El Rut del cliente para agregar sus compras");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 320, 30));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 320, 30));
 
         txtRutCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRutClienteActionPerformed(evt);
             }
         });
-        add(txtRutCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 280, 30));
+        add(txtRutCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 280, 30));
 
         ListaDeProductos.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -301,10 +298,10 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
                 BotonObtenerDatosDelClienteActionPerformed(evt);
             }
         });
-        add(BotonObtenerDatosDelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 190, 50));
+        add(BotonObtenerDatosDelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 190, 50));
 
         jLabel8.setText("Nombre :");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 60, 20));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 60, 20));
 
         txtNombreCliente.setEditable(false);
         txtNombreCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -312,10 +309,10 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
                 txtNombreClienteActionPerformed(evt);
             }
         });
-        add(txtNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 160, 30));
+        add(txtNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 160, 30));
 
         jLabel9.setText("Apellido :");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, -1));
 
         txtApellidoDelCliente.setEditable(false);
         txtApellidoDelCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -323,10 +320,10 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
                 txtApellidoDelClienteActionPerformed(evt);
             }
         });
-        add(txtApellidoDelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 160, 30));
+        add(txtApellidoDelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 160, 30));
 
         jLabel10.setText("Telefono:");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, -1, -1));
 
         txtTelefonoDelCliente.setEditable(false);
         txtTelefonoDelCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -334,10 +331,10 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
                 txtTelefonoDelClienteActionPerformed(evt);
             }
         });
-        add(txtTelefonoDelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 160, 30));
+        add(txtTelefonoDelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, 160, 30));
 
         jLabel11.setText("Email :");
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, -1, -1));
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, -1, -1));
 
         txtEmailDelCliente.setEditable(false);
         txtEmailDelCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -345,7 +342,7 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
                 txtEmailDelClienteActionPerformed(evt);
             }
         });
-        add(txtEmailDelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 420, 160, 30));
+        add(txtEmailDelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, 160, 30));
 
         jLabel12.setText("fecha para venta");
         add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 440, -1, -1));
@@ -356,6 +353,9 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
             }
         });
         add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 440, 170, 30));
+
+        jPanel1.setBackground(new java.awt.Color(102, 204, 255));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 590));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtRutClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRutClienteActionPerformed
@@ -408,7 +408,6 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
     private javax.swing.JButton BtnGuardarVenta;
     private javax.swing.JList<String> ListaDeProductos;
     private javax.swing.JTable TablaCarrito;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -420,6 +419,7 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField txtApellidoDelCliente;

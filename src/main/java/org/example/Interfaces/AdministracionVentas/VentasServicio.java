@@ -56,6 +56,7 @@ public class VentasServicio extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaVentasServicio = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -72,16 +73,21 @@ public class VentasServicio extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(TablaVentasServicio);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 590, 450));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 880, 430));
 
-        jLabel1.setText("Aqui se mostrara la lista de ventas de el servicio");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setText("Ventas Totales de Su Servicio Tecnico");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 40, 340, 30));
+
+        jPanel1.setBackground(new java.awt.Color(0, 153, 255));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 590));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TablaVentasServicio;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
