@@ -217,4 +217,12 @@ public class ServicioTecnico {
 	public void setServiciosConsola(Collection<ServicioConsolas> serviciosConsola) {
 		this.serviciosConsola = serviciosConsola;
 	}
+
+	public Collection<ServicioConsolas> getServiciosConsola() {
+		return serviciosConsola;
+	}
+
+	public Collection<ServicioComputador> getServiciosComputador() {
+		return serviciosComputador;
+	}
 }

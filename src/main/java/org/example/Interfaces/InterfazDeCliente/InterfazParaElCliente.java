@@ -16,6 +16,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -34,6 +35,7 @@ public class InterfazParaElCliente extends javax.swing.JFrame {
         firebaseInstance.inicializarconexion();
         initComponents();
        cargarProductosDesdeFirebase();
+       cargarServicioConsolasDesdeFirebase();
     }
 
     private void cargarClientesDesdeFirebase(){
@@ -151,6 +153,33 @@ public class InterfazParaElCliente extends javax.swing.JFrame {
             e.printStackTrace();
             System.out.println("Error al cargar datos"+ e.getMessage());
         }
+    }
+
+    private void cargarServicioConsolasDesdeFirebase(){
+        List<ServicioConsolas> listaServiciosConsolasLocal = new ArrayList<>();
+        try{
+            Firestore db = firebaseInstance.getFirestore();
+            ApiFuture<QuerySnapshot> future = db.collection("Registro de servicio consola").get();
+            QuerySnapshot querySnapshot = future.get();
+
+            listaServiciosConsolasLocal = querySnapshot.getDocuments().stream()
+                    .map(document -> new ServicioConsolas(
+                            document.getString("Nombre"),
+                            document.getDouble("Valor"),
+                            document.getString("TiempoEstimado"),
+                            document.getString("ModeloConsola"),
+                            document.getString("MarcaConsola")))
+                    .collect(Collectors.toList());
+
+            servicioTecnico.setServiciosConsola(listaServiciosConsolasLocal);
+
+            System.out.println("Servicios para consolas existentes");
+            listaServiciosConsolasLocal.stream().forEach(System.out::println);
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("Error al cargar datos"+ e.getMessage());
+        }
+
     }
 
     /**

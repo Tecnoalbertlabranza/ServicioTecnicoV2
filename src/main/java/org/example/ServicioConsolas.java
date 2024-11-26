@@ -10,6 +10,30 @@ public class ServicioConsolas extends Servicio {
 		this.marcaConsola = marcaConsola;
 	}
 
+	public Object getAdd() {
+		return add;
+	}
+
+	public void setAdd(Object add) {
+		this.add = add;
+	}
+
+	public String getModeloConsola() {
+		return modeloConsola;
+	}
+
+	public void setModeloConsola(String modeloConsola) {
+		this.modeloConsola = modeloConsola;
+	}
+
+	public String getMarcaConsola() {
+		return marcaConsola;
+	}
+
+	public void setMarcaConsola(String marcaConsola) {
+		this.marcaConsola = marcaConsola;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder(super.toString());

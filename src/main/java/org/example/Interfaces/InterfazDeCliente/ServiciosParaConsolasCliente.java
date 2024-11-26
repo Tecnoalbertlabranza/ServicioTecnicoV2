@@ -4,17 +4,47 @@
  */
 package org.example.Interfaces.InterfazDeCliente;
 
+import org.example.Interfaces.InicioSesion.InicioSesion;
+import org.example.ServicioConsolas;
+import org.example.ServicioTecnico;
+
+import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 /**
  *
  * @author basty
  */
 public class ServiciosParaConsolasCliente extends javax.swing.JPanel {
+    private ServicioTecnico servicioTecnico;
 
     /**
      * Creates new form ServiciosParaConsolasCliente
      */
     public ServiciosParaConsolasCliente() {
         initComponents();
+        this.servicioTecnico = InicioSesion.getServicioTecnico();
+        cargarServiciosConsolasATabla();
+    }
+
+    private void cargarServiciosConsolasATabla() {
+        DefaultTableModel modeloTablaServicioConsolas = (DefaultTableModel) TablaServicioConsolasClientes.getModel();
+        modeloTablaServicioConsolas.setRowCount(0);
+
+        Collection<ServicioConsolas> servicioConsolasCol = servicioTecnico.getServiciosConsola();
+        List<ServicioConsolas> servicioConsolas = new ArrayList<>(servicioConsolasCol);
+
+        servicioConsolas.stream()
+                .map(servicio -> new Object[]{
+                        servicio.getNombre(),
+                        servicio.getTiempoEstimado(),
+                        servicio.getValorServicio(),
+                        servicio.getModeloConsola(),
+                        servicio.getMarcaConsola()
+                })
+                .forEach(modeloTablaServicioConsolas :: addRow);
     }
 
     /**
@@ -43,7 +73,7 @@ public class ServiciosParaConsolasCliente extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombre", "Tiempo Estimado", "Valor Servicio", "Modelo Consola","Marca consola"
             }
         ));
         jScrollPane1.setViewportView(TablaServicioConsolasClientes);
