@@ -44,8 +44,6 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         content.repaint(); 
      }
     
-   
-    
     public PaginaPrincipal(firebase firebaseInstance) {
         this.firebaseInstance = firebaseInstance;
         this.servicioTecnico = InicioSesion.getServicioTecnico();
@@ -68,20 +66,18 @@ public class PaginaPrincipal extends javax.swing.JFrame {
             ApiFuture<QuerySnapshot> future = db.collection("Registro De Ventas").get();
             QuerySnapshot querySnapshot = future.get();
 
-            for (QueryDocumentSnapshot document : querySnapshot.getDocuments()) {
-                String fecha = document.getString("Fecha De Venta");
-                String iva = document.getString("IVA Impuesto");
-                String total = document.getString("Total Venta");
+            querySnapshot.getDocuments().stream()
+                    .map(document -> new Venta(
+                            document.getString("Fecha de Venta"),
+                            document.getString("Iva Impuesto"),
+                            document.getString("Total Venta")
+                    ));
 
-                Venta venta = new Venta(fecha, iva,total);
-                ventasFirebase.add(venta);
-
-            }
             servicioTecnico.setListaVentas(ventasFirebase);
             System.out.println("ventas existentes");
-            for (Venta venta : servicioTecnico.getListaVentas()){
-                System.out.println(venta);
-            }
+
+           servicioTecnico.getListaVentas().stream()
+                   .forEach(System.out :: println);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -89,9 +85,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         }
 
     }
-
-
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
