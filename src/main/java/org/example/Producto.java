@@ -16,6 +16,38 @@ public class Producto {
 		return "Producto= " + nombreProducto;
 	}
 
+	public String getNombreProducto() {
+		return nombreProducto;
+	}
+
+	public void setNombreProducto(String nombreProducto) {
+		this.nombreProducto = nombreProducto;
+	}
+
+	public String getCategoriaProducto() {
+		return categoriaProducto;
+	}
+
+	public void setCategoriaProducto(String categoriaProducto) {
+		this.categoriaProducto = categoriaProducto;
+	}
+
+	public double getValorProducto() {
+		return valorProducto;
+	}
+
+	public void setValorProducto(double valorProducto) {
+		this.valorProducto = valorProducto;
+	}
+
+	public double getStockProducto() {
+		return stockProducto;
+	}
+
+	public void setStockProducto(double stockProducto) {
+		this.stockProducto = stockProducto;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();

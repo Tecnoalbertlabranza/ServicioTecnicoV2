@@ -101,7 +101,6 @@ public class ServiciosPc extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         PanelServiciosPc = new javax.swing.JPanel();
         BotonAgregarServicioPc = new javax.swing.JButton();
         BotonEliminarServicio = new javax.swing.JButton();
@@ -114,9 +113,6 @@ public class ServiciosPc extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setText("Aqui se mostraran los servicios para pc");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 140, 277, 82));
 
         javax.swing.GroupLayout PanelServiciosPcLayout = new javax.swing.GroupLayout(PanelServiciosPc);
         PanelServiciosPc.setLayout(PanelServiciosPcLayout);
@@ -137,7 +133,7 @@ public class ServiciosPc extends javax.swing.JPanel {
                 BotonAgregarServicioPcActionPerformed(evt);
             }
         });
-        jPanel1.add(BotonAgregarServicioPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 380, 160, 30));
+        jPanel1.add(BotonAgregarServicioPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 490, 160, 30));
 
         BotonEliminarServicio.setText("Eliminar Servicio Pc");
         BotonEliminarServicio.addActionListener(new java.awt.event.ActionListener() {
@@ -145,7 +141,7 @@ public class ServiciosPc extends javax.swing.JPanel {
                 BotonEliminarServicioActionPerformed(evt);
             }
         });
-        jPanel1.add(BotonEliminarServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 390, 140, 30));
+        jPanel1.add(BotonEliminarServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 490, 140, 30));
 
         BotonModificarServicioPc.setText("Modificar Servicio Pc");
         BotonModificarServicioPc.addActionListener(new java.awt.event.ActionListener() {
@@ -153,7 +149,7 @@ public class ServiciosPc extends javax.swing.JPanel {
                 BotonModificarServicioPcActionPerformed(evt);
             }
         });
-        jPanel1.add(BotonModificarServicioPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 390, 160, 30));
+        jPanel1.add(BotonModificarServicioPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 490, 160, 30));
 
         TablaServiciosPC.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -163,12 +159,12 @@ public class ServiciosPc extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Nombre", "Valor", "Tiempo Estimado", "TipoComputadora","LineaProcesador","UsoDeComputadora"
+                "Nombre", "Valor", "Tiempo Estimado", "Tipo de computador", "Uso de Computadora", "Linea Procesador"
             }
         ));
         jScrollPane1.setViewportView(TablaServiciosPC);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, 460, 250));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 800, 370));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 590));
     }// </editor-fold>//GEN-END:initComponents
@@ -195,7 +191,6 @@ public class ServiciosPc extends javax.swing.JPanel {
     private javax.swing.JButton BotonModificarServicioPc;
     private javax.swing.JPanel PanelServiciosPc;
     private javax.swing.JTable TablaServiciosPC;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
