@@ -29,19 +29,11 @@ public class VentasServicio extends javax.swing.JPanel {
     public void cargarVentasLocalesServicioTecnico(){
         List<Venta> listaVentas = servicioTecnico.getListaVentas();
 
-        String[] columnas = {"FechaVenta","iva","Total"};
-        Object[][] data = new Object[listaVentas.size()][columnas.length];
-
-        for(int i = 0; i < listaVentas.size(); i++){
-            Venta venta = listaVentas.get(i);
-            data[i][0] = venta.getFechaVenta();
-            data[i][1] = venta.getIva();
-            data[i][2] = venta.getTotal();
-        }
-
+        String[] columnas = {"FechaVenta","Iva","Total"};
+        Object[][] data = listaVentas.stream()
+                        .map(venta -> new Object[]{venta.getFechaVenta(),venta.getIva(),venta.getTotal()})
+                                .toArray(Object[][]::new);
         TablaVentasServicio.setModel(new javax.swing.table.DefaultTableModel(data, columnas));
-
-
     }
 
     /**

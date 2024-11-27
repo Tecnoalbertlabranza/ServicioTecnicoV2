@@ -23,6 +23,7 @@ import org.example.firebase;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.swing.JPanel;
 
 /**
@@ -47,7 +48,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     public PaginaPrincipal(firebase firebaseInstance) {
         this.firebaseInstance = firebaseInstance;
         this.servicioTecnico = InicioSesion.getServicioTecnico();
-        cargarVentasDesdeFirebase();
+        cargarVentasDesdeFirebase(firebaseInstance);
         firebaseInstance.inicializarconexion();
         initComponents();
 
@@ -59,19 +60,23 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         return firebaseInstance;
     }
 
-    public void cargarVentasDesdeFirebase(){
+    public void cargarVentasDesdeFirebase(firebase firebaseInstance){
         List<Venta> ventasFirebase = new ArrayList<>();
         try {
             Firestore db = firebaseInstance.getFirestore();
             ApiFuture<QuerySnapshot> future = db.collection("Registro De Ventas").get();
             QuerySnapshot querySnapshot = future.get();
 
-            querySnapshot.getDocuments().stream()
+           ventasFirebase = querySnapshot.getDocuments().stream()
                     .map(document -> new Venta(
-                            document.getString("Fecha de Venta"),
-                            document.getString("Iva Impuesto"),
+
+                            document.getString("Fecha De Venta"),
+                            document.getString("IVA Impuesto"),
                             document.getString("Total Venta")
-                    ));
+
+
+                    ))
+                            .collect(Collectors.toList());
 
             servicioTecnico.setListaVentas(ventasFirebase);
             System.out.println("ventas existentes");
