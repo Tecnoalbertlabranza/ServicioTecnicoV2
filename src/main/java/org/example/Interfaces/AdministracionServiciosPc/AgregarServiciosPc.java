@@ -25,42 +25,52 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
      */
    public void AgregarServicioParaPc(){
        String nombre = txtNombre.getText();
-       double valorServicio;
-
-       // Desde aqui hacia abajo pueden colocar condiciones a los datos ingresados
-
-       try {
-           valorServicio = Double.parseDouble(txtValorServicioPc.getText());
-       }catch (NumberFormatException ex){
-           JOptionPane.showMessageDialog(this, "Por favor, ingrese un valor numérico en el campo Valor");
-           return;
-       }
-
        String tiempoEstimado = txtTiempoEstimado.getText();
        String tipoDeComputadora = txtTipoDeComputador.getText();
        String lineaDeProcesador = txtLineaDeProcesador.getText();
        String usoDeComputadora = txtUsoDeComputadora.getText();
+       String valorServicio = txtValorServicioPc.getText();
 
-       if(nombre.isEmpty()|| tiempoEstimado.isEmpty()||tipoDeComputadora.isEmpty()||lineaDeProcesador.isEmpty()||usoDeComputadora.isEmpty()){
-           JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos");
+       // Desde aqui hacia abajo pueden colocar condiciones a los datos ingresados
+       if (!esValido(nombre, tiempoEstimado, tipoDeComputadora, lineaDeProcesador, usoDeComputadora, valorServicio)) {
+           JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos correctamente");
            return;
        }
 
-
+       double valorServicioFinal = Double.parseDouble(valorServicio);
        // Hasta aqui pueden agregar condiciones
 
-
-       servicioTecnico.registrarServicioComputador(nombre,valorServicio,tiempoEstimado,tipoDeComputadora,lineaDeProcesador,usoDeComputadora,firebaseInstance);
+       servicioTecnico.registrarServicioComputador(nombre,valorServicioFinal,tiempoEstimado,tipoDeComputadora,lineaDeProcesador,usoDeComputadora,firebaseInstance);
        JOptionPane.showMessageDialog(this, "Servicio agregado correctamente");
 
-       txtNombre.setText("");
-       txtValorServicioPc.setText("");
-       txtTiempoEstimado.setText("");
-       txtTipoDeComputador.setText("");
-       txtLineaDeProcesador.setText("");
-       txtUsoDeComputadora.setText("");
-
+       limpiarCampos();
    }
+
+    private void limpiarCampos() {
+        txtNombre.setText("");
+        txtValorServicioPc.setText("");
+        txtTiempoEstimado.setText("");
+        txtTipoDeComputador.setText("");
+        txtLineaDeProcesador.setText("");
+        txtUsoDeComputadora.setText("");
+    }
+
+    private boolean esValido(String nombre, String tiempoEstimado, String tipoDeComputadora, String lineaDeProcesador, String usoDeComputadora, String valorServicio) {
+        return !esVacio(nombre) && !esVacio(tiempoEstimado) && !esVacio(tipoDeComputadora) && !esVacio(lineaDeProcesador) && !esVacio(usoDeComputadora) && esNumero(valorServicio);
+    }
+
+    private boolean esVacio(String valor) {
+        return valor == null || valor.trim().isEmpty();
+    }
+
+    private boolean esNumero(String valor) {
+        try {
+            Double.parseDouble(valor);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
 
 
 
