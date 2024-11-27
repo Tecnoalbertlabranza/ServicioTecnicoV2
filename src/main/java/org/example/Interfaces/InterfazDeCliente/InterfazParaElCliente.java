@@ -34,9 +34,11 @@ public class InterfazParaElCliente extends javax.swing.JFrame {
         this.servicioTecnico = InicioSesion.getServicioTecnico();
         firebaseInstance.inicializarconexion();
         initComponents();
+        servicioTecnico.cargarClientesDesdeFirebase(firebaseInstance);
        cargarProductosDesdeFirebase();
        cargarServicioConsolasDesdeFirebase();
        cargarServiciosComputadorDesdeLaFirebase();
+       servicioTecnico.procesarVentasClientes();
     }
 
     private void cargarClientesDesdeFirebase(){

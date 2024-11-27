@@ -1,8 +1,12 @@
 package org.example;
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.QuerySnapshot;
 
 import java.util.*;
 import java.util.stream.Collectors;
+
+import static com.google.firebase.cloud.FirestoreClient.getFirestore;
 
 public class ServicioTecnico {
 	private String nombreServicio;
@@ -189,6 +193,38 @@ public class ServicioTecnico {
 		}
 	}
 
+	public void procesarVentasClientes() {
+		StringBuilder clientesConVentas = new StringBuilder();
+
+		listaClientes.stream()
+				.forEach(cliente -> {
+					Firestore db = getFirestore();
+					ApiFuture<QuerySnapshot> futureVentas = db.collection("Registro De Ventas")
+							.whereEqualTo("Rut Cliente", cliente.getRut()).get();
+					try {
+						QuerySnapshot querySnapshotVentas = futureVentas.get();
+						List<Venta> listaVentasCliente = querySnapshotVentas.getDocuments().stream()
+								.map(documentVenta -> new Venta(
+										documentVenta.getString("Fecha De Venta"),
+										documentVenta.getString("IVA Impuesto"),
+										documentVenta.getString("Total Venta")))
+								.collect(Collectors.toList());
+
+						cliente.setVentascliente(listaVentasCliente);
+
+						clientesConVentas.append("Cliente: ").append(cliente.getNombre()).append(" ").append(cliente.getApellido()).append("\n");
+						clientesConVentas.append("Ventas: \n");
+						listaVentasCliente.forEach(venta -> clientesConVentas.append("- Fecha: ").append(venta.getFechaVenta()).append(", Total: ").append(venta.getTotal()).append("\n"));
+						clientesConVentas.append("\n");
+					} catch (Exception e) {
+						e.printStackTrace();
+						System.out.println("Error al cargar ventas del cliente: " + cliente.getNombre() + " " + cliente.getApellido());
+					}
+				});
+
+		System.out.println("\nClientes con ventas:");
+		System.out.println(clientesConVentas.toString());
+	}
 
 	public List<Venta> getListaVentas() {
 		return listaVentas;

@@ -4,17 +4,45 @@
  */
 package org.example.Interfaces.InterfazDeCliente;
 
+import org.example.Cliente;
+import org.example.Interfaces.InicioSesion.InicioSesion;
+import org.example.ServicioTecnico;
+import org.example.Venta;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author basty
  */
 public class ComprasHechasCliente extends javax.swing.JPanel {
+    private ServicioTecnico servicioTecnico;
 
     /**
      * Creates new form ComprasHechasCliente
      */
     public ComprasHechasCliente() {
         initComponents();
+        this.servicioTecnico = InicioSesion.getServicioTecnico();
+    }
+
+    public void mostrarVentasCliente() {
+        String rutCliente = txtRutCliente.getText();
+        Cliente cliente = servicioTecnico.obtenerDatosDelCliente(rutCliente);
+
+        if (cliente != null) {
+            TablaVentasCliente.setModel(new javax.swing.table.DefaultTableModel(
+                    new Object[][]{},
+                    new String[]{"Fecha", "Total"}
+            ));
+
+            for (Venta venta : cliente.getVentascliente()) {
+                ((DefaultTableModel) TablaVentasCliente.getModel()).addRow(new Object[]{venta.getFechaVenta(), venta.getTotal()});
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "El cliente no existe");
+        }
     }
 
     /**
@@ -107,7 +135,7 @@ public class ComprasHechasCliente extends javax.swing.JPanel {
     }//GEN-LAST:event_txtApellidoClienteActionPerformed
 
     private void btnObtenerDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObtenerDatosActionPerformed
-        // TODO add your handling code here:
+        mostrarVentasCliente();
     }//GEN-LAST:event_btnObtenerDatosActionPerformed
 
 
