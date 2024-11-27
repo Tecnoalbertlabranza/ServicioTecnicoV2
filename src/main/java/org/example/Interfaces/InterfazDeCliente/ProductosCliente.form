@@ -20,11 +20,11 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Aqui iran los productos"/>
+        <Property name="text" type="java.lang.String" value="Productos"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="100" y="120" width="-1" height="-1"/>
+          <AbsoluteConstraints x="280" y="30" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -34,7 +34,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="320" y="50" width="510" height="310"/>
+          <AbsoluteConstraints x="280" y="60" width="550" height="340"/>
         </Constraint>
       </Constraints>
 

@@ -62,8 +62,8 @@ public class ServiciosParaConsolasCliente extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText(" Aqui iran los servicios consolas");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 200, 30));
+        jLabel1.setText("Servicios Disiponibles Para Las Consolas");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 230, 30));
 
         TablaServicioConsolasClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -73,12 +73,12 @@ public class ServiciosParaConsolasCliente extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Nombre", "Tiempo Estimado", "Valor Servicio", "Modelo Consola","Marca consola"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
         jScrollPane1.setViewportView(TablaServicioConsolasClientes);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 510, 350));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 510, 350));
     }// </editor-fold>//GEN-END:initComponents
 
 

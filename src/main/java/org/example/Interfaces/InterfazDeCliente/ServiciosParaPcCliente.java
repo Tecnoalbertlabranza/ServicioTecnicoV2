@@ -64,8 +64,8 @@ public class ServiciosParaPcCliente extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Servicios para pc cliente");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 190, 40));
+        jLabel1.setText("Servicios Para Pc Disponible");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 190, 40));
 
         TablaServicioParaPc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -75,12 +75,12 @@ public class ServiciosParaPcCliente extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Nombre", "Valor", "Tiempo Estimado", "Tipo de computadora", "Linea de Procesador", "Uso de Computadora"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
         jScrollPane1.setViewportView(TablaServicioParaPc);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 570, 390));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 560, 360));
     }// </editor-fold>//GEN-END:initComponents
 
 
