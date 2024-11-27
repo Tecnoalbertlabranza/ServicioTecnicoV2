@@ -222,7 +222,7 @@ public class InterfazParaElCliente extends javax.swing.JFrame {
         btnServiciosConsolas = new javax.swing.JButton();
         btnServiciosParaPc = new javax.swing.JButton();
         btnProductos = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnComprasHechas = new javax.swing.JButton();
         PanelClientes = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -255,13 +255,13 @@ public class InterfazParaElCliente extends javax.swing.JFrame {
         });
         jPanel2.add(btnProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, 160, 40));
 
-        jButton4.setText("Compras Hechas");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnComprasHechas.setText("Compras Hechas");
+        btnComprasHechas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnComprasHechasActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 20, 180, 40));
+        jPanel2.add(btnComprasHechas, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 20, 180, 40));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1120, 70));
         getContentPane().add(PanelClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 1100, 420));
@@ -284,9 +284,10 @@ public class InterfazParaElCliente extends javax.swing.JFrame {
        MostrarPanel(prodcli);
     }//GEN-LAST:event_btnProductosActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void btnComprasHechasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprasHechasActionPerformed
+        ComprasHechasCliente comcli = new ComprasHechasCliente();
+        MostrarPanel(comcli);
+    }//GEN-LAST:event_btnComprasHechasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -326,10 +327,10 @@ public class InterfazParaElCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelClientes;
+    private javax.swing.JButton btnComprasHechas;
     private javax.swing.JButton btnProductos;
     private javax.swing.JButton btnServiciosConsolas;
     private javax.swing.JButton btnServiciosParaPc;
-    private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

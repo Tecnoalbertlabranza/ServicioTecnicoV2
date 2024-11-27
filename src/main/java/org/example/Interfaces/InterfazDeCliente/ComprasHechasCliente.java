@@ -27,15 +27,105 @@ public class ComprasHechasCliente extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        txtRutCliente = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        txtNombreCliente = new javax.swing.JTextField();
+        txtApellidoCliente = new javax.swing.JTextField();
+        txtTelefonoCliente = new javax.swing.JTextField();
+        txtEmailCliente = new javax.swing.JTextField();
+        btnObtenerDatos = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TablaVentasCliente = new javax.swing.JTable();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Aqui iran las compras hechas");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 30, -1, -1));
+
+        jPanel1.setBackground(new java.awt.Color(102, 204, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setText("Porfavor Reingrese su rut para obtener sus datos");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
+        jPanel1.add(txtRutCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 230, 30));
+
+        jLabel3.setText("Nombre");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
+
+        jLabel4.setText("Apellido");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
+
+        jLabel5.setText("Telefono");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
+
+        jLabel6.setText("Email");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
+        jPanel1.add(txtNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 230, 30));
+
+        txtApellidoCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtApellidoClienteActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtApellidoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 230, 30));
+        jPanel1.add(txtTelefonoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 230, 30));
+        jPanel1.add(txtEmailCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 230, 30));
+
+        btnObtenerDatos.setText("ObtenerDatos");
+        btnObtenerDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnObtenerDatosActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnObtenerDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 210, 50));
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 420));
+
+        TablaVentasCliente.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(TablaVentasCliente);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, 480, 320));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtApellidoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtApellidoClienteActionPerformed
+
+    private void btnObtenerDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObtenerDatosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnObtenerDatosActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable TablaVentasCliente;
+    private javax.swing.JButton btnObtenerDatos;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtApellidoCliente;
+    private javax.swing.JTextField txtEmailCliente;
+    private javax.swing.JTextField txtNombreCliente;
+    private javax.swing.JTextField txtRutCliente;
+    private javax.swing.JTextField txtTelefonoCliente;
     // End of variables declaration//GEN-END:variables
 }
