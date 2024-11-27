@@ -17,6 +17,7 @@ import org.example.firebase;
 import java.awt.BorderLayout;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -51,45 +52,55 @@ public class ServiciosPc extends javax.swing.JPanel {
         cargarServiciosPcEnTabla();
     }
 
-    private void cargarServiciosPcEnTabla(){
+    private void cargarServiciosPcEnTabla() {
         DefaultTableModel modeloTablaServicioPc = (DefaultTableModel) TablaServiciosPC.getModel();
         modeloTablaServicioPc.setRowCount(0);
 
-        List<ServicioComputador> listaServiciosComputador  = new ArrayList<>();
+        List<ServicioComputador> listaServiciosComputador = obtenerServiciosDesdeFirestore();
 
+        listaServiciosComputador.forEach(servicio -> modeloTablaServicioPc.addRow(new Object[]{
+                servicio.getNombre(),
+                servicio.getValorServicio(),
+                servicio.getTiempoEstimado(),
+                servicio.getTipoComputadora(),
+                servicio.getLineaDePorcesador(),
+                servicio.getUsoComputadora()
+        }));
 
-        try{
+        servicioTecnico.setServiciosComputador(listaServiciosComputador);
+
+        listaServiciosComputador.forEach(System.out::println);
+    }
+
+    private List<ServicioComputador> obtenerServiciosDesdeFirestore() {
+        try {
             Firestore db = firebaseInstance.getFirestore();
             ApiFuture<QuerySnapshot> future = db.collection("Registro de servicio computador").get();
             QuerySnapshot querySnapshot = future.get();
 
+            return querySnapshot.getDocuments().stream()
+                    .map(this::mapearServicioComputadorDesdeDocumento)
+                    .collect(Collectors.toList());
 
-            for (QueryDocumentSnapshot document : querySnapshot.getDocuments()) {
-
-                String nombre = document.getString("Nombre");
-                double valorserviciopc = document.getDouble("Valor");
-                String tiempoestimado = document.getString("TiempoEstimado");
-                String tipocomputadora = document.getString("TipoComputadora");
-                String lineadeprocesador = document.getString("LineaDePorcesador");
-                String usocomputadora = document.getString("UsoComputadora");
-
-                ServicioComputador servicioComputador = new ServicioComputador(nombre,valorserviciopc,tiempoestimado,tipocomputadora,lineadeprocesador,usocomputadora);
-                listaServiciosComputador.add(servicioComputador);
-
-                modeloTablaServicioPc.addRow(new Object[]{nombre,valorserviciopc,tiempoestimado,tipocomputadora,lineadeprocesador,usocomputadora});
-            }
-            servicioTecnico.setServiciosComputador(listaServiciosComputador);
-            System.out.println("Servicios para computador existente");
-            for (ServicioComputador servicio : listaServiciosComputador){
-                System.out.println(servicio);
-            }
-
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error al cargar datos"+ e.getMessage());
+            System.out.println("Error al cargar datos: " + e.getMessage());
+            return new ArrayList<>();
         }
     }
-    
+
+    private ServicioComputador mapearServicioComputadorDesdeDocumento(QueryDocumentSnapshot document) {
+        String nombre = document.getString("Nombre");
+        double valorServicioPc = document.getDouble("Valor");
+        String tiempoEstimado = document.getString("TiempoEstimado");
+        String tipoComputadora = document.getString("TipoComputadora");
+        String lineaDeProcesador = document.getString("LineaDePorcesador");
+        String usoComputadora = document.getString("UsoComputadora");
+
+        return new ServicioComputador(nombre, valorServicioPc, tiempoEstimado, tipoComputadora, usoComputadora,lineaDeProcesador);
+    }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
