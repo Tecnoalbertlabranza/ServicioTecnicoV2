@@ -65,8 +65,8 @@ public class AgregarProductos extends javax.swing.JPanel {
 
     private void validarCampos(String nombre, String categoria, double valor, double stock) {
         List<Supplier<Optional<String>>> validaciones = List.of(
-                () -> validarTexto(nombre, "El campo Nombre no puede estar vacío"),
-                () -> validarTexto(categoria, "El campo Categoría no puede estar vacío"),
+                () -> validarTexto(nombre, "Nombre", true),
+                () -> validarTexto(categoria, "Categoría", true),
                 () -> validarNumero(valor, "El Valor debe ser mayor a cero"),
                 () -> validarNumero(stock, "El Stock debe ser mayor a cero")
         );
@@ -80,8 +80,15 @@ public class AgregarProductos extends javax.swing.JPanel {
                 });
     }
 
-    private Optional<String> validarTexto(String texto, String mensajeError) {
-        return texto == null || texto.trim().isEmpty() ? Optional.of(mensajeError) : Optional.empty();
+    private Optional<String> validarTexto(String texto, String mensajeError, boolean soloLetras) {
+        if (texto == null || texto.trim().isEmpty()) {
+            return Optional.of(mensajeError);
+        }
+
+        if (soloLetras && !texto.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ]+[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]*")) {
+            return Optional.of("El texto solo puede contener letras en el campo: " + mensajeError);
+        }
+        return Optional.empty();
     }
 
     private Optional<String> validarNumero(double valor, String mensajeError) {
