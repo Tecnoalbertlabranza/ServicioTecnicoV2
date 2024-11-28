@@ -13,6 +13,8 @@ import org.example.ServicioTecnico;
 import org.example.firebase;
 
 import javax.swing.*;
+import java.util.Collection;
+import java.util.Optional;
 import java.util.concurrent.ExecutionException;
 
 /**
@@ -32,29 +34,42 @@ public class EliminarCliente extends javax.swing.JPanel {
         initComponents();
     }
 
-    private void eliminarClientePorRut(String rut){
-        try{
-            Firestore db = firebaseInstance.getFirestore();
-            CollectionReference collectionRef = db.collection("Registro De Clientes");
-            ApiFuture<QuerySnapshot> query = collectionRef.whereEqualTo("Rut", rut).get();
-            QuerySnapshot querySnapshot = query.get();
-            System.out.println("consultando clientes con rut"+ rut);
+    private void eliminarClientePorRut(String rut) {
+       try {
+           Firestore db = firebaseInstance.getFirestore();
+           CollectionReference collectionRef = db.collection("Registro De Clientes");
 
-            if(!querySnapshot.isEmpty()){
-                for(QueryDocumentSnapshot document : querySnapshot.getDocuments()){
-                    document.getReference().delete().get();
-                    System.out.println("Cliente con Rut"+ rut +"Eliminado de la firebase");
-                }
-                JOptionPane.showMessageDialog(null, "Cliente con Rut "+ rut +" eliminado de la firebase");
-            }else {
-                JOptionPane.showMessageDialog(null, "No hay clientes con Rut "+ rut +" en la firebase");
-                System.out.println("No se encontro un cliente con rut"+ rut);
-            }
-        }catch (InterruptedException| ExecutionException e){
-            e.printStackTrace();
-            System.err.println("Error durante la operacion"+e.getMessage());
-        }
+           ApiFuture<QuerySnapshot> query = collectionRef.whereEqualTo("Rut", rut).get();
+           QuerySnapshot querySnapshot = query.get();
 
+           System.out.println("Consultando clientes con RUT: " + rut);
+
+           Optional.of(querySnapshot.getDocuments())
+                   .filter(document -> !document.isEmpty())
+                   .ifPresentOrElse(
+                           document -> {
+                               document.stream()
+                                       .map(QueryDocumentSnapshot::getReference)
+                                       .forEach(ref -> {
+                                           try {
+                                               ref.delete().get();
+                                           } catch (InterruptedException | ExecutionException e) {
+                                               e.printStackTrace();
+                                               System.err.println("Error al eliminar documento: " + e.getMessage());
+                                           }
+                                       });
+                               JOptionPane.showMessageDialog(null, "Cliente con RUT " + rut + " eliminado de Firebase");
+                               System.out.println("Cliente con RUT " + rut + " eliminado de Firebase");
+                           },
+                           () -> {
+                               JOptionPane.showMessageDialog(null, "No hay clientes con RUT " + rut + " en Firebase");
+                               System.out.println("No se encontró un cliente con RUT: " + rut);
+                           }
+                   );
+       } catch (InterruptedException | ExecutionException e) {
+           e.printStackTrace();
+           System.err.println("Error durante la operación: " + e.getMessage());
+       }
     }
 
     /**
@@ -107,10 +122,7 @@ public class EliminarCliente extends javax.swing.JPanel {
          }
          eliminarClientePorRut(rut);
 
-
-
     }//GEN-LAST:event_BtnEliminarClienteActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnEliminarCliente;
