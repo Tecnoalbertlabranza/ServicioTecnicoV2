@@ -165,7 +165,7 @@ public class ServiciosConsolas extends javax.swing.JPanel {
     }//GEN-LAST:event_AgregarServicioConsolaActionPerformed
 
     private void EliminarServicioConsolaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarServicioConsolaActionPerformed
-    EliminarServicioConsola elisercon = new EliminarServicioConsola();
+    EliminarServicioConsola elisercon = new EliminarServicioConsola(firebaseInstance);
     MostrarPanelConsolas(elisercon);
     }//GEN-LAST:event_EliminarServicioConsolaActionPerformed
 

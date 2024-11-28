@@ -47,12 +47,21 @@ public class EliminarServiciosPc extends javax.swing.JPanel {
         add(txtNombreServicioPcEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 360, 60));
 
         btnEliminarServicioPc.setText("Eliminar Servicio");
+        btnEliminarServicioPc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarServicioPcActionPerformed(evt);
+            }
+        });
         add(btnEliminarServicioPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 210, 60));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNombreServicioPcEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreServicioPcEliminarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreServicioPcEliminarActionPerformed
+
+    private void btnEliminarServicioPcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarServicioPcActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarServicioPcActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

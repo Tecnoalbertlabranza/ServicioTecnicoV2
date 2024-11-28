@@ -4,17 +4,63 @@
  */
 package org.example.Interfaces.AdministracionServiciosConsolas;
 
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.CollectionReference;
+import com.google.cloud.firestore.Firestore;
+import com.google.cloud.firestore.QueryDocumentSnapshot;
+import com.google.cloud.firestore.QuerySnapshot;
+import org.example.firebase;
+
+import javax.swing.*;
+import java.util.concurrent.ExecutionException;
+
 /**
  *
  * @author basty
  */
 public class EliminarServicioConsola extends javax.swing.JPanel {
+    private firebase firebaseInstance;
+    private ServiciosConsolas serviciosConsolas;
 
     /**
      * Creates new form EliminarServicioConsola
      */
-    public EliminarServicioConsola() {
+    public EliminarServicioConsola(firebase firebaseInstance) {
+        this.firebaseInstance = firebaseInstance;
+        this.serviciosConsolas = new ServiciosConsolas(firebaseInstance);
         initComponents();
+    }
+
+    public void eliminarServicioConsolaConNombre(String nombre){
+        try {
+            Firestore db = firebaseInstance.getFirestore();
+            CollectionReference collectionRef = db.collection("Registro de servicio consola");
+            ApiFuture<QuerySnapshot> query = collectionRef.whereEqualTo("Nombre", nombre).get();
+            QuerySnapshot querySnapshot = query.get();
+            System.out.println("Consultando Servicios para consola con nombre : " + nombre);
+
+            if (!querySnapshot.isEmpty()) {
+                querySnapshot.getDocuments().stream()
+                        .map(QueryDocumentSnapshot::getReference)
+                        .forEach(documentRef -> {
+                            try {
+                                documentRef.delete().get();
+                                System.out.println("Servicios consola con nombre  " + nombre + " eliminado de la Firebase");
+                            } catch (InterruptedException | ExecutionException e) {
+                                e.printStackTrace();
+                                System.err.println("Error durante la operación: " + e.getMessage());
+                            }
+                        });
+                JOptionPane.showMessageDialog(null, "Servicios consola con nombre" + nombre + " eliminado de la Firebase");
+            } else {
+                JOptionPane.showMessageDialog(null, "No hay Servicios consola con nombre " + nombre + " en la Firebase");
+                System.out.println("No se encontró un producto con nombre " + nombre);
+            }
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+            System.err.println("Error durante la operación: " + e.getMessage());
+        }
+
     }
 
     /**
@@ -41,8 +87,23 @@ public class EliminarServicioConsola extends javax.swing.JPanel {
         add(txtNombreServicioConEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 340, 60));
 
         btnEliminarServicio.setText("Eliminar Servicio");
+        btnEliminarServicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarServicioActionPerformed(evt);
+            }
+        });
         add(btnEliminarServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 160, 50));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEliminarServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarServicioActionPerformed
+       String nombre = txtNombreServicioConEliminar.getText();
+       if(nombre.isEmpty()){
+           JOptionPane.showMessageDialog(null, "Debe ingresar un nombre de servicio de consola");
+           return;
+       }
+       eliminarServicioConsolaConNombre(nombre);
+
+    }//GEN-LAST:event_btnEliminarServicioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
