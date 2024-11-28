@@ -72,8 +72,8 @@ public class ComprasHechasCliente extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Aqui iran las compras hechas");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 30, -1, -1));
+        jLabel1.setText("En esta tabla usted podra visualizar las compras que a realizado");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 30, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(102, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -127,7 +127,7 @@ public class ComprasHechasCliente extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(TablaVentasCliente);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, 480, 320));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 60, 480, 320));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtApellidoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoClienteActionPerformed

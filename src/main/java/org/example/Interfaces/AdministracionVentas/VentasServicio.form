@@ -69,7 +69,29 @@
         </Constraint>
       </Constraints>
 
-      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+        <Property name="useNullLayout" type="boolean" value="false"/>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel2">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="&quot;&lt;html&gt;&lt;center&gt;Dentro de este campo usted podra ver las ventas totales de su servicio tecnico lo cual le mostrara la fecha en la cual se hizo cada venta , su total y su iva respectivamente&quot;" type="code"/>
+            </Property>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="80" y="60" width="320" height="310"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+      </SubComponents>
     </Container>
   </SubComponents>
 </Form>

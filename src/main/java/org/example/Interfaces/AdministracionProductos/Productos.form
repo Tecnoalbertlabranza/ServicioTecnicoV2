@@ -62,20 +62,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="600" y="470" width="-1" height="-1"/>
-        </Constraint>
-      </Constraints>
-    </Component>
-    <Component class="javax.swing.JButton" name="BotonModificarProducto">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="ModificarProducto"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonModificarProductoActionPerformed"/>
-      </Events>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="730" y="470" width="-1" height="-1"/>
+          <AbsoluteConstraints x="600" y="470" width="170" height="50"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -88,7 +75,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="870" y="470" width="-1" height="-1"/>
+          <AbsoluteConstraints x="870" y="470" width="180" height="50"/>
         </Constraint>
       </Constraints>
     </Component>

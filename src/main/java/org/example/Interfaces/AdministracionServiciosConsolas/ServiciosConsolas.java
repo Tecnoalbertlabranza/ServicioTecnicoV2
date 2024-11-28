@@ -68,12 +68,12 @@ public class ServiciosConsolas extends javax.swing.JPanel {
                 String nombre = documet.getString("Nombre");
                 double valorservicio = documet.getDouble("Valor");
                 String tiempoestimado = documet.getString("TiempoEstimado");
-                String tipoconsola = documet.getString("TipoConsola");
+                String modeloconsola = documet.getString("ModeloConsola");
                 String marcaconsola = documet.getString("MarcaConsola");
 
-                ServicioConsolas serviciosConsola = new ServicioConsolas(nombre,valorservicio,tiempoestimado,tipoconsola,marcaconsola);
+                ServicioConsolas serviciosConsola = new ServicioConsolas(nombre,valorservicio,tiempoestimado,modeloconsola,marcaconsola);
                 listaServicios.add(serviciosConsola);
-                modelotablaServicios.addRow(new Object[]{nombre,valorservicio,tiempoestimado,tipoconsola,marcaconsola});
+                modelotablaServicios.addRow(new Object[]{nombre,valorservicio,tiempoestimado,modeloconsola,marcaconsola});
             }
            servicioTecnico.setServiciosConsola(listaServicios);
 
@@ -103,7 +103,6 @@ public class ServiciosConsolas extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         PanelServiciosConsolas = new javax.swing.JPanel();
         AgregarServicioConsola = new javax.swing.JButton();
-        ModificarServicioConsola = new javax.swing.JButton();
         EliminarServicioConsola = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaServicioConsolas = new javax.swing.JTable();
@@ -134,14 +133,6 @@ public class ServiciosConsolas extends javax.swing.JPanel {
         });
         jPanel1.add(AgregarServicioConsola, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 410, 170, 40));
 
-        ModificarServicioConsola.setText("Modificar Servicio consola");
-        ModificarServicioConsola.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ModificarServicioConsolaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(ModificarServicioConsola, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 410, 170, 40));
-
         EliminarServicioConsola.setText("Eliminar Servicio Consola");
         EliminarServicioConsola.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,7 +149,7 @@ public class ServiciosConsolas extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Nombre", "Valor", "Tiempo Estimado", "Modelo De Consola", "Marca de la consola"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
         jScrollPane1.setViewportView(TablaServicioConsolas);
@@ -173,11 +164,6 @@ public class ServiciosConsolas extends javax.swing.JPanel {
         MostrarPanelConsolas(menuconsolas);
     }//GEN-LAST:event_AgregarServicioConsolaActionPerformed
 
-    private void ModificarServicioConsolaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarServicioConsolaActionPerformed
-      ModificarServicioConsola modsercon = new ModificarServicioConsola();
-      MostrarPanelConsolas(modsercon);
-    }//GEN-LAST:event_ModificarServicioConsolaActionPerformed
-
     private void EliminarServicioConsolaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarServicioConsolaActionPerformed
     EliminarServicioConsola elisercon = new EliminarServicioConsola();
     MostrarPanelConsolas(elisercon);
@@ -187,7 +173,6 @@ public class ServiciosConsolas extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgregarServicioConsola;
     private javax.swing.JButton EliminarServicioConsola;
-    private javax.swing.JButton ModificarServicioConsola;
     private javax.swing.JPanel PanelServiciosConsolas;
     private javax.swing.JTable TablaServicioConsolas;
     private javax.swing.JPanel jPanel1;

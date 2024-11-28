@@ -28,7 +28,8 @@ public class EliminarServicioConsola extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtNombreServicioConEliminar = new javax.swing.JTextField();
+        btnEliminarServicio = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -37,13 +38,17 @@ public class EliminarServicioConsola extends javax.swing.JPanel {
 
         jLabel2.setText("Ingrese El nombre de el servicio de consolas que desee eliminar");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 300, 20));
+        add(txtNombreServicioConEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 340, 60));
+
+        btnEliminarServicio.setText("Eliminar Servicio");
+        add(btnEliminarServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 160, 50));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEliminarServicio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtNombreServicioConEliminar;
     // End of variables declaration//GEN-END:variables
 }

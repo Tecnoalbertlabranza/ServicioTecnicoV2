@@ -56,7 +56,7 @@ public class Clientes extends javax.swing.JPanel {
             model.setRowCount(0);
 
             for (Cliente cliente : clientes) {
-                Object[] fila = {cliente.getNombre(), cliente.getApellido(), cliente.getTelefono(), cliente.getEmail(), cliente.getRut()};
+                Object[] fila = {cliente.getNombre(), cliente.getApellido(), cliente.getTelefono(), cliente.getEmail(), cliente.getRut(),cliente.getRegion(),cliente.getComuna()};
                 model.addRow(fila);
             }
         }else{
@@ -79,12 +79,10 @@ public class Clientes extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         BotonAgregarCliente = new javax.swing.JButton();
         PanelCliente = new javax.swing.JPanel();
-        BotonModificarCliente = new javax.swing.JButton();
         BotonEliminarCliente = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaClientes = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
-        TablaDireccionClientes = new javax.swing.JTable();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -112,14 +110,6 @@ public class Clientes extends javax.swing.JPanel {
 
         jPanel1.add(PanelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 590));
 
-        BotonModificarCliente.setText("Modificar Cliente");
-        BotonModificarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonModificarClienteActionPerformed(evt);
-            }
-        });
-        jPanel1.add(BotonModificarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 440, 130, 30));
-
         BotonEliminarCliente.setText("Eliminar Cliente");
         BotonEliminarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,27 +126,12 @@ public class Clientes extends javax.swing.JPanel {
                 {null, null, null}
             },
             new String [] {
-                "Nombre", "Apellido", "Telefono","Email","Rut"
+                "Nombre", "Apellido", "Telefono","Email","Rut","Region","Comuna"
             }
         ));
         jScrollPane1.setViewportView(TablaClientes);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 30, 520, 320));
-
-        TablaDireccionClientes.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Region", "Comuna", "Calle", "Numero"
-            }
-        ));
-        jScrollPane2.setViewportView(TablaDireccionClientes);
-
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 30, 440, 320));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 590));
     }// </editor-fold>//GEN-END:initComponents
@@ -166,10 +141,7 @@ public class Clientes extends javax.swing.JPanel {
         MostrarPanelCliente(agcli);
     }
 
-    private void BotonModificarClienteActionPerformed(java.awt.event.ActionEvent evt) {
-        ModificarCliente modcli = new ModificarCliente();
-        MostrarPanelCliente(modcli);
-    }
+   
 
     private void BotonEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {
         EliminarCliente elicli = new EliminarCliente (firebaseInstance);
@@ -178,10 +150,10 @@ public class Clientes extends javax.swing.JPanel {
 
     private javax.swing.JButton BotonAgregarCliente;
     private javax.swing.JButton BotonEliminarCliente;
-    private javax.swing.JButton BotonModificarCliente;
+   
     private javax.swing.JPanel PanelCliente;
     private javax.swing.JTable TablaClientes;
-    private javax.swing.JTable TablaDireccionClientes;
+
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

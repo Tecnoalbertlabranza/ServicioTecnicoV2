@@ -107,7 +107,6 @@ public class Productos extends javax.swing.JPanel {
         PanelProductos = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         BotonAgregarProducto = new javax.swing.JButton();
-        BotonModificarProducto = new javax.swing.JButton();
         BotonEliminarProducto = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaProductos = new javax.swing.JTable();
@@ -137,15 +136,7 @@ public class Productos extends javax.swing.JPanel {
                 BotonAgregarProductoActionPerformed(evt);
             }
         });
-        add(BotonAgregarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 470, -1, -1));
-
-        BotonModificarProducto.setText("ModificarProducto");
-        BotonModificarProducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonModificarProductoActionPerformed(evt);
-            }
-        });
-        add(BotonModificarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 470, -1, -1));
+        add(BotonAgregarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 470, 170, 50));
 
         BotonEliminarProducto.setText("EliminarProducto");
         BotonEliminarProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -153,7 +144,7 @@ public class Productos extends javax.swing.JPanel {
                 BotonEliminarProductoActionPerformed(evt);
             }
         });
-        add(BotonEliminarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 470, -1, -1));
+        add(BotonEliminarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 470, 180, 50));
 
         TablaProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -176,20 +167,14 @@ public class Productos extends javax.swing.JPanel {
                MostrarPanelProducto(agrprod);
     }//GEN-LAST:event_BotonAgregarProductoActionPerformed
 
-    private void BotonModificarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonModificarProductoActionPerformed
-        ModificarProductos modprod = new ModificarProductos();
-        MostrarPanelProducto(modprod);
-    }//GEN-LAST:event_BotonModificarProductoActionPerformed
-
     private void BotonEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarProductoActionPerformed
-        EliminarProductos eliprod = new EliminarProductos();
+        EliminarProductos eliprod = new EliminarProductos(firebaseInstance);
         MostrarPanelProducto(eliprod);
     }//GEN-LAST:event_BotonEliminarProductoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAgregarProducto;
     private javax.swing.JButton BotonEliminarProducto;
-    private javax.swing.JButton BotonModificarProducto;
     private javax.swing.JPanel PanelProductos;
     private javax.swing.JTable TablaProductos;
     private javax.swing.JLabel jLabel1;

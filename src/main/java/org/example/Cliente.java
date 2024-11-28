@@ -56,6 +56,22 @@ public class Cliente  {
         return email;
     }
 
+	public String getComuna() {
+		return comuna;
+	}
+
+	public void setComuna(String comuna) {
+		this.comuna = comuna;
+	}
+
+	public String getRegion() {
+		return region;
+	}
+
+	public void setRegion(String region) {
+		this.region = region;
+	}
+
 	public String getContraseña() {
 		return contraseña;
 	}
