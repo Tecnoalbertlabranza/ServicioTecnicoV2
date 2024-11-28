@@ -161,7 +161,7 @@ public class ServiciosPc extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombre", "Valor", "Tiempo Estimado", "Tipo de computadora","Linea De Procesador","Uso de computadora"
             }
         ));
         jScrollPane1.setViewportView(TablaServiciosPC);

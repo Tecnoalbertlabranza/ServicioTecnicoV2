@@ -57,7 +57,7 @@ public class Productos extends javax.swing.JPanel {
                              document.getString("Nombre"),
                              document.getString("Categoria"),
                              document.getDouble("Valor"),
-                             document.getDouble("Stock")
+                             document.getLong("Stock").intValue()
                      ))
                      .peek(producto -> listaProductosLocal.add(producto))
                      .forEach(producto -> modeloTablaProductos.addRow(new Object[]{
@@ -154,7 +154,7 @@ public class Productos extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombre", "Categoria", "Valor", "Stock"
             }
         ));
         jScrollPane1.setViewportView(TablaProductos);

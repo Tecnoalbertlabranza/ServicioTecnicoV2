@@ -68,7 +68,7 @@ public class ServicioTecnico {
 		System.out.println("Cliente registrado en Firebase con id" + nombre + " " + apellido);
 	}
 
-	public void registrarProducto(String nombreProducto, String categoriaProducto, double valorProducto, double stockProducto, firebase firebaseInstance) {
+	public void registrarProducto(String nombreProducto, String categoriaProducto, double valorProducto, int stockProducto, firebase firebaseInstance) {
 		productos = java.util.stream.Stream.ofNullable(productos)
 				.findFirst()
 				.orElseGet(ArrayList::new);

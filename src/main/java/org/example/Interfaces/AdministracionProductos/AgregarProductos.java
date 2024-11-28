@@ -40,7 +40,7 @@ public class AgregarProductos extends javax.swing.JPanel {
 
         try {
             double valor = parsearDouble(txtValor.getText().trim(), "Valor");
-            double stock = parsearDouble(txtStock.getText().trim(), "Stock");
+            int stock = Integer.parseInt(txtStock.getText().trim());
 
             validarCampos(nombre, categoria, valor, stock);
 

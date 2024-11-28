@@ -142,7 +142,7 @@ public class InterfazParaElCliente extends javax.swing.JFrame {
                 String nombreProducto = document.getString("Nombre");
                 String categoriaProducto = document.getString("Categoría");
                 double valorProducto = document.getDouble("Valor");
-                double stockProducto = document.getDouble("Stock");
+                int stockProducto = document.getLong("Stock").intValue();
 
                 Producto producto = new Producto(nombreProducto, categoriaProducto, valorProducto, stockProducto);
                 listaProductosLocal.add(producto);

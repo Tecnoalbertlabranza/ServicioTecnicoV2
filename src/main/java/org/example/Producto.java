@@ -3,9 +3,9 @@ public class Producto {
 	private String nombreProducto;
 	private String categoriaProducto;
 	private double valorProducto;
-	private double stockProducto;
+	private int stockProducto;
 
-	public Producto(String nombreProducto, String categoriaProducto, double valorProducto, double stockProducto) {
+	public Producto(String nombreProducto, String categoriaProducto, double valorProducto, int stockProducto) {
 		this.nombreProducto = nombreProducto;
 		this.categoriaProducto = categoriaProducto;
 		this.valorProducto = valorProducto;
@@ -44,7 +44,7 @@ public class Producto {
 		return stockProducto;
 	}
 
-	public void setStockProducto(double stockProducto) {
+	public void setStockProducto(int stockProducto) {
 		this.stockProducto = stockProducto;
 	}
 
