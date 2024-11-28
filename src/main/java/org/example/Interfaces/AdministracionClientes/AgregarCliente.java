@@ -11,8 +11,10 @@ import org.example.ServicioTecnico;
 import org.example.firebase;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -65,6 +67,8 @@ public class AgregarCliente extends javax.swing.JPanel {
         servicioTecnico.RegistrarCliente(nombre, apellido, telefono, email, rut,contraseña, region, comuna, firebaseInstance);
         JOptionPane.showMessageDialog(null, "Cliente registrado correctamente");
     }
+
+
 
     public static List<String> validarCampos(String nombre, String apellido, String telefono, String email,
                                              String rut, String contraseña, String region, String comuna) {
@@ -266,6 +270,8 @@ public class AgregarCliente extends javax.swing.JPanel {
     private void btnGuardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarClienteActionPerformed
        agregarNuevoCliente();
        servicioTecnico.cargarClientesDesdeFirebase(firebaseInstance);
+       clientespanel.refrescarTabla();
+
     }//GEN-LAST:event_btnGuardarClienteActionPerformed
 
     private void txtApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoActionPerformed

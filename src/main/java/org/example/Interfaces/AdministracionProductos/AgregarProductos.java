@@ -188,6 +188,7 @@ public class AgregarProductos extends javax.swing.JPanel {
 
     private void btnAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarProductoActionPerformed
         agregarNuevoProducto();
+        vistaProductos.refrescarTablaProductos();
     }//GEN-LAST:event_btnAgregarProductoActionPerformed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
