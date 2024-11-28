@@ -60,7 +60,7 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
             for (QueryDocumentSnapshot doc : productos) {
                 String nombre = doc.getString("Nombre");
                 double valor = doc.getDouble("Valor");
-                double stock = doc.getDouble("Stock");
+                int stock = doc.getLong("Stock").intValue();
                 modeloLista.addElement(nombre + " - $" + valor + " - Stock: " + stock);
             }
         } catch (Exception e) {
@@ -134,7 +134,6 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
     }
 
     public void guardarVenta() {
-
         String rutCliente = txtRutCliente.getText();
         System.out.println(" rut ingresado"+rutCliente);
 
@@ -144,6 +143,11 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         String totalVenta = txtTotal.getText();
         String totalIva = txtIVA.getText();
         String rut = txtRutCliente.getText();
+
+        if (rutCliente.isEmpty() || nombreCliente.isEmpty() || apellidoCliente.isEmpty() || fechaVenta.isEmpty() || totalVenta.isEmpty() || totalIva.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar el rut de el cliente y obtener sus datos primero.");
+            return;
+        }
 
         servicioTecnico.registrarVenta(nombreCliente,apellidoCliente,fechaVenta,totalIva,totalVenta,rutCliente,firebaseInstance);
         JOptionPane.showMessageDialog(null,"Se registro la venta ");
