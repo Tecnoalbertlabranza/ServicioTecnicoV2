@@ -19,16 +19,19 @@ import javax.swing.table.DefaultTableModel;
 public class ComprasHechasCliente extends javax.swing.JPanel {
     private ServicioTecnico servicioTecnico;
 
+
     /**
      * Creates new form ComprasHechasCliente
      */
     public ComprasHechasCliente() {
         initComponents();
         this.servicioTecnico = InicioSesion.getServicioTecnico();
+        String rutCliente = InicioSesion.getRutIngresado();
+        mostrarVentasCliente(rutCliente);
     }
 
-    public void mostrarVentasCliente() {
-        String rutCliente = txtRutCliente.getText();
+    public void mostrarVentasCliente(String rut ) {
+        String rutCliente = rut;
         Cliente cliente = servicioTecnico.obtenerDatosDelCliente(rutCliente);
 
         if (cliente != null) {
@@ -135,7 +138,7 @@ public class ComprasHechasCliente extends javax.swing.JPanel {
     }//GEN-LAST:event_txtApellidoClienteActionPerformed
 
     private void btnObtenerDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObtenerDatosActionPerformed
-        mostrarVentasCliente();
+
     }//GEN-LAST:event_btnObtenerDatosActionPerformed
 
 

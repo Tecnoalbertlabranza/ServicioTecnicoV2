@@ -42,12 +42,11 @@ public class InicioSesion extends JFrame {
         firebaseInstance.inicializarconexion();
         servicioTecnico.cargarClientesDesdeFirebase(firebaseInstance);
         initComponents();
-
     }
 
-    private void iniciarSesion() {
+    private void iniciarSesion(String rut) {
         String emailIngresado = txtCorreoElectronico.getText();
-        String rutIngresado = txtIngresoDeRut.getText();
+        String rutIngresado = rut;
         String contraseñaIngresada = txtContraseña.getText();
         System.out.println("RUT ingresado: " + rutIngresado);
 
@@ -64,7 +63,6 @@ public class InicioSesion extends JFrame {
     public static ServicioTecnico getServicioTecnico(){
         return servicioTecnico;
     }
-
 
 
 
@@ -144,12 +142,18 @@ public class InicioSesion extends JFrame {
     }//GEN-LAST:event_txtCorreoElectronicoActionPerformed
 
     private void btnIngresarActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-      iniciarSesion();
+        String rut = txtIngresoDeRut.getText();
+      iniciarSesion(rut);
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void txtIngresoDeRutActionPerformed(ActionEvent evt) {//GEN-FIRST:event_txtIngresoDeRutActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIngresoDeRutActionPerformed
+
+    public static String getRutIngresado(){
+        return txtIngresoDeRut.getText();
+    }
+
 
     /**
      * @param args the command line arguments
@@ -195,6 +199,6 @@ public class InicioSesion extends JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtContraseña;
     private javax.swing.JTextField txtCorreoElectronico;
-    private javax.swing.JTextField txtIngresoDeRut;
+    private static javax.swing.JTextField txtIngresoDeRut;
     // End of variables declaration//GEN-END:variables
 }
