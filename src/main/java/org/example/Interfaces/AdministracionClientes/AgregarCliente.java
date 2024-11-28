@@ -4,20 +4,13 @@
  */
 package org.example.Interfaces.AdministracionClientes;
 
-import org.example.Cliente;
 import org.example.Interfaces.InicioSesion.InicioSesion;
-import org.example.Interfaces.PaginaPrincipal;
 import org.example.ServicioTecnico;
 import org.example.firebase;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.function.Predicate;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 /**
@@ -49,7 +42,6 @@ public class AgregarCliente extends javax.swing.JPanel {
         String region = txtRegion.getText().trim();
         String comuna = txtComuna.getText().trim();
         rut = rut.replaceAll("[.\\-]", "");
-        // Desde aqui hacia abajo pueden colocarle todas las condiciones que quieran para el ingreso de datos de cliente
 
         List<String> errors = validarCampos(nombre, apellido, telefono, email, rut, contraseña, region, comuna);
 
@@ -57,36 +49,32 @@ public class AgregarCliente extends javax.swing.JPanel {
 
         if (!errors.isEmpty()) {
             JOptionPane.showMessageDialog(null, String.join("\n", errors));
-            return;  // Detenemos el flujo si hay errores
+            return;
         } else {
             JOptionPane.showMessageDialog(null, "Datos válidos");
         }
-
-        // Hasta aqui se pueden colocar las condiciones. mas abajo nop ya que dañarian el codigo
 
         servicioTecnico.RegistrarCliente(nombre, apellido, telefono, email, rut,contraseña, region, comuna, firebaseInstance);
         JOptionPane.showMessageDialog(null, "Cliente registrado correctamente");
     }
 
-
-
     public static List<String> validarCampos(String nombre, String apellido, String telefono, String email,
                                              String rut, String contraseña, String region, String comuna) {
         return List.of(
-                        validarCampo(nombre, "Nombre", v -> v.matches("^[A-Z]{1}[a-záéíóúÁÉÍÓÚñÑ]+")),
-                        validarCampo(apellido, "Apellido", v -> v.matches("^[A-Z]{1}[a-záéíóúÁÉÍÓÚñÑ]+")),
-                        validarCampo(telefono, "Telefono", v -> v.matches("\\d{9}|\\d{11}")),
-                        validarCampo(email, "Email", v -> v.matches("^[\\w]+@[a-zA-Z0-9]{1,15}\\.[a-zA-Z]{2,6}$")),
-                        validarCampo(rut, "Rut", v -> validarRut(v)),
-                        validarCampo(contraseña, "Contraseña", v -> v.matches("^(?=.*[a-z])(?=.*[A-Z]).{6,}$")),
-                        validarCampo(region, "Region", v -> !v.isEmpty()),
-                        validarCampo(comuna, "Comuna", v -> !v.isEmpty())
+                        validarUnCampo(nombre, "Nombre", v -> v.matches("^[A-Z]{1}[a-záéíóúÁÉÍÓÚñÑ]+")),
+                        validarUnCampo(apellido, "Apellido", v -> v.matches("^[A-Z]{1}[a-záéíóúÁÉÍÓÚñÑ]+")),
+                        validarUnCampo(telefono, "Telefono", v -> v.matches("\\d{9}|\\d{11}")),
+                        validarUnCampo(email, "Email", v -> v.matches("^[\\w]+@[a-zA-Z0-9]{1,15}\\.[a-zA-Z]{2,6}$")),
+                        validarUnCampo(rut, "Rut", v -> validarRut(v)),
+                        validarUnCampo(contraseña, "Contraseña", v -> v.matches("^(?=.*[a-z])(?=.*[A-Z]).{6,}$")),
+                        validarUnCampo(region, "Region", v -> !v.isEmpty()),
+                        validarUnCampo(comuna, "Comuna", v -> !v.isEmpty())
                 ).stream()
                 .filter(error -> !error.isEmpty())
                 .collect(Collectors.toList());
     }
 
-    public static String validarCampo(String valor, String campo, Predicate<String> validacion) {
+    public static String validarUnCampo(String valor, String campo, Predicate<String> validacion) {
         if (valor.isEmpty()) {
             return campo + " no puede estar vacío";
         }
@@ -97,7 +85,6 @@ public class AgregarCliente extends javax.swing.JPanel {
     }
 
     public static Boolean validarRut(String rut) {
-        // Verifica si el RUT tiene 8 dígitos numéricos seguidos de una "K" (mayúscula o minúscula)
         if (!rut.matches("^[0-9]{8}[kK0-9]{1}$")) {
             return false;
         }
