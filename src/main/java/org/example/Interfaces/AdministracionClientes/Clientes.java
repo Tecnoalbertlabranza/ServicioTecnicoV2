@@ -1,6 +1,7 @@
 package org.example.Interfaces.AdministracionClientes;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
+import io.grpc.lb.v1.ClientStats;
 import org.example.Cliente;
 import org.example.Interfaces.InicioSesion.InicioSesion;
 import org.example.ServicioTecnico;
@@ -9,6 +10,7 @@ import org.example.firebase;
 import java.awt.BorderLayout;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -43,29 +45,32 @@ public class Clientes extends javax.swing.JPanel {
         AgregarCliente menucliente = new AgregarCliente (firebaseInstance,this);
         MostrarPanelCliente(menucliente);
         cargarClientesLocales();
-
-
     }
 
     public void cargarClientesLocales(){
         List<Cliente> clientes = servicioTecnico.getListaClientes();
 
-        if(clientes != null) {
+        Optional.ofNullable(clientes)
+                .ifPresentOrElse(
+                  lista -> {
+                      DefaultTableModel model = (DefaultTableModel)  TablaClientes.getModel();
+                      model.setRowCount(0);
 
-            DefaultTableModel model = (DefaultTableModel) TablaClientes.getModel();
-            model.setRowCount(0);
-
-            for (Cliente cliente : clientes) {
-                Object[] fila = {cliente.getNombre(), cliente.getApellido(), cliente.getTelefono(), cliente.getEmail(), cliente.getRut(),cliente.getRegion(),cliente.getComuna()};
-                model.addRow(fila);
-            }
-        }else{
-            System.out.println("lista vacia");
-        }
-
-
+                      lista.stream()
+                              .map(cliente -> new Object[]{
+                                      cliente.getNombre(),
+                                      cliente.getApellido(),
+                                      cliente.getTelefono(),
+                                      cliente.getEmail(),
+                                      cliente.getRut(),
+                                      cliente.getRegion(),
+                                      cliente.getComuna()
+                              })
+                              .forEach(model ::addRow);
+                  },
+                        () -> System.out.println("Lista Vacia")
+                );
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
