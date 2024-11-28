@@ -11,6 +11,9 @@ import org.example.ServicioTecnico;
 import org.example.firebase;
 
 import javax.swing.*;
+import java.util.List;
+import java.util.Optional;
+import java.util.function.Supplier;
 
 /**
  *
@@ -20,7 +23,6 @@ public class AgregarProductos extends javax.swing.JPanel {
     private firebase firebaseInstance;
     private Productos vistaProductos;
     private ServicioTecnico servicioTecnico;
-
 
     /**
      * Creates new form AgregarProductos
@@ -32,47 +34,66 @@ public class AgregarProductos extends javax.swing.JPanel {
         initComponents();
     }
 
-    public void agegarNuevoProducto() {
+    public void agregarNuevoProducto() {
         String nombre = txtNombre.getText().trim();
         String categoria = txtCategoria.getText().trim();
-        double valor;
-        double stock;
-
-        // Desde aqui hacia abajo se pueden colocar condicionales para el ingreso de productos.
 
         try {
-            valor = Double.parseDouble(txtValor.getText().trim());
-            stock = Double.parseDouble(txtStock.getText().trim());
-        }catch (NumberFormatException e){
-            JOptionPane.showMessageDialog(null, "Por favor, ingrese valores numéricos en los campos Valor y Stock");
-            return;
+            double valor = parsearDouble(txtValor.getText().trim(), "Valor");
+            double stock = parsearDouble(txtStock.getText().trim(), "Stock");
+
+            validarCampos(nombre, categoria, valor, stock);
+
+            servicioTecnico.registrarProducto(nombre, categoria, valor, stock, firebaseInstance);
+            JOptionPane.showMessageDialog(null, "Producto registrado correctamente");
+
+            limpiarCampos();
+
+            vistaProductos.refrescarTablaProductos();
+        } catch (IllegalArgumentException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
+    }
 
-        if (valor <= 0 || stock <= 0) {
-            JOptionPane.showMessageDialog(null, "Por favor, ingrese valores mayores a cero en los campos Valor y Stock");
-            return;
+    private double parsearDouble(String texto, String campo){
+        try {
+            return Double.parseDouble(texto);
+        } catch (NumberFormatException e){
+            throw new IllegalArgumentException("Por favor, ingrese un valor numérico válido en el campo " + campo);
         }
+    }
 
-        if (nombre.isEmpty() || categoria.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos");
-            return;
-        }
+    private void validarCampos(String nombre, String categoria, double valor, double stock) {
+        List<Supplier<Optional<String>>> validaciones = List.of(
+                () -> validarTexto(nombre, "El campo Nombre no puede estar vacío"),
+                () -> validarTexto(categoria, "El campo Categoría no puede estar vacío"),
+                () -> validarNumero(valor, "El Valor debe ser mayor a cero"),
+                () -> validarNumero(stock, "El Stock debe ser mayor a cero")
+        );
 
+        validaciones.stream()
+                .map(Supplier::get)
+                .filter(Optional::isPresent)
+                .findFirst()
+                .ifPresent(error -> {
+                    throw new IllegalArgumentException(error.get());
+                });
+    }
 
+    private Optional<String> validarTexto(String texto, String mensajeError) {
+        return texto == null || texto.trim().isEmpty() ? Optional.of(mensajeError) : Optional.empty();
+    }
 
-        // Hasta aqui se pueden colocar condiciones. mas abajo no.
+    private Optional<String> validarNumero(double valor, String mensajeError) {
+        return valor <= 0 ? Optional.of(mensajeError) : Optional.empty();
+    }
 
-        servicioTecnico.registrarProducto(nombre, categoria, valor,stock, firebaseInstance);
-        JOptionPane.showMessageDialog(null, "Producto registrado correctamente");
-
+    private void limpiarCampos() {
         txtNombre.setText("");
         txtCategoria.setText("");
         txtValor.setText("");
         txtStock.setText("");
-
-        vistaProductos.refrescarTablaProductos();
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -166,10 +187,9 @@ public class AgregarProductos extends javax.swing.JPanel {
     }//GEN-LAST:event_txtStockActionPerformed
 
     private void btnAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarProductoActionPerformed
-        agegarNuevoProducto();
+        agregarNuevoProducto();
     }//GEN-LAST:event_btnAgregarProductoActionPerformed
-
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarProducto;
     private javax.swing.JLabel jLabel1;
