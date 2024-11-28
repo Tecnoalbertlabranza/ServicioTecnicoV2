@@ -31,50 +31,40 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
         initComponents();
     }
 
-    public void AgregarServiciosParaConsolas(){
+    public void AgregarServiciosParaConsolas() {
         String nombre = txtNombre.getText();
         String tiempoEstimado = txtTiempoEstimado.getText();
         String modeloDeConsola = txtModeloDeConsola.getText();
         String marcaConsola = txtMarcaConsola.getText();
-        Optional<Double> valorServicio = parseDouble(txtValor.getText());
 
-        List<String> errores = validarCampos(nombre, valorServicio, tiempoEstimado, modeloDeConsola, marcaConsola);
+        double valorServicio = parseValorServicio(txtValor.getText()).orElseGet(() -> {
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese un valor numérico en el campo Valor");
+            return -1.0;
+        });
 
-        if (!errores.isEmpty()) {
-            String mensajeDeErrores = String.join("\n", errores);
-            JOptionPane.showMessageDialog(this, mensajeDeErrores);
-            return;
+        if (validateCampos(nombre, valorServicio, tiempoEstimado, modeloDeConsola, marcaConsola)) {
+            servicioTecnico.registrarServicioConsolas(nombre, valorServicio, tiempoEstimado, modeloDeConsola, marcaConsola, firebaseInstance);
+            JOptionPane.showMessageDialog(this, "Servicio de consola registrado correctamente");
         }
-
-        servicioTecnico.registrarServicioConsolas(nombre, valorServicio.get(), tiempoEstimado, modeloDeConsola, marcaConsola, firebaseInstance);
-        JOptionPane.showMessageDialog(this, "Servicio de consola agregado correctamente");
     }
 
-    private Optional<Double> parseDouble(String text) {
+    private boolean validateCampos(String nombre, double valorServicio, String tiempoEstimado,
+                                   String modeloDeConsola, String marcaConsola) {
+        return !isEmpty(nombre) && valorServicio > 0 && !isEmpty(tiempoEstimado)
+                && !isEmpty(modeloDeConsola) && !isEmpty(marcaConsola);
+    }
+
+    private boolean isEmpty(String str) {
+        return str == null || str.trim().isEmpty();
+    }
+
+    private Optional<Double> parseValorServicio(String valor) {
         try {
-            return Optional.of(Double.parseDouble(text));
-        } catch (NumberFormatException e) {
+            return Optional.of(Double.parseDouble(valor));
+        } catch (NumberFormatException ex) {
             return Optional.empty();
         }
     }
-
-    private List<String> validarCampos(String nombre, Optional<Double> valorServicio, String tiempoestimado, String modeloDeConsola, String marcaConsola) {
-        String mensaje = "Por favor, complete todos los campos";
-        return Stream.of(
-                        validarCampo(nombre, mensaje),
-                        valorServicio.filter(v -> v > 0).map(v -> (String) null).orElse("Por favor, ingrese un valor numérico en el campo Valor"),
-                        validarCampo(tiempoestimado, mensaje),
-                        validarCampo(modeloDeConsola, mensaje),
-                        validarCampo(marcaConsola, mensaje)
-                )
-                .filter(error -> error != null)
-                .collect(Collectors.toList());
-    }
-
-    private String validarCampo(String campo, String mensajeError) {
-        return campo.isEmpty() ? mensajeError : null;
-    }
-
 
 
     /**
