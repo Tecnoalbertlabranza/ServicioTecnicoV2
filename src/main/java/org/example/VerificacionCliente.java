@@ -30,7 +30,7 @@ public class VerificacionCliente implements Usuarios{
     public boolean IniciarSesion() {
         CollectionReference clientesCollection = firebaseInstance.getFirestore().collection("Registro De Clientes");
         ApiFuture<QuerySnapshot> querySnapshot = clientesCollection.get();
-
+        rutIngresado = rutIngresado.replaceAll("[.\\-]", "");
         try {
             List<QueryDocumentSnapshot> documents = querySnapshot.get().getDocuments();
 
