@@ -61,7 +61,9 @@ public class ServiciosParaPcCliente extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaServicioParaPc = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(153, 255, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Servicios Para Pc Disponible");
@@ -81,12 +83,16 @@ public class ServiciosParaPcCliente extends javax.swing.JPanel {
         jScrollPane1.setViewportView(TablaServicioParaPc);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 560, 360));
+
+        jLabel2.setText("<html><center>En este menu usted podra ver todos los servicios, actualizacines , modificaciones y reparaciones disponibles para su computadora , recuerde si busca alguno de los servicios de la lista no dude en dirigirse al servicio tecnico");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 290, 290));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TablaServicioParaPc;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

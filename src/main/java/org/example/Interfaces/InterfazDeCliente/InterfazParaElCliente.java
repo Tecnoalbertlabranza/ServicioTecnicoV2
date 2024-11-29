@@ -41,79 +41,7 @@ public class InterfazParaElCliente extends javax.swing.JFrame {
        servicioTecnico.procesarVentasClientes();
     }
 
-    private void cargarClientesDesdeFirebase(){
 
-
-        List<Cliente> listaClientesLocal = new ArrayList<>();
-        StringBuilder clientesConVentas = new StringBuilder();
-
-        try{
-            Firestore db = firebaseInstance.getFirestore();
-            ApiFuture<QuerySnapshot> future = db.collection("Registro De Clientes").get();
-            QuerySnapshot querySnapshot = future.get();
-
-
-            for (QueryDocumentSnapshot document : querySnapshot.getDocuments()) {
-                String nombre = document.getString("Nombre");
-                String apellido = document.getString("Apellido");
-                String telefono = document.getString("Telefono");
-                String email = document.getString("Email");
-                String rut = document.getString("Rut");
-                String region = document.getString("Region");
-                String comuna = document.getString("Comuna");
-
-                Cliente cliente = new Cliente(nombre,
-                        apellido,
-                        telefono,
-                        email,
-                        rut,
-                        region,
-                        comuna);
-                listaClientesLocal.add(cliente);
-
-
-
-                ApiFuture<QuerySnapshot> futureVentas = db.collection("Registro De Ventas").whereEqualTo("Rut Cliente", rut).get();
-                QuerySnapshot querySnapshotVentas = futureVentas.get();
-
-                List<Venta> listaVentasCliente = new ArrayList<>();
-                for (QueryDocumentSnapshot documentVenta : querySnapshotVentas.getDocuments()) {
-                    String fechaVenta = documentVenta.getString("Fecha De Venta");
-                    String totalVenta = documentVenta.getString("Total Venta");
-                    String ivaVenta = documentVenta.getString("IVA Impuesto");
-
-                    Venta venta = new Venta(fechaVenta, ivaVenta,totalVenta);
-                    listaVentasCliente.add(venta);
-                }
-
-                cliente.setVentascliente(listaVentasCliente);
-
-                clientesConVentas.append("Cliente: ").append(cliente.getNombre()).append(" ").append(cliente.getApellido()).append("\n");
-                clientesConVentas.append("Ventas: \n");
-                for (Venta venta : listaVentasCliente) {
-                    clientesConVentas.append("- Fecha: ").append(venta.getFechaVenta()).append(", Total: ").append(venta.getTotal()).append("\n");
-                }
-                clientesConVentas.append("\n");
-            }
-
-            servicioTecnico.setListaClientes(listaClientesLocal);
-
-            System.out.println("Clientes existentes");
-
-            //debug
-            listaClientesLocal.stream().forEach(System.out::println);
-            for (Cliente cliente : listaClientesLocal){
-                System.out.println(cliente);
-            }
-
-            System.out.println("\nClientes con ventas:");
-            System.out.println(clientesConVentas.toString());
-
-        }catch (Exception e){
-            e.printStackTrace();
-            System.out.println("Error al cargar datos"+ e.getMessage());
-        }
-    }
 
     private void MostrarPanel(JPanel pag ){
 
@@ -226,7 +154,6 @@ public class InterfazParaElCliente extends javax.swing.JFrame {
         btnProductos = new javax.swing.JButton();
         btnComprasHechas = new javax.swing.JButton();
         PanelClientes = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -267,12 +194,6 @@ public class InterfazParaElCliente extends javax.swing.JFrame {
         jPanel2.add(btnComprasHechas, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 20, 180, 40));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1120, 70));
-
-        PanelClientes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setText("Aqui se mostrara el menu principal");
-        PanelClientes.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, -1, -1));
-
         getContentPane().add(PanelClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 1100, 420));
 
         pack();
@@ -340,7 +261,6 @@ public class InterfazParaElCliente extends javax.swing.JFrame {
     private javax.swing.JButton btnProductos;
     private javax.swing.JButton btnServiciosConsolas;
     private javax.swing.JButton btnServiciosParaPc;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

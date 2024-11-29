@@ -59,7 +59,9 @@ public class ServiciosParaConsolasCliente extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaServicioConsolasClientes = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(153, 255, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Servicios Disiponibles Para Las Consolas");
@@ -79,12 +81,16 @@ public class ServiciosParaConsolasCliente extends javax.swing.JPanel {
         jScrollPane1.setViewportView(TablaServicioConsolasClientes);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 510, 350));
+
+        jLabel2.setText("<html><center>Aqui podra ver todos los servicios, actualizaciones y reparaciones para cualquiera de sus consolas de videojuegos");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 240, 230));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TablaServicioConsolasClientes;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

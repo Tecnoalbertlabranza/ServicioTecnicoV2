@@ -50,7 +50,9 @@ public class ProductosCliente extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaProductosCliente = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(153, 255, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Productos");
@@ -70,12 +72,16 @@ public class ProductosCliente extends javax.swing.JPanel {
         jScrollPane1.setViewportView(TablaProductosCliente);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 550, 340));
+
+        jLabel2.setText("<html><center>Aqi puede ver todos los productos disponibles dentro de el servicio tecnico");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 220, 200));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TablaProductosCliente;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
