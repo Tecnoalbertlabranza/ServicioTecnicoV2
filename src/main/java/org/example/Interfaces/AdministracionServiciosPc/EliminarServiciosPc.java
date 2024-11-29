@@ -21,14 +21,14 @@ import java.util.concurrent.ExecutionException;
  */
 public class EliminarServiciosPc extends javax.swing.JPanel {
     private firebase firebaseInstance;
-    private ServiciosConsolas serviciosConsolas;
+
 
     /**
      * Creates new form EliminarServiciosPc
      */
     public EliminarServiciosPc(firebase firebaseInstance) {
         this.firebaseInstance = firebaseInstance;
-        this.serviciosConsolas = new ServiciosConsolas(firebaseInstance);
+
         initComponents();
     }
 
