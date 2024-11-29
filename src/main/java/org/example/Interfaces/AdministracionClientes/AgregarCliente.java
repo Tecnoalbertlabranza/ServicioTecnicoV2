@@ -38,12 +38,12 @@ public class AgregarCliente extends javax.swing.JPanel {
         String telefono = txtTelefono.getText().trim();
         String email = txtEmail.getText().trim();
         String rut = txtRut.getText().trim();
-        String contraseña = txtContraseña.getText().trim();
+        String contrasena = txtContrasena.getText().trim();
         String region = txtRegion.getText().trim();
         String comuna = txtComuna.getText().trim();
         rut = rut.replaceAll("[.\\-]", "");
 
-        List<String> errors = validarCampos(nombre, apellido, telefono, email, rut, contraseña, region, comuna);
+        List<String> errors = validarCampos(nombre, apellido, telefono, email, rut, contrasena, region, comuna);
 
         System.out.println(String.join("\n", errors));
 
@@ -54,19 +54,19 @@ public class AgregarCliente extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Datos válidos");
         }
 
-        servicioTecnico.RegistrarCliente(nombre, apellido, telefono, email, rut,contraseña, region, comuna, firebaseInstance);
+        servicioTecnico.RegistrarCliente(nombre, apellido, telefono, email, rut,contrasena, region, comuna, firebaseInstance);
         JOptionPane.showMessageDialog(null, "Cliente registrado correctamente");
     }
 
     public static List<String> validarCampos(String nombre, String apellido, String telefono, String email,
-                                             String rut, String contraseña, String region, String comuna) {
+                                             String rut, String contrasena, String region, String comuna) {
         return List.of(
                         validarUnCampo(nombre, "Nombre", v -> v.matches("^[A-Z]{1}[a-záéíóúÁÉÍÓÚñÑ]+")),
                         validarUnCampo(apellido, "Apellido", v -> v.matches("^[A-Z]{1}[a-záéíóúÁÉÍÓÚñÑ]+")),
                         validarUnCampo(telefono, "Telefono", v -> v.matches("\\d{9}|\\d{11}")),
                         validarUnCampo(email, "Email", v -> v.matches("^[\\w]+@[a-zA-Z0-9]{1,15}\\.[a-zA-Z]{2,6}$")),
                         validarUnCampo(rut, "Rut", v -> validarRut(v)),
-                        validarUnCampo(contraseña, "Contraseña", v -> v.matches("^(?=.*[a-z])(?=.*[A-Z]).{6,}$")),
+                        validarUnCampo(contrasena, "Contraseña", v -> v.matches("^(?=.*[a-z])(?=.*[A-Z]).{6,}$")),
                         validarUnCampo(region, "Region", v -> !v.isEmpty()),
                         validarUnCampo(comuna, "Comuna", v -> !v.isEmpty())
                 ).stream()
@@ -137,7 +137,7 @@ public class AgregarCliente extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         txtComuna = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        txtContraseña = new javax.swing.JTextField();
+        txtContrasena = new javax.swing.JTextField();
 
         jPanel1.setBackground(new java.awt.Color(51, 153, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -232,7 +232,7 @@ public class AgregarCliente extends javax.swing.JPanel {
 
         jLabel9.setText("Contraseña");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, -1, -1));
-        jPanel1.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 220, 30));
+        jPanel1.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 220, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -296,7 +296,7 @@ public class AgregarCliente extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtComuna;
-    private javax.swing.JTextField txtContraseña;
+    private javax.swing.JTextField txtContrasena;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtRegion;
