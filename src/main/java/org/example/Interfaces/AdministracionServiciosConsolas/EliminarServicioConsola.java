@@ -77,6 +77,7 @@ public class EliminarServicioConsola extends javax.swing.JPanel {
         txtNombreServicioConEliminar = new javax.swing.JTextField();
         btnEliminarServicio = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 153, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Aqui se eliminaran servicios consolas");

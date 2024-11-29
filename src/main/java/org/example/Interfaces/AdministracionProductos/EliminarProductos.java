@@ -76,7 +76,7 @@ public class EliminarProductos extends javax.swing.JPanel {
         txtEliminarProducto = new javax.swing.JTextField();
         btnEliminarProducto = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(51, 153, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Aqui se eliminaran productos");

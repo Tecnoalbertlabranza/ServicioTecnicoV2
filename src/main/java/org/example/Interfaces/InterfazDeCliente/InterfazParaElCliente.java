@@ -226,6 +226,7 @@ public class InterfazParaElCliente extends javax.swing.JFrame {
         btnProductos = new javax.swing.JButton();
         btnComprasHechas = new javax.swing.JButton();
         PanelClientes = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -266,6 +267,12 @@ public class InterfazParaElCliente extends javax.swing.JFrame {
         jPanel2.add(btnComprasHechas, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 20, 180, 40));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1120, 70));
+
+        PanelClientes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setText("Aqui se mostrara el menu principal");
+        PanelClientes.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, -1, -1));
+
         getContentPane().add(PanelClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 1100, 420));
 
         pack();
@@ -333,6 +340,7 @@ public class InterfazParaElCliente extends javax.swing.JFrame {
     private javax.swing.JButton btnProductos;
     private javax.swing.JButton btnServiciosConsolas;
     private javax.swing.JButton btnServiciosParaPc;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

@@ -7,6 +7,7 @@ package org.example.Interfaces.AdministracionServiciosConsolas;
 import org.example.*;
 import org.example.Errores.ErrorHandler;
 import org.example.Errores.ValorInvalidoException;
+import org.example.Interfaces.AdministracionServiciosPc.ServiciosPc;
 import org.example.Interfaces.InicioSesion.InicioSesion;
 
 import javax.swing.*;
@@ -193,7 +194,10 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
     }//GEN-LAST:event_txtMarcaConsolaActionPerformed
 
     private void btnAgregarServicioConsolasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarServicioConsolasActionPerformed
-       AgregarServiciosParaConsolas();
+
+        AgregarServiciosParaConsolas();
+
+
     }//GEN-LAST:event_btnAgregarServicioConsolasActionPerformed
 
 

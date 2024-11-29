@@ -86,6 +86,7 @@ public class EliminarCliente extends javax.swing.JPanel {
         txtEliminarClientePorRut = new javax.swing.JTextField();
         BtnEliminarCliente = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(51, 153, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Aqui se eliminaran los clientes");
