@@ -15,7 +15,7 @@ public class Cliente  {
 	private String comuna;
 
 	List<Venta> ventascliente;
-	AgendaServicios agendaCliente;
+
 
 	public Cliente(String nombre, String apellido, String telefono, String email, String rut,String region, String comuna) {
 		this.nombre = nombre;
@@ -103,7 +103,6 @@ public class Cliente  {
 				", region='" + region + '\'' +
 				", comuna='" + comuna + '\'' +
 				", ventascliente=" + ventascliente +
-				", agendaCliente=" + agendaCliente +
 				'}';
 	}
 }
