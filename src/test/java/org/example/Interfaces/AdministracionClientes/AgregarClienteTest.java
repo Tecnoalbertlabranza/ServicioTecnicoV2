@@ -41,6 +41,7 @@ class AgregarClienteTest {
         comunaValida = null;
     }
 
+    //-------- UN CAMPO --------
     @Test
     public void testCampoValido() {
         String resultado = AgregarCliente.validarUnCampo(nombreValido, "Nombre", v -> v.matches("^[A-Z]{1}[a-záéíóúÁÉÍÓÚñÑ]+"));
@@ -53,6 +54,7 @@ class AgregarClienteTest {
         assertEquals("Nombre no puede estar vacío", resultado, "Debería devolver que el campo 'Nombre' no puede estar vacío");
     }
 
+    //-------- VARIOS CAMPOS --------
     @Test
     public void testValidarUnCamposSinErrores() {
         List<String> errores = AgregarCliente.validarCampos(nombreValido,
@@ -69,6 +71,7 @@ class AgregarClienteTest {
         assertTrue(errores.contains("Telefono inválido"), "Debe contener error de teléfono");
     }
 
+    //-------- RUT --------
     @Test
     public void testValidarRutValido() {
         String rut = "12345678K";

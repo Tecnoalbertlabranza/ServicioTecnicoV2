@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AgregarServicioConsolaTest {
 
-    AgregarServicioConsola agregarServicioConsola;
+    private AgregarServicioConsola agregarServicioConsola;
 
     @BeforeEach
     void setUp() {
@@ -22,6 +22,7 @@ class AgregarServicioConsolaTest {
         agregarServicioConsola = null;
     }
 
+    //-------- Empty --------
     @Test
     void testIsEmpty_conCadenaVacia() {
         String str = "";
@@ -29,8 +30,9 @@ class AgregarServicioConsolaTest {
         assertTrue(resultado, "El método debería devolver true cuando la cadena está vacía.");
     }
 
+    //-------- VALIDAR CAMPOS --------
     @Test
-    public void Test (){
+    public void testValidarCamposCorrecto() {
         String nombre = "Limpieza";
         String tiempoEstimado = "10 dias";
         String modeloDeConsola = "PS5";
@@ -41,7 +43,7 @@ class AgregarServicioConsolaTest {
     }
 
     @Test
-    void testValidateCampos_conCampoVacio() {
+    void testValidarCampos_conCampoVacio() {
         String nombre = "Revicion";
         String tiempoEstimado = "";
         String modeloDeConsola = "PS5";
@@ -51,6 +53,7 @@ class AgregarServicioConsolaTest {
         assertFalse(resultado, "El método debería devolver false cuando al menos un campo es vacío.");
     }
 
+    //-------- ParseValorServicio --------
     @Test
     void testParseValorServicio_conValorValido() {
         String valor = "10.5";
