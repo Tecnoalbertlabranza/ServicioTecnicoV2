@@ -106,7 +106,8 @@ public class EliminarServiciosPc extends javax.swing.JPanel {
     }//GEN-LAST:event_txtNombreServicioPcEliminarActionPerformed
 
     private void btnEliminarServicioPcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarServicioPcActionPerformed
-
+        String nombre = txtNombreServicioPcEliminar.getText();
+eliminarServicioPcConNombre(nombre);
     }//GEN-LAST:event_btnEliminarServicioPcActionPerformed
 
 
