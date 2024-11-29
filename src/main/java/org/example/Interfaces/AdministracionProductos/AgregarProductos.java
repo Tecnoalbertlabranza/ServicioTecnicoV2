@@ -34,6 +34,10 @@ public class AgregarProductos extends javax.swing.JPanel {
         initComponents();
     }
 
+    public AgregarProductos() {
+
+    }
+
     public void agregarNuevoProducto() {
         String nombre = txtNombre.getText().trim();
         String categoria = txtCategoria.getText().trim();
@@ -55,7 +59,7 @@ public class AgregarProductos extends javax.swing.JPanel {
         }
     }
 
-    private double parsearDouble(String texto, String campo){
+    public double parsearDouble(String texto, String campo){
         try {
             return Double.parseDouble(texto);
         } catch (NumberFormatException e){
@@ -63,7 +67,7 @@ public class AgregarProductos extends javax.swing.JPanel {
         }
     }
 
-    private void validarCampos(String nombre, String categoria, double valor, double stock) {
+    public void validarCampos(String nombre, String categoria, double valor, double stock) {
         List<Supplier<Optional<String>>> validaciones = List.of(
                 () -> validarTexto(nombre, "Nombre", true),
                 () -> validarTexto(categoria, "Categoría", true),
@@ -80,7 +84,7 @@ public class AgregarProductos extends javax.swing.JPanel {
                 });
     }
 
-    private Optional<String> validarTexto(String texto, String mensajeError, boolean soloLetras) {
+    public Optional<String> validarTexto(String texto, String mensajeError, boolean soloLetras) {
         if (texto == null || texto.trim().isEmpty()) {
             return Optional.of(mensajeError);
         }
@@ -91,7 +95,7 @@ public class AgregarProductos extends javax.swing.JPanel {
         return Optional.empty();
     }
 
-    private Optional<String> validarNumero(double valor, String mensajeError) {
+    public Optional<String> validarNumero(double valor, String mensajeError) {
         return valor <= 0 ? Optional.of(mensajeError) : Optional.empty();
     }
 
