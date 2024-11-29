@@ -152,6 +152,11 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         jPanel1.add(BotonServiciosConsolas, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, 42));
 
         BotonCerrarSesion.setText("Cerrar Sesion");
+        BotonCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonCerrarSesionActionPerformed(evt);
+            }
+        });
         jPanel1.add(BotonCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1330, 10, 121, 42));
 
         BotonServiciosPc.setText("Servicios para Pc");
@@ -242,6 +247,11 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         VentasServicio venser = new VentasServicio(servicioTecnico);
         MostrarPanel(venser);
     }//GEN-LAST:event_botonVentasActionPerformed
+
+    private void BotonCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCerrarSesionActionPerformed
+        this.dispose();
+
+    }//GEN-LAST:event_BotonCerrarSesionActionPerformed
 
     /**
      * @param args the command line arguments

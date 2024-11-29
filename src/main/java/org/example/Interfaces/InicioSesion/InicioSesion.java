@@ -32,6 +32,8 @@ public class InicioSesion extends JFrame {
         initComponents();
     }
 
+
+
     private void iniciarSesion(String rut) {
         String emailIngresado = txtCorreoElectronico.getText();
         String rutIngresado = rut;
@@ -51,6 +53,8 @@ public class InicioSesion extends JFrame {
     public static ServicioTecnico getServicioTecnico(){
         return servicioTecnico;
     }
+
+
 
 
 
