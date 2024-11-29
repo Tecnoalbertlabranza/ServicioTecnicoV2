@@ -3,8 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package org.example.Interfaces.CarritoDeComprasCliente;
-import com.google.cloud.firestore.Firestore;
-import com.google.cloud.firestore.QueryDocumentSnapshot;
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.*;
 import org.example.Cliente;
 import org.example.Interfaces.InicioSesion.InicioSesion;
 import org.example.ServicioTecnico;
@@ -87,7 +87,7 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         String[] partes = seleccion.split(" - ");
         String nombre = partes[0];
         double precio = Double.parseDouble(partes[1].replace("$", ""));
-        double stock = Double.parseDouble(partes[2].replace("Stock: ", ""));
+        int stock = Integer.parseInt(partes[2].replace("Stock: ", ""));
 
         if(stock<=0){
             JOptionPane.showMessageDialog(this, "El producto no tiene stock disponible");
@@ -134,6 +134,8 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
     }
 
     public void guardarVenta() {
+
+        // se leen los  diferentes campos de texto
         String rutCliente = txtRutCliente.getText();
         System.out.println(" rut ingresado"+rutCliente);
 
@@ -144,11 +146,67 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         String totalIva = txtIVA.getText();
         String rut = txtRutCliente.getText();
 
+        // aqui se ingresan los parametros
+
         if (rutCliente.isEmpty() || nombreCliente.isEmpty() || apellidoCliente.isEmpty() || fechaVenta.isEmpty() || totalVenta.isEmpty() || totalIva.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Debe ingresar el rut de el cliente y obtener sus datos primero.");
             return;
         }
 
+        // se leen las filas de la tabla para ver los productos
+        DefaultTableModel modeloTabla = (DefaultTableModel) TablaCarrito.getModel();
+        int filas = modeloTabla.getRowCount();
+
+        for (int i = 0; i < filas; i++) {
+            String nombreProducto = (String) modeloTabla.getValueAt(i, 0);
+            int cantidadProducto = (int) modeloTabla.getValueAt(i, 1);
+
+
+            try {
+                // se lee los productos de el carrito de compras y se busca en la base de datos
+
+                WriteBatch batch = db.batch();
+                Firestore db = firebaseInstance.getFirestore();
+                Query query = db.collection("Registro de Producto").whereEqualTo("Nombre", nombreProducto);
+                ApiFuture<QuerySnapshot> future = query.get();
+                QuerySnapshot querySnapshot = future.get();
+
+
+                // dependiendo de el stock se colocan las condiciones
+                // se reduce el stock de el producto y se actualiza con el comando batch
+
+                if (!querySnapshot.isEmpty()) {
+                    DocumentSnapshot documentoProducto = querySnapshot.getDocuments().get(0);
+                    int stockActual = documentoProducto.getLong("Stock").intValue();
+
+
+                    if (stockActual >= cantidadProducto) {
+                        Map<String, Object> datosActualizar = new HashMap<>();
+                        datosActualizar.put("Stock", stockActual - cantidadProducto);
+
+                        batch.update(documentoProducto.getReference(),datosActualizar);
+                        // si el stock de el producto llega a 0 el producto se elimina de la base de datos
+                        if (stockActual-cantidadProducto == 0){
+                            batch.delete(documentoProducto.getReference());
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No hay suficiente stock para el producto: " + nombreProducto);
+                        return;
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se encontró el producto: " + nombreProducto);
+                    return;
+                }
+                batch.commit();
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println("Error al reducir stock del producto: " + e.getMessage());
+                return;
+            }
+
+        }
+
+        // se registra la venta en la firebase
         servicioTecnico.registrarVenta(nombreCliente,apellidoCliente,fechaVenta,totalIva,totalVenta,rutCliente,firebaseInstance);
         JOptionPane.showMessageDialog(null,"Se registro la venta ");
     }
