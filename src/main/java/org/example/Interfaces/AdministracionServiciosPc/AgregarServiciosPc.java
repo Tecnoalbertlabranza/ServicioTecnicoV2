@@ -23,6 +23,10 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
     /**
      * Creates new form AgregarServiciosPc
      */
+
+    public AgregarServiciosPc() {
+
+    }
    public void AgregarServicioParaPc(){
        String nombre = txtNombre.getText();
        String tiempoEstimado = txtTiempoEstimado.getText();
@@ -55,15 +59,15 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
         txtUsoDeComputadora.setText("");
     }
 
-    private boolean esValido(String nombre, String tiempoEstimado, String tipoDeComputadora, String lineaDeProcesador, String usoDeComputadora, String valorServicio) {
+    public boolean esValido(String nombre, String tiempoEstimado, String tipoDeComputadora, String lineaDeProcesador, String usoDeComputadora, String valorServicio) {
         return !esVacio(nombre) && !esVacio(tiempoEstimado) && !esVacio(tipoDeComputadora) && !esVacio(lineaDeProcesador) && !esVacio(usoDeComputadora) && esNumero(valorServicio);
     }
 
-    private boolean esVacio(String valor) {
+    public boolean esVacio(String valor) {
         return valor == null || valor.trim().isEmpty();
     }
 
-    private boolean esNumero(String valor) {
+    public boolean esNumero(String valor) {
         try {
             Double.parseDouble(valor);
             return true;
