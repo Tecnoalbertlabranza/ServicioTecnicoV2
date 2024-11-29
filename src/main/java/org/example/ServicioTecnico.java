@@ -14,6 +14,7 @@ public class ServicioTecnico {
 	Collection<ServicioComputador> serviciosComputador;
 	Collection<Producto> productos;
 	List<Cliente> listaClientes;
+	List<Administradores> administradores;
 	List<Venta> listaVentas;
 	private String descripcion;
 
@@ -260,5 +261,13 @@ public class ServicioTecnico {
 
 	public Collection<ServicioComputador> getServiciosComputador() {
 		return serviciosComputador;
+	}
+
+	public List<Administradores> getAdministradores() {
+		return administradores;
+	}
+
+	public void setAdministradores(List<Administradores> administradores) {
+		this.administradores = administradores;
 	}
 }
