@@ -29,6 +29,10 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
         initComponents();
     }
 
+    public AgregarServicioConsola() {
+
+    }
+
     public void AgregarServiciosParaConsolas() {
         String nombre = txtNombre.getText();
         String tiempoEstimado = txtTiempoEstimado.getText();
@@ -62,15 +66,15 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
     }
 
 
-    private boolean validateCampos(String nombre, String tiempoEstimado, String modeloDeConsola, String marcaConsola) {
+    public boolean validateCampos(String nombre, String tiempoEstimado, String modeloDeConsola, String marcaConsola) {
         return !isEmpty(nombre) && !isEmpty(tiempoEstimado) && !isEmpty(modeloDeConsola) && !isEmpty(marcaConsola);
     }
 
-    private boolean isEmpty(String str) {
+    public boolean isEmpty(String str) {
         return str == null || str.trim().isEmpty();
     }
 
-    private Optional<Double> parseValorServicio(String valor) {
+    public Optional<Double> parseValorServicio(String valor) {
         try {
             return Optional.of(Double.parseDouble(valor));
         } catch (NumberFormatException ex) {
