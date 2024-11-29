@@ -4,17 +4,63 @@
  */
 package org.example.Interfaces.AdministracionServiciosPc;
 
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.CollectionReference;
+import com.google.cloud.firestore.Firestore;
+import com.google.cloud.firestore.QueryDocumentSnapshot;
+import com.google.cloud.firestore.QuerySnapshot;
+import org.example.Interfaces.AdministracionServiciosConsolas.ServiciosConsolas;
+import org.example.firebase;
+
+import javax.swing.*;
+import java.util.concurrent.ExecutionException;
+
 /**
  *
  * @author basty
  */
 public class EliminarServiciosPc extends javax.swing.JPanel {
+    private firebase firebaseInstance;
+    private ServiciosConsolas serviciosConsolas;
 
     /**
      * Creates new form EliminarServiciosPc
      */
-    public EliminarServiciosPc() {
+    public EliminarServiciosPc(firebase firebaseInstance) {
+        this.firebaseInstance = firebaseInstance;
+        this.serviciosConsolas = new ServiciosConsolas(firebaseInstance);
         initComponents();
+    }
+
+    public void eliminarServicioPcConNombre(String nombre){
+        try {
+            Firestore db = firebaseInstance.getFirestore();
+            CollectionReference collectionRef = db.collection("Registro de servicio de Pc");
+            ApiFuture<QuerySnapshot> query = collectionRef.whereEqualTo("Nombre", nombre).get();
+            QuerySnapshot querySnapshot = query.get();
+            System.out.println("Consultando Servicios para Pc con nombre : " + nombre);
+
+            if (!querySnapshot.isEmpty()) {
+                querySnapshot.getDocuments().stream()
+                        .map(QueryDocumentSnapshot::getReference)
+                        .forEach(documentRef -> {
+                            try {
+                                documentRef.delete().get();
+                                System.out.println("Servicios Pc con nombre  " + nombre + " eliminado de la Firebase");
+                            } catch (InterruptedException | ExecutionException e) {
+                                e.printStackTrace();
+                                System.err.println("Error durante la operación: " + e.getMessage());
+                            }
+                        });
+                JOptionPane.showMessageDialog(null, "Servicios Pc con nombre" + nombre + " eliminado de la Firebase");
+            } else {
+                JOptionPane.showMessageDialog(null, "No hay Servicios Pc con nombre " + nombre + " en la Firebase");
+                System.out.println("No se encontró un servicio con nombre " + nombre);
+            }
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+            System.err.println("Error durante la operación: " + e.getMessage());
+        }
     }
 
     /**
@@ -60,7 +106,7 @@ public class EliminarServiciosPc extends javax.swing.JPanel {
     }//GEN-LAST:event_txtNombreServicioPcEliminarActionPerformed
 
     private void btnEliminarServicioPcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarServicioPcActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_btnEliminarServicioPcActionPerformed
 
 
