@@ -17,13 +17,13 @@ public class VerificacionCliente implements Usuarios{
     private firebase firebaseInstance;
     private String rutIngresado;
     private String emailIngresado;
-    private String contraseñaIngresada;
+    private String contrasenaIngresada;
 
-    public VerificacionCliente(InicioSesion inicioSesion ,firebase firebaseInstance, String rutIngresado, String emailIngresado, String contraseñaIngresada) {
+    public VerificacionCliente(InicioSesion inicioSesion ,firebase firebaseInstance, String rutIngresado, String emailIngresado, String contrasenaIngresada) {
         this.firebaseInstance = firebaseInstance;
         this.rutIngresado = rutIngresado;
         this.emailIngresado = emailIngresado;
-        this.contraseñaIngresada = contraseñaIngresada;
+        this.contrasenaIngresada = contrasenaIngresada;
         this.inicioSesion = inicioSesion;
     }
 
@@ -39,8 +39,8 @@ public class VerificacionCliente implements Usuarios{
                         Map<String, Object> clienteData = document.getData();
                         String rutCliente = (String) clienteData.get("Rut");
                         String emailCliente = (String) clienteData.get("Email");
-                        String contraseñaCliente = (String) clienteData.get("Contraseña");
-                        return rutCliente.equals(rutIngresado) && emailCliente.equals(emailIngresado) && contraseñaCliente.equals(contraseñaIngresada);
+                        String contrasenaCliente = (String) clienteData.get("Contraseña");
+                        return rutCliente.equals(rutIngresado) && emailCliente.equals(emailIngresado) && contrasenaCliente.equals(contrasenaIngresada);
                     })
                     .findFirst();
 

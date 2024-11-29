@@ -9,7 +9,7 @@ public class Cliente  {
 	private String telefono;
 	private String email;
 	private String rut;
-	private String contraseña;
+	private String contrasena;
 	//------Parametros de Direccion-----------
 	private String region;
 	private String comuna;
@@ -72,12 +72,12 @@ public class Cliente  {
 		this.region = region;
 	}
 
-	public String getContraseña() {
-		return contraseña;
+	public String getContrasena() {
+		return contrasena;
 	}
 
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
 	}
 
 	public void IniciarSesion() {

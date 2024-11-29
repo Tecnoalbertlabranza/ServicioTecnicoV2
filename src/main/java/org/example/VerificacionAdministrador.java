@@ -7,7 +7,6 @@ import com.google.cloud.firestore.QuerySnapshot;
 import org.example.Interfaces.InicioSesion.InicioSesion;
 import org.example.Interfaces.PaginaPrincipal;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -18,13 +17,13 @@ public class VerificacionAdministrador implements Usuarios{
     private firebase firebaseInstance;
     private String rutIngresado;
     private String emailIngresado;
-    private String contraseñaIngresada;
+    private String contrasenaIngresada;
 
-    public VerificacionAdministrador(InicioSesion inicioSesion ,firebase firebaseInstance, String rutIngresado, String emailIngresado, String contraseñaIngresada) {
+    public VerificacionAdministrador(InicioSesion inicioSesion ,firebase firebaseInstance, String rutIngresado, String emailIngresado, String contrasenaIngresada) {
         this.firebaseInstance = firebaseInstance;
         this.rutIngresado = rutIngresado;
         this.emailIngresado = emailIngresado;
-        this.contraseñaIngresada = contraseñaIngresada;
+        this.contrasenaIngresada = contrasenaIngresada;
         this.inicioSesion = inicioSesion;
     }
 
@@ -39,8 +38,8 @@ public class VerificacionAdministrador implements Usuarios{
                         Map<String, Object> data = admin.getData();
                         String rut = (String) data.get("Rut").toString();
                         String email = (String) data.get("Email").toString();
-                        String contraseña = (String) data.get("Contraseña").toString();
-                        return rut.equals(rutIngresado) && email.equals(emailIngresado) && contraseña.equals(contraseñaIngresada);
+                        String contrasena = (String) data.get("Contraseña").toString();
+                        return rut.equals(rutIngresado) && email.equals(emailIngresado) && contrasena.equals(contrasenaIngresada);
                     })
                     .findFirst();
             if (administradorEncontrado.isPresent()) {

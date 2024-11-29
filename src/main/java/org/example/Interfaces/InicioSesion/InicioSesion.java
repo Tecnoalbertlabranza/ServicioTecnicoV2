@@ -4,25 +4,13 @@
  */
 package org.example.Interfaces.InicioSesion;
 
-import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.*;
 import org.example.*;
-import org.example.Interfaces.InterfazDeCliente.InterfazParaElCliente;
-import org.example.Interfaces.PaginaPrincipal;
-import org.netbeans.lib.awtextra.AbsoluteConstraints;
-import org.netbeans.lib.awtextra.AbsoluteLayout;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
 /**
  *
@@ -47,11 +35,11 @@ public class InicioSesion extends JFrame {
     private void iniciarSesion(String rut) {
         String emailIngresado = txtCorreoElectronico.getText();
         String rutIngresado = rut;
-        String contraseñaIngresada = txtContraseña.getText();
+        String contrasenaIngresada = txtContrasena.getText();
         System.out.println("RUT ingresado: " + rutIngresado);
 
-        VerificacionCliente cliente = new VerificacionCliente(this, firebaseInstance, rutIngresado, emailIngresado, contraseñaIngresada);
-        VerificacionAdministrador administrador = new VerificacionAdministrador(this, firebaseInstance, rutIngresado, emailIngresado, contraseñaIngresada);
+        VerificacionCliente cliente = new VerificacionCliente(this, firebaseInstance, rutIngresado, emailIngresado, contrasenaIngresada);
+        VerificacionAdministrador administrador = new VerificacionAdministrador(this, firebaseInstance, rutIngresado, emailIngresado, contrasenaIngresada);
 
         if (!cliente.IniciarSesion()) {
             if (!administrador.IniciarSesion()) {
@@ -82,7 +70,7 @@ public class InicioSesion extends JFrame {
         txtCorreoElectronico = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtContraseña = new javax.swing.JTextField();
+        txtContrasena = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtIngresoDeRut = new javax.swing.JTextField();
         btnIngresar = new javax.swing.JButton();
@@ -104,7 +92,7 @@ public class InicioSesion extends JFrame {
 
         jLabel3.setText("Ingrese contraseña");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, -1, -1));
-        getContentPane().add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 230, 30));
+        getContentPane().add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 230, 30));
 
         jLabel4.setText("Ingrese Su Rut");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, -1, -1));
@@ -197,7 +185,7 @@ public class InicioSesion extends JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtContraseña;
+    private javax.swing.JTextField txtContrasena;
     private javax.swing.JTextField txtCorreoElectronico;
     private static javax.swing.JTextField txtIngresoDeRut;
     // End of variables declaration//GEN-END:variables

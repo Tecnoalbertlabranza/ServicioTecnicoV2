@@ -30,13 +30,13 @@ public class ServicioTecnico {
 		return listaClientes;
 	}
 
-	public void registrarAdministrador(String nombre, String apellido, String rut, String contraseña, String email, firebase firebaseInstance) {
-		Administradores admin = new Administradores(nombre, apellido, rut, contraseña, email);
+	public void registrarAdministrador(String nombre, String apellido, String rut, String contrasena, String email, firebase firebaseInstance) {
+		Administradores admin = new Administradores(nombre, apellido, rut, contrasena, email);
 		Map<String, Object> data = Map.of(
 			"Nombre", nombre,
 			"Apellido", apellido,
 			"Rut", rut,
-			"Contraseña", contraseña,
+			"Contraseña", contrasena,
 			"Email", email
 				);
 
@@ -44,7 +44,7 @@ public class ServicioTecnico {
 		System.out.println("Administradores registrado en firebase con id " + nombre + " " + apellido);
 	}
 
-	public void RegistrarCliente(String nombre, String apellido, String telefono, String email, String rut, String contraseña, String region, String comuna, firebase firebaseInstance) {
+	public void RegistrarCliente(String nombre, String apellido, String telefono, String email, String rut, String contrasena, String region, String comuna, firebase firebaseInstance) {
 		listaClientes = java.util.stream.Stream.ofNullable(listaClientes)
 				.findFirst()
 				.orElseGet(ArrayList::new);
@@ -59,7 +59,7 @@ public class ServicioTecnico {
 			"Telefono", telefono,
 			"Email", email,
 			"Rut", rut,
-			"Contraseña", contraseña,
+			"Contraseña", contrasena,
 			"Region", region,
 			"Comuna", comuna
 				);
