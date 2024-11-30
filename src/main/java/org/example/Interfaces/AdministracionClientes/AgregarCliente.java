@@ -7,7 +7,6 @@ package org.example.Interfaces.AdministracionClientes;
 import org.example.Interfaces.InicioSesion.InicioSesion;
 import org.example.ServicioTecnico;
 import org.example.firebase;
-
 import javax.swing.*;
 import java.util.List;
 import java.util.function.Predicate;
@@ -90,25 +89,6 @@ public class AgregarCliente extends javax.swing.JPanel {
         }
         return true;
     }
-
-    /*
-    public static Boolean validarRut(String rut){
-        if (!rut.matches("^[0-9]+[0-9kK]{1}$")){return false;}
-
-        String rutNumerico = rut.substring(0, rut.length() - 1);
-        char rutDv = rut.charAt(rut.length() - 1);
-
-        return rutDv == dv(rutNumerico).charAt(0);
-    }
-
-    public static String dv(String rut) {
-        int M = 0, S = 1;
-        for (int i = rut.length() - 1; i >= 0; i--) {
-            int digit = rut.charAt(i) - '0';
-            S = (S + digit * (9 - M++ % 6)) % 11;
-        }
-        return (S > 0) ? String.valueOf(S - 1) : "k";
-    } */
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -280,7 +260,6 @@ public class AgregarCliente extends javax.swing.JPanel {
     private void txtComunaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtComunaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtComunaActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardarCliente;
