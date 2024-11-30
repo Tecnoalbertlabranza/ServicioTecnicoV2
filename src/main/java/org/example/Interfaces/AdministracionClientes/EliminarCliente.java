@@ -9,11 +9,8 @@ import com.google.cloud.firestore.CollectionReference;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
-import org.example.ServicioTecnico;
 import org.example.firebase;
-
 import javax.swing.*;
-import java.util.Collection;
 import java.util.Optional;
 import java.util.concurrent.ExecutionException;
 
