@@ -35,10 +35,10 @@ public class EliminarCliente extends javax.swing.JPanel {
     }
 
     private void eliminarClientePorRut(String rut) {
-       try {
-           Firestore db = firebaseInstance.getFirestore();
-           CollectionReference collectionRef = db.collection("Registro De Clientes");
-
+        Firestore db = firebaseInstance.getFirestore();
+        CollectionReference collectionRef = db.collection("Registro De Clientes");
+        
+        try {
            ApiFuture<QuerySnapshot> query = collectionRef.whereEqualTo("Rut", rut).get();
            QuerySnapshot querySnapshot = query.get();
 
