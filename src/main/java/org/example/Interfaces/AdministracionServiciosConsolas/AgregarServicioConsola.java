@@ -7,9 +7,7 @@ package org.example.Interfaces.AdministracionServiciosConsolas;
 import org.example.*;
 import org.example.Errores.ErrorHandler;
 import org.example.Errores.ValorInvalidoException;
-import org.example.Interfaces.AdministracionServiciosPc.ServiciosPc;
 import org.example.Interfaces.InicioSesion.InicioSesion;
-
 import javax.swing.*;
 import java.util.Optional;
 
@@ -31,7 +29,6 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
     }
 
     public AgregarServicioConsola() {
-
     }
 
     public void AgregarServiciosParaConsolas() {
@@ -66,7 +63,6 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
         }
     }
 
-
     public boolean validateCampos(String nombre, String tiempoEstimado, String modeloDeConsola, String marcaConsola) {
         return !isEmpty(nombre) && !isEmpty(tiempoEstimado) && !isEmpty(modeloDeConsola) && !isEmpty(marcaConsola);
     }
@@ -82,9 +78,6 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
             return Optional.empty();
         }
     }
-
-
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -199,8 +192,7 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
 
 
     }//GEN-LAST:event_btnAgregarServicioConsolasActionPerformed
-
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarServicioConsolas;
     private javax.swing.JLabel jLabel1;
