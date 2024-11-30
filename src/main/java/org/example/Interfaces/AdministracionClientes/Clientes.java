@@ -1,17 +1,11 @@
 package org.example.Interfaces.AdministracionClientes;
-import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.*;
-import io.grpc.lb.v1.ClientStats;
 import org.example.Cliente;
 import org.example.Interfaces.InicioSesion.InicioSesion;
 import org.example.ServicioTecnico;
-import org.example.Venta;
 import org.example.firebase;
 import java.awt.BorderLayout;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -33,8 +27,6 @@ public class Clientes extends javax.swing.JPanel {
         PanelCliente.repaint(); 
      }
 
-
-
     /**
      * Creates new form Clientes
      */
@@ -55,7 +47,6 @@ public class Clientes extends javax.swing.JPanel {
                   lista -> {
                       DefaultTableModel model = (DefaultTableModel)  TablaClientes.getModel();
                       model.setRowCount(0);
-
                       lista.stream()
                               .map(cliente -> new Object[]{
                                       cliente.getNombre(),
@@ -149,8 +140,6 @@ public class Clientes extends javax.swing.JPanel {
         MostrarPanelCliente(agcli);
     }
 
-   
-
     private void BotonEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {
         EliminarCliente elicli = new EliminarCliente (firebaseInstance);
         MostrarPanelCliente(elicli);
@@ -158,10 +147,8 @@ public class Clientes extends javax.swing.JPanel {
 
     private javax.swing.JButton BotonAgregarCliente;
     private javax.swing.JButton BotonEliminarCliente;
-   
     private javax.swing.JPanel PanelCliente;
     private javax.swing.JTable TablaClientes;
-
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
