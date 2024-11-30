@@ -113,7 +113,6 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         if(!productoYaEnCarrito){
             modeloTablaCarrito.addRow(new Object[]{nombre,1,precio,precio});
         }
-
         actualizarTotales();
     }
 
@@ -129,13 +128,8 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         txtTotal.setText(String.format("$ %.2f", total));
     }
 
-    private boolean validarRut(String rut) {
-        return rut.matches("\\d{7,8}-[\\dkK]");
-    }
-
     public void guardarVenta() {
 
-        // se leen los  diferentes campos de texto
         String rutCliente = txtRutCliente.getText();
         System.out.println(" rut ingresado"+rutCliente);
 
@@ -144,16 +138,12 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         String fechaVenta = txtFecha.getText();
         String totalVenta = txtTotal.getText();
         String totalIva = txtIVA.getText();
-        String rut = txtRutCliente.getText();
-
-        // aqui se ingresan los parametros
 
         if (rutCliente.isEmpty() || nombreCliente.isEmpty() || apellidoCliente.isEmpty() || fechaVenta.isEmpty() || totalVenta.isEmpty() || totalIva.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Debe ingresar el rut de el cliente y obtener sus datos primero.");
             return;
         }
 
-        // se leen las filas de la tabla para ver los productos
         DefaultTableModel modeloTabla = (DefaultTableModel) TablaCarrito.getModel();
         int filas = modeloTabla.getRowCount();
 
@@ -161,31 +151,23 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
             String nombreProducto = (String) modeloTabla.getValueAt(i, 0);
             int cantidadProducto = (int) modeloTabla.getValueAt(i, 1);
 
-
             try {
-                // se lee los productos de el carrito de compras y se busca en la base de datos
-
                 WriteBatch batch = db.batch();
                 Firestore db = firebaseInstance.getFirestore();
                 Query query = db.collection("Registro de Producto").whereEqualTo("Nombre", nombreProducto);
                 ApiFuture<QuerySnapshot> future = query.get();
                 QuerySnapshot querySnapshot = future.get();
 
-
-                // dependiendo de el stock se colocan las condiciones
-                // se reduce el stock de el producto y se actualiza con el comando batch
-
                 if (!querySnapshot.isEmpty()) {
                     DocumentSnapshot documentoProducto = querySnapshot.getDocuments().get(0);
                     int stockActual = documentoProducto.getLong("Stock").intValue();
-
 
                     if (stockActual >= cantidadProducto) {
                         Map<String, Object> datosActualizar = new HashMap<>();
                         datosActualizar.put("Stock", stockActual - cantidadProducto);
 
                         batch.update(documentoProducto.getReference(),datosActualizar);
-                        // si el stock de el producto llega a 0 el producto se elimina de la base de datos
+
                         if (stockActual-cantidadProducto == 0){
                             batch.delete(documentoProducto.getReference());
                         }
@@ -205,21 +187,8 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
             }
 
         }
-
-        // se registra la venta en la firebase
         servicioTecnico.registrarVenta(nombreCliente,apellidoCliente,fechaVenta,totalIva,totalVenta,rutCliente,firebaseInstance);
         JOptionPane.showMessageDialog(null,"Se registro la venta ");
-    }
-
-
-    private String obtenerProductosDelCarrito(){
-        StringBuilder productos = new StringBuilder();
-        for (int i = 0; i < modeloTablaCarrito.getRowCount(); i++) {
-            String nombre = (String) modeloTablaCarrito.getValueAt(i, 0);
-            int cantidad = (int) modeloTablaCarrito.getValueAt(i, 1);
-            productos.append(nombre).append(" x").append(cantidad).append(", ");
-        }
-        return productos.toString();
     }
 
     public void cargarInformacionCliente(){
@@ -234,7 +203,6 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "No se encontró el cliente con el RUT ingresado");
         }
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.

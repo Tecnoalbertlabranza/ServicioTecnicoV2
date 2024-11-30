@@ -30,9 +30,10 @@ public class EliminarServiciosPc extends javax.swing.JPanel {
     }
 
     public void eliminarServicioPcConNombre(String nombre){
+        Firestore db = firebaseInstance.getFirestore();
+        CollectionReference collectionRef = db.collection("Registro de servicio computador");
+        
         try {
-            Firestore db = firebaseInstance.getFirestore();
-            CollectionReference collectionRef = db.collection("Registro de servicio computador");
             ApiFuture<QuerySnapshot> query = collectionRef.whereEqualTo("Nombre", nombre).get();
             QuerySnapshot querySnapshot = query.get();
             System.out.println("Consultando Servicios para Pc con nombre : " + nombre);
