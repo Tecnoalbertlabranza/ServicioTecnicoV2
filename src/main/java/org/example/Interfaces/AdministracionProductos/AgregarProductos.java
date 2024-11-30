@@ -5,11 +5,8 @@
 package org.example.Interfaces.AdministracionProductos;
 
 import org.example.Interfaces.InicioSesion.InicioSesion;
-import org.example.Interfaces.PaginaPrincipal;
-import org.example.Producto;
 import org.example.ServicioTecnico;
 import org.example.firebase;
-
 import javax.swing.*;
 import java.util.List;
 import java.util.Optional;
@@ -35,7 +32,6 @@ public class AgregarProductos extends javax.swing.JPanel {
     }
 
     public AgregarProductos() {
-
     }
 
     public void agregarNuevoProducto() {
