@@ -75,7 +75,7 @@ public class ServiciosParaConsolasCliente extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombre", "Tiempo Estimado", "Valor Servicio", "Modelo Consola","Marca Consola"
             }
         ));
         jScrollPane1.setViewportView(TablaServicioConsolasClientes);
