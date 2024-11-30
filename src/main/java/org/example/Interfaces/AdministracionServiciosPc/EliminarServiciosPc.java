@@ -29,14 +29,14 @@ public class EliminarServiciosPc extends javax.swing.JPanel {
         initComponents();
     }
 
-    public void eliminarServicioPcConNombre(String nombre){
+    public void eliminarServicioPcConNombre(String nombre) {
         Firestore db = firebaseInstance.getFirestore();
         CollectionReference collectionRef = db.collection("Registro de servicio computador");
-        
+
         try {
             ApiFuture<QuerySnapshot> query = collectionRef.whereEqualTo("Nombre", nombre).get();
             QuerySnapshot querySnapshot = query.get();
-            System.out.println("Consultando Servicios para Pc con nombre : " + nombre);
+            System.out.println("Consultando Servicios para Pc con nombre: " + nombre);
 
             if (!querySnapshot.isEmpty()) {
                 querySnapshot.getDocuments().stream()
@@ -44,23 +44,34 @@ public class EliminarServiciosPc extends javax.swing.JPanel {
                         .forEach(documentRef -> {
                             try {
                                 documentRef.delete().get();
-                                System.out.println("Servicios Pc con nombre  " + nombre + " eliminado de la Firebase");
-                            } catch (InterruptedException | ExecutionException e) {
-                                e.printStackTrace();
-                                System.err.println("Error durante la operación: " + e.getMessage());
+                                System.out.println("Servicios Pc con nombre " + nombre + " eliminado de la Firebase");
+                            } catch (InterruptedException e) {
+                                Thread.currentThread().interrupt(); // Restablecer el estado de interrupción del hilo
+                                System.err.println("Operación interrumpida: " + e.getMessage());
+                                JOptionPane.showMessageDialog(null, "Ocurrió un error al intentar eliminar el servicio: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                            } catch (ExecutionException e) {
+                                System.err.println("Error de ejecución: " + e.getCause());
+                                JOptionPane.showMessageDialog(null, "Error al eliminar el servicio: " + e.getCause(), "Error", JOptionPane.ERROR_MESSAGE);
                             }
                         });
-                JOptionPane.showMessageDialog(null, "Servicios Pc con nombre" + nombre + " eliminado de la Firebase");
-                JOptionPane.showMessageDialog(null, "Para recargar la tabla presione el boton (Servicios Pc)");
+                JOptionPane.showMessageDialog(null, "Servicios Pc con nombre " + nombre + " eliminado de la Firebase");
+                JOptionPane.showMessageDialog(null, "Para recargar la tabla presione el botón (Servicios Pc)");
             } else {
                 JOptionPane.showMessageDialog(null, "No hay Servicios Pc con nombre " + nombre + " en la Firebase");
                 System.out.println("No se encontró un servicio con nombre " + nombre);
             }
-        } catch (InterruptedException | ExecutionException e) {
-            e.printStackTrace();
-            System.err.println("Error durante la operación: " + e.getMessage());
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt(); // Restablecer el estado de interrupción del hilo
+            System.err.println("Operación interrumpida al consultar servicios: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Operación interrumpida: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (ExecutionException e) {
+            System.err.println("Error de ejecución al consultar servicios: " + e.getCause());
+            JOptionPane.showMessageDialog(null, "Error al consultar servicios: " + e.getCause(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            System.out.println("Finalizando operación para eliminar servicio con nombre: " + nombre);
         }
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
