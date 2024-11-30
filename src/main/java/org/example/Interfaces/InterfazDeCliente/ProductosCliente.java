@@ -62,7 +62,7 @@ public class ProductosCliente extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Productos");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, -1, -1));
 
         TablaProductosCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -72,15 +72,15 @@ public class ProductosCliente extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Nombre", "Categoria", "Valor", "Stock"
+                    "Nombre", "Categoria", "Valor", "Stock"
             }
         ));
         jScrollPane1.setViewportView(TablaProductosCliente);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 550, 340));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 790, 330));
 
         jLabel2.setText("<html><center>Aqi puede ver todos los productos disponibles dentro de el servicio tecnico");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 220, 200));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 190, 250));
     }// </editor-fold>//GEN-END:initComponents
 
 

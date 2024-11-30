@@ -68,7 +68,7 @@ public class ServiciosParaPcCliente extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Servicios Para Pc Disponible");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 190, 40));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 190, 40));
 
         TablaServicioParaPc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -77,16 +77,16 @@ public class ServiciosParaPcCliente extends javax.swing.JPanel {
                 {null, null, null, null},
                 {null, null, null, null}
             },
-            new String []
-                    {"Nombre", "Valor", "Tiempo Estimado", "Tipo Computadora", "Linea de procesador", "Uso de computadora"
+            new String [] {
+                    "Nombre", "Valor", "Tiempo Estimado", "Tipo Computadora", "Linea de procesador", "Uso de computadora"
             }
         ));
         jScrollPane1.setViewportView(TablaServicioParaPc);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 560, 360));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 780, 350));
 
         jLabel2.setText("<html><center>En este menu usted podra ver todos los servicios, actualizacines , modificaciones y reparaciones disponibles para su computadora , recuerde si busca alguno de los servicios de la lista no dude en dirigirse al servicio tecnico");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 290, 290));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 250, 280));
     }// </editor-fold>//GEN-END:initComponents
 
 
