@@ -98,7 +98,7 @@ public class InicioSesion extends JFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, -1, -1));
         getContentPane().add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 230, 30));
 
-        jLabel4.setText("Ingrese Su Rut");
+        jLabel4.setText("Ingrese Su Rut ( SIN PUNTO NI GUION )");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, -1, -1));
 
         txtIngresoDeRut.addActionListener(new java.awt.event.ActionListener() {

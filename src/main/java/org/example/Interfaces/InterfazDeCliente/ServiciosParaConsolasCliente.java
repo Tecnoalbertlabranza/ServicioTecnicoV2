@@ -66,7 +66,7 @@ public class ServiciosParaConsolasCliente extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Servicios Disiponibles Para Las Consolas");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 230, 30));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, 230, 30));
 
         TablaServicioConsolasClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -81,7 +81,7 @@ public class ServiciosParaConsolasCliente extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(TablaServicioConsolasClientes);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 510, 350));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 510, 350));
 
         jLabel2.setText("<html><center>Aqui podra ver todos los servicios, actualizaciones y reparaciones para cualquiera de sus consolas de videojuegos");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 240, 230));

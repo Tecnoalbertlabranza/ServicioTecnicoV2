@@ -37,7 +37,7 @@ public class ComprasHechasCliente extends javax.swing.JPanel {
         if (cliente != null) {
             TablaVentasCliente.setModel(new javax.swing.table.DefaultTableModel(
                     new Object[][]{},
-                    new String[]{"Fecha", "Total"}
+                    new String[]{"Fecha", "Total","IVA"}
             ));
 
             txtNombreCliente.setText(cliente.getNombre());
@@ -46,7 +46,7 @@ public class ComprasHechasCliente extends javax.swing.JPanel {
             txtEmailCliente.setText(cliente.getEmail());
 
             for (Venta venta : cliente.getVentascliente()) {
-                ((DefaultTableModel) TablaVentasCliente.getModel()).addRow(new Object[]{venta.getFechaVenta(), venta.getTotal()});
+                ((DefaultTableModel) TablaVentasCliente.getModel()).addRow(new Object[]{venta.getFechaVenta(), venta.getTotal(),venta.getIva()});
             }
 
         } else {

@@ -145,7 +145,7 @@ public class AgregarCliente extends javax.swing.JPanel {
         jLabel1.setText("Ingrese los datos del nuevo cliente");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 190, 30));
 
-        jLabel2.setText("Nombre");
+        jLabel2.setText("Nombre (Primera Letra En Mayuscula)");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
 
         txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -156,7 +156,7 @@ public class AgregarCliente extends javax.swing.JPanel {
         });
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 220, 30));
 
-        jLabel3.setText("Apellido");
+        jLabel3.setText("Apellido (Primera Letra En Mayuscula)");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
 
         txtApellido.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -197,7 +197,7 @@ public class AgregarCliente extends javax.swing.JPanel {
         });
         jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 220, 30));
 
-        jLabel6.setText("Rut ( Sin puntos y con guion )");
+        jLabel6.setText("Rut (En el formato que quiera)");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
 
         txtRut.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -230,7 +230,7 @@ public class AgregarCliente extends javax.swing.JPanel {
         });
         jPanel1.add(txtComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 220, 30));
 
-        jLabel9.setText("Contraseña");
+        jLabel9.setText("Contraseña (Debe Tener Minimo una letra minuscula y una mayuscula)");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, -1, -1));
         jPanel1.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 220, 30));
 

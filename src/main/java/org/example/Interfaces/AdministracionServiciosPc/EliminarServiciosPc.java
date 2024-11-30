@@ -53,6 +53,7 @@ public class EliminarServiciosPc extends javax.swing.JPanel {
                             }
                         });
                 JOptionPane.showMessageDialog(null, "Servicios Pc con nombre" + nombre + " eliminado de la Firebase");
+                JOptionPane.showMessageDialog(null, "Para recargar la tabla presione el boton (Servicios Pc)");
             } else {
                 JOptionPane.showMessageDialog(null, "No hay Servicios Pc con nombre " + nombre + " en la Firebase");
                 System.out.println("No se encontró un servicio con nombre " + nombre);
