@@ -9,6 +9,8 @@ import org.example.Producto;
 import org.example.ServicioTecnico;
 
 import javax.swing.table.DefaultTableModel;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -28,14 +30,17 @@ public class ProductosCliente extends javax.swing.JPanel {
     }
 
     private void cargarProductosATabla(){
-
         DefaultTableModel model = (DefaultTableModel) TablaProductosCliente.getModel();
         model.setRowCount(0);
-
-        for(Producto producto : servicioTecnico.getProductos()){
-            Object[] fila = {producto.getNombreProducto(), producto.getCategoriaProducto(), producto.getValorProducto(), producto.getStockProducto()};
-            model.addRow(fila);
-        }
+    
+        List<Producto> productos = servicioTecnico.getProductos().stream().collect(Collectors.toList());
+    
+        productos.stream()
+                .map(producto -> new Object[]{producto.getNombreProducto(),
+                        producto.getCategoriaProducto(),
+                        producto.getValorProducto(),
+                        producto.getStockProducto()})
+                .forEach(fila -> model.addRow(fila));
     }
 
     /**
@@ -53,6 +58,7 @@ public class ProductosCliente extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 255, 153));
+        setPreferredSize(new java.awt.Dimension(1100, 420));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Productos");
@@ -66,7 +72,7 @@ public class ProductosCliente extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombre", "Categoria", "Valor", "Stock"
             }
         ));
         jScrollPane1.setViewportView(TablaProductosCliente);
