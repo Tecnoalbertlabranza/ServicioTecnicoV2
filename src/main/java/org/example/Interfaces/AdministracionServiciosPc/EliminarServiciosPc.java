@@ -9,9 +9,7 @@ import com.google.cloud.firestore.CollectionReference;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
-import org.example.Interfaces.AdministracionServiciosConsolas.ServiciosConsolas;
 import org.example.firebase;
-
 import javax.swing.*;
 import java.util.concurrent.ExecutionException;
 
@@ -21,7 +19,6 @@ import java.util.concurrent.ExecutionException;
  */
 public class EliminarServiciosPc extends javax.swing.JPanel {
     private firebase firebaseInstance;
-
 
     /**
      * Creates new form EliminarServiciosPc
@@ -110,7 +107,6 @@ public class EliminarServiciosPc extends javax.swing.JPanel {
         String nombre = txtNombreServicioPcEliminar.getText();
 eliminarServicioPcConNombre(nombre);
     }//GEN-LAST:event_btnEliminarServicioPcActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEliminarServicioPc;

@@ -176,7 +176,7 @@ public class ServiciosPc extends javax.swing.JPanel {
       EliminarServiciosPc eliserpc = new EliminarServiciosPc(firebaseInstance);
       MostrarPanelServiciosPc(eliserpc);
     }//GEN-LAST:event_BotonEliminarServicioActionPerformed
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAgregarServicioPc;
     private javax.swing.JButton BotonEliminarServicio;
