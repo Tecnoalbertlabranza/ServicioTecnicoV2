@@ -62,6 +62,7 @@ public class ServiciosParaConsolasCliente extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 255, 153));
+        setPreferredSize(new java.awt.Dimension(1100, 420));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Servicios Disiponibles Para Las Consolas");
@@ -75,7 +76,7 @@ public class ServiciosParaConsolasCliente extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Nombre", "Tiempo Estimado", "Valor Servicio", "Modelo Consola","Marca Consola"
+                "Nombre", "Tiempo Estimado", "Valor Servicio", "Modelo Consola", "Marca Consola"
             }
         ));
         jScrollPane1.setViewportView(TablaServicioConsolasClientes);

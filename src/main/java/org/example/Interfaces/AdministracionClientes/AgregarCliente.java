@@ -64,7 +64,7 @@ public class AgregarCliente extends javax.swing.JPanel {
                         validarUnCampo(nombre, "Nombre", v -> v.matches("^[A-Z]{1}[a-záéíóúÁÉÍÓÚñÑ]+")),
                         validarUnCampo(apellido, "Apellido", v -> v.matches("^[A-Z]{1}[a-záéíóúÁÉÍÓÚñÑ]+")),
                         validarUnCampo(telefono, "Telefono", v -> v.matches("\\d{9}|\\d{11}")),
-                        validarUnCampo(email, "Email", v -> v.matches("^[.]+@[a-zA-Z0-9]{1,15}\\.[a-zA-Z]{2,6}$")),
+                        validarUnCampo(email, "Email", v -> v.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")),
                         validarUnCampo(rut, "Rut", v -> validarRut(v)),
                         validarUnCampo(contrasena, "Contraseña", v -> v.matches("^(?=.*[a-z])(?=.*[A-Z]).{6,}$")),
                         validarUnCampo(region, "Region", v -> !v.isEmpty()),

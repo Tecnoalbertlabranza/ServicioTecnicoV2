@@ -64,6 +64,7 @@ public class ServiciosParaPcCliente extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 255, 153));
+        setPreferredSize(new java.awt.Dimension(1100, 420));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Servicios Para Pc Disponible");
@@ -76,8 +77,8 @@ public class ServiciosParaPcCliente extends javax.swing.JPanel {
                 {null, null, null, null},
                 {null, null, null, null}
             },
-            new String [] {
-                "Nombre", "Valor", "Tiempo Estimado", "Tipo Computadora", "Linea de procesador", "Uso de computadora"
+            new String []
+                    {"Nombre", "Valor", "Tiempo Estimado", "Tipo Computadora", "Linea de procesador", "Uso de computadora"
             }
         ));
         jScrollPane1.setViewportView(TablaServicioParaPc);
