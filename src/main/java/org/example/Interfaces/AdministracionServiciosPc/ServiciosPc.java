@@ -9,11 +9,9 @@ import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 import org.example.Interfaces.InicioSesion.InicioSesion;
-import org.example.Interfaces.PaginaPrincipal;
 import org.example.ServicioComputador;
 import org.example.ServicioTecnico;
 import org.example.firebase;
-
 import java.awt.BorderLayout;
 import java.util.ArrayList;
 import java.util.List;
@@ -100,8 +98,6 @@ public class ServiciosPc extends javax.swing.JPanel {
         return new ServicioComputador(nombre, valorServicioPc, tiempoEstimado, tipoComputadora, usoComputadora,lineaDeProcesador);
     }
 
-
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -180,8 +176,7 @@ public class ServiciosPc extends javax.swing.JPanel {
       EliminarServiciosPc eliserpc = new EliminarServiciosPc(firebaseInstance);
       MostrarPanelServiciosPc(eliserpc);
     }//GEN-LAST:event_BotonEliminarServicioActionPerformed
-
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAgregarServicioPc;
     private javax.swing.JButton BotonEliminarServicio;
