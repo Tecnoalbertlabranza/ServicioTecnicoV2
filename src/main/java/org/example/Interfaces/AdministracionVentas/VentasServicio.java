@@ -51,6 +51,7 @@ public class VentasServicio extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TablaVentasServicio.setModel(new javax.swing.table.DefaultTableModel(
