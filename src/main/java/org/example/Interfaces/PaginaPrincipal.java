@@ -220,8 +220,11 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel3.setBackground(new java.awt.Color(102, 153, 255));
+        jLabel3.setFont(new java.awt.Font("Stencil", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(204, 0, 204));
         jLabel3.setText("Bienvenido a Su Administrdor");
-        jPanel5.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 181, 40));
+        jPanel5.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 410, 40));
 
         jLabel1.setText("Menu Administrador");
         jPanel5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1340, 0, 111, 40));
