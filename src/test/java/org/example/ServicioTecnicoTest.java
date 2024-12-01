@@ -15,7 +15,6 @@ class ServicioTecnicoTest {
     @BeforeEach
     void setUp() {
         listaClientes = new ArrayList<>();
-
         listaClientes.add(new Cliente("Juan", "Pérez", "123456789", "juan@example.com", "123456789", "Santiago", "Providencia"));
         listaClientes.add(new Cliente("Ana", "González", "987654321", "ana@example.com", "987654321", "Valparaíso", "Viña del Mar"));
 
@@ -27,10 +26,10 @@ class ServicioTecnicoTest {
         servicioTecnico = null;
     }
 
+    //-------- DATOS CLIENTES --------
     @Test
     public void testObtenerDatosClientes() {
         String rut = "123456789";
-
         Cliente cliente = servicioTecnico.obtenerDatosDelCliente(rut);
 
         assertNotNull(cliente);
