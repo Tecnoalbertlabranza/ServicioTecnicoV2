@@ -152,28 +152,28 @@ public class AgregarProductos extends javax.swing.JPanel {
 
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
+
             }
         });
         add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 290, 30));
 
         txtCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCategoriaActionPerformed(evt);
+
             }
         });
         add(txtCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 290, 30));
 
         txtValor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtValorActionPerformed(evt);
+
             }
         });
         add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 290, 30));
 
         txtStock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtStockActionPerformed(evt);
+
             }
         });
         add(txtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 290, 30));
@@ -187,21 +187,7 @@ public class AgregarProductos extends javax.swing.JPanel {
         add(btnAgregarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 460, 150, 50));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtValorActionPerformed
 
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreActionPerformed
-
-    private void txtCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCategoriaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCategoriaActionPerformed
-
-    private void txtStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStockActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtStockActionPerformed
 
     private void btnAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarProductoActionPerformed
         agregarNuevoProducto();

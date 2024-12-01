@@ -17,6 +17,7 @@ import org.example.firebase;
 import java.awt.BorderLayout;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -57,39 +58,46 @@ public class ServiciosConsolas extends javax.swing.JPanel {
         modelotablaServicios = (DefaultTableModel) TablaServicioConsolas.getModel();
         modelotablaServicios.setRowCount(0);
 
-        List<ServicioConsolas> listaServicios = new ArrayList<>();
-
         try{
             Firestore db = firebaseInstance.getFirestore();
             ApiFuture<QuerySnapshot> future = db.collection("Registro de servicio consola").get();
             QuerySnapshot querySnapshot = future.get();
 
-            for (QueryDocumentSnapshot documet : querySnapshot.getDocuments()) {
-                String nombre = documet.getString("Nombre");
-                double valorservicio = documet.getDouble("Valor");
-                String tiempoestimado = documet.getString("TiempoEstimado");
-                String modeloconsola = documet.getString("ModeloConsola");
-                String marcaconsola = documet.getString("MarcaConsola");
+            List<ServicioConsolas> listaServicios = querySnapshot.
+                    getDocuments()
+                    .stream()
+                    .map(doc ->{
+                        String nombre = doc.getString("Nombre");
+                        double valorservicio = doc.getDouble("Valor");
+                        String tiempoestimado = doc.getString("TiempoEstimado");
+                        String modeloconsola = doc.getString("ModeloConsola");
+                        String marcaconsola = doc.getString("MarcaConsola");
 
-                ServicioConsolas serviciosConsola = new ServicioConsolas(nombre,valorservicio,tiempoestimado,modeloconsola,marcaconsola);
-                listaServicios.add(serviciosConsola);
-                modelotablaServicios.addRow(new Object[]{nombre,valorservicio,tiempoestimado,modeloconsola,marcaconsola});
-            }
-           servicioTecnico.setServiciosConsola(listaServicios);
+                        return new ServicioConsolas(nombre, valorservicio, tiempoestimado, modeloconsola, marcaconsola);
+                    })
+                            .collect(Collectors.toList());
 
+            servicioTecnico.setServiciosConsola(listaServicios);
             System.out.println("Servicios consola existentes");
-            for (ServicioConsolas serviciosConsola : listaServicios){
-                System.out.println(serviciosConsola);
-            }
+
+            listaServicios.forEach(servicioConsolas -> {
+                modelotablaServicios.addRow(new Object[]{
+                        servicioConsolas.getNombre(),
+                        servicioConsolas.getValorServicio(),
+                        servicioConsolas.getTiempoEstimado(),
+                        servicioConsolas.getModeloConsola(),
+                        servicioConsolas.getMarcaConsola()
+
+                });
+                System.out.println(servicioConsolas);
+            });
+
         }catch (Exception e){
             e.printStackTrace();
             System.out.println("Error al cargar datos"+ e.getMessage());
         }
     }
 
-    public void refrescarTablaConsolas(){
-        cargarServiciosConsolasDesdeFirebase();
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.

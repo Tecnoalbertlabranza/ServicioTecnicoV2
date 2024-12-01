@@ -123,7 +123,7 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
 
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
+
             }
         });
         add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 230, 30));
@@ -135,7 +135,7 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
 
         txtValorServicioPc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtValorServicioPcActionPerformed(evt);
+
             }
         });
         add(txtValorServicioPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 230, 30));
@@ -147,7 +147,7 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
 
         txtTiempoEstimado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTiempoEstimadoActionPerformed(evt);
+
             }
         });
         add(txtTiempoEstimado, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 230, 30));
@@ -159,7 +159,7 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
 
         txtTipoDeComputador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTipoDeComputadorActionPerformed(evt);
+
             }
         });
         add(txtTipoDeComputador, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 230, 30));
@@ -171,7 +171,7 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
 
         txtUsoDeComputadora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsoDeComputadoraActionPerformed(evt);
+
             }
         });
         add(txtUsoDeComputadora, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 230, 30));
@@ -190,26 +190,6 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 130, 20));
         add(txtLineaDeProcesador, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 230, 30));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtUsoDeComputadoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsoDeComputadoraActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsoDeComputadoraActionPerformed
-
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreActionPerformed
-
-    private void txtValorServicioPcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorServicioPcActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtValorServicioPcActionPerformed
-
-    private void txtTiempoEstimadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTiempoEstimadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTiempoEstimadoActionPerformed
-
-    private void txtTipoDeComputadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTipoDeComputadorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTipoDeComputadorActionPerformed
 
     private void btnAgregarServiciosPcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarServiciosPcActionPerformed
         AgregarServicioParaPc();

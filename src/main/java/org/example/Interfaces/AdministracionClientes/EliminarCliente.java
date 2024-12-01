@@ -97,9 +97,7 @@ public class EliminarCliente extends javax.swing.JPanel {
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, 20));
 
         txtEliminarClientePorRut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEliminarClientePorRutActionPerformed(evt);
-            }
+            public void actionPerformed(java.awt.event.ActionEvent evt) {}
         });
         add(txtEliminarClientePorRut, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 290, 30));
 
@@ -113,10 +111,6 @@ public class EliminarCliente extends javax.swing.JPanel {
         });
         add(BtnEliminarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 210, 80));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtEliminarClientePorRutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEliminarClientePorRutActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEliminarClientePorRutActionPerformed
 
     private void BtnEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarClienteActionPerformed
          String rut = txtEliminarClientePorRut.getText().trim();

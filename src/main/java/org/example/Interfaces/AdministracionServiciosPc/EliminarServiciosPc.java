@@ -102,7 +102,7 @@ public class EliminarServiciosPc extends javax.swing.JPanel {
 
         txtNombreServicioPcEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreServicioPcEliminarActionPerformed(evt);
+
             }
         });
         add(txtNombreServicioPcEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 380, 60));
@@ -119,9 +119,7 @@ public class EliminarServiciosPc extends javax.swing.JPanel {
         add(btnEliminarServicioPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 210, 60));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNombreServicioPcEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreServicioPcEliminarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreServicioPcEliminarActionPerformed
+
 
     private void btnEliminarServicioPcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarServicioPcActionPerformed
         String nombre = txtNombreServicioPcEliminar.getText();

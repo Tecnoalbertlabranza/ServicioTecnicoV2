@@ -116,7 +116,7 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
 
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
+
             }
         });
         add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 220, 30));
@@ -128,7 +128,7 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
 
         txtValor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtValorActionPerformed(evt);
+
             }
         });
         add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 220, 30));
@@ -140,7 +140,7 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
 
         txtTiempoEstimado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTiempoEstimadoActionPerformed(evt);
+
             }
         });
         add(txtTiempoEstimado, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 220, 30));
@@ -152,7 +152,7 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
 
         txtModeloDeConsola.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtModeloDeConsolaActionPerformed(evt);
+
             }
         });
         add(txtModeloDeConsola, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 220, 30));
@@ -164,7 +164,7 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
 
         txtMarcaConsola.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMarcaConsolaActionPerformed(evt);
+
             }
         });
         add(txtMarcaConsola, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 220, 30));
@@ -181,31 +181,9 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
         add(btnAgregarServicioConsolas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 180, 50));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtTiempoEstimadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTiempoEstimadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTiempoEstimadoActionPerformed
-
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreActionPerformed
-
-    private void txtValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtValorActionPerformed
-
-    private void txtModeloDeConsolaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtModeloDeConsolaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtModeloDeConsolaActionPerformed
-
-    private void txtMarcaConsolaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMarcaConsolaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMarcaConsolaActionPerformed
 
     private void btnAgregarServicioConsolasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarServicioConsolasActionPerformed
-
         AgregarServiciosParaConsolas();
-
-
     }//GEN-LAST:event_btnAgregarServicioConsolasActionPerformed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

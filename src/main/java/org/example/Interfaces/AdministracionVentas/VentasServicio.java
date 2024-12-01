@@ -7,6 +7,7 @@ package org.example.Interfaces.AdministracionVentas;
 import org.example.ServicioTecnico;
 import org.example.Venta;
 
+import javax.swing.table.DefaultTableModel;
 import java.util.List;
 
 /**
@@ -29,11 +30,17 @@ public class VentasServicio extends javax.swing.JPanel {
     public void cargarVentasLocalesServicioTecnico(){
         List<Venta> listaVentas = servicioTecnico.getListaVentas();
 
-        String[] columnas = {"FechaVenta","Iva","Total"};
-        Object[][] data = listaVentas.stream()
-                        .map(venta -> new Object[]{venta.getFechaVenta(),venta.getIva(),venta.getTotal()})
-                                .toArray(Object[][]::new);
-        TablaVentasServicio.setModel(new javax.swing.table.DefaultTableModel(data, columnas));
+        DefaultTableModel modeloTablaVentas = (DefaultTableModel) TablaVentasServicio.getModel();
+        modeloTablaVentas.setRowCount(0);
+
+        listaVentas.forEach(venta -> {
+            Object[] rowData = {
+                    venta.getFechaVenta(),
+                    venta.getIva(),
+                    venta.getTotal()
+            };
+            modeloTablaVentas.addRow(rowData);
+        });
     }
 
     /**
@@ -62,7 +69,7 @@ public class VentasServicio extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Fecha De Venta", "IVA", "Total De Venta"
             }
         ));
         jScrollPane1.setViewportView(TablaVentasServicio);
