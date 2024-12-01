@@ -37,7 +37,7 @@ public class InicioSesion extends JFrame {
     private void iniciarSesion(String rut) {
         String emailIngresado = txtCorreoElectronico.getText();
         String rutIngresado = rut;
-        String contrasenaIngresada = txtContrasena.getText();
+        String contrasenaIngresada = txtContraseña.getText();
         System.out.println("RUT ingresado: " + rutIngresado);
 
         VerificacionCliente cliente = new VerificacionCliente(this, firebaseInstance, rutIngresado, emailIngresado, contrasenaIngresada);
@@ -209,6 +209,6 @@ public class InicioSesion extends JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtContraseña;
     private javax.swing.JTextField txtCorreoElectronico;
-    private javax.swing.JTextField txtIngresoDeRut;
+    private static javax.swing.JTextField txtIngresoDeRut;
     // End of variables declaration//GEN-END:variables
 }
