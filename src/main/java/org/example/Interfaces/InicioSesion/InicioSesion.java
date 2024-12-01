@@ -88,41 +88,41 @@ public class InicioSesion extends JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtCorreoElectronico.setBackground(new java.awt.Color(204, 204, 255));
-        txtCorreoElectronico.setFont(new java.awt.Font("Stencil", 0, 12)); // NOI18N
+        txtCorreoElectronico.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
         txtCorreoElectronico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCorreoElectronicoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtCorreoElectronico, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 230, 30));
+        getContentPane().add(txtCorreoElectronico, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 340, 40));
 
-        jLabel2.setFont(new java.awt.Font("Stencil", 0, 10)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Stencil", 0, 14)); // NOI18N
         jLabel2.setText("Ingrese su correo electronico");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 200, 30));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 290, 30));
 
-        jLabel3.setFont(new java.awt.Font("Stencil", 0, 10)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Stencil", 0, 14)); // NOI18N
         jLabel3.setText("Ingrese contraseña");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, -1, -1));
 
         txtContraseña.setBackground(new java.awt.Color(204, 204, 255));
-        txtContraseña.setFont(new java.awt.Font("Stencil", 0, 12)); // NOI18N
-        getContentPane().add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 230, 30));
+        txtContraseña.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
+        getContentPane().add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 340, 40));
 
-        jLabel4.setFont(new java.awt.Font("Stencil", 0, 10)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Stencil", 0, 14)); // NOI18N
         jLabel4.setText("Ingrese Su Rut");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, -1));
 
         txtIngresoDeRut.setBackground(new java.awt.Color(204, 204, 255));
-        txtIngresoDeRut.setFont(new java.awt.Font("Stencil", 0, 12)); // NOI18N
+        txtIngresoDeRut.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
         txtIngresoDeRut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIngresoDeRutActionPerformed(evt);
             }
         });
-        getContentPane().add(txtIngresoDeRut, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, 230, 30));
+        getContentPane().add(txtIngresoDeRut, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 340, 40));
 
         btnIngresar.setBackground(new java.awt.Color(102, 153, 255));
-        btnIngresar.setFont(new java.awt.Font("Stencil", 1, 12)); // NOI18N
+        btnIngresar.setFont(new java.awt.Font("Stencil", 1, 18)); // NOI18N
         btnIngresar.setForeground(new java.awt.Color(255, 255, 255));
         btnIngresar.setText("Iniciar Sesion");
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
@@ -130,7 +130,7 @@ public class InicioSesion extends JFrame {
                 btnIngresarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 460, 220, 70));
+        getContentPane().add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 460, 230, 60));
 
         jPanel1.setBackground(new java.awt.Color(102, 153, 255));
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
