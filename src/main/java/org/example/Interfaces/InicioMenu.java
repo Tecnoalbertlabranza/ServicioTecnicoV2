@@ -31,22 +31,22 @@ public class InicioMenu extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
 
-        setBackground(new java.awt.Color(153, 255, 153));
+        setBackground(new java.awt.Color(102, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Stencil", 1, 24)); // NOI18N
         jLabel2.setText("Bienvenido a su administrador de servicio tecnico");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 830, 70));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 830, 70));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Stencil", 1, 24)); // NOI18N
         jLabel1.setText("<html><center>Dentro de este sistema usted podra administrar sus diferentes servicios , Ingresar clientes y sobredodo adminsitrar sus ventras e ingresos");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 540, 310));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 540, 310));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Stencil", 1, 18)); // NOI18N
         jLabel3.setText("<html><center>Atravez de los siguientes menus usted podra acceder a los diferentes administradores ");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 260, 420, 100));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 180, 420, 100));
 
-        jPanel1.setBackground(new java.awt.Color(51, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 590));
     }// </editor-fold>//GEN-END:initComponents
 
