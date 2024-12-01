@@ -40,7 +40,7 @@ public class InicioSesion extends JFrame {
         System.out.println("RUT ingresado: " + rutIngresado);
 
         VerificacionCliente cliente = new VerificacionCliente(this, firebaseInstance, rutIngresado, emailIngresado, contrasenaIngresada);
-        VerificacionAdministrador administrador = new VerificacionAdministrador(this, firebaseInstance, rutIngresado, emailIngresado, contrasenaIngresada);
+        VerificacionAdministrador administrador = new VerificacionAdministrador(this, firebaseInstance, rutIngresado, emailIngresado, contrasenaIngresada,servicioTecnico);
 
         if (!cliente.IniciarSesion()) {
             if (!administrador.IniciarSesion()) {

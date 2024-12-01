@@ -1,6 +1,6 @@
 package org.example;
 
-public class Administradores  {
+public class Administradores {
 	private String nombre;
 	private String rut;
 	private String contrasena;
@@ -53,5 +53,16 @@ public class Administradores  {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	@Override
+	public String toString() {
+		return "Administradores{" +
+				"nombre='" + nombre + '\'' +
+				", rut='" + rut + '\'' +
+				", contrasena='" + contrasena + '\'' +
+				", apellido='" + apellido + '\'' +
+				", email='" + email + '\'' +
+				'}';
 	}
 }
