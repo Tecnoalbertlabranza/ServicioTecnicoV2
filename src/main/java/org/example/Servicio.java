@@ -17,7 +17,7 @@ public abstract class  Servicio {
 	public String getTiempoEstimado() {
 		return tiempoEstimado;
 	}
-	
+
 	public String getNombre() {
 		return nombre;
 	}
