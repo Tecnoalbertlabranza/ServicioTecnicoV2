@@ -71,10 +71,11 @@ public class InicioSesion extends JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
         txtCorreoElectronico = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtContrasena = new javax.swing.JTextField();
+        txtContraseña = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtIngresoDeRut = new javax.swing.JTextField();
         btnIngresar = new javax.swing.JButton();
@@ -82,8 +83,12 @@ public class InicioSesion extends JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(153, 153, 255));
+        setForeground(new java.awt.Color(204, 204, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txtCorreoElectronico.setBackground(new java.awt.Color(204, 204, 255));
+        txtCorreoElectronico.setFont(new java.awt.Font("Stencil", 0, 12)); // NOI18N
         txtCorreoElectronico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCorreoElectronicoActionPerformed(evt);
@@ -91,16 +96,24 @@ public class InicioSesion extends JFrame {
         });
         getContentPane().add(txtCorreoElectronico, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 230, 30));
 
+        jLabel2.setFont(new java.awt.Font("Stencil", 0, 10)); // NOI18N
         jLabel2.setText("Ingrese su correo electronico");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 160, 30));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 200, 30));
 
+        jLabel3.setFont(new java.awt.Font("Stencil", 0, 10)); // NOI18N
         jLabel3.setText("Ingrese contraseña");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, -1, -1));
-        getContentPane().add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 230, 30));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, -1, -1));
 
-        jLabel4.setText("Ingrese Su Rut ( SIN PUNTO NI GUION )");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, -1, -1));
+        txtContraseña.setBackground(new java.awt.Color(204, 204, 255));
+        txtContraseña.setFont(new java.awt.Font("Stencil", 0, 12)); // NOI18N
+        getContentPane().add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 230, 30));
 
+        jLabel4.setFont(new java.awt.Font("Stencil", 0, 10)); // NOI18N
+        jLabel4.setText("Ingrese Su Rut");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, -1, -1));
+
+        txtIngresoDeRut.setBackground(new java.awt.Color(204, 204, 255));
+        txtIngresoDeRut.setFont(new java.awt.Font("Stencil", 0, 12)); // NOI18N
         txtIngresoDeRut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIngresoDeRutActionPerformed(evt);
@@ -108,6 +121,9 @@ public class InicioSesion extends JFrame {
         });
         getContentPane().add(txtIngresoDeRut, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, 230, 30));
 
+        btnIngresar.setBackground(new java.awt.Color(102, 153, 255));
+        btnIngresar.setFont(new java.awt.Font("Stencil", 1, 12)); // NOI18N
+        btnIngresar.setForeground(new java.awt.Color(255, 255, 255));
         btnIngresar.setText("Iniciar Sesion");
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,13 +132,14 @@ public class InicioSesion extends JFrame {
         });
         getContentPane().add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 460, 220, 70));
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 255));
+        jPanel1.setBackground(new java.awt.Color(102, 153, 255));
+        jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Stencil", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Inicio De Sesion");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 350, 70));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 450, 80));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 120));
 
@@ -189,8 +206,9 @@ public class InicioSesion extends JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtContrasena;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField txtContraseña;
     private javax.swing.JTextField txtCorreoElectronico;
-    private static javax.swing.JTextField txtIngresoDeRut;
+    private javax.swing.JTextField txtIngresoDeRut;
     // End of variables declaration//GEN-END:variables
 }

@@ -100,6 +100,8 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jColorChooser1 = new javax.swing.JColorChooser();
+        jColorChooser2 = new javax.swing.JColorChooser();
         jPanel2 = new javax.swing.JPanel();
         content = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -132,49 +134,69 @@ public class PaginaPrincipal extends javax.swing.JFrame {
 
         jPanel2.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1500, 590));
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 0, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        BotonProductos.setBackground(new java.awt.Color(102, 153, 255));
+        BotonProductos.setFont(new java.awt.Font("Stencil", 1, 12)); // NOI18N
+        BotonProductos.setForeground(new java.awt.Color(255, 255, 255));
         BotonProductos.setText("Productos");
         BotonProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonProductosActionPerformed(evt);
             }
         });
-        jPanel1.add(BotonProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 112, 42));
+        jPanel1.add(BotonProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 112, 50));
 
+        BotonServiciosConsolas.setBackground(new java.awt.Color(102, 153, 255));
+        BotonServiciosConsolas.setFont(new java.awt.Font("Stencil", 1, 12)); // NOI18N
+        BotonServiciosConsolas.setForeground(new java.awt.Color(255, 255, 255));
         BotonServiciosConsolas.setText("Servicios para consolas");
         BotonServiciosConsolas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonServiciosConsolasActionPerformed(evt);
             }
         });
-        jPanel1.add(BotonServiciosConsolas, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, 42));
+        jPanel1.add(BotonServiciosConsolas, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, 50));
 
+        BotonCerrarSesion.setBackground(new java.awt.Color(102, 153, 255));
+        BotonCerrarSesion.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        BotonCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
         BotonCerrarSesion.setText("Cerrar Sesion");
+        BotonCerrarSesion.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BotonCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonCerrarSesionActionPerformed(evt);
             }
         });
-        jPanel1.add(BotonCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1330, 10, 121, 42));
+        jPanel1.add(BotonCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1330, 10, 150, 50));
 
+        BotonServiciosPc.setBackground(new java.awt.Color(102, 153, 255));
+        BotonServiciosPc.setFont(new java.awt.Font("Stencil", 1, 12)); // NOI18N
+        BotonServiciosPc.setForeground(new java.awt.Color(255, 255, 255));
         BotonServiciosPc.setText("Servicios para Pc");
+        BotonServiciosPc.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BotonServiciosPc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonServiciosPcActionPerformed(evt);
             }
         });
-        jPanel1.add(BotonServiciosPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, 42));
+        jPanel1.add(BotonServiciosPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 150, 50));
 
+        BotonClientes.setBackground(new java.awt.Color(102, 153, 255));
+        BotonClientes.setFont(new java.awt.Font("Stencil", 1, 12)); // NOI18N
+        BotonClientes.setForeground(new java.awt.Color(255, 255, 255));
         BotonClientes.setText("Clientes");
         BotonClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonClientesActionPerformed(evt);
             }
         });
-        jPanel1.add(BotonClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 10, 78, 42));
+        jPanel1.add(BotonClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, 100, 50));
 
+        BotonCarritoDeCompras.setBackground(new java.awt.Color(102, 153, 255));
+        BotonCarritoDeCompras.setFont(new java.awt.Font("Stencil", 1, 12)); // NOI18N
+        BotonCarritoDeCompras.setForeground(new java.awt.Color(255, 255, 255));
         BotonCarritoDeCompras.setText("Carrito De Compras");
         BotonCarritoDeCompras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,16 +205,21 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         });
         jPanel1.add(BotonCarritoDeCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, 190, 50));
 
+        botonVentas.setBackground(new java.awt.Color(102, 153, 255));
+        botonVentas.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        botonVentas.setForeground(new java.awt.Color(255, 255, 255));
         botonVentas.setText("Ventas ");
         botonVentas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonVentasActionPerformed(evt);
             }
         });
-        jPanel1.add(botonVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 10, 150, 50));
+        jPanel1.add(botonVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 10, 150, 50));
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 1500, 70));
 
+        jPanel5.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setText("Bienvenido a Su Administrdor");
@@ -298,6 +325,8 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton BotonServiciosPc;
     private javax.swing.JButton botonVentas;
     private javax.swing.JPanel content;
+    private javax.swing.JColorChooser jColorChooser1;
+    private javax.swing.JColorChooser jColorChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
