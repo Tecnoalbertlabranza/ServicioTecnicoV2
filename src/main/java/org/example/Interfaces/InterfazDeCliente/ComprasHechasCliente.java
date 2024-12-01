@@ -86,7 +86,7 @@ public class ComprasHechasCliente extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
         jLabel1.setText("En esta tabla usted podra visualizar las compras que a realizado");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -121,8 +121,10 @@ public class ComprasHechasCliente extends javax.swing.JPanel {
         jPanel1.add(txtTelefonoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 230, 30));
         jPanel1.add(txtEmailCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 230, 30));
 
+        jLabel7.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("<html><center>Aqui se mostraran sus datos personales y sus compras en la tabla de el lado derecho");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 210, 120));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 210, 100));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 350, 430));
 
@@ -134,7 +136,7 @@ public class ComprasHechasCliente extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Fecha", "Total", "IVA"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
         jScrollPane1.setViewportView(TablaVentasCliente);

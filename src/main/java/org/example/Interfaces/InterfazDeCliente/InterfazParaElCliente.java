@@ -159,10 +159,14 @@ public class InterfazParaElCliente extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(0, 153, 255));
+        jPanel2.setBackground(new java.awt.Color(204, 0, 204));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnServiciosConsolas.setBackground(new java.awt.Color(102, 153, 255));
+        btnServiciosConsolas.setFont(new java.awt.Font("Stencil", 1, 11)); // NOI18N
+        btnServiciosConsolas.setForeground(new java.awt.Color(255, 255, 255));
         btnServiciosConsolas.setText("Servicios Para Consolas");
+        btnServiciosConsolas.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnServiciosConsolas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnServiciosConsolasActionPerformed(evt);
@@ -170,7 +174,11 @@ public class InterfazParaElCliente extends javax.swing.JFrame {
         });
         jPanel2.add(btnServiciosConsolas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 160, 40));
 
+        btnServiciosParaPc.setBackground(new java.awt.Color(102, 153, 255));
+        btnServiciosParaPc.setFont(new java.awt.Font("Stencil", 1, 13)); // NOI18N
+        btnServiciosParaPc.setForeground(new java.awt.Color(255, 255, 255));
         btnServiciosParaPc.setText("Servicios Para Pc");
+        btnServiciosParaPc.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnServiciosParaPc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnServiciosParaPcActionPerformed(evt);
@@ -178,7 +186,11 @@ public class InterfazParaElCliente extends javax.swing.JFrame {
         });
         jPanel2.add(btnServiciosParaPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 170, 40));
 
+        btnProductos.setBackground(new java.awt.Color(102, 153, 255));
+        btnProductos.setFont(new java.awt.Font("Stencil", 1, 13)); // NOI18N
+        btnProductos.setForeground(new java.awt.Color(255, 255, 255));
         btnProductos.setText("Productos");
+        btnProductos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnProductosActionPerformed(evt);
@@ -186,7 +198,11 @@ public class InterfazParaElCliente extends javax.swing.JFrame {
         });
         jPanel2.add(btnProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, 160, 40));
 
+        btnComprasHechas.setBackground(new java.awt.Color(102, 153, 255));
+        btnComprasHechas.setFont(new java.awt.Font("Stencil", 1, 13)); // NOI18N
+        btnComprasHechas.setForeground(new java.awt.Color(255, 255, 255));
         btnComprasHechas.setText("Compras Hechas");
+        btnComprasHechas.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnComprasHechas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnComprasHechasActionPerformed(evt);
@@ -197,13 +213,14 @@ public class InterfazParaElCliente extends javax.swing.JFrame {
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1120, 70));
         getContentPane().add(PanelClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 1100, 420));
 
-        jPanel1.setBackground(new java.awt.Color(0, 51, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Stencil", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 0, 204));
         jLabel1.setText("Bienvenido A El Menu De Su Servicio Tecnico Preferido");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 490, 40));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 670, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 60));
 

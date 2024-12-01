@@ -69,16 +69,16 @@ public class VentasServicio extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Fecha De Venta", "IVA", "Total De Venta"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
         jScrollPane1.setViewportView(TablaVentasServicio);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 880, 430));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Stencil", 1, 18)); // NOI18N
         jLabel1.setText("Ventas Totales de Su Servicio Tecnico");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 40, 340, 30));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, 450, 30));
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

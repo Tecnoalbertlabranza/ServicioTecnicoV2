@@ -57,12 +57,14 @@ public class ProductosCliente extends javax.swing.JPanel {
         TablaProductosCliente = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(153, 255, 153));
+        setBackground(new java.awt.Color(153, 153, 255));
         setPreferredSize(new java.awt.Dimension(1100, 420));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Productos");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, -1, -1));
 
         TablaProductosCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -72,15 +74,17 @@ public class ProductosCliente extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                    "Nombre", "Categoria", "Valor", "Stock"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
         jScrollPane1.setViewportView(TablaProductosCliente);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 790, 330));
 
+        jLabel2.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("<html><center>Aqi puede ver todos los productos disponibles dentro de el servicio tecnico");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 190, 250));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 210, 250));
     }// </editor-fold>//GEN-END:initComponents
 
 

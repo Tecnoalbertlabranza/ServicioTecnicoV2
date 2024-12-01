@@ -61,12 +61,14 @@ public class ServiciosParaConsolasCliente extends javax.swing.JPanel {
         TablaServicioConsolasClientes = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(153, 255, 153));
+        setBackground(new java.awt.Color(153, 153, 255));
         setPreferredSize(new java.awt.Dimension(1100, 420));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Servicios Disiponibles Para Las Consolas");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 230, 30));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 360, 40));
 
         TablaServicioConsolasClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -76,13 +78,15 @@ public class ServiciosParaConsolasCliente extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                    "Nombre", "Tiempo Estimado", "Valor Servicio", "Modelo Consola", "Marca Consola"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
         jScrollPane1.setViewportView(TablaServicioConsolasClientes);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 790, 340));
 
+        jLabel2.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("<html><center>Aqui podra ver todos los servicios, actualizaciones y reparaciones para cualquiera de sus consolas de videojuegos");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 200, 220));
     }// </editor-fold>//GEN-END:initComponents
