@@ -63,12 +63,14 @@ public class ServiciosParaPcCliente extends javax.swing.JPanel {
         TablaServicioParaPc = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(153, 255, 153));
+        setBackground(new java.awt.Color(153, 153, 255));
         setPreferredSize(new java.awt.Dimension(1100, 420));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Servicios Para Pc Disponible");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 190, 40));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 280, 40));
 
         TablaServicioParaPc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -78,13 +80,15 @@ public class ServiciosParaPcCliente extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                    "Nombre", "Valor", "Tiempo Estimado", "Tipo Computadora", "Linea de procesador", "Uso de computadora"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
         jScrollPane1.setViewportView(TablaServicioParaPc);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 780, 350));
 
+        jLabel2.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("<html><center>En este menu usted podra ver todos los servicios, actualizacines , modificaciones y reparaciones disponibles para su computadora , recuerde si busca alguno de los servicios de la lista no dude en dirigirse al servicio tecnico");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 250, 280));
     }// </editor-fold>//GEN-END:initComponents
