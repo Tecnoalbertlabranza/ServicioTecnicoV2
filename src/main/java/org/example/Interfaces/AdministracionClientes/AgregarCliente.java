@@ -135,7 +135,7 @@ public class AgregarCliente extends javax.swing.JPanel {
         txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
+
             }
         });
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 220, 30));
@@ -148,7 +148,7 @@ public class AgregarCliente extends javax.swing.JPanel {
         txtApellido.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtApellidoActionPerformed(evt);
+
             }
         });
         jPanel1.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 220, 30));
@@ -160,9 +160,7 @@ public class AgregarCliente extends javax.swing.JPanel {
 
         txtTelefono.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtTelefono.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTelefonoActionPerformed(evt);
-            }
+            public void actionPerformed(java.awt.event.ActionEvent evt) {}
         });
         jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 220, 30));
 
@@ -184,9 +182,7 @@ public class AgregarCliente extends javax.swing.JPanel {
 
         txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmailActionPerformed(evt);
-            }
+            public void actionPerformed(java.awt.event.ActionEvent evt) {}
         });
         jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 220, 30));
 
@@ -197,9 +193,7 @@ public class AgregarCliente extends javax.swing.JPanel {
 
         txtRut.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtRut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRutActionPerformed(evt);
-            }
+            public void actionPerformed(java.awt.event.ActionEvent evt) {}
         });
         jPanel1.add(txtRut, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 220, 30));
 
@@ -210,9 +204,7 @@ public class AgregarCliente extends javax.swing.JPanel {
 
         txtRegion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtRegion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRegionActionPerformed(evt);
-            }
+            public void actionPerformed(java.awt.event.ActionEvent evt) {}
         });
         jPanel1.add(txtRegion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 220, 30));
 
@@ -224,7 +216,7 @@ public class AgregarCliente extends javax.swing.JPanel {
         txtComuna.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtComuna.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtComunaActionPerformed(evt);
+
             }
         });
         jPanel1.add(txtComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 220, 30));
@@ -239,8 +231,9 @@ public class AgregarCliente extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
