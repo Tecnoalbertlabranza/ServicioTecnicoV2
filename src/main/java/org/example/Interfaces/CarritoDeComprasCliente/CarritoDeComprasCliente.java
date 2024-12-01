@@ -241,19 +241,22 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         txtFecha = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(102, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel2.setFont(new java.awt.Font("Stencil", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Ingrese El Rut del cliente para agregar sus compras");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 320, 30));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 370, 30));
 
         txtRutCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRutClienteActionPerformed(evt);
             }
         });
-        add(txtRutCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 280, 30));
+        add(txtRutCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 300, 30));
 
+        ListaDeProductos.setBackground(new java.awt.Color(242, 242, 242));
         ListaDeProductos.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -263,6 +266,7 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 130, 360, 230));
 
+        TablaCarrito.setBackground(new java.awt.Color(242, 242, 242));
         TablaCarrito.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -274,55 +278,68 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        TablaCarrito.setSelectionBackground(new java.awt.Color(153, 153, 255));
+        TablaCarrito.setShowGrid(false);
         jScrollPane2.setViewportView(TablaCarrito);
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 50, 540, 320));
 
+        jLabel3.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
         jLabel3.setText("Lista de productos disponibles");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 220, 30));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 280, 30));
 
+        jLabel4.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
         jLabel4.setText("Carrito de Compras Del Cliente");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 20, -1, -1));
 
+        jLabel5.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
         jLabel5.setText("SubTotal de la venta :");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 390, 170, 20));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 387, 200, -1));
 
+        jLabel6.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
         jLabel6.setText("IVA :");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 450, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 430, -1, 30));
 
+        jLabel7.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
         jLabel7.setText("Total");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 510, -1, -1));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 480, -1, 30));
 
+        BtnGuardarVenta.setBackground(new java.awt.Color(204, 204, 255));
+        BtnGuardarVenta.setFont(new java.awt.Font("Stencil", 0, 12)); // NOI18N
         BtnGuardarVenta.setText("Guardar venta");
+        BtnGuardarVenta.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BtnGuardarVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnGuardarVentaActionPerformed(evt);
             }
         });
-        add(BtnGuardarVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 420, 160, 80));
+        add(BtnGuardarVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 430, 160, 80));
 
         txtSubtotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSubtotalActionPerformed(evt);
             }
         });
-        add(txtSubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 390, 180, 30));
+        add(txtSubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 380, 160, 30));
 
         txtIVA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIVAActionPerformed(evt);
             }
         });
-        add(txtIVA, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 450, 210, 30));
+        add(txtIVA, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 430, 210, 30));
 
         txtTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTotalActionPerformed(evt);
             }
         });
-        add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 510, 200, 30));
+        add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 480, 200, 30));
 
+        BotonObtenerDatosDelCliente.setBackground(new java.awt.Color(204, 204, 255));
+        BotonObtenerDatosDelCliente.setFont(new java.awt.Font("Stencil", 1, 11)); // NOI18N
         BotonObtenerDatosDelCliente.setText("Obtener Datos Del cliente");
+        BotonObtenerDatosDelCliente.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BotonObtenerDatosDelCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonObtenerDatosDelClienteActionPerformed(evt);
@@ -330,8 +347,10 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         });
         add(BotonObtenerDatosDelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 190, 50));
 
+        jLabel8.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Nombre :");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 60, 20));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 80, 30));
 
         txtNombreCliente.setEditable(false);
         txtNombreCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -339,10 +358,12 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
                 txtNombreClienteActionPerformed(evt);
             }
         });
-        add(txtNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 160, 30));
+        add(txtNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 220, 30));
 
+        jLabel9.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Apellido :");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, -1));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 330, 90, 30));
 
         txtApellidoDelCliente.setEditable(false);
         txtApellidoDelCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -350,10 +371,12 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
                 txtApellidoDelClienteActionPerformed(evt);
             }
         });
-        add(txtApellidoDelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 160, 30));
+        add(txtApellidoDelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 220, 30));
 
+        jLabel10.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Telefono:");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, -1, -1));
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 380, 90, 30));
 
         txtTelefonoDelCliente.setEditable(false);
         txtTelefonoDelCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -361,10 +384,12 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
                 txtTelefonoDelClienteActionPerformed(evt);
             }
         });
-        add(txtTelefonoDelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, 160, 30));
+        add(txtTelefonoDelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, 220, 30));
 
+        jLabel11.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Email :");
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, -1, -1));
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 430, 60, 30));
 
         txtEmailDelCliente.setEditable(false);
         txtEmailDelCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -372,19 +397,20 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
                 txtEmailDelClienteActionPerformed(evt);
             }
         });
-        add(txtEmailDelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, 160, 30));
+        add(txtEmailDelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, 220, 30));
 
-        jLabel12.setText("fecha para venta");
-        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 440, -1, -1));
+        jLabel12.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel12.setText("fecha para venta:");
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 370, -1, 30));
 
         txtFecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFechaActionPerformed(evt);
             }
         });
-        add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 440, 170, 30));
+        add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 370, 160, 30));
 
-        jPanel1.setBackground(new java.awt.Color(102, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 590));
     }// </editor-fold>//GEN-END:initComponents
 
