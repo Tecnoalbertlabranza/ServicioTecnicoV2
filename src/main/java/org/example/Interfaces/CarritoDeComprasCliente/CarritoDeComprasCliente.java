@@ -17,6 +17,9 @@ import java.awt.event.MouseEvent;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.OptionalInt;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  *
@@ -57,29 +60,34 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
 
         try {
             List<QueryDocumentSnapshot> productos = db.collection("Registro de Producto").get().get().getDocuments();
-            for (QueryDocumentSnapshot doc : productos) {
-                String nombre = doc.getString("Nombre");
-                double valor = doc.getDouble("Valor");
-                int stock = doc.getLong("Stock").intValue();
-                modeloLista.addElement(nombre + " - $" + valor + " - Stock: " + stock);
-            }
+
+            productos.stream()
+                    .map(doc -> {
+                        String nombre = doc.getString("Nombre");
+                        double valor = doc.getDouble("Valor");
+                        int stock = doc.getLong("Stock").intValue();
+                        return nombre + " - $" + valor + " - Stock: " + stock;
+                    })
+                    .forEach(modeloLista::addElement);
+
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Error al cargar productos: " + e.getMessage());
         }
+
         ListaDeProductos.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent evt) {
                 if (evt.getClickCount() == 2) {
-                   agregarProductoAlCarrito();
+                    agregarProductoAlCarrito();
                 }
             }
         });
     }
 
-    private void agregarProductoAlCarrito(){
+    private void agregarProductoAlCarrito() {
         String seleccion = ListaDeProductos.getSelectedValue();
-        if(seleccion== null){
+        if (seleccion == null) {
             JOptionPane.showMessageDialog(this, "Debe seleccionar un producto");
             return;
         }
@@ -89,32 +97,30 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         double precio = Double.parseDouble(partes[1].replace("$", ""));
         int stock = Integer.parseInt(partes[2].replace("Stock: ", ""));
 
-        if(stock<=0){
+        if (stock <= 0) {
             JOptionPane.showMessageDialog(this, "El producto no tiene stock disponible");
             return;
         }
 
-        boolean productoYaEnCarrito = false;
+        OptionalInt index = IntStream.range(0, modeloTablaCarrito.getRowCount())
+                .filter(i -> modeloTablaCarrito.getValueAt(i, 0).equals(nombre))
+                .findFirst();
 
-        for(int i=0;i < modeloTablaCarrito.getRowCount(); i++){
-            if(modeloTablaCarrito.getValueAt(i,0).equals(nombre)){
-                int cantidad = (int) modeloTablaCarrito.getValueAt(i,1)+1;
-                if(cantidad>stock){
-                    JOptionPane.showMessageDialog(this, "No hay stock suficiente para agregar más productos");
-                    return;
-                }
-                modeloTablaCarrito.setValueAt(cantidad, i, 1);
-                modeloTablaCarrito.setValueAt(precio*cantidad, i, 3);
-                productoYaEnCarrito = true;
-                break;
+        if (index.isPresent()) {
+            int i = index.getAsInt();
+            int cantidad = (int) modeloTablaCarrito.getValueAt(i, 1) + 1;
+            if (cantidad > stock) {
+                JOptionPane.showMessageDialog(this, "No hay stock suficiente para agregar más productos");
+                return;
             }
-        }
-
-        if(!productoYaEnCarrito){
-            modeloTablaCarrito.addRow(new Object[]{nombre,1,precio,precio});
+            modeloTablaCarrito.setValueAt(cantidad, i, 1);
+            modeloTablaCarrito.setValueAt(precio * cantidad, i, 3);
+        } else {
+            modeloTablaCarrito.addRow(new Object[]{nombre, 1, precio, precio});
         }
         actualizarTotales();
     }
+
 
     private void actualizarTotales(){
         subtotal = 0.0;
@@ -129,67 +135,107 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
     }
 
     public void guardarVenta() {
-
         String rutCliente = txtRutCliente.getText();
-        System.out.println(" rut ingresado"+rutCliente);
-
         String nombreCliente = txtNombreCliente.getText();
         String apellidoCliente = txtApellidoDelCliente.getText();
         String fechaVenta = txtFecha.getText();
         String totalVenta = txtTotal.getText();
         String totalIva = txtIVA.getText();
 
-        if (rutCliente.isEmpty() || nombreCliente.isEmpty() || apellidoCliente.isEmpty() || fechaVenta.isEmpty() || totalVenta.isEmpty() || totalIva.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Debe ingresar el rut de el cliente y obtener sus datos primero.");
+        if (!validarCampos(rutCliente, nombreCliente, apellidoCliente, fechaVenta, totalVenta, totalIva)) {
+            return;
+        }
+        if (!fechaVenta.matches("^([0-2][0-9]|3[01])-(0[1-9]|1[0-2])-\\d{4}$")){
+            JOptionPane.showMessageDialog(this, "Ingresar fecha como [dd-mm-yyyy]");
             return;
         }
 
         DefaultTableModel modeloTabla = (DefaultTableModel) TablaCarrito.getModel();
         int filas = modeloTabla.getRowCount();
 
-        for (int i = 0; i < filas; i++) {
-            String nombreProducto = (String) modeloTabla.getValueAt(i, 0);
-            int cantidadProducto = (int) modeloTabla.getValueAt(i, 1);
+        WriteBatch batch = db.batch();
 
-            try {
-                WriteBatch batch = db.batch();
-                Firestore db = firebaseInstance.getFirestore();
-                Query query = db.collection("Registro de Producto").whereEqualTo("Nombre", nombreProducto);
-                ApiFuture<QuerySnapshot> future = query.get();
-                QuerySnapshot querySnapshot = future.get();
+        List<String[]> productos = IntStream.range(0, filas)
+                .mapToObj(i -> new String[]{
+                        (String) modeloTabla.getValueAt(i, 0),
+                        String.valueOf(modeloTabla.getValueAt(i, 1))
+                })
+                .collect(Collectors.toList());
 
-                if (!querySnapshot.isEmpty()) {
-                    DocumentSnapshot documentoProducto = querySnapshot.getDocuments().get(0);
-                    int stockActual = documentoProducto.getLong("Stock").intValue();
 
-                    if (stockActual >= cantidadProducto) {
-                        Map<String, Object> datosActualizar = new HashMap<>();
-                        datosActualizar.put("Stock", stockActual - cantidadProducto);
+        boolean stockSuficiente = productos.stream()
+                .allMatch(producto -> {
+                    String nombreProducto = producto[0];
+                    int cantidadProducto = Integer.parseInt(producto[1]);
+                    return actualizarStockProducto(nombreProducto, cantidadProducto, batch);
+                });
 
-                        batch.update(documentoProducto.getReference(),datosActualizar);
+        if (!stockSuficiente) {
+            return;
+        }
 
-                        if (stockActual-cantidadProducto == 0){
-                            batch.delete(documentoProducto.getReference());
-                        }
-                    } else {
-                        JOptionPane.showMessageDialog(null, "No hay suficiente stock para el producto: " + nombreProducto);
-                        return;
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(null, "No se encontró el producto: " + nombreProducto);
-                    return;
-                }
-                batch.commit();
-            } catch (Exception e) {
-                e.printStackTrace();
-                System.out.println("Error al reducir stock del producto: " + e.getMessage());
-                return;
+        registrarVenta(nombreCliente, apellidoCliente, fechaVenta, totalIva, totalVenta, rutCliente, batch);
+        JOptionPane.showMessageDialog(null, "Se registró la venta con éxito.");
+    }
+
+
+    private boolean validarCampos(String rutCliente, String nombreCliente, String apellidoCliente,
+                                  String fechaVenta, String totalVenta, String totalIva) {
+        if (rutCliente.isEmpty() || nombreCliente.isEmpty() || apellidoCliente.isEmpty() ||
+                fechaVenta.isEmpty() || totalVenta.isEmpty() || totalIva.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor, rellene todos los espacios para continuar.");
+            return false;
+        }
+        return true;
+    }
+
+    private boolean actualizarStockProducto(String nombreProducto, int cantidadProducto, WriteBatch batch) {
+        try {
+            Firestore db = firebaseInstance.getFirestore();
+            Query query = db.collection("Registro de Producto").whereEqualTo("Nombre", nombreProducto);
+            ApiFuture<QuerySnapshot> future = query.get();
+            QuerySnapshot querySnapshot = future.get();
+
+            if (querySnapshot.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No se encontró el producto: " + nombreProducto);
+                return false;
             }
 
+            DocumentSnapshot documentoProducto = querySnapshot.getDocuments().get(0);
+            int stockActual = documentoProducto.getLong("Stock").intValue();
+
+            if (stockActual >= cantidadProducto) {
+                Map<String, Object> datosActualizar = new HashMap<>();
+                datosActualizar.put("Stock", stockActual - cantidadProducto);
+                batch.update(documentoProducto.getReference(), datosActualizar);
+
+                if (stockActual - cantidadProducto == 0) {
+                    batch.delete(documentoProducto.getReference());
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "No hay suficiente stock para el producto: " + nombreProducto);
+                return false;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error al reducir stock del producto: " + e.getMessage());
+            return false;
         }
-        servicioTecnico.registrarVenta(nombreCliente,apellidoCliente,fechaVenta,totalIva,totalVenta,rutCliente,firebaseInstance);
-        JOptionPane.showMessageDialog(null,"Se registro la venta ");
+        return true;
     }
+
+    private void registrarVenta(String nombreCliente, String apellidoCliente, String fechaVenta,
+                                String totalIva, String totalVenta, String rutCliente, WriteBatch batch) {
+        try {
+            servicioTecnico.registrarVenta(nombreCliente, apellidoCliente, fechaVenta, totalIva, totalVenta, rutCliente, firebaseInstance);
+            batch.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error al registrar la venta: " + e.getMessage());
+        }
+    }
+
 
     public void cargarInformacionCliente(){
         String rutIngresado = txtRutCliente.getText();
