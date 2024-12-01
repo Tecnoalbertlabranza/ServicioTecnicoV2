@@ -39,30 +39,26 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Stencil" size="24" style="1"/>
+          <Font name="Stencil" size="20" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="&quot;&lt;html&gt;&lt;center&gt;Dentro de este sistema usted podra administrar sus diferentes servicios , Ingresar clientes y sobredodo adminsitrar sus ventras e ingresos&quot;" type="code"/>
-        </Property>
+        <Property name="text" type="java.lang.String" value="desde aqui usted podr&#xe1; manejar  las diferentes funcionalidades  que presenta nuestro negocio."/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="310" y="80" width="540" height="310"/>
+          <AbsoluteConstraints x="250" y="-80" width="1220" height="320"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Stencil" size="18" style="1"/>
+          <Font name="Stencil" size="20" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="&quot;&lt;html&gt;&lt;center&gt;Atravez de los siguientes menus usted podra acceder a los diferentes administradores &quot;" type="code"/>
-        </Property>
+        <Property name="text" type="java.lang.String" value="entre ellas est&#xe1; el manejo de gesti&#xf3;n de clinetes, ventas, carrito de compras y productos"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="950" y="180" width="420" height="100"/>
+          <AbsoluteConstraints x="250" y="-50" width="1180" height="330"/>
         </Constraint>
       </Constraints>
     </Component>

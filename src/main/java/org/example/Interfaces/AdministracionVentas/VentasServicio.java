@@ -83,7 +83,7 @@ public class VentasServicio extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Stencil", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("<html><center>Dentro de este campo usted podra ver las ventas totales de su servicio tecnico lo cual le mostrara la fecha en la cual se hizo cada venta , su total y su iva respectivamente");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 320, 310));
