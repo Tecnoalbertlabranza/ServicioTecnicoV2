@@ -15,24 +15,12 @@ public class Venta {
 		return fechaVenta;
 	}
 
-	public void setFechaVenta(String fechaVenta) {
-		this.fechaVenta = fechaVenta;
-	}
-
 	public String getTotal() {
 		return total;
 	}
 
-	public void setTotal(String total) {
-		this.total = total;
-	}
-
 	public String getIva() {
 		return iva;
-	}
-
-	public void setIva(String iva) {
-		this.iva = iva;
 	}
 
 	@Override
