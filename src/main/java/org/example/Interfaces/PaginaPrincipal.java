@@ -7,7 +7,6 @@ package org.example.Interfaces;
 
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.Firestore;
-import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 import org.example.Interfaces.AdministracionClientes.Clientes;
 import org.example.Interfaces.AdministracionProductos.Productos;
@@ -16,7 +15,6 @@ import org.example.Interfaces.AdministracionServiciosPc.ServiciosPc;
 import org.example.Interfaces.AdministracionVentas.VentasServicio;
 import org.example.Interfaces.CarritoDeComprasCliente.CarritoDeComprasCliente;
 import org.example.Interfaces.InicioSesion.InicioSesion;
-import org.example.Producto;
 import org.example.ServicioTecnico;
 import org.example.Venta;
 import org.example.firebase;

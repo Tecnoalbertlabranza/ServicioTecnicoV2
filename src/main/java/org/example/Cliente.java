@@ -60,37 +60,12 @@ public class Cliente  {
 		return comuna;
 	}
 
-	public void setComuna(String comuna) {
-		this.comuna = comuna;
-	}
-
 	public String getRegion() {
 		return region;
 	}
 
-	public void setRegion(String region) {
-		this.region = region;
-	}
-
-	public String getContrasena() {
-		return contrasena;
-	}
-
-	public void setContrasena(String contrasena) {
-		this.contrasena = contrasena;
-	}
-
-	public void IniciarSesion() {
-	}
 
 
-
-	public void addVenta(Venta venta) {
-		if (ventascliente == null) {
-			ventascliente = new ArrayList<>();
-		}
-		ventascliente.add(venta);
-	}
 
 	@Override
 	public String toString() {

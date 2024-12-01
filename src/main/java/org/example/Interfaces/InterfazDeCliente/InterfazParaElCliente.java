@@ -68,16 +68,13 @@ public class InterfazParaElCliente extends javax.swing.JFrame {
             ApiFuture<QuerySnapshot> future = db.collection("Registro de Producto").get();
             QuerySnapshot querySnapshot = future.get();
 
-            for (QueryDocumentSnapshot document : querySnapshot) {
-                String nombreProducto = document.getString("Nombre");
-                String categoriaProducto = document.getString("Categoría");
-                double valorProducto = document.getDouble("Valor");
-                int stockProducto = document.getLong("Stock").intValue();
-
-                Producto producto = new Producto(nombreProducto, categoriaProducto, valorProducto, stockProducto);
-                listaProductosLocal.add(producto);
-            }
-
+            listaProductosLocal = querySnapshot.getDocuments().stream()
+                    .map(document -> new Producto(
+                            document.getString("Nombre"),
+                            document.getString("Categoría"),
+                            document.getDouble("Valor"),
+                            document.getLong("Stock").intValue()))
+                    .collect(Collectors.toList());
             servicioTecnico.setListaProductos(listaProductosLocal);
 
             System.out.println("Productos existentes");
