@@ -251,7 +251,7 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
 
         txtRutCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRutClienteActionPerformed(evt);
+
             }
         });
         add(txtRutCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 300, 30));
@@ -317,21 +317,21 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
 
         txtSubtotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSubtotalActionPerformed(evt);
+
             }
         });
         add(txtSubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 380, 160, 30));
 
         txtIVA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIVAActionPerformed(evt);
+
             }
         });
         add(txtIVA, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 430, 210, 30));
 
         txtTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTotalActionPerformed(evt);
+
             }
         });
         add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 480, 200, 30));
@@ -355,7 +355,7 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         txtNombreCliente.setEditable(false);
         txtNombreCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreClienteActionPerformed(evt);
+
             }
         });
         add(txtNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 220, 30));
@@ -368,7 +368,7 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         txtApellidoDelCliente.setEditable(false);
         txtApellidoDelCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtApellidoDelClienteActionPerformed(evt);
+
             }
         });
         add(txtApellidoDelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 220, 30));
@@ -381,7 +381,7 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         txtTelefonoDelCliente.setEditable(false);
         txtTelefonoDelCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTelefonoDelClienteActionPerformed(evt);
+
             }
         });
         add(txtTelefonoDelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, 220, 30));
@@ -394,7 +394,7 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         txtEmailDelCliente.setEditable(false);
         txtEmailDelCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmailDelClienteActionPerformed(evt);
+
             }
         });
         add(txtEmailDelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, 220, 30));
@@ -405,7 +405,7 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
 
         txtFecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFechaActionPerformed(evt);
+
             }
         });
         add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 370, 160, 30));
@@ -414,52 +414,17 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 590));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtRutClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRutClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtRutClienteActionPerformed
+
 
     private void BtnGuardarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarVentaActionPerformed
         guardarVenta();
         cargarListaDeProductos();
-
     }//GEN-LAST:event_BtnGuardarVentaActionPerformed
-
-    private void txtIVAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIVAActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIVAActionPerformed
-
-    private void txtSubtotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSubtotalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSubtotalActionPerformed
-
-    private void txtTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTotalActionPerformed
-
-    private void txtApellidoDelClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoDelClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtApellidoDelClienteActionPerformed
 
     private void BotonObtenerDatosDelClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonObtenerDatosDelClienteActionPerformed
         cargarInformacionCliente();
     }//GEN-LAST:event_BotonObtenerDatosDelClienteActionPerformed
 
-    private void txtNombreClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreClienteActionPerformed
-
-    private void txtTelefonoDelClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoDelClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelefonoDelClienteActionPerformed
-
-    private void txtEmailDelClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailDelClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmailDelClienteActionPerformed
-
-    private void txtFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFechaActionPerformed
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonObtenerDatosDelCliente;
     private javax.swing.JButton BtnGuardarVenta;

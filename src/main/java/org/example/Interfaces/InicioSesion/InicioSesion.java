@@ -33,7 +33,6 @@ public class InicioSesion extends JFrame {
     }
 
 
-
     private void iniciarSesion(String rut) {
         String emailIngresado = txtCorreoElectronico.getText();
         String rutIngresado = rut;
@@ -53,13 +52,6 @@ public class InicioSesion extends JFrame {
     public static ServicioTecnico getServicioTecnico(){
         return servicioTecnico;
     }
-
-
-
-
-
-
-
 
 
     /**
@@ -91,7 +83,7 @@ public class InicioSesion extends JFrame {
         txtCorreoElectronico.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
         txtCorreoElectronico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCorreoElectronicoActionPerformed(evt);
+
             }
         });
         getContentPane().add(txtCorreoElectronico, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 340, 40));
@@ -116,7 +108,7 @@ public class InicioSesion extends JFrame {
         txtIngresoDeRut.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
         txtIngresoDeRut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIngresoDeRutActionPerformed(evt);
+
             }
         });
         getContentPane().add(txtIngresoDeRut, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 340, 40));
@@ -146,18 +138,12 @@ public class InicioSesion extends JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtCorreoElectronicoActionPerformed(ActionEvent evt) {//GEN-FIRST:event_txtCorreoElectronicoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCorreoElectronicoActionPerformed
+
 
     private void btnIngresarActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         String rut = txtIngresoDeRut.getText();
       iniciarSesion(rut);
     }//GEN-LAST:event_btnIngresarActionPerformed
-
-    private void txtIngresoDeRutActionPerformed(ActionEvent evt) {//GEN-FIRST:event_txtIngresoDeRutActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIngresoDeRutActionPerformed
 
     public static String getRutIngresado(){
         return txtIngresoDeRut.getText();

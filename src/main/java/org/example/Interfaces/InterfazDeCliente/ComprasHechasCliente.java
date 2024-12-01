@@ -11,6 +11,7 @@ import org.example.Venta;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.util.List;
 
 /**
  *
@@ -45,9 +46,12 @@ public class ComprasHechasCliente extends javax.swing.JPanel {
             txtTelefonoCliente.setText(cliente.getTelefono());
             txtEmailCliente.setText(cliente.getEmail());
 
-            for (Venta venta : cliente.getVentascliente()) {
-                ((DefaultTableModel) TablaVentasCliente.getModel()).addRow(new Object[]{venta.getFechaVenta(), venta.getTotal(),venta.getIva()});
-            }
+            List<Venta> ventasCliente = cliente.getVentascliente();
+            Object[][] data = ventasCliente.stream()
+                    .map(venta -> new Object[]{venta.getFechaVenta(),venta.getTotal(),venta.getIva()})
+                    .toArray(Object[][]::new);
+
+            ((DefaultTableModel) TablaVentasCliente.getModel()).setDataVector(data,new String[]{"Fecha","Total","IVA"});
 
         } else {
             JOptionPane.showMessageDialog(this, "El cliente no existe");
@@ -130,7 +134,7 @@ public class ComprasHechasCliente extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Fecha", "Total", "IVA"
             }
         ));
         jScrollPane1.setViewportView(TablaVentasCliente);
