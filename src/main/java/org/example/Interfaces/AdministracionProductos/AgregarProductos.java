@@ -122,23 +122,33 @@ public class AgregarProductos extends javax.swing.JPanel {
         txtStock = new javax.swing.JTextField();
         btnAgregarProducto = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(51, 153, 255));
+        setBackground(new java.awt.Color(153, 153, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Ingrese Los Datos De Su Nuevo Producto");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Categoria");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Valor");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, 10));
 
+        jLabel5.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Stock");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
 
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,7 +176,7 @@ public class AgregarProductos extends javax.swing.JPanel {
                 txtStockActionPerformed(evt);
             }
         });
-        add(txtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 290, 30));
+        add(txtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 290, 30));
 
         btnAgregarProducto.setText("Agregar Producto");
         btnAgregarProducto.addActionListener(new java.awt.event.ActionListener() {

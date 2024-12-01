@@ -101,12 +101,16 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
         txtMarcaConsola = new javax.swing.JTextField();
         btnAgregarServicioConsolas = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(51, 153, 255));
+        setBackground(new java.awt.Color(153, 153, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Stencil", 1, 13)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Ingrese los datos para su nuevo servicio para consolas");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
@@ -117,6 +121,8 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
         });
         add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 220, 30));
 
+        jLabel3.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Valor");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
 
@@ -127,8 +133,10 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
         });
         add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 220, 30));
 
+        jLabel5.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Tiempo estimado");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 100, 30));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 160, 30));
 
         txtTiempoEstimado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,6 +145,8 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
         });
         add(txtTiempoEstimado, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 220, 30));
 
+        jLabel6.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Modelo De La Consola");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
 
@@ -147,6 +157,8 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
         });
         add(txtModeloDeConsola, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 220, 30));
 
+        jLabel7.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Marca Consola");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
 
@@ -157,13 +169,16 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
         });
         add(txtMarcaConsola, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 220, 30));
 
+        btnAgregarServicioConsolas.setBackground(new java.awt.Color(204, 204, 255));
+        btnAgregarServicioConsolas.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
         btnAgregarServicioConsolas.setText("Agregar Servicio");
+        btnAgregarServicioConsolas.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAgregarServicioConsolas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarServicioConsolasActionPerformed(evt);
             }
         });
-        add(btnAgregarServicioConsolas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 120, 50));
+        add(btnAgregarServicioConsolas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 180, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtTiempoEstimadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTiempoEstimadoActionPerformed

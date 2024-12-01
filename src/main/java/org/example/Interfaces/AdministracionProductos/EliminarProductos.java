@@ -76,29 +76,36 @@ public class EliminarProductos extends javax.swing.JPanel {
         txtEliminarProducto = new javax.swing.JTextField();
         btnEliminarProducto = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(51, 153, 255));
+        setBackground(new java.awt.Color(153, 153, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Aqui se eliminaran productos");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("eliminador de productos");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Stencil", 1, 13)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Ingrese el nombre de el producto que desee eliminar");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, 20));
 
         txtEliminarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEliminarProductoActionPerformed(evt);
             }
         });
-        add(txtEliminarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 330, 70));
+        add(txtEliminarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 380, 70));
 
+        btnEliminarProducto.setBackground(new java.awt.Color(204, 204, 255));
+        btnEliminarProducto.setFont(new java.awt.Font("Stencil", 1, 13)); // NOI18N
         btnEliminarProducto.setText("Eliminar Producto");
+        btnEliminarProducto.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnEliminarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarProductoActionPerformed(evt);
             }
         });
-        add(btnEliminarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 200, 70));
+        add(btnEliminarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 200, 70));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEliminarProductoActionPerformed

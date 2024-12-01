@@ -83,14 +83,18 @@ public class EliminarCliente extends javax.swing.JPanel {
         txtEliminarClientePorRut = new javax.swing.JTextField();
         BtnEliminarCliente = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(51, 153, 255));
+        setBackground(new java.awt.Color(153, 153, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Aqui se eliminaran los clientes");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Stencil", 1, 13)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Ingrese el rut de el cliente que decee eliminar");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, 20));
 
         txtEliminarClientePorRut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,13 +103,15 @@ public class EliminarCliente extends javax.swing.JPanel {
         });
         add(txtEliminarClientePorRut, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 290, 30));
 
+        BtnEliminarCliente.setBackground(new java.awt.Color(204, 204, 255));
+        BtnEliminarCliente.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
         BtnEliminarCliente.setText("Eliminar cliente");
         BtnEliminarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnEliminarClienteActionPerformed(evt);
             }
         });
-        add(BtnEliminarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 250, 120));
+        add(BtnEliminarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 210, 80));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtEliminarClientePorRutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEliminarClientePorRutActionPerformed

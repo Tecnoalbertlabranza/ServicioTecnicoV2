@@ -108,12 +108,16 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         txtLineaDeProcesador = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(0, 153, 255));
+        setBackground(new java.awt.Color(153, 153, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Ingrese su nuevo servicio para pc");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
@@ -124,6 +128,8 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
         });
         add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 230, 30));
 
+        jLabel3.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Valor Servicio");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
@@ -134,6 +140,8 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
         });
         add(txtValorServicioPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 230, 30));
 
+        jLabel5.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Tiempo Estimado");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
 
@@ -144,6 +152,8 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
         });
         add(txtTiempoEstimado, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 230, 30));
 
+        jLabel6.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Tipo De Computador");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
 
@@ -154,6 +164,8 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
         });
         add(txtTipoDeComputador, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 230, 30));
 
+        jLabel7.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Uso de Computadora");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
 
@@ -172,6 +184,8 @@ public class AgregarServiciosPc extends javax.swing.JPanel {
         });
         add(btnAgregarServiciosPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, 150, 40));
 
+        jLabel8.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Linea De Procesador");
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 130, 20));
         add(txtLineaDeProcesador, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 230, 30));

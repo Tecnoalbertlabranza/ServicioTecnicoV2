@@ -37,7 +37,7 @@ public class AgregarCliente extends javax.swing.JPanel {
         String telefono = txtTelefono.getText().trim();
         String email = txtEmail.getText().trim();
         String rut = txtRut.getText().trim();
-        String contrasena = txtContrasena.getText().trim();
+        String contrasena = txtContraseña.getText().trim();
         String region = txtRegion.getText().trim();
         String comuna = txtComuna.getText().trim();
         rut = rut.replaceAll("[.\\-]", "");
@@ -117,15 +117,19 @@ public class AgregarCliente extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         txtComuna = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        txtContrasena = new javax.swing.JTextField();
+        txtContraseña = new javax.swing.JTextField();
 
-        jPanel1.setBackground(new java.awt.Color(51, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Ingrese los datos del nuevo cliente");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 190, 30));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 310, 30));
 
-        jLabel2.setText("Nombre (Primera Letra En Mayuscula)");
+        jLabel2.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Nombre");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
 
         txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -136,7 +140,9 @@ public class AgregarCliente extends javax.swing.JPanel {
         });
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 220, 30));
 
-        jLabel3.setText("Apellido (Primera Letra En Mayuscula)");
+        jLabel3.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Apellido");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
 
         txtApellido.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -147,8 +153,10 @@ public class AgregarCliente extends javax.swing.JPanel {
         });
         jPanel1.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 220, 30));
 
+        jLabel5.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Telefono");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, 20));
 
         txtTelefono.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtTelefono.addActionListener(new java.awt.event.ActionListener() {
@@ -158,16 +166,21 @@ public class AgregarCliente extends javax.swing.JPanel {
         });
         jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 220, 30));
 
+        btnGuardarCliente.setBackground(new java.awt.Color(204, 204, 255));
+        btnGuardarCliente.setFont(new java.awt.Font("Stencil", 1, 13)); // NOI18N
         btnGuardarCliente.setText("Guardar Cliente");
+        btnGuardarCliente.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnGuardarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(btnGuardarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 520, 160, 60));
+        jPanel1.add(btnGuardarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 480, 160, 60));
 
+        jLabel4.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Email");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 195, -1, 30));
 
         txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
@@ -177,8 +190,10 @@ public class AgregarCliente extends javax.swing.JPanel {
         });
         jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 220, 30));
 
-        jLabel6.setText("Rut (En el formato que quiera)");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
+        jLabel6.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Rut ( Sin puntos y con guion )");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, 20));
 
         txtRut.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtRut.addActionListener(new java.awt.event.ActionListener() {
@@ -188,8 +203,10 @@ public class AgregarCliente extends javax.swing.JPanel {
         });
         jPanel1.add(txtRut, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 220, 30));
 
+        jLabel7.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Region");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 356, -1, 20));
 
         txtRegion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtRegion.addActionListener(new java.awt.event.ActionListener() {
@@ -197,10 +214,12 @@ public class AgregarCliente extends javax.swing.JPanel {
                 txtRegionActionPerformed(evt);
             }
         });
-        jPanel1.add(txtRegion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 220, 30));
+        jPanel1.add(txtRegion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 220, 30));
 
+        jLabel8.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Comuna");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, -1));
 
         txtComuna.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtComuna.addActionListener(new java.awt.event.ActionListener() {
@@ -208,17 +227,22 @@ public class AgregarCliente extends javax.swing.JPanel {
                 txtComunaActionPerformed(evt);
             }
         });
-        jPanel1.add(txtComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 220, 30));
+        jPanel1.add(txtComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 220, 30));
 
-        jLabel9.setText("Contraseña (Debe Tener Minimo una letra minuscula y una mayuscula)");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, -1, -1));
-        jPanel1.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 220, 30));
+        jLabel9.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Contraseña");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 296, -1, 30));
+        jPanel1.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 220, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,7 +299,7 @@ public class AgregarCliente extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtComuna;
-    private javax.swing.JTextField txtContrasena;
+    private javax.swing.JTextField txtContraseña;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtRegion;

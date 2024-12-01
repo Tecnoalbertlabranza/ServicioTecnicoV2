@@ -77,23 +77,30 @@ public class EliminarServicioConsola extends javax.swing.JPanel {
         txtNombreServicioConEliminar = new javax.swing.JTextField();
         btnEliminarServicio = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(0, 153, 255));
+        setBackground(new java.awt.Color(153, 153, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Aqui se eliminaran servicios consolas");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Stencil", 1, 11)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Ingrese El nombre de el servicio de consolas que desee eliminar");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
-        add(txtNombreServicioConEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 340, 60));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
+        add(txtNombreServicioConEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 400, 60));
 
+        btnEliminarServicio.setBackground(new java.awt.Color(204, 204, 255));
+        btnEliminarServicio.setFont(new java.awt.Font("Stencil", 1, 13)); // NOI18N
         btnEliminarServicio.setText("Eliminar Servicio");
+        btnEliminarServicio.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnEliminarServicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarServicioActionPerformed(evt);
             }
         });
-        add(btnEliminarServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 160, 50));
+        add(btnEliminarServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 160, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEliminarServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarServicioActionPerformed

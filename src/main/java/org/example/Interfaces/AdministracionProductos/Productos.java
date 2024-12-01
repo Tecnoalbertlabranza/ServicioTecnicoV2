@@ -111,8 +111,10 @@ public class Productos extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaProductos = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(102, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        PanelProductos.setBackground(new java.awt.Color(153, 153, 255));
 
         javax.swing.GroupLayout PanelProductosLayout = new javax.swing.GroupLayout(PanelProductos);
         PanelProductos.setLayout(PanelProductosLayout);
@@ -127,24 +129,31 @@ public class Productos extends javax.swing.JPanel {
 
         add(PanelProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 590));
 
+        jLabel1.setFont(new java.awt.Font("Stencil", 1, 12)); // NOI18N
         jLabel1.setText("Productos ingresados : En esta tabla se mostraran todos los productos que usted registre y a medida que vaya agregando se mostraran en tiempo real");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, -1, 20));
 
+        BotonAgregarProducto.setBackground(new java.awt.Color(204, 204, 255));
+        BotonAgregarProducto.setFont(new java.awt.Font("Stencil", 1, 13)); // NOI18N
         BotonAgregarProducto.setText("AgregarProducto");
+        BotonAgregarProducto.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BotonAgregarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonAgregarProductoActionPerformed(evt);
             }
         });
-        add(BotonAgregarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 470, 170, 50));
+        add(BotonAgregarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 440, 170, 50));
 
+        BotonEliminarProducto.setBackground(new java.awt.Color(204, 204, 255));
+        BotonEliminarProducto.setFont(new java.awt.Font("Stencil", 1, 13)); // NOI18N
         BotonEliminarProducto.setText("EliminarProducto");
+        BotonEliminarProducto.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BotonEliminarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonEliminarProductoActionPerformed(evt);
             }
         });
-        add(BotonEliminarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 470, 180, 50));
+        add(BotonEliminarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 440, 180, 50));
 
         TablaProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -154,7 +163,7 @@ public class Productos extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Nombre", "Categoria", "Valor", "Stock"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
         jScrollPane1.setViewportView(TablaProductos);

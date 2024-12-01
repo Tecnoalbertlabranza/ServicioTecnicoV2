@@ -109,8 +109,10 @@ public class ServiciosConsolas extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(102, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        PanelServiciosConsolas.setBackground(new java.awt.Color(153, 153, 255));
 
         javax.swing.GroupLayout PanelServiciosConsolasLayout = new javax.swing.GroupLayout(PanelServiciosConsolas);
         PanelServiciosConsolas.setLayout(PanelServiciosConsolasLayout);
@@ -125,21 +127,25 @@ public class ServiciosConsolas extends javax.swing.JPanel {
 
         jPanel1.add(PanelServiciosConsolas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 590));
 
+        AgregarServicioConsola.setBackground(new java.awt.Color(204, 204, 255));
+        AgregarServicioConsola.setFont(new java.awt.Font("Stencil", 1, 13)); // NOI18N
         AgregarServicioConsola.setText("Agregar Servicio  Consola");
         AgregarServicioConsola.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AgregarServicioConsolaActionPerformed(evt);
             }
         });
-        jPanel1.add(AgregarServicioConsola, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 410, 170, 40));
+        jPanel1.add(AgregarServicioConsola, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 410, 220, 60));
 
+        EliminarServicioConsola.setBackground(new java.awt.Color(204, 204, 255));
+        EliminarServicioConsola.setFont(new java.awt.Font("Stencil", 1, 13)); // NOI18N
         EliminarServicioConsola.setText("Eliminar Servicio Consola");
         EliminarServicioConsola.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EliminarServicioConsolaActionPerformed(evt);
             }
         });
-        jPanel1.add(EliminarServicioConsola, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 490, 170, 40));
+        jPanel1.add(EliminarServicioConsola, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 410, 230, 60));
 
         TablaServicioConsolas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -149,7 +155,7 @@ public class ServiciosConsolas extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Nombre", "Valor", "Tiempo Estimado", "Modelo Consola", "Marca Consola"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
         jScrollPane1.setViewportView(TablaServicioConsolas);

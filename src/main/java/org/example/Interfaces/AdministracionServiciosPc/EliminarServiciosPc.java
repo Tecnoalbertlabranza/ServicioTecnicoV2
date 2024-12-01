@@ -87,28 +87,36 @@ public class EliminarServiciosPc extends javax.swing.JPanel {
         txtNombreServicioPcEliminar = new javax.swing.JTextField();
         btnEliminarServicioPc = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(153, 153, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Eliminador de servicios pc");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Stencil", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre Del Servicio De Computador Que Desee Eliminar");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
         txtNombreServicioPcEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreServicioPcEliminarActionPerformed(evt);
             }
         });
-        add(txtNombreServicioPcEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 360, 60));
+        add(txtNombreServicioPcEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 380, 60));
 
+        btnEliminarServicioPc.setBackground(new java.awt.Color(204, 204, 255));
+        btnEliminarServicioPc.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
         btnEliminarServicioPc.setText("Eliminar Servicio");
+        btnEliminarServicioPc.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnEliminarServicioPc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarServicioPcActionPerformed(evt);
             }
         });
-        add(btnEliminarServicioPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 210, 60));
+        add(btnEliminarServicioPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 210, 60));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNombreServicioPcEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreServicioPcEliminarActionPerformed

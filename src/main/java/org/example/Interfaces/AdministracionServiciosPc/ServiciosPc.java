@@ -117,8 +117,10 @@ public class ServiciosPc extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(810, 410));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(102, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        PanelServiciosPc.setBackground(new java.awt.Color(153, 153, 255));
 
         javax.swing.GroupLayout PanelServiciosPcLayout = new javax.swing.GroupLayout(PanelServiciosPc);
         PanelServiciosPc.setLayout(PanelServiciosPcLayout);
@@ -133,6 +135,8 @@ public class ServiciosPc extends javax.swing.JPanel {
 
         jPanel1.add(PanelServiciosPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 590));
 
+        BotonAgregarServicioPc.setBackground(new java.awt.Color(204, 204, 255));
+        BotonAgregarServicioPc.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
         BotonAgregarServicioPc.setText("Agregar Servicio Pc");
         BotonAgregarServicioPc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,13 +145,15 @@ public class ServiciosPc extends javax.swing.JPanel {
         });
         jPanel1.add(BotonAgregarServicioPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 470, 230, 70));
 
+        BotonEliminarServicio.setBackground(new java.awt.Color(204, 204, 255));
+        BotonEliminarServicio.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
         BotonEliminarServicio.setText("Eliminar Servicio Pc");
         BotonEliminarServicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonEliminarServicioActionPerformed(evt);
             }
         });
-        jPanel1.add(BotonEliminarServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 470, 220, 70));
+        jPanel1.add(BotonEliminarServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 470, 220, 70));
 
         TablaServiciosPC.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -157,7 +163,7 @@ public class ServiciosPc extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Nombre", "Valor", "Tiempo Estimado", "Tipo de computadora","Linea De Procesador","Uso de computadora"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
         jScrollPane1.setViewportView(TablaServiciosPC);
