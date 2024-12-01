@@ -27,10 +27,6 @@ public class ServicioTecnico {
 		this.descripcion = descripcion;
 	}
 
-	public List<Cliente> getListaClientes() {
-		return listaClientes;
-	}
-
 	public void registrarAdministrador(String nombre, String apellido, String rut, String contrasena, String email, firebase firebaseInstance) {
 		Administradores admin = new Administradores(nombre, apellido, rut, contrasena, email);
 		Map<String, Object> data = Map.of(
@@ -263,11 +259,7 @@ public class ServicioTecnico {
 		return serviciosComputador;
 	}
 
-	public List<Administradores> getAdministradores() {
-		return administradores;
-	}
-
-	public void setAdministradores(List<Administradores> administradores) {
-		this.administradores = administradores;
+	public List<Cliente> getListaClientes() {
+		return listaClientes;
 	}
 }

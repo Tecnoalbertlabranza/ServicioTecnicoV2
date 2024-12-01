@@ -22,16 +22,8 @@ public class ServicioConsolas extends Servicio {
 		return modeloConsola;
 	}
 
-	public void setModeloConsola(String modeloConsola) {
-		this.modeloConsola = modeloConsola;
-	}
-
 	public String getMarcaConsola() {
 		return marcaConsola;
-	}
-
-	public void setMarcaConsola(String marcaConsola) {
-		this.marcaConsola = marcaConsola;
 	}
 
 	@Override

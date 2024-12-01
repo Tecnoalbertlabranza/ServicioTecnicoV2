@@ -15,24 +15,12 @@ public class ServicioComputador extends Servicio {
 		return tipoComputadora;
 	}
 
-	public void setTipoComputadora(String tipoComputadora) {
-		this.tipoComputadora = tipoComputadora;
-	}
-
 	public String getUsoComputadora() {
 		return usoComputadora;
 	}
 
-	public void setUsoComputadora(String usoComputadora) {
-		this.usoComputadora = usoComputadora;
-	}
-
 	public String getLineaDePorcesador() {
 		return lineaDePorcesador;
-	}
-
-	public void setLineaDePorcesador(String lineaDePorcesador) {
-		this.lineaDePorcesador = lineaDePorcesador;
 	}
 
 	@Override

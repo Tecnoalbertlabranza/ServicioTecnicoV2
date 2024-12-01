@@ -14,18 +14,10 @@ public abstract class  Servicio {
 		return valorServicio;
 	}
 
-	public void setValorServicio(double valorServicio) {
-		this.valorServicio = valorServicio;
-	}
-
 	public String getTiempoEstimado() {
 		return tiempoEstimado;
 	}
-
-	public void setTiempoEstimado(String tiempoEstimado) {
-		this.tiempoEstimado = tiempoEstimado;
-	}
-
+	
 	public String getNombre() {
 		return nombre;
 	}
