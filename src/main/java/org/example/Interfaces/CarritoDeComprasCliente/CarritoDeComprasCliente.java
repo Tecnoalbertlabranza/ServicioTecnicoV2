@@ -420,6 +420,7 @@ public class CarritoDeComprasCliente extends javax.swing.JPanel {
 
     private void BtnGuardarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarVentaActionPerformed
         guardarVenta();
+        cargarListaDeProductos();
 
     }//GEN-LAST:event_BtnGuardarVentaActionPerformed
 

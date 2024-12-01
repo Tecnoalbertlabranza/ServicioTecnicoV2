@@ -39,6 +39,8 @@ public class InterfazParaElCliente extends javax.swing.JFrame {
        cargarServicioConsolasDesdeFirebase();
        cargarServiciosComputadorDesdeLaFirebase();
        servicioTecnico.procesarVentasClientes();
+        ServiciosParaConsolasCliente servconcli = new ServiciosParaConsolasCliente();
+       MostrarPanel(servconcli);
     }
 
 
