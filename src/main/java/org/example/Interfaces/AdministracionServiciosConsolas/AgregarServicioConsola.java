@@ -5,6 +5,7 @@
 package org.example.Interfaces.AdministracionServiciosConsolas;
 
 import org.example.*;
+import org.example.Errores.CampoVacioException;
 import org.example.Errores.ErrorHandler;
 import org.example.Errores.ValorInvalidoException;
 import org.example.Interfaces.InicioSesion.InicioSesion;
@@ -37,30 +38,49 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
         String modeloDeConsola = txtModeloDeConsola.getText();
         String marcaConsola = txtMarcaConsola.getText();
 
-        if (validateCampos(nombre, tiempoEstimado, modeloDeConsola, marcaConsola)) {
-            double valorServicio;
+        try {
+            // Validar que todos los campos estén completos
+            if (isAnyFieldEmpty(nombre, tiempoEstimado, modeloDeConsola, marcaConsola)) {
+                ErrorHandler.throwCampoVacioException();
+                return;
+            }
 
-            try {
-                valorServicio = parseValorServicio(txtValor.getText()).orElseThrow(() -> {
-                    ErrorHandler.handleValorServicioError();
-                    return new ValorInvalidoException("El valor ingresado no es válido.");
-                });
+            // Parsear el valor del servicio
+            Optional<Double> valorServicioOpt = parseValorServicio(txtValor.getText());
 
-                // Validar que el valorServicio sea mayor que cero
-                if (valorServicio <= 0) {
-                    JOptionPane.showMessageDialog(this, "El valor del servicio debe ser mayor que 0.");
-                    return;  // Detener el proceso si el valor no es válido
-                }
+            if (valorServicioOpt.isEmpty()) {
+                ErrorHandler.throwValorInvalidoException();
+                return;
+            }
 
-            } catch (ValorInvalidoException ex) {
+            double valorServicio = valorServicioOpt.get();
+
+            if (valorServicio <= 0) {
+                JOptionPane.showMessageDialog(this, "El valor del servicio debe ser mayor que 0.");
                 return;
             }
 
             servicioTecnico.registrarServicioConsolas(nombre, valorServicio, tiempoEstimado, modeloDeConsola, marcaConsola, firebaseInstance);
             JOptionPane.showMessageDialog(this, "Servicio de consola registrado correctamente");
-        } else {
-            ErrorHandler.handleCampoVacioError();
+
+        } catch (ValorInvalidoException ex) {
+            // Manejar el error lanzado por 'throwValorInvalidoException'
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        } catch (CampoVacioException ex) {
+            // Manejar el error lanzado por 'throwCampoVacioException'
+            JOptionPane.showMessageDialog(this, ex.getMessage());
         }
+    }
+
+
+    public boolean isAnyFieldEmpty(String... fields) {
+        // Verificar si algún campo está vacío
+        for (String field : fields) {
+            if (isEmpty(field)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public boolean validateCampos(String nombre, String tiempoEstimado, String modeloDeConsola, String marcaConsola) {
@@ -78,6 +98,8 @@ public class AgregarServicioConsola extends javax.swing.JPanel {
             return Optional.empty();
         }
     }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
