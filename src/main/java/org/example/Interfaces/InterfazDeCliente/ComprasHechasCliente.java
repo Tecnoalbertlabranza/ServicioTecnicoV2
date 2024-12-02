@@ -27,7 +27,7 @@ public class ComprasHechasCliente extends javax.swing.JPanel {
     public ComprasHechasCliente() {
         initComponents();
         this.servicioTecnico = InicioSesion.getServicioTecnico();
-        String rutCliente = InicioSesion.getRutIngresado();
+        String rutCliente = InicioSesion.getRutIngresado().replaceAll("[.\\-]", "");
         mostrarVentasCliente(rutCliente);
     }
 

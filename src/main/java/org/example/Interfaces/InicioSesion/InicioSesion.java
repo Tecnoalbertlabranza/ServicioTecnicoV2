@@ -35,7 +35,7 @@ public class InicioSesion extends JFrame {
 
     private void iniciarSesion(String rut) {
         String emailIngresado = txtCorreoElectronico.getText();
-        String rutIngresado = rut;
+        String rutIngresado = rut.replaceAll("[.\\-]", "");
         String contrasenaIngresada = txtContraseña.getText();
         System.out.println("RUT ingresado: " + rutIngresado);
 
