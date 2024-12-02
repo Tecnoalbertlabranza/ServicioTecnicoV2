@@ -110,6 +110,7 @@ public class Productos extends javax.swing.JPanel {
         BotonEliminarProducto = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaProductos = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(102, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -129,8 +130,8 @@ public class Productos extends javax.swing.JPanel {
 
         add(PanelProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 590));
 
-        jLabel1.setFont(new java.awt.Font("Stencil", 1, 12)); // NOI18N
-        jLabel1.setText("Productos ingresados : En esta tabla se mostraran todos los productos que usted registre y a medida que vaya agregando se mostraran en tiempo real");
+        jLabel1.setFont(new java.awt.Font("Stencil", 1, 18)); // NOI18N
+        jLabel1.setText("Productos ingresados : En esta tabla se mostraran todos los productos que usted registre");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, -1, 20));
 
         BotonAgregarProducto.setBackground(new java.awt.Color(204, 204, 255));
@@ -163,12 +164,16 @@ public class Productos extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Nombre", "Categoria", "Valor", "Stock"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
         jScrollPane1.setViewportView(TablaProductos);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 90, 670, 330));
+
+        jLabel2.setFont(new java.awt.Font("Stencil", 1, 18)); // NOI18N
+        jLabel2.setText("y a medida que se ingresen, a su vez se actualizará la tabla en tiempo real");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, -1, 70));
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarProductoActionPerformed
@@ -187,6 +192,7 @@ public class Productos extends javax.swing.JPanel {
     private javax.swing.JPanel PanelProductos;
     private javax.swing.JTable TablaProductos;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

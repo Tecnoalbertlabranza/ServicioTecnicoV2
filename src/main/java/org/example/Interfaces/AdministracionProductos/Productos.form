@@ -51,9 +51,9 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Stencil" size="12" style="1"/>
+          <Font name="Stencil" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Productos ingresados : En esta tabla se mostraran todos los productos que usted registre y a medida que vaya agregando se mostraran en tiempo real"/>
+        <Property name="text" type="java.lang.String" value="Productos ingresados : En esta tabla se mostraran todos los productos que usted registre"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -135,5 +135,18 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Stencil" size="18" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="y a medida que se ingresen, a su vez se actualizar&#xe1; la tabla en tiempo real"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="460" y="20" width="-1" height="70"/>
+        </Constraint>
+      </Constraints>
+    </Component>
   </SubComponents>
 </Form>
