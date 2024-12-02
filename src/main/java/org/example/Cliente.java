@@ -64,9 +64,6 @@ public class Cliente  {
 		return region;
 	}
 
-
-
-
 	@Override
 	public String toString() {
 		return "Cliente{" +

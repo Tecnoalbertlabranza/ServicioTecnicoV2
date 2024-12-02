@@ -1,6 +1,6 @@
 package org.example;
 
-public class Administradores {
+public class Administradores 	{
 	private String nombre;
 	private String rut;
 	private String contrasena;
@@ -29,14 +29,6 @@ public class Administradores {
 
 	public void setRut(String rut) {
 		this.rut = rut;
-	}
-
-	public String getContrasena() {
-		return contrasena;
-	}
-
-	public void setContrasena(String contrasena) {
-		this.contrasena = contrasena;
 	}
 
 	public String getApellido() {

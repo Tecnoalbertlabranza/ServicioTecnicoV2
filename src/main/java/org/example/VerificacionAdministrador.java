@@ -7,7 +7,6 @@ import com.google.cloud.firestore.QuerySnapshot;
 import org.example.Interfaces.InicioSesion.InicioSesion;
 import org.example.Interfaces.PaginaPrincipal;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;

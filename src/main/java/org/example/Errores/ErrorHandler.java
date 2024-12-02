@@ -16,7 +16,6 @@ public class ErrorHandler {
         throw new CampoVacioException("Los campos no pueden estar vacíos o contener valores incorrectos");
     }
 
-    // Método para lanzar una excepción cuando el valor ingresado no es numérico
     public static void throwValorInvalidoException() throws ValorInvalidoException {
         throw new ValorInvalidoException("El valor ingresado no es válido. Debe ser un número.");
     }
