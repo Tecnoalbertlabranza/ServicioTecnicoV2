@@ -210,7 +210,7 @@ public class AgregarCliente extends javax.swing.JPanel {
 
         jLabel9.setFont(new java.awt.Font("Stencil", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Contraseña");
+        jLabel9.setText("Contraseña (min: 6 digitos, letras May y Min)");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 296, -1, 30));
         jPanel1.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 220, 30));
 
